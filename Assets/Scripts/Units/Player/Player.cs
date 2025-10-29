@@ -11,15 +11,20 @@ public class Player : Unit
     public Weapon weapon2;
     public Weapon weapon3;
 
+    private Rigidbody2D _myRigidbody2D;
+    private void Awake()
+    {
+        _myRigidbody2D = GetComponent<Rigidbody2D>();
+    }
     private void Update()
     {
         FaceCorrectDirection();
     }
     public void Move(Vector2 rawInput)
     {
-        Vector3 delta = rawInput * moveSpeed * Time.deltaTime;
-        transform.position += delta;
-
+        Vector3 delta = (rawInput * moveSpeed * Time.deltaTime);
+        //transform.position += delta;
+        _myRigidbody2D.velocity = delta;
         currentUnitVisual.Animate(Time.deltaTime);
     }
     public void AttackWeapon1()
