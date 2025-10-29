@@ -1,0 +1,197 @@
+using System.Collections;
+using System.Collections.Generic;
+
+using Unity.VisualScripting;
+
+using UnityEngine;
+public enum Type { RED, GREEN, BLUE }
+public class Enemy : Unit
+{
+    public DirectionMovement greenGoingUp;
+    public DirectionMovement greenGoingDown;
+    public DirectionMovement greenGoingLeft;
+
+    public DirectionMovement blueGoingUp;
+    public DirectionMovement blueGoingDown;
+    public DirectionMovement blueGoingLeft;
+
+    public Type enemyType;
+    public Unit player;
+    public float range = 0.2f;
+    bool isPlayerInRange = false;
+    public int damage = 1;
+    public float attackCooldown = 1f;
+    float coolDownTimer;
+    public float movementSpeed = 10f;
+
+    public float knockBackThrust = 10f;
+    bool isKnockedBack = false;
+    public Rigidbody2D myRigidBody;
+    public float knockBackTime = 0.2f;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public void SetEnemyType(Type newEnemyType)
+    {
+        enemyType = newEnemyType;
+
+        switch (enemyType)
+        {
+            case Type.RED:
+                {
+                    break;
+                }
+            case Type.GREEN:
+                {
+                    goingUp = greenGoingUp;
+                    goingDown = greenGoingDown;
+                    goingLeft = greenGoingLeft;
+                    break;
+                }
+            case Type.BLUE:
+                {
+                    goingUp = blueGoingUp;
+                    goingDown = blueGoingDown;
+                    goingLeft = blueGoingLeft;
+                    break;
+                }
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isKnockedBack)
+        {
+            return;
+        }
+        if (!isKnockedBack)
+        {
+            myRigidBody.linearVelocity = Vector3.zero;
+        }
+        PerformEnemyBehavior();
+        //checkDirection
+        FaceCorrectDirection();
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //Debug.Log("collision");
+        if (other.gameObject.tag == "PlayerWeapon")
+        {
+            Debug.Log("collision w weapon");
+            var weapon = other.gameObject.GetComponent<WeaponCollider>().weaponIBelongTo;
+            if ((weapon.weaponType).ToString() == enemyType.ToString())
+            {
+                TakeDamage(weapon.damage);
+                
+            }
+            else
+            {
+                GetKnockBack();
+            }
+            /*
+            if ((other.GetComponent<Weapon>().weaponType.ToString() == enemyType.ToString()))
+            {
+                TakeDamage(other.GetComponent<Weapon>().damage);
+                Debug.Log("GotHit");
+                Destroy(gameObject);
+            }
+            else
+            {
+                GetKnockBack();
+            }*/
+        }
+    }
+    void Die()
+    {
+        //Debug.Log("MotherFucker died");
+        GameManager.instance.EnemyDied();
+        Destroy(gameObject);
+    }
+    void PerformEnemyBehavior()
+    {
+        if (player == null)
+        {
+            return;
+        }
+        bool isInRange = false;
+        float distance = Vector3.Distance(player.transform.position,transform.position);
+        float horizontalDistance = Mathf.Abs(player.transform.position.x - transform.position.x);
+        float verticalDistance = Mathf.Abs(player.transform.position.y - transform.position.y);
+
+        if (horizontalDistance >= verticalDistance)
+        {
+            if (player.transform.position.x < transform.position.x)
+            {
+                currentDirection = Direction.LEFT;
+            }
+            else if (player.transform.position.x >= transform.position.x)
+            {
+                currentDirection = Direction.RIGHT;
+            }
+        }
+        else
+        {
+            if (player.transform.position.y > transform.position.y)
+            {
+                currentDirection = Direction.UP;
+            }
+            else if (player.transform.position.y <= transform.position.y)
+            {
+                currentDirection = Direction.DOWN;
+            }
+        }
+
+        if (distance < range)
+        {
+            Attack();
+        }
+        else 
+        {
+            Move(player);
+
+        }
+        
+    }
+    public void Move(Unit target)
+    {
+        transform.position = Vector3.MoveTowards(transform.position,target.transform.position,movementSpeed*Time.deltaTime);
+    }
+    public void CoolDownTimer()
+    {
+        if (coolDownTimer > 0)
+        {
+            coolDownTimer -= Time.deltaTime;
+        }
+    }
+    public void Attack()
+    {
+        if (coolDownTimer < 0)
+        {
+            AttackHit();
+        }
+    }
+    void AttackHit()
+    {
+        coolDownTimer = attackCooldown;
+        player.TakeDamage(damage);
+    }
+    void GetKnockBack()
+    {
+        if (isKnockedBack)
+            return;
+        Vector2 difference = (transform.position - player.transform.position).normalized * knockBackThrust * myRigidBody.mass;
+        myRigidBody.AddForce(difference,ForceMode2D.Impulse);
+        isKnockedBack = true;
+        StartCoroutine(KnockBackRoutine());
+    }
+    IEnumerator KnockBackRoutine()
+    { 
+        yield return new WaitForSeconds(knockBackTime);
+        isKnockedBack = false;
+        myRigidBody.linearVelocity = Vector3.zero;
+    }
+}

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
+  m_Name: Dialogue_SO
+  m_EditorClassIdentifier: 
+  parts:
+  - dialogueText: You really think I can play all this?
+    characterImage: {fileID: 21300000, guid: c851e81cfbdcae747b06ed2db1d2e598, type: 3}
+  - dialogueText: "You already can, doll.\nYou just don\u2019t trust your own rhythm
+      yet.\nStart with <b>the yellow guitar</b>, that\u2019s your fire.\nTap <b>J</b>,
+      quick and bold, like thunder chasin\u2019 rain."
+    characterImage: {fileID: 21300000, guid: 4db123dc40916e84b84a1868dd764b22, type: 3}
+  - dialogueText: "Good. Now <b>the green piano</b>, that one\u2019s your heart.\nPress
+      <b>K</b>, slow and steady. \nLet each note breathe like it\u2019s alive."
+    characterImage: {fileID: 21300000, guid: 4db123dc40916e84b84a1868dd764b22, type: 3}
+  - dialogueText: "And <b>the blue saxophone</b>\u2026\nthat\u2019s the night itself.\nPress
+      <b>L</b>, make it weep, make it remember.\nEvery breath through it is a story
+      you ain\u2019t told yet."
+    characterImage: {fileID: 21300000, guid: 4db123dc40916e84b84a1868dd764b22, type: 3}
+  - dialogueText: "There it is\u2026\nNow you\u2019re not just playin\u2019, sweetheart,\nyou\u2019re
+      speak\xADing."
+    characterImage: {fileID: 21300000, guid: 4db123dc40916e84b84a1868dd764b22, type: 3}
