@@ -29,6 +29,8 @@ public class Enemy : Unit
     public Rigidbody2D myRigidBody;
     public float knockBackTime = 0.2f;
 
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void SetEnemyType(Type newEnemyType)
     {
@@ -60,6 +62,7 @@ public class Enemy : Unit
     // Update is called once per frame
     void Update()
     {
+        base.Update();
         if (isKnockedBack)
         {
             return;
@@ -71,7 +74,7 @@ public class Enemy : Unit
         PerformEnemyBehavior();
         //checkDirection
         FaceCorrectDirection();
-        if (health <= 0)
+        if (healthCurrent <= 0)
         {
             Die();
         }
@@ -86,7 +89,7 @@ public class Enemy : Unit
             if ((weapon.weaponType).ToString() == enemyType.ToString())
             {
                 TakeDamage(weapon.damage);
-                
+                GetKnockBack();
             }
             else
             {

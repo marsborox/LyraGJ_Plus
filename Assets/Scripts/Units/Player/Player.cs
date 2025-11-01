@@ -6,6 +6,7 @@ public class Player : Unit
     public float moveSpeed = 1f;
     public Vector2 input;
     public bool isMovingLeft=true;
+    [SerializeField] private int _health=10;
 
     public Weapon weapon1;
     public Weapon weapon2;
@@ -18,13 +19,14 @@ public class Player : Unit
     }
     private void Update()
     {
+        base.Update();
         FaceCorrectDirection();
     }
     public void Move(Vector2 rawInput)
     {
         Vector3 delta = (rawInput * moveSpeed * Time.deltaTime);
         //transform.position += delta;
-        _myRigidbody2D.velocity = delta;
+        _myRigidbody2D.linearVelocity = delta;
         currentUnitVisual.Animate(Time.deltaTime);
     }
     public void AttackWeapon1()

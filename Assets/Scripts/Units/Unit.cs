@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
@@ -11,18 +12,33 @@ public class Unit : MonoBehaviour
     public DirectionMovement goingLeft;
 
     public GameObject weapons;
+    [SerializeField] private Image _healthBar;
 
-    public int health = 10;
+    public int healthMax = 10;
+    public int healthCurrent;
+
+    public float healthFraction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        healthCurrent = healthMax;
     }
 
+
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        SetHealthBar();
+    }
+    private void OnEnable()
+    { 
+
+    }
         
+    void SetHealthBar()
+    {
+        healthFraction = (float)healthCurrent / (float)healthMax;
+        _healthBar.fillAmount = healthFraction;
     }
     public void FaceCorrectDirection()
     {
@@ -73,7 +89,7 @@ public class Unit : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        healthCurrent -= damage;
         Debug.Log(damage+" damage taken");
     }
 }
