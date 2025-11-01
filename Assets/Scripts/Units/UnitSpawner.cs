@@ -73,7 +73,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
         enemy.movementSpeed = enemyTemplate.movementSpeed;
 
         enemy.SetEnemyType(enemyTemplate.enemyType);
-        enemy.health = enemyTemplate.health;
+        enemy.healthMax = enemyTemplate.health;
 
         //enemy.goingUp.GetComponent<SpriteRenderer>().color = enemyTemplate.spriteColor;
         //enemy.goingDown.GetComponent<SpriteRenderer>().color = enemyTemplate.spriteColor;
