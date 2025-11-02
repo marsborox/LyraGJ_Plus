@@ -7,6 +7,11 @@ using UnityEngine;
 public enum Type { RED, GREEN, BLUE }
 public class Enemy : Unit
 {
+    //coefs point of view of enemy
+    public float normalCoef = 1;
+    public float advantageCoef = 0.5f;
+    public float disadvantageCoef = 1.5f;
+
     public DirectionMovement greenGoingUp;
     public DirectionMovement greenGoingDown;
     public DirectionMovement greenGoingLeft;
@@ -84,8 +89,10 @@ public class Enemy : Unit
         //Debug.Log("collision");
         if (other.gameObject.tag == "PlayerWeapon")
         {
-            Debug.Log("collision w weapon");
-            var weapon = other.gameObject.GetComponent<WeaponCollider>().weaponIBelongTo;
+            //Debug.Log("collision w weapon");
+            Weapon weapon = other.gameObject.GetComponent<WeaponCollider>().weaponIBelongTo;
+            AnalyseAndTakeDamage(weapon);
+            /*
             if ((weapon.weaponType).ToString() == enemyType.ToString())
             {
                 TakeDamage(weapon.damage);
@@ -94,7 +101,7 @@ public class Enemy : Unit
             else
             {
                 GetKnockBack();
-            }
+            }*/
             /*
             if ((other.GetComponent<Weapon>().weaponType.ToString() == enemyType.ToString()))
             {
@@ -106,6 +113,43 @@ public class Enemy : Unit
             {
                 GetKnockBack();
             }*/
+        }
+    }
+    void AnalyseAndTakeDamage(Weapon inputWeapon)
+    {
+        int weaponTypeIndex = ConvertType(inputWeapon.weaponType);
+        int enemyTypeIndex = ConvertType(enemyType);
+        //bigger brackets are attacking weapon, inside are coef values of
+        //enemy type receiving dmg from that wpn
+        float[,]matrix  = { { normalCoef, disadvantageCoef, advantageCoef },
+                            { advantageCoef, normalCoef, disadvantageCoef },
+                            { disadvantageCoef, advantageCoef, normalCoef } };
+        float usedModifier=matrix[weaponTypeIndex,enemyTypeIndex];
+        int damagetaken = (int)(inputWeapon.damage * usedModifier);
+        TakeDamage(damagetaken);
+        Debug.Log("Enemy type " + enemyType.ToString() + " took damage: " + damagetaken.ToString() 
+            + " from weapon type " + inputWeapon.weaponType.ToString());
+    }
+    int ConvertType(Type inputType)
+    {
+        switch (inputType)
+        {
+            case Type.RED:
+                {
+                    return 1;
+                    break;
+                }
+            case Type.GREEN:
+                {
+                    return 0;
+                    break;
+                }
+            case Type.BLUE:
+                {
+                    return 2;
+                    break;
+                }
+            default: return 9999;
         }
     }
     void Die()

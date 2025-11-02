@@ -90,6 +90,6 @@ public class Unit : MonoBehaviour
     public void TakeDamage(int damage)
     {
         healthCurrent -= damage;
-        Debug.Log(damage+" damage taken");
+        //Debug.Log(damage+" damage taken");
     }
 }
