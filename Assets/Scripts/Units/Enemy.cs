@@ -121,15 +121,26 @@ public class Enemy : Unit
         int enemyTypeIndex = ConvertType(enemyType);
         //bigger brackets are attacking weapon, inside are coef values of
         //enemy type receiving dmg from that wpn
-        float[,]matrix  = { { normalCoef, disadvantageCoef, advantageCoef },
+        int damageTaken;
+        
+        if (weaponTypeIndex == 9999)
+        {//if is no special type
+            damageTaken = inputWeapon.damage;
+        }
+        else
+        {
+            float[,] matrix = { { normalCoef, disadvantageCoef, advantageCoef },
                             { advantageCoef, normalCoef, disadvantageCoef },
                             { disadvantageCoef, advantageCoef, normalCoef } };
-        float usedModifier=matrix[weaponTypeIndex,enemyTypeIndex];
-        int damagetaken = (int)(inputWeapon.damage * usedModifier);
-        TakeDamage(damagetaken);
-        Debug.Log("Enemy type " + enemyType.ToString() + " took damage: " + damagetaken.ToString() 
+            float usedModifier = matrix[weaponTypeIndex, enemyTypeIndex];
+            damageTaken = (int)(inputWeapon.damage * usedModifier);
+        }
+
+        TakeDamage(damageTaken);
+        Debug.Log("Enemy type " + enemyType.ToString() + " took damage: " + damageTaken.ToString() 
             + " from weapon type " + inputWeapon.weaponType.ToString());
     }
+
     int ConvertType(Type inputType)
     {
         switch (inputType)
@@ -137,17 +148,14 @@ public class Enemy : Unit
             case Type.RED:
                 {
                     return 1;
-                    break;
                 }
             case Type.GREEN:
                 {
                     return 0;
-                    break;
                 }
             case Type.BLUE:
                 {
                     return 2;
-                    break;
                 }
             default: return 9999;
         }
