@@ -68,7 +68,9 @@ public class GameManager : Singleton<GameManager>
                 }
             case GameStage.DIALOGUE:
                 {
-                    DisplayDialogue();
+                    //DisplayDialogue();skipping dialogue for developement
+                    //erenable on build
+                    stage = GameStage.SPAWNING;
                     break; 
                 }
             case GameStage.NEWWAVE: 

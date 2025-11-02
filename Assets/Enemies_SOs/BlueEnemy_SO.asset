@@ -17,7 +17,7 @@ MonoBehaviour:
   damage: 1
   attackCooldown: 1
   movementSpeed: 1
-  health: 5
+  health: 10
   spriteColor:
     serializedVersion: 2
     rgba: 4294796621

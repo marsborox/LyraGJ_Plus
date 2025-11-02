@@ -19,6 +19,8 @@ public class UnitSpawner : Singleton<UnitSpawner>
 
 
     bool spawningDone = true;
+
+    public bool spawningAllowed = true;
     private void Start()
     {
 
@@ -36,6 +38,8 @@ public class UnitSpawner : Singleton<UnitSpawner>
     }
     public void AutoSpawnEnemies()
     {
+        if (!spawningAllowed) return;
+
         if (spawningDone)
         {
             StartCoroutine(SpawningEnemiesRoutine());

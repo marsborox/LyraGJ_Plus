@@ -2539,6 +2539,7 @@ MonoBehaviour:
   player: {fileID: 29055957}
   minSpawnTime: 0.5
   maxSpawnTime: 2
+  spawningAllowed: 1
 --- !u!1 &598830070
 GameObject:
   m_ObjectHideFlags: 0
@@ -11431,9 +11432,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3626787188444012202, guid: f8ec10eb400d3450c9f7acbf9a1bb233, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3986896122668706926, guid: f8ec10eb400d3450c9f7acbf9a1bb233, type: 3}
       propertyPath: m_Name
       value: 'Player '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243917595417204822, guid: f8ec10eb400d3450c9f7acbf9a1bb233, type: 3}
+      propertyPath: moveSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684086850587309295, guid: f8ec10eb400d3450c9f7acbf9a1bb233, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7700510036712623375, guid: f8ec10eb400d3450c9f7acbf9a1bb233, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11474,6 +11487,10 @@ PrefabInstance:
     - target: {fileID: 7700510036712623375, guid: f8ec10eb400d3450c9f7acbf9a1bb233, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881615355800754850, guid: f8ec10eb400d3450c9f7acbf9a1bb233, type: 3}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
