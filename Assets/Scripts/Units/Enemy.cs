@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 
 using UnityEngine;
-public enum Type { RED, GREEN, BLUE }
+public enum Type { RED, GREEN, BLUE,WHITE }
 public class Enemy : Unit
 {
     //coefs point of view of enemy
@@ -137,8 +137,8 @@ public class Enemy : Unit
         }
 
         TakeDamage(damageTaken);
-        Debug.Log("Enemy type " + enemyType.ToString() + " took damage: " + damageTaken.ToString() 
-            + " from weapon type " + inputWeapon.weaponType.ToString());
+        /*Debug.Log("Enemy type " + enemyType.ToString() + " took damage: " + damageTaken.ToString() 
+            + " from weapon type " + inputWeapon.weaponType.ToString());*/
     }
 
     int ConvertType(Type inputType)

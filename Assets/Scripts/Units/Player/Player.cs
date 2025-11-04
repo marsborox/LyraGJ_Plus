@@ -11,6 +11,7 @@ public class Player : Unit
     public Weapon weapon1;
     public Weapon weapon2;
     public Weapon weapon3;
+    public Weapon weapon4;
 
     private Rigidbody2D _myRigidbody2D;
     private void Awake()
@@ -51,6 +52,14 @@ public class Player : Unit
         {
             MySoundManager.instance.PlaySaxofone();
             weapon3.Attack();
+        }
+    }
+    public void AttackWeapon4()
+    {
+        if (weapon4.CanAttack())
+        {
+            //MySoundManager.instance.PlaySaxofone();
+            weapon4.Attack();
         }
     }
     public void AttackWithWeapon(Weapon weapon)
