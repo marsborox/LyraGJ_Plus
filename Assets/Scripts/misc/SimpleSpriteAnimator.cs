@@ -10,9 +10,13 @@ public class SimpleSpriteAnimator : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isAnimating = false;
 
-    private void Start()
+    private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    private void Start()
+    {
+        
     }
 
     public void Play()

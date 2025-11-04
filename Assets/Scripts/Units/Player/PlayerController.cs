@@ -54,4 +54,9 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("weapon3");
         player.AttackWeapon3();
     }
+    void OnWeapon4()
+    {
+        Debug.Log("weapon4");
+        //player.AttackWeapon3();
+    }
 }

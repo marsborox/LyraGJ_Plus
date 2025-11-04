@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "InputSystem_Actions",
     "maps": [
         {
@@ -108,6 +109,15 @@
                     "name": "Weapon3",
                     "type": "Button",
                     "id": "fd2ec6ef-6df6-4a2c-9791-0607ecf187a3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Weapon4",
+                    "type": "Button",
+                    "id": "937e92cb-5e7b-498e-8053-bbbaaf2f3fc8",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -530,6 +540,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Weapon3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eafc6ea1-fc7b-4282-9bf0-6151e55ad7d3",
+                    "path": "<Keyboard>/semicolon",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
