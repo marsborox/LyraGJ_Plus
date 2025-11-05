@@ -23,18 +23,14 @@ public class PlayerController : MonoBehaviour
     private Clicker action2Clicker = new Clicker();
     private Clicker action3Clicker = new Clicker();
     private Clicker action4Clicker = new Clicker();
+    
 
     private PlayerInput _playerInput;
     private InputAction _action1;
     private InputAction _action2;
+    
 
-    private bool _isPressed1 = false;
-    private bool _isPressed2 = false;
-    [SerializeField]private bool _isHeld1=false;
-    private bool _isHeld2=false;
-
-    [SerializeField] private float action1timer;
-    private float action2timer;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -45,6 +41,7 @@ public class PlayerController : MonoBehaviour
         action1Clicker.name = "action1";
         action2Clicker.action = _playerInput.actions["Action2"];
         action2Clicker.name = "action2";
+        
     }
 
     void Start()
@@ -78,14 +75,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        /*if (_isPressed1)
-        {
-        
-        }
-        if (_isPressed2)
-        { 
-        
-        }*/
+
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -95,52 +85,6 @@ public class PlayerController : MonoBehaviour
         //CheckClickHoldAction();
         CheckClickHoldActions();
     }
-    #region discontinued
-    private void StartPressed1()
-    {
-        _isPressed1 = true;
-        //press released
-    }
-    private void StopPressed1()
-    {
-        //press released
-        if (_isHeld1)
-        {
-            //DoHeldThing
-            Debug.Log("Mouse1 was held for (s): "+action1timer.ToString());
-
-        }
-        else
-        {
-            Debug.Log("Mouse1 was clicked");
-        }
-        _isPressed1 = false;
-        _isHeld1 = false;
-        action1timer=0;
-    }
-    private void StartPressed2()
-    {
-        _isPressed2 = true;
-
-    }
-    private void StopPressed2()
-    {
-        _isPressed2 = false;
-    }
-    void CheckClickHoldAction()
-    {
-        if (_isPressed1) 
-        {
-            _isPressed1 = true;
-            action1timer += Time.deltaTime;
-            if (action1timer > holdHreshold)
-            {
-                _isHeld1 = true;
-            }
-            
-        }
-    }
-    #endregion
     void OnMove(InputValue value)
     {
         _rawInput = value.Get<Vector2>();
@@ -163,6 +107,10 @@ public class PlayerController : MonoBehaviour
         {
             player.currentDirection = Player.Direction.UP;
         }
+    }
+    void OnDash()
+    { 
+        
     }
     void OnWeapon1()
     {
@@ -207,7 +155,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log(clicker.name + " was held for (s): " + clicker.actionTimer.ToString());
             }
             else
-            {
+            {//do click thing
                 Debug.Log(clicker.name + " was clicked");
             }
             clicker.isPressed = false;
@@ -234,3 +182,50 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
+
+    #region discontinued
+    /*private void StartPressed1()
+    {
+        _isPressed1 = true;
+        //press released
+    }*/
+    /*private void StopPressed1()
+    {
+        //press released
+        if (_isHeld1)
+        {
+            //DoHeldThing
+            Debug.Log("Mouse1 was held for (s): "+action1timer.ToString());
+
+        }
+        else
+        {
+            Debug.Log("Mouse1 was clicked");
+        }
+        _isPressed1 = false;
+        _isHeld1 = false;
+        action1timer=0;
+    }*/
+    /*private void StartPressed2()
+    {
+        _isPressed2 = true;
+
+    }*/
+    /*private void StopPressed2()
+    {
+        _isPressed2 = false;
+    }*/
+    /*void CheckClickHoldAction()
+    {
+        if (_isPressed1) 
+        {
+            _isPressed1 = true;
+            action1timer += Time.deltaTime;
+            if (action1timer > holdHreshold)
+            {
+                _isHeld1 = true;
+            }
+            
+        }
+    }*/
+    #endregion

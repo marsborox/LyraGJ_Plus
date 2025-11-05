@@ -79,6 +79,10 @@ public class UnitSpawner : Singleton<UnitSpawner>
         enemy.SetEnemyType(enemyTemplate.enemyType);
         enemy.healthMax = enemyTemplate.health;
 
+        //attach behavior
+        //attach action
+        //if ranged attach projectile
+
         //enemy.goingUp.GetComponent<SpriteRenderer>().color = enemyTemplate.spriteColor;
         //enemy.goingDown.GetComponent<SpriteRenderer>().color = enemyTemplate.spriteColor;
         //enemy.goingLeft.GetComponent<SpriteRenderer>().color = enemyTemplate.spriteColor;

@@ -11,4 +11,6 @@ public class Enemy_SO : ScriptableObject
     public int health = 1;
     public Color32 spriteColor;
 
+    public EnemyBehavior_SO behavior;
+
 }

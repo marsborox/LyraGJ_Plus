@@ -29,12 +29,12 @@ public class UnitStats : MonoBehaviour
     //public float damage = 1;
     //public float movementSpeed = 3;
     [Tooltip("Attack_Speed")]
-    //public float attackSpeed = 100; //
+    
     public float attackInterval;
     public float attackTimer = 0;
     [SerializeField] private float SpeedToIntervaL = 100;
 
-    public float score = 0;
+    
     public List<float> statListFloat = new List<float>();
     public List<Stat> statList = new List<Stat>();
     public void Start()

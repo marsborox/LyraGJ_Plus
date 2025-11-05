@@ -1081,6 +1081,8 @@ GameObject:
   - component: {fileID: 8184401127856028204}
   - component: {fileID: 7287768026732415858}
   - component: {fileID: 2395246204302797546}
+  - component: {fileID: 6110641428596706858}
+  - component: {fileID: 1892986849684341847}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1149,7 +1151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9a1e4950c8535a488cb95213999efb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStats: {fileID: 0}
+  unitStats: {fileID: 6110641428596706858}
   currentDirection: 2
   currentUnitVisual: {fileID: 8478153812751325787}
   goingUp: {fileID: 2353081068572894406}
@@ -1182,6 +1184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6243917595417204822}
+  holdHreshold: 0.1
 --- !u!61 &7287768026732415858
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1255,6 +1258,55 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &6110641428596706858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986896122668706926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1becf41d06173458636d91c7102e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitStats
+  healthMax_s:
+    name: healthMax
+    amount: 20
+    upgradeAmount: 5
+  damage_s:
+    name: damage
+    amount: 2
+    upgradeAmount: 1
+  movementSpeed_s:
+    name: movementSpeed
+    amount: 3
+    upgradeAmount: 1
+  attackSpeed_s:
+    name: attackSpeed
+    amount: 100
+    upgradeAmount: 25
+  attackRange_s:
+    name: attackRange
+    amount: 0
+    upgradeAmount: 0
+  attackInterval: 0
+  attackTimer: 0
+  SpeedToIntervaL: 100
+  statListFloat: []
+  statList: []
+--- !u!114 &1892986849684341847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986896122668706926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a1f0034997d2742b03ed1faa513100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitCombat
 --- !u!1 &3996855304987699569
 GameObject:
   m_ObjectHideFlags: 0

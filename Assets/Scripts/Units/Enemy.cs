@@ -7,6 +7,7 @@ using UnityEngine;
 public enum Type { RED, GREEN, BLUE,WHITE }
 public class Enemy : Unit
 {
+    public Enemy_SO enemyTemplate;
     //coefs point of view of enemy
     public float normalCoef = 1;
     public float advantageCoef = 0.5f;
@@ -22,8 +23,10 @@ public class Enemy : Unit
 
     public Type enemyType;
     public Unit player;
+    
     public float range = 0.2f;
-    bool isPlayerInRange = false;
+    //bool isPlayerInRange = false;
+
     public int damage = 1;
     public float attackCooldown = 1f;
     float coolDownTimer;
@@ -36,7 +39,7 @@ public class Enemy : Unit
 
 
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     public void SetEnemyType(Type newEnemyType)
     {
         enemyType = newEnemyType;
@@ -92,28 +95,13 @@ public class Enemy : Unit
             //Debug.Log("collision w weapon");
             Weapon weapon = other.gameObject.GetComponent<WeaponCollider>().weaponIBelongTo;
             AnalyseAndTakeDamage(weapon);
-            /*
-            if ((weapon.weaponType).ToString() == enemyType.ToString())
-            {
-                TakeDamage(weapon.damage);
-                GetKnockBack();
-            }
-            else
-            {
-                GetKnockBack();
-            }*/
-            /*
-            if ((other.GetComponent<Weapon>().weaponType.ToString() == enemyType.ToString()))
-            {
-                TakeDamage(other.GetComponent<Weapon>().damage);
-                Debug.Log("GotHit");
-                Destroy(gameObject);
-            }
-            else
-            {
-                GetKnockBack();
-            }*/
+            
         }
+    }
+    public void Move(Unit target)
+    {
+        transform.position = Vector3.MoveTowards(transform.position,target.transform.position,movementSpeed*Time.deltaTime);
+    
     }
     void AnalyseAndTakeDamage(Weapon inputWeapon)
     {
@@ -172,7 +160,7 @@ public class Enemy : Unit
         {
             return;
         }
-        bool isInRange = false;
+        //bool isInRange = false;
         float distance = Vector3.Distance(player.transform.position,transform.position);
         float horizontalDistance = Mathf.Abs(player.transform.position.x - transform.position.x);
         float verticalDistance = Mathf.Abs(player.transform.position.y - transform.position.y);
@@ -211,10 +199,6 @@ public class Enemy : Unit
         }
         
     }
-    public void Move(Unit target)
-    {
-        transform.position = Vector3.MoveTowards(transform.position,target.transform.position,movementSpeed*Time.deltaTime);
-    }
     public void CoolDownTimer()
     {
         if (coolDownTimer > 0)
@@ -232,7 +216,7 @@ public class Enemy : Unit
     void AttackHit()
     {
         coolDownTimer = attackCooldown;
-        player.TakeDamage(damage);
+        player.TakeDamage(damage); //****************
     }
     void GetKnockBack()
     {

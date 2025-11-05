@@ -28,9 +28,7 @@ public class Unit : MonoBehaviour
     {
         healthCurrent = healthMax;
     }
-
-
-    // Update is called once per frame
+    
     public void Update()
     {
         SetHealthBar();
@@ -128,10 +126,10 @@ public class Unit : MonoBehaviour
     {
         return unitStats.attackTimer;
     }
-    public float ReturnScoreAmount()
+    /*public float ReturnScoreAmount()
     {
         return unitStats.score;
-    }
+    }*/
     public void TakeDamage(float damageAmount)
     {
         //unitEventHandler.ChangeHealth(-damageAmount);
@@ -148,4 +146,5 @@ public class Unit : MonoBehaviour
     {
         //unitStats.score += score;
     }
+
 }

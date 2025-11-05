@@ -31,39 +31,36 @@ public class Player : Unit
         currentUnitVisual.Animate(Time.deltaTime);
     }
     public void AttackWeapon1()
-    {
+    {/*
         if (weapon1.CanAttack())
         {
             MySoundManager.instance.PlayGuitar();
             weapon1.Attack();
-        }
+        }*/
     }
     public void AttackWeapon2()
     {
-        if (weapon2.CanAttack())
+        /*if (weapon2.CanAttack())
         {
             MySoundManager.instance.PlayPiano();
             weapon2.Attack();
-        }
+        }*/
     }
     public void AttackWeapon3()
     {
-        if (weapon3.CanAttack())
+        /*if (weapon3.CanAttack())
         {
             MySoundManager.instance.PlaySaxofone();
             weapon3.Attack();
-        }
+        }*/
     }
     public void AttackWeapon4()
     {
-        if (weapon4.CanAttack())
+        /*if (weapon4.CanAttack())
         {
             //MySoundManager.instance.PlaySaxofone();
             weapon4.Attack();
-        }
+        }*/
     }
-    public void AttackWithWeapon(Weapon weapon)
-    {
-        weapon.Attack();
-    }
+
 }
