@@ -36,7 +36,6 @@ public class Sword : Weapon
                     currentAnimator = leftAttackAnimator;
                     break;
                 }
-
         }
         currentCollider = currentAnimator.gameObject.GetComponent<Collider2D>();
         currentCollider.enabled = true;

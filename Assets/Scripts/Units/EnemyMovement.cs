@@ -43,7 +43,6 @@ public class EnemyMovement : UnitMovement
                 currentDirection = Direction.DOWN;
             }
         }
-
         if (distance < thisEnemy.range)
         {
             thisEnemy.Attack();

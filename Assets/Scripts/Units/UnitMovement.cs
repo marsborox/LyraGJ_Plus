@@ -54,7 +54,7 @@ public class UnitMovement : MonoBehaviour
                 }
 
         }
-        //weapons.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
+        weapons.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
         currentUnitVisual.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
     }
     void DisableAllVisuals()

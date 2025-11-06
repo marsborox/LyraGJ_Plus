@@ -26,28 +26,28 @@ public class Player : Unit
     }
 
     public void AttackWeapon1()
-    {/*
+    {
         if (weapon1.CanAttack())
         {
             MySoundManager.instance.PlayGuitar();
             weapon1.Attack();
-        }*/
+        }
     }
     public void AttackWeapon2()
     {
-        /*if (weapon2.CanAttack())
+        if (weapon2.CanAttack())
         {
             MySoundManager.instance.PlayPiano();
             weapon2.Attack();
-        }*/
+        }
     }
     public void AttackWeapon3()
     {
-        /*if (weapon3.CanAttack())
+        if (weapon3.CanAttack())
         {
             MySoundManager.instance.PlaySaxofone();
             weapon3.Attack();
-        }*/
+        }
     }
     public void AttackWeapon4()
     {
