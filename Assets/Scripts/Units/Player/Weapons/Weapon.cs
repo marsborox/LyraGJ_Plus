@@ -45,7 +45,7 @@ public class Weapon : MonoBehaviour
         }
     }
     public virtual void AttackHit()
-    {
+    {  
         Debug.Log("AttackHit not implemented on this weapon");
     }
 }

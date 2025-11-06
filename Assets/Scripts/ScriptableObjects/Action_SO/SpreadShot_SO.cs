@@ -22,7 +22,7 @@ public class SpreadShot_SO : Action_SO
             Projectile projectile;
             projectile = Instantiate(projectilePrefab, sourceUnit.transform.position, directionOfProjectile);
             projectile.damage = sourceUnit.ReturnDamageAmount();
-            projectile.targetTag = sourceUnit.targetTag;
+            //projectile.targetTag = sourceUnit.targetTag;
             projectile.sourceUnit = sourceUnit;
             //projectile.transform.SetParent(sourceUnit.transform); //so bullet will move but will add source GO movement
             angleOfShot += angleBetweenTwoProjectiles;

@@ -1082,8 +1082,8 @@ GameObject:
   - component: {fileID: 7287768026732415858}
   - component: {fileID: 2395246204302797546}
   - component: {fileID: 6110641428596706858}
-  - component: {fileID: 1892986849684341847}
   - component: {fileID: 859534956746889397}
+  - component: {fileID: 723713826427866658}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1153,18 +1153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 6110641428596706858}
-  _healthBar: {fileID: 2174684710203813611}
-  healthMax: 10
-  healthCurrent: 0
-  healthFraction: 0
-  targetTag: 
-  input: {x: 0, y: 0}
-  isMovingLeft: 0
-  _health: 0
-  weapon1: {fileID: 8881615355800754850}
-  weapon2: {fileID: 3626787188444012202}
-  weapon3: {fileID: 6684086850587309295}
-  weapon4: {fileID: 2741254187357818455}
+  unitCombat: {fileID: 723713826427866658}
   playerMovement: {fileID: 859534956746889397}
 --- !u!114 &8184401127856028204
 MonoBehaviour:
@@ -1290,19 +1279,6 @@ MonoBehaviour:
   SpeedToIntervaL: 100
   statListFloat: []
   statList: []
---- !u!114 &1892986849684341847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986896122668706926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08a1f0034997d2742b03ed1faa513100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitCombat
-  stats: {fileID: 0}
 --- !u!114 &859534956746889397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1316,12 +1292,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   currentDirection: 2
-  currentUnitVisual: {fileID: 0}
+  movementSpeed: 100
+  currentUnitVisual: {fileID: 8478153812751325787}
   goingUp: {fileID: 2353081068572894406}
   goingDown: {fileID: 4880690286573580683}
   goingLeft: {fileID: 8478153812751325787}
   weapons: {fileID: 5158036404265290629}
-  moveSpeed: 100
+--- !u!114 &723713826427866658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986896122668706926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1a4cdbb5a76d949aa8953da8d96b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  healthMax: 10
+  healthCurrent: 0
+  healthFraction: 0
+  _healthBar: {fileID: 2174684710203813611}
+  weapon1: {fileID: 8881615355800754850}
+  weapon2: {fileID: 3626787188444012202}
+  weapon3: {fileID: 6684086850587309295}
+  weapon4: {fileID: 0}
 --- !u!1 &3996855304987699569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,7 +1549,7 @@ MonoBehaviour:
   downAttackAnimator: {fileID: 6597135062488278026}
   leftAttackAnimator: {fileID: 2449107558230112822}
   player: {fileID: 6243917595417204822}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 859534956746889397}
 --- !u!1 &4344508299851619222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1669,7 +1665,7 @@ MonoBehaviour:
   downAttackAnimator: {fileID: 6793574039955839907}
   leftAttackAnimator: {fileID: 2325721387431919354}
   player: {fileID: 6243917595417204822}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 859534956746889397}
 --- !u!1 &4933086813992745850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,7 +1720,7 @@ MonoBehaviour:
   downAttackAnimator: {fileID: 7354367979854219450}
   leftAttackAnimator: {fileID: 6525880583875663745}
   player: {fileID: 6243917595417204822}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 859534956746889397}
 --- !u!1 &4945913819007197308
 GameObject:
   m_ObjectHideFlags: 0

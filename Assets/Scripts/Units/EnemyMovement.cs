@@ -3,12 +3,12 @@ using UnityEngine;
 public class EnemyMovement : UnitMovement
 {
     public Enemy thisEnemy;
+    [SerializeField]private EnemyCombat enemyCombat;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -43,7 +43,7 @@ public class EnemyMovement : UnitMovement
                 currentDirection = Direction.DOWN;
             }
         }
-        if (distance < thisEnemy.range)
+        if (distance < enemyCombat.range)
         {
             thisEnemy.Attack();
         }
@@ -54,8 +54,6 @@ public class EnemyMovement : UnitMovement
     }
     public void Move(Unit target)
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, thisEnemy.movementSpeed * Time.deltaTime);
-
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, movementSpeed * Time.deltaTime);
     }
-    
 }

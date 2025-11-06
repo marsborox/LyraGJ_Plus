@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         player.playerMovement.Move(_rawInput);
-        player.input = _rawInput;
+        //player.input = _rawInput;
         //CheckClickHoldAction();
         CheckClickHoldActions();
     }

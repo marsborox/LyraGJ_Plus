@@ -6,6 +6,7 @@ public class UnitMovement : MonoBehaviour
 
     public Direction currentDirection = Direction.LEFT;
 
+    public float movementSpeed = 100f;
     public DirectionMovement currentUnitVisual;
     public DirectionMovement goingUp;
     public DirectionMovement goingDown;

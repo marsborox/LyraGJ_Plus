@@ -3,8 +3,26 @@ using UnityEngine.UI;
 
 public class UnitCombat : MonoBehaviour
 {
-    public UnitStats unitStats;
-
+    public int healthMax = 10;
+    public int healthCurrent;
+    public float healthFraction;
     [SerializeField] private Image _healthBar;
-
+    void Start()
+    {
+        healthCurrent = healthMax;
+    }
+    public void Update()
+    {
+        SetHealthBar();
+    }
+    void SetHealthBar()
+    {
+        healthFraction = (float)healthCurrent / (float)healthMax;
+        _healthBar.fillAmount = healthFraction;
+    }
+    public void TakeDamage(int damage)
+    {
+        healthCurrent -= damage;
+        //Debug.Log(damage+" damage taken");
+    }
 }
