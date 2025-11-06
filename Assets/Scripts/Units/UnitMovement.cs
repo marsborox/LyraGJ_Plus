@@ -15,7 +15,6 @@ public class UnitMovement : MonoBehaviour
     public void Update()
     {
         FaceCorrectDirection();
-
     }
     public void FaceCorrectDirection()
     {
@@ -52,7 +51,6 @@ public class UnitMovement : MonoBehaviour
                     playerRotation = 180f;
                     break;
                 }
-
         }
         weapons.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
         currentUnitVisual.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);

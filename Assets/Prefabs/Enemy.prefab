@@ -1058,6 +1058,7 @@ MonoBehaviour:
   goingUp: {fileID: 2927602613097066004}
   goingDown: {fileID: 5068740128605661172}
   goingLeft: {fileID: 556552455703514159}
+  weapons: {fileID: 6133749775801559226}
   thisEnemy: {fileID: 4176866416230126860}
 --- !u!1 &6133749775801559226
 GameObject:

@@ -120,6 +120,7 @@ public class Enemy : Unit
         TakeDamage(damageTaken);
         /*Debug.Log("Enemy type " + enemyType.ToString() + " took damage: " + damageTaken.ToString() 
             + " from weapon type " + inputWeapon.weaponType.ToString());*/
+        GetKnockBack();
     }
 
     int ConvertType(Type inputType)

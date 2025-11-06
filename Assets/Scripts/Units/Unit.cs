@@ -18,7 +18,7 @@ public class Unit : MonoBehaviour
     public float healthFraction;
 
     public string targetTag;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         healthCurrent = healthMax;
@@ -38,9 +38,6 @@ public class Unit : MonoBehaviour
         healthFraction = (float)healthCurrent / (float)healthMax;
         _healthBar.fillAmount = healthFraction;
     }
-
-
-
     public void TakeDamage(int damage)
     {
         healthCurrent -= damage;
