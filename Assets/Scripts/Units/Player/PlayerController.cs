@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        player.Move(_rawInput);
+        player.playerMovement.Move(_rawInput);
         player.input = _rawInput;
         //CheckClickHoldAction();
         CheckClickHoldActions();
@@ -92,20 +92,20 @@ public class PlayerController : MonoBehaviour
         if (_rawInput.x == -1)
         {
             //player.isMovingLeft = true;
-            player.currentDirection = Player.Direction.LEFT;
+            player.playerMovement.currentDirection = PlayerMovement.Direction.LEFT;
         }
         else if (_rawInput.x == 1)
         {
-            player.currentDirection = Player.Direction.RIGHT;
+            player.playerMovement.currentDirection = PlayerMovement.Direction.RIGHT;
             //player.isMovingLeft = false;
         }
         else if (_rawInput.y == -1)
         {
-            player.currentDirection = Player.Direction.DOWN;
+            player.playerMovement.currentDirection = PlayerMovement.Direction.DOWN;
         }
         else if (_rawInput.y == 1)
         {
-            player.currentDirection = Player.Direction.UP;
+            player.playerMovement.currentDirection = PlayerMovement.Direction.UP;
         }
     }
     void OnDash()

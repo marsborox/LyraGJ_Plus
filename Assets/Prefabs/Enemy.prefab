@@ -854,6 +854,7 @@ GameObject:
   - component: {fileID: 7886990425334265719}
   - component: {fileID: 1474502790447180861}
   - component: {fileID: 4863674169510847081}
+  - component: {fileID: 3549913713549301225}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -892,12 +893,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 1474502790447180861}
-  currentDirection: 2
-  currentUnitVisual: {fileID: 556552455703514159}
-  goingUp: {fileID: 2927602613097066004}
-  goingDown: {fileID: 5068740128605661172}
-  goingLeft: {fileID: 556552455703514159}
-  weapons: {fileID: 6133749775801559226}
   _healthBar: {fileID: 2448037168433217751}
   healthMax: 10
   healthCurrent: 0
@@ -922,6 +917,7 @@ MonoBehaviour:
   knockBackThrust: 10
   myRigidBody: {fileID: 7886990425334265719}
   knockBackTime: 0.2
+  enemyMovement: {fileID: 3549913713549301225}
 --- !u!61 &1022234959872122541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1044,6 +1040,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a1f0034997d2742b03ed1faa513100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitCombat
+  stats: {fileID: 0}
+--- !u!114 &3549913713549301225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279515869294326761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cad77b73cc9fb4c9725bcf1a3a5f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  currentDirection: 2
+  currentUnitVisual: {fileID: 0}
+  goingUp: {fileID: 2927602613097066004}
+  goingDown: {fileID: 5068740128605661172}
+  goingLeft: {fileID: 556552455703514159}
+  thisEnemy: {fileID: 4176866416230126860}
 --- !u!1 &6133749775801559226
 GameObject:
   m_ObjectHideFlags: 0

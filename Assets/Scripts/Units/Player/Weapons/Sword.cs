@@ -7,30 +7,31 @@ public class Sword : Weapon
     public SimpleSpriteAnimator downAttackAnimator;
     public SimpleSpriteAnimator leftAttackAnimator;
     public Player player; // to get direction
+    public PlayerMovement playerMovement;
 
     private SimpleSpriteAnimator currentAnimator;
     private Collider2D currentCollider;
 
     public override void AttackHit()
     {
-        switch (player.currentDirection)
+        switch (playerMovement.currentDirection)
         {
-            case Unit.Direction.UP:
+            case PlayerMovement.Direction.UP:
                 {
                     currentAnimator = upAttackAnimator;
                     break;
                 }
-            case Unit.Direction.DOWN:
+            case PlayerMovement.Direction.DOWN:
                 {
                     currentAnimator = downAttackAnimator;
                     break;
                 }
-            case Unit.Direction.LEFT:
+            case PlayerMovement.Direction.LEFT:
                 {
                     currentAnimator = leftAttackAnimator;
                     break;
                 }
-            case Unit.Direction.RIGHT:
+            case PlayerMovement.Direction.RIGHT:
                 {
                     currentAnimator = leftAttackAnimator;
                     break;
