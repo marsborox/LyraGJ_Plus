@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using Unity.VisualScripting;
+
 using UnityEngine;
 
 
@@ -8,6 +10,10 @@ public class EnemyCombat : UnitCombat
 {
 
     public Player player;
+    [SerializeField] private EnemyMovement _enemyMovement;
+    [SerializeField] private Enemy _enemy;
+
+    [Header("combatStats")]
 
     public float range = 0.2f;
     //bool isPlayerInRange = false;
@@ -16,18 +22,26 @@ public class EnemyCombat : UnitCombat
     public float attackCooldown = 1f;
     float coolDownTimer;
     public float movementSpeed = 10f;
+    public float attackSpeed = 100f;
+    private float _attackInterval;//interval is speed/100 in seconds
+    private float _attackTimer;
+    public float attackAnimationTime;
+    [SerializeField] private float _attackAnimationProgress;
+    private bool _isAttacking=false;
 
     public float knockBackThrust = 10f;
     bool isKnockedBack = false;
     public Rigidbody2D myRigidBody;
     public float knockBackTime = 0.2f;
-    
+
     //coefs point of view of enemy
+
+    [Header(" type coef")]
     public float normalCoef = 1;
     public float advantageCoef = 0.5f;
     public float disadvantageCoef = 1.5f;
-    [SerializeField] private EnemyMovement _enemyMovement;
-    [SerializeField] private Enemy _enemy;
+
+    
     void Update()
     {
         base.Update();
@@ -115,8 +129,14 @@ public class EnemyCombat : UnitCombat
         {
             return;
         }
+        if (CheckIfInRange())
+        {
+            Attack();
+        }
+        else
+        {
         _enemyMovement.MoveToTarget(player);
-
+        }
     }
     public void CoolDownTimer()
     {
@@ -128,14 +148,23 @@ public class EnemyCombat : UnitCombat
     public void Attack()
     {
         if (coolDownTimer < 0)
-        {
+        {//add here attack animation
+
             AttackHit();
         }
     }
     void AttackHit()
     {
+        //play attackAnimation
+
         coolDownTimer = attackCooldown;
-        player.TakeDamage(damage); //****************
+
+        player.TakeDamage(damage); //does not do anything rn
+    }
+    void StartAttackAnimation()
+    { 
+        
+
     }
     void GetKnockBack()
     {
@@ -151,5 +180,20 @@ public class EnemyCombat : UnitCombat
         yield return new WaitForSeconds(knockBackTime);
         isKnockedBack = false;
         myRigidBody.linearVelocity = Vector3.zero;
+    }
+    bool CheckIfInRange()
+    {
+        bool isInRrange;
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        if (distance < range)
+        {
+            isInRrange = true;
+        }
+        else
+        {
+            isInRrange = false;
+        }
+        //isInRrange = distance < range;
+        return isInRrange;
     }
 }

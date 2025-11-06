@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using static UnityEngine.GraphicsBuffer;
+
 public class EnemyMovement : UnitMovement
 {
     public Enemy thisEnemy;
@@ -43,14 +45,7 @@ public class EnemyMovement : UnitMovement
                 currentDirection = Direction.DOWN;
             }
         }
-        if (distance < enemyCombat.range)
-        {
-            thisEnemy.Attack();
-        }
-        else
-        {
-            Move(player);
-        }
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
     }
     public void Move(Unit target)
     {
