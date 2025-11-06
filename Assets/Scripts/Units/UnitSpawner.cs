@@ -64,30 +64,11 @@ public class UnitSpawner : Singleton<UnitSpawner>
         int randomIndex = Random.Range(0, spawnPoints.Count);
         spawnPoint = spawnPoints[randomIndex];
         Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position,Quaternion.identity);
-        spawnedEnemy.player = player;
         Enemy_SO usedTemplate = GetRandomTemplate();
         GameManager.instance.AcknowledgeSpawnedEnemy();
-        SetEnemyProperties(spawnedEnemy, GetRandomTemplate());
+        spawnedEnemy.SetProperties(usedTemplate,player);
     }
-    void SetEnemyProperties(Enemy enemy, Enemy_SO enemyTemplate)
-    { 
-        enemy.range = enemyTemplate.range;
-        enemy.damage = enemyTemplate.damage;
-        enemy.attackCooldown = enemyTemplate.attackCooldown;
-        enemy.movementSpeed = enemyTemplate.movementSpeed;
 
-        enemy.SetEnemyType(enemyTemplate.enemyType);
-        enemy.healthMax = enemyTemplate.health;
-
-        //attach behavior
-        //attach action
-        //if ranged attach projectile
-
-        //enemy.goingUp.GetComponent<SpriteRenderer>().color = enemyTemplate.spriteColor;
-        //enemy.goingDown.GetComponent<SpriteRenderer>().color = enemyTemplate.spriteColor;
-        //enemy.goingLeft.GetComponent<SpriteRenderer>().color = enemyTemplate.spriteColor;
-
-    }
     Enemy_SO GetRandomTemplate()
     {
         int randomIndex = Random.Range(0, enemy_SOs.Count);

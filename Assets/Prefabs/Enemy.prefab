@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 1022234959872122541}
   - component: {fileID: 7886990425334265719}
   - component: {fileID: 1474502790447180861}
-  - component: {fileID: 4863674169510847081}
+  - component: {fileID: 471255943450887182}
   - component: {fileID: 3549913713549301225}
   m_Layer: 0
   m_Name: Enemy
@@ -893,31 +893,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 1474502790447180861}
-  _healthBar: {fileID: 2448037168433217751}
-  healthMax: 10
-  healthCurrent: 0
-  healthFraction: 0
-  targetTag: 
-  enemyTemplate: {fileID: 0}
-  normalCoef: 1
-  advantageCoef: 0.5
-  disadvantageCoef: 1.5
+  unitCombat: {fileID: 471255943450887182}
+  enemyType: 0
   greenGoingUp: {fileID: 7640879655110937010}
   greenGoingDown: {fileID: 2281651984170322596}
   greenGoingLeft: {fileID: 1964646562096703295}
   blueGoingUp: {fileID: 6105210300793157510}
   blueGoingDown: {fileID: 5134632440540526977}
   blueGoingLeft: {fileID: 5387190479982831746}
-  enemyType: 0
-  player: {fileID: 0}
-  range: 0.2
-  damage: 1
-  attackCooldown: 1
-  movementSpeed: 1
-  knockBackThrust: 10
-  myRigidBody: {fileID: 7886990425334265719}
-  knockBackTime: 0.2
   enemyMovement: {fileID: 3549913713549301225}
+  enemyTemplate: {fileID: 0}
 --- !u!61 &1022234959872122541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1028,7 +1013,7 @@ MonoBehaviour:
   SpeedToIntervaL: 100
   statListFloat: []
   statList: []
---- !u!114 &4863674169510847081
+--- !u!114 &471255943450887182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1037,10 +1022,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 5279515869294326761}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08a1f0034997d2742b03ed1faa513100, type: 3}
+  m_Script: {fileID: 11500000, guid: dccd4b383dc94bf4d98620b63d8ce920, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitCombat
-  stats: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCombat
+  healthMax: 10
+  healthCurrent: 0
+  healthFraction: 0
+  _healthBar: {fileID: 2448037168433217751}
+  player: {fileID: 0}
+  range: 0.2
+  damage: 1
+  attackCooldown: 1
+  movementSpeed: 10
+  knockBackThrust: 10
+  myRigidBody: {fileID: 7886990425334265719}
+  knockBackTime: 0.2
+  normalCoef: 1
+  advantageCoef: 0.5
+  disadvantageCoef: 1.5
+  _enemyMovement: {fileID: 3549913713549301225}
+  _enemy: {fileID: 4176866416230126860}
 --- !u!114 &3549913713549301225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1054,11 +1055,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   currentDirection: 2
+  movementSpeed: 100
   currentUnitVisual: {fileID: 0}
   goingUp: {fileID: 2927602613097066004}
   goingDown: {fileID: 5068740128605661172}
   goingLeft: {fileID: 556552455703514159}
+  weapons: {fileID: 6133749775801559226}
   thisEnemy: {fileID: 4176866416230126860}
+  enemyCombat: {fileID: 471255943450887182}
 --- !u!1 &6133749775801559226
 GameObject:
   m_ObjectHideFlags: 0

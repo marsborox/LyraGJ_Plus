@@ -6,52 +6,23 @@ using UnityEngine.UI;
 public class Unit : MonoBehaviour
 {
     public UnitStats unitStats;
-
-
-
-    
-    [SerializeField] private Image _healthBar;
-
-    public int healthMax = 10;
-    public int healthCurrent;
-
-    public float healthFraction;
-
-    public string targetTag;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        healthCurrent = healthMax;
-    }
-    
+    public UnitCombat unitCombat;
     public void Update()
     {
-        SetHealthBar();
+        
     }
+
     private void OnEnable()
     { 
 
     }
         
-    void SetHealthBar()
-    {
-        healthFraction = (float)healthCurrent / (float)healthMax;
-        _healthBar.fillAmount = healthFraction;
-    }
-
-
-
-    public void TakeDamage(int damage)
-    {
-        healthCurrent -= damage;
-        //Debug.Log(damage+" damage taken");
-    }
     public virtual void Die()
     { }
     public float ReturnHealthCurrent()
     {
         //return unitHealth.healthCurrent;
-        return healthCurrent;
+        return unitCombat.healthCurrent;
     }
     public float ReturnHealthMax()
     {
@@ -76,6 +47,10 @@ public class Unit : MonoBehaviour
     public float ReturnAttackTimer()
     {
         return unitStats.attackTimer;
+    }
+    public void SetMaxHealth(int health)
+    {
+        unitCombat.healthMax = health;
     }
     /*public float ReturnScoreAmount()
     {

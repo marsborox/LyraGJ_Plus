@@ -23,13 +23,10 @@ public class PlayerController : MonoBehaviour
     private Clicker action2Clicker = new Clicker();
     private Clicker action3Clicker = new Clicker();
     private Clicker action4Clicker = new Clicker();
-    
 
     private PlayerInput _playerInput;
     private InputAction _action1;
     private InputAction _action2;
-    
-
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -41,9 +38,7 @@ public class PlayerController : MonoBehaviour
         action1Clicker.name = "action1";
         action2Clicker.action = _playerInput.actions["Action2"];
         action2Clicker.name = "action2";
-        
     }
-
     void Start()
     {
 
@@ -62,6 +57,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDisable()
     {
+
         action1Clicker.action.started -= ctx => StartStopPressed(ref action1Clicker);
         action1Clicker.action.canceled -= ctx => StartStopPressed(ref action1Clicker);
 
@@ -81,7 +77,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         player.playerMovement.Move(_rawInput);
-        player.input = _rawInput;
+        //player.input = _rawInput;
         //CheckClickHoldAction();
         CheckClickHoldActions();
     }
@@ -129,7 +125,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnWeapon4()
     {
-        Debug.Log("weapon4");
+        //Debug.Log("weapon4");
         //player.AttackWeapon3();
     }
     void OnAction1()

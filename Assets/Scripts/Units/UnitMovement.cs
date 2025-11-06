@@ -6,6 +6,7 @@ public class UnitMovement : MonoBehaviour
 
     public Direction currentDirection = Direction.LEFT;
 
+    public float movementSpeed = 100f;
     public DirectionMovement currentUnitVisual;
     public DirectionMovement goingUp;
     public DirectionMovement goingDown;
@@ -15,7 +16,6 @@ public class UnitMovement : MonoBehaviour
     public void Update()
     {
         FaceCorrectDirection();
-
     }
     public void FaceCorrectDirection()
     {
@@ -52,9 +52,8 @@ public class UnitMovement : MonoBehaviour
                     playerRotation = 180f;
                     break;
                 }
-
         }
-        //weapons.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
+        weapons.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
         currentUnitVisual.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
     }
     void DisableAllVisuals()
