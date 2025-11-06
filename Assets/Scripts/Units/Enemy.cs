@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-
-using Unity.VisualScripting;
-
 using UnityEngine;
 public enum Type { RED, GREEN, BLUE,WHITE }
 public class Enemy : Unit
 {
+    public Enemy_SO enemyTemplate;
     //coefs point of view of enemy
     public float normalCoef = 1;
     public float advantageCoef = 0.5f;
@@ -21,9 +19,11 @@ public class Enemy : Unit
     public DirectionMovement blueGoingLeft;
 
     public Type enemyType;
-    public Unit player;
+    public Player player;
+    
     public float range = 0.2f;
-    bool isPlayerInRange = false;
+    //bool isPlayerInRange = false;
+
     public int damage = 1;
     public float attackCooldown = 1f;
     float coolDownTimer;
@@ -34,35 +34,10 @@ public class Enemy : Unit
     public Rigidbody2D myRigidBody;
     public float knockBackTime = 0.2f;
 
+    public EnemyMovement enemyMovement;
 
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void SetEnemyType(Type newEnemyType)
-    {
-        enemyType = newEnemyType;
 
-        switch (enemyType)
-        {
-            case Type.RED:
-                {
-                    break;
-                }
-            case Type.GREEN:
-                {
-                    goingUp = greenGoingUp;
-                    goingDown = greenGoingDown;
-                    goingLeft = greenGoingLeft;
-                    break;
-                }
-            case Type.BLUE:
-                {
-                    goingUp = blueGoingUp;
-                    goingDown = blueGoingDown;
-                    goingLeft = blueGoingLeft;
-                    break;
-                }
-        }
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -78,7 +53,7 @@ public class Enemy : Unit
         }
         PerformEnemyBehavior();
         //checkDirection
-        FaceCorrectDirection();
+        
         if (healthCurrent <= 0)
         {
             Die();
@@ -92,27 +67,33 @@ public class Enemy : Unit
             //Debug.Log("collision w weapon");
             Weapon weapon = other.gameObject.GetComponent<WeaponCollider>().weaponIBelongTo;
             AnalyseAndTakeDamage(weapon);
-            /*
-            if ((weapon.weaponType).ToString() == enemyType.ToString())
-            {
-                TakeDamage(weapon.damage);
-                GetKnockBack();
-            }
-            else
-            {
-                GetKnockBack();
-            }*/
-            /*
-            if ((other.GetComponent<Weapon>().weaponType.ToString() == enemyType.ToString()))
-            {
-                TakeDamage(other.GetComponent<Weapon>().damage);
-                Debug.Log("GotHit");
-                Destroy(gameObject);
-            }
-            else
-            {
-                GetKnockBack();
-            }*/
+            
+        }
+    }
+    public void SetEnemyType(Type newEnemyType)
+    {
+        enemyType = newEnemyType;
+
+        switch (enemyType)
+        {
+            case Type.RED:
+                {
+                    break;
+                }
+            case Type.GREEN:
+                {
+                    enemyMovement.goingUp = greenGoingUp;
+                    enemyMovement.goingDown = greenGoingDown;
+                    enemyMovement.goingLeft = greenGoingLeft;
+                    break;
+                }
+            case Type.BLUE:
+                {
+                    enemyMovement.goingUp = blueGoingUp;
+                    enemyMovement.goingDown = blueGoingDown;
+                    enemyMovement.goingLeft = blueGoingLeft;
+                    break;
+                }
         }
     }
     void AnalyseAndTakeDamage(Weapon inputWeapon)
@@ -172,48 +153,8 @@ public class Enemy : Unit
         {
             return;
         }
-        bool isInRange = false;
-        float distance = Vector3.Distance(player.transform.position,transform.position);
-        float horizontalDistance = Mathf.Abs(player.transform.position.x - transform.position.x);
-        float verticalDistance = Mathf.Abs(player.transform.position.y - transform.position.y);
-
-        if (horizontalDistance >= verticalDistance)
-        {
-            if (player.transform.position.x < transform.position.x)
-            {
-                currentDirection = Direction.LEFT;
-            }
-            else if (player.transform.position.x >= transform.position.x)
-            {
-                currentDirection = Direction.RIGHT;
-            }
-        }
-        else
-        {
-            if (player.transform.position.y > transform.position.y)
-            {
-                currentDirection = Direction.UP;
-            }
-            else if (player.transform.position.y <= transform.position.y)
-            {
-                currentDirection = Direction.DOWN;
-            }
-        }
-
-        if (distance < range)
-        {
-            Attack();
-        }
-        else 
-        {
-            Move(player);
-
-        }
+        enemyMovement.MoveToTarget(player);
         
-    }
-    public void Move(Unit target)
-    {
-        transform.position = Vector3.MoveTowards(transform.position,target.transform.position,movementSpeed*Time.deltaTime);
     }
     public void CoolDownTimer()
     {
@@ -232,7 +173,7 @@ public class Enemy : Unit
     void AttackHit()
     {
         coolDownTimer = attackCooldown;
-        player.TakeDamage(damage);
+        player.TakeDamage(damage); //****************
     }
     void GetKnockBack()
     {

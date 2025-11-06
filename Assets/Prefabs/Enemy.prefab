@@ -238,7 +238,7 @@ RectTransform:
   m_GameObject: {fileID: 972088653154952118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.57142854, y: 0.57142854, z: 0.57142854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8887941527615255532}
@@ -662,7 +662,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4708950525727987395}
@@ -852,6 +852,9 @@ GameObject:
   - component: {fileID: 4176866416230126860}
   - component: {fileID: 1022234959872122541}
   - component: {fileID: 7886990425334265719}
+  - component: {fileID: 1474502790447180861}
+  - component: {fileID: 4863674169510847081}
+  - component: {fileID: 3549913713549301225}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -869,7 +872,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.35952, y: 0.13203, z: 0}
-  m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1398728122533301435}
@@ -889,16 +892,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530860aebd416414a8962b2c35fed2b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDirection: 2
-  currentUnitVisual: {fileID: 556552455703514159}
-  goingUp: {fileID: 2927602613097066004}
-  goingDown: {fileID: 5068740128605661172}
-  goingLeft: {fileID: 556552455703514159}
-  weapons: {fileID: 6133749775801559226}
+  unitStats: {fileID: 1474502790447180861}
   _healthBar: {fileID: 2448037168433217751}
   healthMax: 10
   healthCurrent: 0
   healthFraction: 0
+  targetTag: 
+  enemyTemplate: {fileID: 0}
+  normalCoef: 1
+  advantageCoef: 0.5
+  disadvantageCoef: 1.5
   greenGoingUp: {fileID: 7640879655110937010}
   greenGoingDown: {fileID: 2281651984170322596}
   greenGoingLeft: {fileID: 1964646562096703295}
@@ -914,6 +917,7 @@ MonoBehaviour:
   knockBackThrust: 10
   myRigidBody: {fileID: 7886990425334265719}
   knockBackTime: 0.2
+  enemyMovement: {fileID: 3549913713549301225}
 --- !u!61 &1022234959872122541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -987,6 +991,74 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1474502790447180861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279515869294326761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1becf41d06173458636d91c7102e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitStats
+  healthMax_s:
+    name: healthMax
+    amount: 0
+    upgradeAmount: 0
+  damage_s:
+    name: damage
+    amount: 0
+    upgradeAmount: 0
+  movementSpeed_s:
+    name: movementSpeed
+    amount: 0
+    upgradeAmount: 0
+  attackSpeed_s:
+    name: attackSpeed
+    amount: 0
+    upgradeAmount: 0
+  attackRange_s:
+    name: attackRange
+    amount: 0
+    upgradeAmount: 0
+  attackInterval: 0
+  attackTimer: 0
+  SpeedToIntervaL: 100
+  statListFloat: []
+  statList: []
+--- !u!114 &4863674169510847081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279515869294326761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a1f0034997d2742b03ed1faa513100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitCombat
+  stats: {fileID: 0}
+--- !u!114 &3549913713549301225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279515869294326761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cad77b73cc9fb4c9725bcf1a3a5f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  currentDirection: 2
+  currentUnitVisual: {fileID: 0}
+  goingUp: {fileID: 2927602613097066004}
+  goingDown: {fileID: 5068740128605661172}
+  goingLeft: {fileID: 556552455703514159}
+  thisEnemy: {fileID: 4176866416230126860}
 --- !u!1 &6133749775801559226
 GameObject:
   m_ObjectHideFlags: 0
