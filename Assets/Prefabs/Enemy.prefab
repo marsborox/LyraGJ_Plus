@@ -1106,18 +1106,22 @@ MonoBehaviour:
   healthFraction: 0
   _healthBar: {fileID: 2448037168433217751}
   player: {fileID: 0}
-  range: 0.2
+  _enemyMovement: {fileID: 3549913713549301225}
+  _enemy: {fileID: 4176866416230126860}
+  range: 1
   damage: 1
-  attackCooldown: 1
-  movementSpeed: 10
+  attackCooldown: 5
+  coolDownTimer: 0
+  attackReady: 1
+  attackAnimationTime: 0.5
+  attackAnimationTimer: 0
+  isAttacking: 0
   knockBackThrust: 10
   myRigidBody: {fileID: 7886990425334265719}
   knockBackTime: 0.2
   normalCoef: 1
   advantageCoef: 0.5
   disadvantageCoef: 1.5
-  _enemyMovement: {fileID: 3549913713549301225}
-  _enemy: {fileID: 4176866416230126860}
 --- !u!114 &3549913713549301225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,7 +1135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   currentDirection: 2
-  movementSpeed: 100
+  movementSpeed: 1
   currentUnitVisual: {fileID: 0}
   goingUp: {fileID: 2927602613097066004}
   goingDown: {fileID: 5068740128605661172}
@@ -1180,6 +1184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4863667161629345101}
   - component: {fileID: 5743584174001452015}
+  - component: {fileID: 210236758892647190}
   m_Layer: 0
   m_Name: AttackImitation
   m_TagString: Untagged
@@ -1199,8 +1204,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3731129619628607746}
   - {fileID: 1971677814630939816}
+  - {fileID: 3731129619628607746}
   m_Father: {fileID: 3443724269912296941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1231,6 +1236,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &210236758892647190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6934879824076419795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b7563adeacec4baa638698e3e7d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackImitation
+  _animation: {fileID: 9223273800978914947}
+  _cooldown: {fileID: 8094599160273278098}
+  _enemyCombat: {fileID: 471255943450887182}
 --- !u!1 &7573893179986828797
 GameObject:
   m_ObjectHideFlags: 0

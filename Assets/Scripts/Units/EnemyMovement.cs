@@ -19,7 +19,7 @@ public class EnemyMovement : UnitMovement
     public void MoveToTarget(Player player)
     {
         //bool isInRange = false;
-        float distance = Vector3.Distance(player.transform.position, transform.position);
+        
         float horizontalDistance = Mathf.Abs(player.transform.position.x - transform.position.x);
         float verticalDistance = Mathf.Abs(player.transform.position.y - transform.position.y);
 

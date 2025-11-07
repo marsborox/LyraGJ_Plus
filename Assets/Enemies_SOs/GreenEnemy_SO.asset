@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: GreenEnemy_SO
   m_EditorClassIdentifier: 
   enemyType: 1
-  range: 0.2
+  range: 1
   damage: 1
   attackCooldown: 1
   movementSpeed: 1
+  attackAnimationTime: 0.5
   health: 10
   spriteColor:
     serializedVersion: 2
     rgba: 4286558840
+  behavior: {fileID: 0}

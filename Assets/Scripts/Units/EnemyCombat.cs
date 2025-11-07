@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class EnemyCombat : UnitCombat
 {
-
+    
     public Player player;
     [SerializeField] private EnemyMovement _enemyMovement;
     [SerializeField] private Enemy _enemy;
@@ -20,14 +20,13 @@ public class EnemyCombat : UnitCombat
 
     public int damage = 1;
     public float attackCooldown = 1f;
-    float coolDownTimer;
-    public float movementSpeed = 10f;
-    public float attackSpeed = 100f;
-    private float _attackInterval;//interval is speed/100 in seconds
-    private float _attackTimer;
-    public float attackAnimationTime;
-    [SerializeField] private float _attackAnimationProgress;
-    private bool _isAttacking=false;
+    public float coolDownTimer = 0f;
+    public bool attackReady = true;
+    //public float movementSpeed = 1f;
+
+    public float attackAnimationTime = 0.5f;
+    public float attackAnimationTimer = 0f;
+    public bool isAttacking = false;
 
     public float knockBackThrust = 10f;
     bool isKnockedBack = false;
@@ -53,13 +52,18 @@ public class EnemyCombat : UnitCombat
         {
             myRigidBody.linearVelocity = Vector3.zero;
         }
-        PerformEnemyBehavior();
+        PerformTimers();
+        
         //checkDirection
-
+        
         if (healthCurrent <= 0)
         {
             Die();
         }
+    }
+    private void FixedUpdate()
+    {
+        PerformEnemyBehavior();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -125,46 +129,75 @@ public class EnemyCombat : UnitCombat
     }
     void PerformEnemyBehavior()
     {
-        if (player == null)
+        if (player == null|| isAttacking)
         {
             return;
         }
+        /*if (isAttacking)
+        {
+            return;
+        }*/
         if (CheckIfInRange())
         {
-            Attack();
+            if (attackReady)
+            {
+                StartAttackAnimation();
+            }
         }
         else
         {
-        _enemyMovement.MoveToTarget(player);
+            _enemyMovement.MoveToTarget(player);
         }
     }
-    public void CoolDownTimer()
+    public void PerformTimers()
     {
-        if (coolDownTimer > 0)
+        CooldownTimer();
+        //PerformTimer(ref attackAnimationTimer, ref isAttacking);
+        AttackAnimationTimer();
+
+    }
+    public void PerformTimer(ref float timer,ref bool indicator)
+    {
+        if (!(timer < 0))
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0) { indicator = true; }
+        }
+    }
+    public void CooldownTimer()
+    {
+        if (!(coolDownTimer < 0))
         {
             coolDownTimer -= Time.deltaTime;
+            if (coolDownTimer < 0) { attackReady = true; }
         }
     }
-    public void Attack()
+    void AttackAnimationTimer()
     {
-        if (coolDownTimer < 0)
-        {//add here attack animation
-
-            AttackHit();
+        if(!(attackAnimationTimer < 0))
+        {
+            attackAnimationTimer -= Time.deltaTime;
+            if (attackAnimationTimer < 0) {
+                isAttacking = false;
+                AttackHitPostAnimation();
+            }
         }
     }
-    void AttackHit()
-    {
-        //play attackAnimation
 
-        coolDownTimer = attackCooldown;
-
-        player.TakeDamage(damage); //does not do anything rn
-    }
     void StartAttackAnimation()
-    { 
+    {
+        coolDownTimer = attackCooldown;
+        attackAnimationTimer = attackAnimationTime;
+        isAttacking = true;
+        attackReady= false;
+        //play attackAnimation
+    }
+    void AttackHitPostAnimation()
+    {   if (CheckIfInRange())
+        { 
+        player.TakeDamage(damage); //does not do anything rn
+        }
         
-
     }
     void GetKnockBack()
     {
@@ -183,17 +216,17 @@ public class EnemyCombat : UnitCombat
     }
     bool CheckIfInRange()
     {
-        bool isInRrange;
+        //bool isInRrange;
         float distance = Vector3.Distance(player.transform.position, transform.position);
-        if (distance < range)
+        return (distance < range);
+        /*if (distance < range)
         {
             isInRrange = true;
         }
         else
         {
             isInRrange = false;
-        }
+        }*/
         //isInRrange = distance < range;
-        return isInRrange;
     }
 }

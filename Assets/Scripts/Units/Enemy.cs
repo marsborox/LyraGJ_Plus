@@ -54,7 +54,7 @@ public class Enemy : Unit
         enemyMovement.movementSpeed=enemyTemplate.movementSpeed;
         combat.healthMax = enemyTemplate.health;
         combat.player = player;
-        combat.attackSpeed = enemyTemplate.attackSpeed;
+        combat.attackCooldown = enemyTemplate.attackCooldown;
         combat.attackAnimationTime = enemyTemplate.attackAnimationTime;
 
         SetEnemyType(enemyTemplate.enemyType);

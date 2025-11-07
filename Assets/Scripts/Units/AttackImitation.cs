@@ -10,16 +10,22 @@ public class AttackImitation : MonoBehaviour
 
     private void Update()
     {
-        
+        DoAttackAnimation();
+        ShowCooldown();
+
 
     }
     public void DoAttackAnimation()
-    { 
-        
+    {
+        float fraction = 0.3f;
+        fraction =  _enemyCombat.attackAnimationTime/ _enemyCombat.attackAnimationTimer;
+        _animation.fillAmount = (float)(_enemyCombat.attackAnimationTimer / _enemyCombat.attackAnimationTime);
     }
     public void ShowCooldown()
     {
-
+        float fraction = 0.3f;
+        fraction = _enemyCombat.attackCooldown/ _enemyCombat.coolDownTimer;
+        _cooldown.fillAmount = (float)(_enemyCombat.coolDownTimer/_enemyCombat.attackCooldown);
 
     }
 }

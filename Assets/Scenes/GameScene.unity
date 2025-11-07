@@ -2587,7 +2587,7 @@ MonoBehaviour:
   player: {fileID: 29055957}
   minSpawnTime: 0.5
   maxSpawnTime: 2
-  spawningAllowed: 1
+  spawningAllowed: 0
 --- !u!1 &598830070
 GameObject:
   m_ObjectHideFlags: 0
@@ -14660,9 +14660,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 471255943450887182, guid: d6c628404a6b4ed4081378cf63bfd7b0, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 29055957}
     - target: {fileID: 3443724269912296941, guid: d6c628404a6b4ed4081378cf63bfd7b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.61
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 3443724269912296941, guid: d6c628404a6b4ed4081378cf63bfd7b0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14703,10 +14707,6 @@ PrefabInstance:
     - target: {fileID: 5279515869294326761, guid: d6c628404a6b4ed4081378cf63bfd7b0, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5279515869294326761, guid: d6c628404a6b4ed4081378cf63bfd7b0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
