@@ -46,13 +46,17 @@ public class Enemy : Unit
         }
     }
     public void SetProperties(Enemy_SO enemyTemplate, Player player)
-    { 
-        ((EnemyCombat)unitCombat).range=enemyTemplate.range;
-        ((EnemyCombat)unitCombat).damage=enemyTemplate.damage;
-        ((EnemyCombat)unitCombat).attackCooldown=enemyTemplate.attackCooldown;
+    {
+        var combat = (EnemyCombat)unitCombat;
+        combat.range=enemyTemplate.range;
+        combat.damage=enemyTemplate.damage;
+        combat.attackCooldown=enemyTemplate.attackCooldown;
         enemyMovement.movementSpeed=enemyTemplate.movementSpeed;
-        ((EnemyCombat)unitCombat).healthMax = enemyTemplate.health;
-        ((EnemyCombat)unitCombat).player = player;
+        combat.healthMax = enemyTemplate.health;
+        combat.player = player;
+        combat.attackCooldown = enemyTemplate.attackCooldown;
+        combat.attackAnimationTime = enemyTemplate.attackAnimationTime;
+
         SetEnemyType(enemyTemplate.enemyType);
         
     }

@@ -1,33 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 
+using Unity.VisualScripting;
+
 using UnityEngine;
 
 
 public class EnemyCombat : UnitCombat
 {
-
+    
     public Player player;
+    [SerializeField] private EnemyMovement _enemyMovement;
+    [SerializeField] private Enemy _enemy;
+
+    [Header("combatStats")]
 
     public float range = 0.2f;
     //bool isPlayerInRange = false;
 
     public int damage = 1;
     public float attackCooldown = 1f;
-    float coolDownTimer;
-    public float movementSpeed = 10f;
+    public float coolDownTimer = 0f;
+    public bool attackReady = true;
+    //public float movementSpeed = 1f;
+
+    public float attackAnimationTime = 0.5f;
+    public float attackAnimationTimer = 0f;
+    public bool isAttacking = false;
 
     public float knockBackThrust = 10f;
     bool isKnockedBack = false;
     public Rigidbody2D myRigidBody;
     public float knockBackTime = 0.2f;
-    
+
     //coefs point of view of enemy
+
+    [Header(" type coef")]
     public float normalCoef = 1;
     public float advantageCoef = 0.5f;
     public float disadvantageCoef = 1.5f;
-    [SerializeField] private EnemyMovement _enemyMovement;
-    [SerializeField] private Enemy _enemy;
+
+    
     void Update()
     {
         base.Update();
@@ -39,13 +52,18 @@ public class EnemyCombat : UnitCombat
         {
             myRigidBody.linearVelocity = Vector3.zero;
         }
-        PerformEnemyBehavior();
+        PerformTimers();
+        
         //checkDirection
-
+        
         if (healthCurrent <= 0)
         {
             Die();
         }
+    }
+    private void FixedUpdate()
+    {
+        PerformEnemyBehavior();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -111,31 +129,75 @@ public class EnemyCombat : UnitCombat
     }
     void PerformEnemyBehavior()
     {
-        if (player == null)
+        if (player == null|| isAttacking)
         {
             return;
         }
-        _enemyMovement.MoveToTarget(player);
+        /*if (isAttacking)
+        {
+            return;
+        }*/
+        if (CheckIfInRange())
+        {
+            if (attackReady)
+            {
+                StartAttackAnimation();
+            }
+        }
+        else
+        {
+            _enemyMovement.MoveToTarget(player);
+        }
+    }
+    public void PerformTimers()
+    {
+        CooldownTimer();
+        //PerformTimer(ref attackAnimationTimer, ref isAttacking);
+        AttackAnimationTimer();
 
     }
-    public void CoolDownTimer()
+    public void PerformTimer(ref float timer,ref bool indicator)
     {
-        if (coolDownTimer > 0)
+        if (!(timer < 0))
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0) { indicator = true; }
+        }
+    }
+    public void CooldownTimer()
+    {
+        if (!(coolDownTimer < 0))
         {
             coolDownTimer -= Time.deltaTime;
+            if (coolDownTimer < 0) { attackReady = true; }
         }
     }
-    public void Attack()
+    void AttackAnimationTimer()
     {
-        if (coolDownTimer < 0)
+        if(!(attackAnimationTimer < 0))
         {
-            AttackHit();
+            attackAnimationTimer -= Time.deltaTime;
+            if (attackAnimationTimer < 0) {
+                isAttacking = false;
+                AttackHitPostAnimation();
+            }
         }
     }
-    void AttackHit()
+
+    void StartAttackAnimation()
     {
         coolDownTimer = attackCooldown;
-        player.TakeDamage(damage); //****************
+        attackAnimationTimer = attackAnimationTime;
+        isAttacking = true;
+        attackReady= false;
+        //play attackAnimation
+    }
+    void AttackHitPostAnimation()
+    {   if (CheckIfInRange())
+        { 
+        player.TakeDamage(damage); //does not do anything rn
+        }
+        
     }
     void GetKnockBack()
     {
@@ -151,5 +213,20 @@ public class EnemyCombat : UnitCombat
         yield return new WaitForSeconds(knockBackTime);
         isKnockedBack = false;
         myRigidBody.linearVelocity = Vector3.zero;
+    }
+    bool CheckIfInRange()
+    {
+        //bool isInRrange;
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        return (distance < range);
+        /*if (distance < range)
+        {
+            isInRrange = true;
+        }
+        else
+        {
+            isInRrange = false;
+        }*/
+        //isInRrange = distance < range;
     }
 }
