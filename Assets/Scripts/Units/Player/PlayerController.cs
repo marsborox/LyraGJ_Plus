@@ -136,6 +136,14 @@ public class PlayerController : MonoBehaviour
     { 
     
     }
+    void OnAction3()
+    {
+        Debug.Log("action3");
+    }
+    void OnAction4()
+    {
+        Debug.Log("action4");
+    }
     void StartStopPressed(ref Clicker clicker)
     {
         if(!clicker.isPressed)

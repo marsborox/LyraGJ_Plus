@@ -140,6 +140,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Action3",
+                    "type": "Button",
+                    "id": "6a49ec23-e5b4-47b2-bca4-2596050c92ed",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Action4",
+                    "type": "Button",
+                    "id": "9c84260a-db9f-46d2-ae9a-0b7a7beffb9e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -585,8 +603,8 @@
                 },
                 {
                     "name": "",
-                    "id": "ab5a5628-32bd-4b24-8a05-af419e9e098c",
-                    "path": "",
+                    "id": "2282d77b-c3b8-4dbc-8b1c-5c2344f097a9",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -596,12 +614,23 @@
                 },
                 {
                     "name": "",
-                    "id": "2282d77b-c3b8-4dbc-8b1c-5c2344f097a9",
-                    "path": "<Mouse>/rightButton",
+                    "id": "3d2e74b0-d166-495c-b5f0-47b518b79e76",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Action2",
+                    "action": "Action3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7cdde58f-34dd-4961-8ec6-e07f01731c74",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
