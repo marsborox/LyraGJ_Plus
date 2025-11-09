@@ -21,7 +21,7 @@ public class EnemyCombat : UnitCombat
     public int damage = 1;
     public float attackCooldown = 1f;
     public float coolDownTimer = 0f;
-    public bool attackReady = true;
+    public bool isAttackReady = true;
     //public float movementSpeed = 1f;
 
     public float attackAnimationTime = 0.5f;
@@ -139,7 +139,7 @@ public class EnemyCombat : UnitCombat
         }*/
         if (CheckIfInRange())
         {
-            if (attackReady)
+            if (isAttackReady&&!isAttacking)//bolo tu iba is attackReady
             {
                 StartAttackAnimation();
             }
@@ -169,7 +169,7 @@ public class EnemyCombat : UnitCombat
         if (!(coolDownTimer < 0))
         {
             coolDownTimer -= Time.deltaTime;
-            if (coolDownTimer < 0) { attackReady = true; }
+            if (coolDownTimer < 0) { isAttackReady = true; }
         }
     }
     void AttackAnimationTimer()
@@ -186,10 +186,10 @@ public class EnemyCombat : UnitCombat
 
     void StartAttackAnimation()
     {
-        coolDownTimer = attackCooldown;
+        coolDownTimer = attackCooldown; // move to post hit prob
         attackAnimationTimer = attackAnimationTime;
         isAttacking = true;
-        attackReady= false;
+        isAttackReady= false;//move to post hit or not we want to make sure it wont attack many times
         //play attackAnimation
     }
     void AttackHitPostAnimation()
