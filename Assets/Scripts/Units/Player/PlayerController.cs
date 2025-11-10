@@ -105,8 +105,8 @@ public class PlayerController : MonoBehaviour
         }
     }
     void OnDash()
-    { 
-        
+    {
+        player.playerMovement.Dash();
     }
     void OnWeapon1()
     {
