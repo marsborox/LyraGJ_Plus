@@ -105,8 +105,8 @@ public class PlayerController : MonoBehaviour
         }
     }
     void OnDash()
-    { 
-        
+    {
+        player.playerMovement.Dash();
     }
     void OnWeapon1()
     {
@@ -135,6 +135,14 @@ public class PlayerController : MonoBehaviour
     void OnAction2()
     { 
     
+    }
+    void OnAction3()
+    {
+        Debug.Log("action3");
+    }
+    void OnAction4()
+    {
+        Debug.Log("action4");
     }
     void StartStopPressed(ref Clicker clicker)
     {
