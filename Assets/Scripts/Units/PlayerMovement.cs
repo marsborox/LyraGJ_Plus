@@ -22,7 +22,7 @@ public class PlayerMovement : UnitMovement
 
 
     [SerializeField] private Vector3 _dashDestination;
-
+    [SerializeField] private Vector3 _mousePosVector;
 
     private Rigidbody2D _myRigidbody2D;
 
@@ -53,9 +53,10 @@ public class PlayerMovement : UnitMovement
             return;
         }
         
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float playerToMouseDistance = Vector3.Distance(this.transform.position, mousePos);
-
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        _mousePosVector = mousePos;//remove eventually
+        float playerToMouseDistance = Vector2.Distance(this.transform.position, mousePos);
+        Debug.Log("playerToMouse distance is "+playerToMouseDistance);
         if (maxDashDistance < playerToMouseDistance)
         {
             _dashDestination = ReturnDashPosition(mousePos);
@@ -75,7 +76,6 @@ public class PlayerMovement : UnitMovement
         Vector3 destination;
         float angle = (_mouseFollow.transform.localEulerAngles.z+90)*Mathf.Deg2Rad;//90 bcs its rotated
         Debug.Log("getting point at angle (rad) "+angle);
-
         float sinAngle = Mathf.Sin(angle);
         Debug.Log("sin of angle is " + sinAngle);
         float xIncrement = Mathf.Cos(angle) * maxDashDistance;
@@ -90,9 +90,7 @@ public class PlayerMovement : UnitMovement
             //doing movement if 
             Vector3 delta = (_dashDestination * dashSpeed * Time.deltaTime);
             _myRigidbody2D.linearVelocity = delta;
-
-            //_myRigidbody2D.MovePosition(_myRigidbody2D.position + rawInput * movementSpeed * Time.fixedDeltaTime);
-
+            //_myRigidbody2D.MovePosition(_myRigidbody2D.position + (Vector2)_dashDestination * movementSpeed * Time.fixedDeltaTime);
             //_myRigidbody2D.MovePosition(_dashDestination * dashSpeed * Time.fixedDeltaTime);
             transform.position = Vector3.MoveTowards(transform.position, _dashDestination, dashSpeed*Time.deltaTime);
             float distance = Vector3.Distance(transform.position, _dashDestination);
