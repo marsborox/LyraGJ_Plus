@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
         coolDownTimer = 0;
     }
 
-    private void Update()
+    public void Update()
     {
         CoolDownTimer();
     }

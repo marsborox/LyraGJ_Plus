@@ -6,6 +6,25 @@ public class PlayerCombat : UnitCombat
     public Weapon weapon2;
     public Weapon weapon3;
     public Weapon weapon4;
+
+    public Weapon weapon1New;
+    public Weapon weapon2New;
+    public void Weapon1_OnClick()
+    {
+        
+    }
+    public void Weapon1_OnHold()
+    { 
+        
+    }
+    public void Weapon2_OnClick() 
+    {
+        
+    }
+    public void Weapon2_OnHold()
+    { 
+        
+    }
     public void AttackWeapon1()
     {
         if (weapon1.CanAttack())

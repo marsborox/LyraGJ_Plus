@@ -35,5 +35,21 @@ public class Player : Unit
             weapon4.Attack();
         }*/
     }
+    public void AttackWeapon1Click()
+    {
+        Debug.Log("Weapon1 click");
+    }
+    public void AttackWeapon1Hold()
+    {
+        Debug.Log("Weapon1 hold");
+    }
+    public void AttackWeapon2Click()
+    {
+        Debug.Log("Weapon2 click");
+    }
+    public void AttackWeapon2Hold()
+    {
+        Debug.Log("Weapon2 hold");
+    }
 
 }

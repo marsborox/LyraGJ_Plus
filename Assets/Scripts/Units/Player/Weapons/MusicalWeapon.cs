@@ -1,7 +1,10 @@
 using System.Collections;
+
+using UnityEditor.Animations;
+
 using UnityEngine;
 
-public class Sword : Weapon
+public class MusicalWeapon : Weapon
 {
     public SimpleSpriteAnimator upAttackAnimator;
     public SimpleSpriteAnimator downAttackAnimator;
@@ -11,7 +14,13 @@ public class Sword : Weapon
 
     private SimpleSpriteAnimator currentAnimator;
     private Collider2D currentCollider;
+    [SerializeField] private MouseFollow _mouseFollow;
 
+    private void Update()
+    {
+        base.Update();
+        FollowMouse();
+    }
     public override void AttackHit()
     {
         switch (playerMovement.currentDirection)
@@ -46,5 +55,9 @@ public class Sword : Weapon
         currentAnimator.Play();
         yield return new WaitForSeconds(0.3f);
         currentCollider.enabled = false;
+    }
+    private void FollowMouse()
+    { 
+        transform.rotation = _mouseFollow.transform.rotation;
     }
 }
