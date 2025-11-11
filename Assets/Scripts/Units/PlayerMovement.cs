@@ -38,6 +38,13 @@ public class PlayerMovement : UnitMovement
     {
         DoDashing();
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Wall")
+        {
+            isDashing = false;
+        }
+    }
     public void Move(Vector2 rawInput)
     {
         //Vector3 delta = (rawInput * movementSpeed * Time.deltaTime);

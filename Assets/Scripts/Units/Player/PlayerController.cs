@@ -19,14 +19,15 @@ public class PlayerController : MonoBehaviour
         public float actionTimer = 0f;
     }
 
-    private Clicker action1Clicker = new Clicker();
-    private Clicker action2Clicker = new Clicker();
-    private Clicker action3Clicker = new Clicker();
-    private Clicker action4Clicker = new Clicker();
+    private Clicker _action1Clicker = new Clicker();
+    private Clicker _action2Clicker = new Clicker();
+    private Clicker _action3Clicker = new Clicker();
+    private Clicker _action4Clicker = new Clicker();
 
     private PlayerInput _playerInput;
     private InputAction _action1;
     private InputAction _action2;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -34,10 +35,10 @@ public class PlayerController : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
         //_action1 = _playerInput.actions["Action1"];
         //_action2 = _playerInput.actions["Action2"];
-        action1Clicker.action = _playerInput.actions["Action1"];
-        action1Clicker.name = "action1";
-        action2Clicker.action = _playerInput.actions["Action2"];
-        action2Clicker.name = "action2";
+        _action1Clicker.action = _playerInput.actions["Action1"];
+        _action1Clicker.name = "action1";
+        _action2Clicker.action = _playerInput.actions["Action2"];
+        _action2Clicker.name = "action2";
     }
     void Start()
     {
@@ -45,11 +46,11 @@ public class PlayerController : MonoBehaviour
     }
     private void OnEnable()
     {
-        action1Clicker.action.started += ctx => StartStopPressed(ref action1Clicker);
-        action1Clicker.action.canceled += ctx => StartStopPressed(ref action1Clicker);
+        _action1Clicker.action.started += ctx => StartStopPressed(ref _action1Clicker,player.AttackWeapon1Click);
+        _action1Clicker.action.canceled += ctx => StartStopPressed(ref _action1Clicker, player.AttackWeapon1Click);
 
-        action2Clicker.action.started += ctx => StartStopPressed(ref action2Clicker);
-        action2Clicker.action.canceled += ctx => StartStopPressed(ref action2Clicker);
+        _action2Clicker.action.started += ctx => StartStopPressed(ref _action2Clicker, player.AttackWeapon2Click);
+        _action2Clicker.action.canceled += ctx => StartStopPressed(ref _action2Clicker, player.AttackWeapon2Click);
         //_action1.started += ctx => StartPressed1();
         //_action1.canceled += ctx => StopPressed1();
         //_action2.started += ctx => StartPressed2();
@@ -58,11 +59,11 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
 
-        action1Clicker.action.started -= ctx => StartStopPressed(ref action1Clicker);
-        action1Clicker.action.canceled -= ctx => StartStopPressed(ref action1Clicker);
+        _action1Clicker.action.started -= ctx => StartStopPressed(ref _action1Clicker);
+        _action1Clicker.action.canceled -= ctx => StartStopPressed(ref _action1Clicker);
 
-        action2Clicker.action.started -= ctx => StartStopPressed(ref action2Clicker);
-        action2Clicker.action.canceled -= ctx => StartStopPressed(ref action2Clicker);
+        _action2Clicker.action.started -= ctx => StartStopPressed(ref _action2Clicker);
+        _action2Clicker.action.canceled -= ctx => StartStopPressed(ref _action2Clicker);
 
         //_action1.started -= ctx => StartPressed1();
         //_action1.canceled -= ctx => StopPressed1();
@@ -144,7 +145,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("action4");
     }
-    void StartStopPressed(ref Clicker clicker)
+    void StartStopPressed(ref Clicker clicker/*,Action onClick, Action onHold*/)
     {
         if(!clicker.isPressed)
         {   //onstart stop
@@ -156,11 +157,36 @@ public class PlayerController : MonoBehaviour
             if (clicker.isHeld)
             {
                 //DoHeldThing
-                Debug.Log(clicker.name + " was held for (s): " + clicker.actionTimer.ToString());
+                //Debug.Log(clicker.name + " was held for (s): " + clicker.actionTimer.ToString());
             }
             else
             {//do click thing
-                Debug.Log(clicker.name + " was clicked");
+                //Debug.Log(clicker.name + " was clicked");
+            }
+            clicker.isPressed = false;
+            clicker.isHeld = false;
+            clicker.actionTimer = 0;
+        }
+    }
+    void StartStopPressed(ref Clicker clicker,Action onClick)
+    {
+        if (!clicker.isPressed)
+        {   //onstart stop
+            clicker.isPressed = true;
+            onClick();
+        }
+        else
+        {   //on stop
+            //press released
+            if (clicker.isHeld)
+            {
+
+                //DoHeldThing
+                //Debug.Log(clicker.name + " was held for (s): " + clicker.actionTimer.ToString());
+            }
+            else
+            {//do click thing
+                //Debug.Log(clicker.name + " was clicked");
             }
             clicker.isPressed = false;
             clicker.isHeld = false;
@@ -169,20 +195,36 @@ public class PlayerController : MonoBehaviour
     }
     void CheckClickHoldActions()
     { 
-        CheckClickHoldAction(ref action1Clicker);
-        CheckClickHoldAction(ref action2Clicker);
+        //CheckClickHoldAction(ref _action1Clicker);
+        //CheckClickHoldAction(ref _action2Clicker);
+
+        CheckClickHoldAction(ref _action1Clicker, player.AttackWeapon1Hold);
+        CheckClickHoldAction(ref _action2Clicker, player.AttackWeapon2Hold);
     }
     void CheckClickHoldAction(ref Clicker clicker)
     {
         if (clicker.isPressed)
         {
-            clicker.isPressed = true;
+            //clicker.isPressed = true;
             clicker.actionTimer += Time.deltaTime;
             if (clicker.actionTimer > holdHreshold)
             {
                 clicker.isHeld = true;
             }
-
+        }
+    }
+    void CheckClickHoldAction(ref Clicker clicker, Action onHold)
+    {
+        if (clicker.isPressed)
+        {
+            //onClick();
+            //clicker.isPressed = true;
+            clicker.actionTimer += Time.deltaTime;
+            if (clicker.actionTimer > holdHreshold)
+            {
+                onHold();
+                clicker.isHeld = true;
+            }
         }
     }
 }

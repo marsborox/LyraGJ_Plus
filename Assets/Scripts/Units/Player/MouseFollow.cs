@@ -12,7 +12,7 @@ public class MouseFollow : MonoBehaviour
         //mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = transform.position - mousePosition;
-        transform.up = -direction;//was right
+        transform.up = -direction;//was right //we had it up and -direction
     }
     
 }
