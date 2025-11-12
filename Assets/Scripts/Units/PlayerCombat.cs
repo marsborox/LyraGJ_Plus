@@ -9,21 +9,27 @@ public class PlayerCombat : UnitCombat
 
     public Weapon weapon1New;
     public Weapon weapon2New;
+    public Weapon weapon3New;
     public void Weapon1_OnClick()
     {
-        
+        //Debug.Log("playerCombat.wpn1 attack");
+        weapon1New.ClickAttack();
     }
     public void Weapon1_OnHold()
-    { 
-        
+    {
+        weapon1New.HoldAttack();
     }
     public void Weapon2_OnClick() 
     {
-        
+        weapon2New.ClickAttack();
     }
     public void Weapon2_OnHold()
+    {
+        weapon2New.HoldAttack();
+    }
+    public void Weapon3_OnClick()
     { 
-        
+        weapon3New.ClickAttack();
     }
     public void AttackWeapon1()
     {

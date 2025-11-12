@@ -13,6 +13,9 @@ public class UnitMovement : MonoBehaviour
     public DirectionMovement goingLeft;
 
     public GameObject weapons;
+
+    public bool canMove = true;
+    public bool canDash = true;
     public void Update()
     {
         FaceCorrectDirection();
@@ -53,7 +56,7 @@ public class UnitMovement : MonoBehaviour
                     break;
                 }
         }
-        weapons.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
+        //weapons.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
         currentUnitVisual.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
     }
     void DisableAllVisuals()
@@ -61,5 +64,15 @@ public class UnitMovement : MonoBehaviour
         goingUp.gameObject.SetActive(false);
         goingDown.gameObject.SetActive(false);
         goingLeft.gameObject.SetActive(false);
+    }
+    public void CanMove()
+    {
+        canMove = true;
+        canDash = true;
+    }
+    public void CanNotMove()
+    {
+        canMove = false;
+        canDash = false;
     }
 }

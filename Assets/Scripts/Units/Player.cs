@@ -37,19 +37,23 @@ public class Player : Unit
     }
     public void AttackWeapon1Click()
     {
-        Debug.Log("Weapon1 click");
+        ((PlayerCombat)unitCombat).Weapon1_OnClick();
     }
     public void AttackWeapon1Hold()
     {
-        Debug.Log("Weapon1 hold");
+        ((PlayerCombat)unitCombat).Weapon1_OnHold();
     }
     public void AttackWeapon2Click()
     {
-        Debug.Log("Weapon2 click");
+        ((PlayerCombat)unitCombat).Weapon2_OnClick();
     }
     public void AttackWeapon2Hold()
     {
-        Debug.Log("Weapon2 hold");
+        ((PlayerCombat)unitCombat).Weapon2_OnHold();
+    }
+    public void AttackWeapon3Click() 
+    {
+        ((PlayerCombat)unitCombat).Weapon3_OnClick();
     }
 
 }

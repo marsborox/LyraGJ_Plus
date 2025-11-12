@@ -7,6 +7,7 @@ public class Unit : MonoBehaviour
 {
     public UnitStats unitStats;
     public UnitCombat unitCombat;
+    public string targetTag;
     public void Update()
     {
         

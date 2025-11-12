@@ -138,11 +138,12 @@ public class PlayerController : MonoBehaviour
     
     }
     void OnAction3()
-    {
-        Debug.Log("action3");
+    {//q
+        //Debug.Log("action3");
+        player.AttackWeapon3Click();
     }
     void OnAction4()
-    {
+    {//e
         Debug.Log("action4");
     }
     void StartStopPressed(ref Clicker clicker/*,Action onClick, Action onHold*/)

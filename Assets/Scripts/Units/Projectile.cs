@@ -21,13 +21,17 @@ public class Projectile : MonoBehaviour
         {
 
         }
+        if (other.tag == targetTag)
+        {
+            other.GetComponent<Unit>().TakeDamage(damage);
+        }
     }
-    public void Update()
+    public void FixedUpdate()
     {
         BulletMovement();
     }
     public void BulletMovement()
     {
-        transform.Translate(Vector3.up * Time.deltaTime * movementSpeed);
+        transform.Translate(Vector3.up * Time.fixedDeltaTime * movementSpeed);
     }
 }

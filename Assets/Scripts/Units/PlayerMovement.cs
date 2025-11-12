@@ -1,10 +1,4 @@
-using Unity.VisualScripting;
-
-using UnityEditor;
-
 using UnityEngine;
-
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class PlayerMovement : UnitMovement
 {
@@ -22,7 +16,9 @@ public class PlayerMovement : UnitMovement
 
 
     [SerializeField] private Vector3 _dashDestination;
-    [SerializeField] private Vector3 _mousePosVector;
+    //[SerializeField] private Vector3 _mousePosVector;
+
+
 
     private Rigidbody2D _myRigidbody2D;
 
@@ -47,6 +43,8 @@ public class PlayerMovement : UnitMovement
     }
     public void Move(Vector2 rawInput)
     {
+        if (!canMove)
+            return;
         //Vector3 delta = (rawInput * movementSpeed * Time.deltaTime);
         //transform.position += delta;
         //_myRigidbody2D.linearVelocity = delta;
@@ -55,15 +53,15 @@ public class PlayerMovement : UnitMovement
     }
     public void Dash()
     {
-        if (isDashing) 
+        if (isDashing||!canDash) 
         {
             return;
         }
         
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _mousePosVector = mousePos;//remove eventually
+        //_mousePosVector = mousePos;//remove eventually
         float playerToMouseDistance = Vector2.Distance(this.transform.position, mousePos);
-        Debug.Log("playerToMouse distance is "+playerToMouseDistance);
+        //Debug.Log("playerToMouse distance is "+playerToMouseDistance);
         if (maxDashDistance < playerToMouseDistance)
         {
             _dashDestination = ReturnDashPosition(mousePos);
@@ -82,9 +80,9 @@ public class PlayerMovement : UnitMovement
     {
         Vector3 destination;
         float angle = (_mouseFollow.transform.localEulerAngles.z+90)*Mathf.Deg2Rad;//90 bcs its rotated
-        Debug.Log("getting point at angle (rad) "+angle);
+        //Debug.Log("getting point at angle (rad) "+angle);
         float sinAngle = Mathf.Sin(angle);
-        Debug.Log("sin of angle is " + sinAngle);
+        //Debug.Log("sin of angle is " + sinAngle);
         float xIncrement = Mathf.Cos(angle) * maxDashDistance;
         float yIncrement = Mathf.Sin(angle) * maxDashDistance;
         destination = new Vector3(transform.position.x+xIncrement, transform.position.y+yIncrement, transform.position.z);
@@ -94,9 +92,10 @@ public class PlayerMovement : UnitMovement
     {
         if (isDashing)
         {
+            //Debug.Log("is Dashing");
             //doing movement if 
-            Vector3 delta = (_dashDestination * dashSpeed * Time.deltaTime);
-            _myRigidbody2D.linearVelocity = delta;
+            /*Vector3 delta = (_dashDestination * dashSpeed * Time.deltaTime);
+            _myRigidbody2D.linearVelocity = delta;*/
             //_myRigidbody2D.MovePosition(_myRigidbody2D.position + (Vector2)_dashDestination * movementSpeed * Time.fixedDeltaTime);
             //_myRigidbody2D.MovePosition(_dashDestination * dashSpeed * Time.fixedDeltaTime);
             transform.position = Vector3.MoveTowards(transform.position, _dashDestination, dashSpeed*Time.deltaTime);
