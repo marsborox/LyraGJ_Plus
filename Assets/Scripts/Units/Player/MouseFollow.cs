@@ -14,5 +14,9 @@ public class MouseFollow : MonoBehaviour
         Vector2 direction = transform.position - mousePosition;
         transform.up = -direction;//was right //we had it up and -direction
     }
-    
+    public Quaternion ReturnMouseDirection()
+    {
+        Quaternion rotation = Quaternion.Euler(0f, 0f, transform.eulerAngles.z - 90);
+        return rotation;
+    }
 }

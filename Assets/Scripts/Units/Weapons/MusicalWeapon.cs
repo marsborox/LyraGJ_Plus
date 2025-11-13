@@ -9,7 +9,7 @@ public class MusicalWeapon : Weapon
     public SimpleSpriteAnimator upAttackAnimator;
     public SimpleSpriteAnimator downAttackAnimator;
     public SimpleSpriteAnimator leftAttackAnimator;
-    public Player player; // to get direction
+    
     public PlayerMovement playerMovement;
 
     private SimpleSpriteAnimator currentAnimator;

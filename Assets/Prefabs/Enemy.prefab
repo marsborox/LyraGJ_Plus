@@ -970,6 +970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 1474502790447180861}
   unitCombat: {fileID: 471255943450887182}
+  targetTag: Player
   enemyType: 0
   greenGoingUp: {fileID: 7640879655110937010}
   greenGoingDown: {fileID: 2281651984170322596}
@@ -1112,16 +1113,17 @@ MonoBehaviour:
   damage: 1
   attackCooldown: 5
   coolDownTimer: 0
-  attackReady: 1
   attackAnimationTime: 0.5
   attackAnimationTimer: 0
   isAttacking: 0
+  canMove: 1
   knockBackThrust: 10
   myRigidBody: {fileID: 7886990425334265719}
   knockBackTime: 0.2
   normalCoef: 1
   advantageCoef: 0.5
   disadvantageCoef: 1.5
+  _currentAttackPhase: 0
 --- !u!114 &3549913713549301225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,6 +1143,8 @@ MonoBehaviour:
   goingDown: {fileID: 5068740128605661172}
   goingLeft: {fileID: 556552455703514159}
   weapons: {fileID: 6133749775801559226}
+  canMove: 1
+  canDash: 1
   thisEnemy: {fileID: 4176866416230126860}
   enemyCombat: {fileID: 471255943450887182}
 --- !u!1 &6133749775801559226

@@ -69,10 +69,10 @@ public class EnemyCombat : UnitCombat
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("collision");
+        Debug.Log("collision");
         if (other.gameObject.tag == "PlayerWeapon")
         {
-            //Debug.Log("collision w weapon");
+            Debug.Log("collision w weapon");
             Weapon weapon = other.gameObject.GetComponent<WeaponCollider>().weaponIBelongTo;
             AnalyseAndTakeDamage(weapon);
         }
