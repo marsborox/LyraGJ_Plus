@@ -45,6 +45,7 @@ public class Grenade : Projectile
         if ((-1 * _currentVerticalVelocity) > _horisontalVelocity)
         {
             explosion.gameObject.SetActive(true);
+            _isMoving = false;
         }
     }
     public void CalcBalistics(Vector2 destination)
@@ -53,7 +54,7 @@ public class Grenade : Projectile
         //this.gameObject.transform.Get
 
         float distance = Vector3.Distance(transform.position,destination);
-        Debug.Log("distance: " + distance);
+        //Debug.Log("distance: " + distance);
         //45Degree launch, simplified
         float initialVelocity = (distance * GRAVITY_ACCELERATION);
         //we should use square root of distance*GravityAcceleration
@@ -63,11 +64,10 @@ public class Grenade : Projectile
         float verVelocity = Mathf.Sqrt((initialVelocity /* * initialVelocity*/) / 2);
         //vertical and horisontal are same
         //Debug.Log(verVelocity);
-        Debug.Log("initialVelocity "+initialVelocity);
-        Debug.Log("Vert/Hor speed is "+verVelocity);
+        //Debug.Log("initialVelocity "+initialVelocity);
+        //Debug.Log("Vert/Hor speed is "+verVelocity);
         _horisontalVelocity = verVelocity;
         _currentVerticalVelocity = verVelocity;
         _isMoving = true;
     }
-
 }
