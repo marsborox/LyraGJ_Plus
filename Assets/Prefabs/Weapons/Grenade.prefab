@@ -283,8 +283,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Explosion
   _targetScale: 13.5
-  _explosionSpeed: 1
+  _explosionSpeed: 50
+  _postExplosionTime: 2
+  _alphaDecrement: 0
   _myCollider: {fileID: 0}
+  _thisSprite: {fileID: 0}
+  _isExploding: 0
+  _isFading: 0
+  grenade: {fileID: 615476982072069816}
 --- !u!212 &3500403576879426865
 SpriteRenderer:
   m_ObjectHideFlags: 0
