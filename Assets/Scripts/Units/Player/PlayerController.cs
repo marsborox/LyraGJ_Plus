@@ -70,11 +70,7 @@ public class PlayerController : MonoBehaviour
         //_action2.started -= ctx => StartPressed2();
         //_action2.canceled -= ctx => StopPressed2();
     }
-    private void Update()
-    {
 
-    }
-    // Update is called once per frame
     void FixedUpdate()
     {
         player.playerMovement.Move(_rawInput);
@@ -127,7 +123,7 @@ public class PlayerController : MonoBehaviour
     void OnWeapon4()
     {
         //Debug.Log("weapon4");
-        //player.AttackWeapon3();
+        
     }
     void OnAction1()
     { 
@@ -144,7 +140,7 @@ public class PlayerController : MonoBehaviour
     }
     void OnAction4()
     {//e
-        Debug.Log("action4");
+        player.AttackWeapon4Click();
     }
     void StartStopPressed(ref Clicker clicker/*,Action onClick, Action onHold*/)
     {

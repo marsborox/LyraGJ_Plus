@@ -55,5 +55,9 @@ public class Player : Unit
     {
         ((PlayerCombat)unitCombat).Weapon3_OnClick();
     }
+    public void AttackWeapon4Click()
+    {
+        ((PlayerCombat)unitCombat).Weapon4_OnClick();
+    }
 
 }

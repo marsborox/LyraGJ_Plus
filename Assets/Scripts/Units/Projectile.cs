@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] public float movementSpeed = 8f;
     public float damage;
 
+
     private void Start()
     {
 
@@ -26,7 +27,7 @@ public class Projectile : MonoBehaviour
             other.GetComponent<Unit>().TakeDamage(damage);
         }
     }
-    public void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         BulletMovement();
     }

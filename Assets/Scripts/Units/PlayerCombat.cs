@@ -10,6 +10,7 @@ public class PlayerCombat : UnitCombat
     public Weapon weapon1New;
     public Weapon weapon2New;
     public Weapon weapon3New;
+    public Weapon weapon4New;
     public void Weapon1_OnClick()
     {
         //Debug.Log("playerCombat.wpn1 attack");
@@ -30,6 +31,10 @@ public class PlayerCombat : UnitCombat
     public void Weapon3_OnClick()
     { 
         weapon3New.ClickAttack();
+    }
+    public void Weapon4_OnClick()
+    {
+        weapon4New.ClickAttack();
     }
     public void AttackWeapon1()
     {
