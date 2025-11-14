@@ -22,7 +22,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     [SerializeField] private AudioClip _gameMusic;
     [SerializeField] private AudioClip _postGameMusic;
     [SerializeField] private AudioClip _creditsMusic;
-
+    [SerializeField] private AudioClip _lobbyMusic;
 
     public AudioSource currentMusic;
 
@@ -55,7 +55,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     }
     public void PlayLobbyMusic()
     {
-        PlayMusicClip(lobbyMusic, musicVolume);
+        PlayMusicClip(_lobbyMusic, musicVolume);
         //Debug.Log("playing music");
     }
     public void PlayGameMusic()
