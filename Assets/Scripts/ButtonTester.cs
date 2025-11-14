@@ -4,13 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class ButtonTester : MonoBehaviour
 {
-    public Button myButton;
+    [SerializeField] private Button _myButton;
     public string sceneToLoad = "YourSceneName";
 
     void Start()
     {
-        if (myButton == null) Debug.LogWarning("myButton not assigned!");
-        else myButton.onClick.AddListener(OnButtonClicked);
+        if (_myButton == null) Debug.LogWarning("_myButton not assigned!");
+        else _myButton.onClick.AddListener(OnButtonClicked);
     }
 
     void OnButtonClicked()

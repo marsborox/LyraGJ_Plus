@@ -7,11 +7,14 @@ public class Weapon : MonoBehaviour
     public Type weaponType;
     public float maxCooldown = 1f;
     public int damage = 1;
-    public MouseFollow mouseFollow;
     public float attackAnimationTime = 0.5f;
+    public float pushbackForce;
 
+    public MouseFollow mouseFollow;
     public Player player;
+
     private float _coolDownTimer = 0;
+
     private void Start()
     {
         _coolDownTimer = 0;

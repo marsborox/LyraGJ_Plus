@@ -22,10 +22,11 @@ public class GameManager : Singleton<GameManager>
     public bool isEndOfWave=false;
     public bool isSpawning=false;
 
-    int dialogueStage = 0;
-    int dialogPart = 0;
     public DialogueUI dialogueUI;
     public List<Dialogue_SO> dialogueSOs = new List<Dialogue_SO>();
+
+    private int _dialogueStage = 0;
+    private int _dialogPart = 0;
     void Start()
     {
         //we wait 1s til leverything really loads
@@ -126,10 +127,10 @@ public class GameManager : Singleton<GameManager>
     }
     public void ContinueDialogue()
     {
-        dialogPart++;
+        _dialogPart++;
 
-        Dialogue_SO dialogue = dialogueSOs[dialogueStage];
-        if (dialogPart < dialogue.parts.Length)
+        Dialogue_SO dialogue = dialogueSOs[_dialogueStage];
+        if (_dialogPart < dialogue.parts.Length)
         {
             Debug.Log("Let's continue dialog!");
             PrepareDialog();
@@ -140,24 +141,24 @@ public class GameManager : Singleton<GameManager>
             dialogueUI.gameObject.SetActive(false);
 
             stage = GameStage.SPAWNING;
-            dialogueStage++;
+            _dialogueStage++;
             Time.timeScale = 1f;
-            if (dialogueStage > (dialogueSOs.Count - 1))//bcs count is max index+1
+            if (_dialogueStage > (dialogueSOs.Count - 1))//bcs count is max index+1
             {
-                dialogueStage = 0;
+                _dialogueStage = 0;
             }
-            dialogPart = 0;
+            _dialogPart = 0;
         }
     }
     private void PrepareDialog()
     {
-        Dialogue_SO dialogue = dialogueSOs[dialogueStage];
-        if (dialogPart < dialogue.parts.Length)
+        Dialogue_SO dialogue = dialogueSOs[_dialogueStage];
+        if (_dialogPart < dialogue.parts.Length)
         {
-            DialoguePart part = dialogue.parts[dialogPart];
+            DialoguePart part = dialogue.parts[_dialogPart];
             dialogueUI.textOfDialogue.text = part.dialogueText;
             dialogueUI.characterImage.sprite = part.characterImage;
-            Debug.Log(dialogPart);
+            Debug.Log(_dialogPart);
         }
     }
 }

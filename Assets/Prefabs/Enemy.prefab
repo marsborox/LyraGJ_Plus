@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: f542e2ef68f594c4d8950812e83705fc, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &237015546550745585
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 4e1b1a9936aab4a3fa073fd28755434d, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &972088653154952118
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 2a1f1ba55e4e449a3912e7f96448a4d7, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &2134102834192693824
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 2b09c68595458499c88d34abefef7fa6, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &2347973235203935456
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,7 +914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 4fe99c9bf9ca44d419dd97316b739bce, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &5279515869294326761
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,11 +925,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3443724269912296941}
   - component: {fileID: 4176866416230126860}
-  - component: {fileID: 1022234959872122541}
-  - component: {fileID: 7886990425334265719}
   - component: {fileID: 1474502790447180861}
   - component: {fileID: 471255943450887182}
   - component: {fileID: 3549913713549301225}
+  - component: {fileID: 1022234959872122541}
+  - component: {fileID: 7886990425334265719}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -980,6 +980,103 @@ MonoBehaviour:
   blueGoingLeft: {fileID: 5387190479982831746}
   enemyMovement: {fileID: 3549913713549301225}
   enemyTemplate: {fileID: 0}
+--- !u!114 &1474502790447180861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279515869294326761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1becf41d06173458636d91c7102e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitStats
+  healthMax_s:
+    name: healthMax
+    amount: 0
+    upgradeAmount: 0
+  damage_s:
+    name: damage
+    amount: 0
+    upgradeAmount: 0
+  movementSpeed_s:
+    name: movementSpeed
+    amount: 0
+    upgradeAmount: 0
+  attackSpeed_s:
+    name: attackSpeed
+    amount: 0
+    upgradeAmount: 0
+  attackRange_s:
+    name: attackRange
+    amount: 0
+    upgradeAmount: 0
+  attackInterval: 0
+  attackTimer: 0
+  SpeedToIntervaL: 100
+  statListFloat: []
+  statList: []
+--- !u!114 &471255943450887182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279515869294326761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccd4b383dc94bf4d98620b63d8ce920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCombat
+  healthMax: 10
+  healthCurrent: 0
+  healthFraction: 0
+  healthBar: {fileID: 2448037168433217751}
+  tagThatHitsUs: PlayerWeapon
+  projectileTagThatHitsUs: PlayerProjectile
+  projectileTagWeShot: EnemyProjectile
+  isPushedBack: 0
+  pushBackTime: 0.2
+  myRigidBody: {fileID: 7886990425334265719}
+  player: {fileID: 0}
+  _enemyMovement: {fileID: 3549913713549301225}
+  _enemy: {fileID: 4176866416230126860}
+  range: 1
+  damage: 1
+  attackCooldown: 5
+  coolDownTimer: 0
+  attackAnimationTime: 0.5
+  attackAnimationTimer: 0
+  isAttacking: 0
+  canMove: 1
+  normalCoef: 1
+  advantageCoef: 0.5
+  disadvantageCoef: 1.5
+  _currentAttackPhase: 0
+--- !u!114 &3549913713549301225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279515869294326761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cad77b73cc9fb4c9725bcf1a3a5f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  currentDirection: 2
+  currentUnitVisual: {fileID: 0}
+  goingUp: {fileID: 2927602613097066004}
+  goingDown: {fileID: 5068740128605661172}
+  goingLeft: {fileID: 556552455703514159}
+  weapons: {fileID: 6133749775801559226}
+  movementSpeed: 1
+  canMove: 1
+  canDash: 1
+  thisEnemy: {fileID: 4176866416230126860}
+  enemyCombat: {fileID: 471255943450887182}
 --- !u!61 &1022234959872122541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1053,100 +1150,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1474502790447180861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5279515869294326761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b1becf41d06173458636d91c7102e85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitStats
-  healthMax_s:
-    name: healthMax
-    amount: 0
-    upgradeAmount: 0
-  damage_s:
-    name: damage
-    amount: 0
-    upgradeAmount: 0
-  movementSpeed_s:
-    name: movementSpeed
-    amount: 0
-    upgradeAmount: 0
-  attackSpeed_s:
-    name: attackSpeed
-    amount: 0
-    upgradeAmount: 0
-  attackRange_s:
-    name: attackRange
-    amount: 0
-    upgradeAmount: 0
-  attackInterval: 0
-  attackTimer: 0
-  SpeedToIntervaL: 100
-  statListFloat: []
-  statList: []
---- !u!114 &471255943450887182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5279515869294326761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dccd4b383dc94bf4d98620b63d8ce920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyCombat
-  healthMax: 10
-  healthCurrent: 0
-  healthFraction: 0
-  _healthBar: {fileID: 2448037168433217751}
-  player: {fileID: 0}
-  _enemyMovement: {fileID: 3549913713549301225}
-  _enemy: {fileID: 4176866416230126860}
-  range: 1
-  damage: 1
-  attackCooldown: 5
-  coolDownTimer: 0
-  attackAnimationTime: 0.5
-  attackAnimationTimer: 0
-  isAttacking: 0
-  canMove: 1
-  knockBackThrust: 10
-  myRigidBody: {fileID: 7886990425334265719}
-  knockBackTime: 0.2
-  normalCoef: 1
-  advantageCoef: 0.5
-  disadvantageCoef: 1.5
-  _currentAttackPhase: 0
---- !u!114 &3549913713549301225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5279515869294326761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83cad77b73cc9fb4c9725bcf1a3a5f10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  currentDirection: 2
-  movementSpeed: 1
-  currentUnitVisual: {fileID: 0}
-  goingUp: {fileID: 2927602613097066004}
-  goingDown: {fileID: 5068740128605661172}
-  goingLeft: {fileID: 556552455703514159}
-  weapons: {fileID: 6133749775801559226}
-  canMove: 1
-  canDash: 1
-  thisEnemy: {fileID: 4176866416230126860}
-  enemyCombat: {fileID: 471255943450887182}
 --- !u!1 &6133749775801559226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,7 +1363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: dbbd4bd35445743e2811631c8e404f4d, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &7800178627155700633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 73bd0373e34de46cba6926ce94d904f6, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &8202767204168178234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 06a049478ad704be7a0aade75b341524, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &8213241640312298227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,7 +1681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 29b30221342974ae7a21841dc34d9c82, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &8762930860729338269
 GameObject:
   m_ObjectHideFlags: 0

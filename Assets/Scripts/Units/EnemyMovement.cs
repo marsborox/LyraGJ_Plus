@@ -5,7 +5,8 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyMovement : UnitMovement
 {
     public Enemy thisEnemy;
-    [SerializeField]private EnemyCombat enemyCombat;
+
+    [SerializeField] private EnemyCombat enemyCombat;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

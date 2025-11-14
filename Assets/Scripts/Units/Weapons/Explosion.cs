@@ -3,6 +3,11 @@ using System.Collections;
 using TMPro;
 public class Explosion : MonoBehaviour
 {
+    public int damage;
+    public float pushBackSpeed;
+    public float pushBackForce;
+    public float pushBackDuration;
+
     [SerializeField] private float _targetScale = 13.5f;
     [SerializeField] private float _explosionSpeed = 1f;
     [SerializeField] private float _postExplosionTime=2;
@@ -20,6 +25,16 @@ public class Explosion : MonoBehaviour
         _thisSprite = GetComponent<SpriteRenderer>();
         _isExploding = true;
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("hitting " + other.tag);
+        if (other.tag == "Player" || other.tag == "Enemy")
+        {
+            Unit unitWeHit = other.gameObject.GetComponent<Unit>();
+            unitWeHit.TakeDamage(damage);
+            unitWeHit.GetPushedBack(this.transform.position,pushBackForce,pushBackDuration);
+        }
+    }
     private void Start()
     {
         CountAlphaDecrement();
@@ -36,6 +51,7 @@ public class Explosion : MonoBehaviour
             Fading();
         }
     }
+
     void CountAlphaDecrement()
     { 
         _alphaDecrement = 1/_postExplosionTime;
@@ -66,7 +82,7 @@ public class Explosion : MonoBehaviour
         float alphaDecrement = _alphaDecrement * Time.fixedDeltaTime;
         Color color = _thisSprite.color;
 
-        Debug.Log(alphaDecrement);
+        //Debug.Log(alphaDecrement);
         color.a -= alphaDecrement;
         _thisSprite.color = color;
 
