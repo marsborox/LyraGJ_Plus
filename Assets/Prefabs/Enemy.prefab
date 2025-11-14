@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: f542e2ef68f594c4d8950812e83705fc, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &237015546550745585
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 4e1b1a9936aab4a3fa073fd28755434d, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &972088653154952118
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 2a1f1ba55e4e449a3912e7f96448a4d7, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &2134102834192693824
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 2b09c68595458499c88d34abefef7fa6, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &2347973235203935456
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,7 +914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 4fe99c9bf9ca44d419dd97316b739bce, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &5279515869294326761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1105,7 @@ MonoBehaviour:
   healthMax: 10
   healthCurrent: 0
   healthFraction: 0
-  _healthBar: {fileID: 2448037168433217751}
+  healthBar: {fileID: 2448037168433217751}
   player: {fileID: 0}
   _enemyMovement: {fileID: 3549913713549301225}
   _enemy: {fileID: 4176866416230126860}
@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: dbbd4bd35445743e2811631c8e404f4d, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &7800178627155700633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 73bd0373e34de46cba6926ce94d904f6, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &8202767204168178234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 06a049478ad704be7a0aade75b341524, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &8213241640312298227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,7 +1678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 29b30221342974ae7a21841dc34d9c82, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &8762930860729338269
 GameObject:
   m_ObjectHideFlags: 0

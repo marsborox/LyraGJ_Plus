@@ -3,32 +3,32 @@ using UnityEngine;
 public class DirectionMovement : MonoBehaviour
 {
     public Sprite[] sprites;
-    public float frameDuration = 0.2f;
+    [SerializeField] private float _frameDuration = 0.2f;
 
-    private float time = 0f;
-    private int currentSprite = 0;
-    private SpriteRenderer spriteRenderer;
+    private float _time = 0f;
+    private int _currentSprite = 0;
+    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void Animate(float deltaTime)
     {
-        time += deltaTime;
-        if (time >= frameDuration)
+        _time += deltaTime;
+        if (_time >= _frameDuration)
         {
-            time = 0;
-            currentSprite++;
-            if (currentSprite == sprites.Length)
+            _time = 0;
+            _currentSprite++;
+            if (_currentSprite == sprites.Length)
             {
-                currentSprite = 0;
+                _currentSprite = 0;
             }
 
-            if (currentSprite < sprites.Length && sprites[currentSprite] != null)
+            if (_currentSprite < sprites.Length && sprites[_currentSprite] != null)
             {
-                spriteRenderer.sprite = sprites[currentSprite];
+                _spriteRenderer.sprite = sprites[_currentSprite];
             }
         }
     }

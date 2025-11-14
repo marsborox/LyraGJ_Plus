@@ -12,14 +12,14 @@ public class MusicalWeapon : Weapon
     
     public PlayerMovement playerMovement;
 
-    private SimpleSpriteAnimator currentAnimator;
-    private Collider2D currentCollider;
+    private SimpleSpriteAnimator _currentAnimator;
+    private Collider2D _currentCollider;
     [SerializeField] private MouseFollow _mouseFollow;
 
     private void Update()
     {
         base.Update();
-        FollowMouse();
+        //FollowMouse();
     }
     public override void AttackHit()
     {
@@ -27,34 +27,34 @@ public class MusicalWeapon : Weapon
         {
             case PlayerMovement.Direction.UP:
                 {
-                    currentAnimator = upAttackAnimator;
+                    _currentAnimator = upAttackAnimator;
                     break;
                 }
             case PlayerMovement.Direction.DOWN:
                 {
-                    currentAnimator = downAttackAnimator;
+                    _currentAnimator = downAttackAnimator;
                     break;
                 }
             case PlayerMovement.Direction.LEFT:
                 {
-                    currentAnimator = leftAttackAnimator;
+                    _currentAnimator = leftAttackAnimator;
                     break;
                 }
             case PlayerMovement.Direction.RIGHT:
                 {
-                    currentAnimator = leftAttackAnimator;
+                    _currentAnimator = leftAttackAnimator;
                     break;
                 }
         }
-        currentCollider = currentAnimator.gameObject.GetComponent<Collider2D>();
-        currentCollider.enabled = true;
+        _currentCollider = _currentAnimator.gameObject.GetComponent<Collider2D>();
+        _currentCollider.enabled = true;
         StartCoroutine(AttackHitRoutine());
     }
     IEnumerator AttackHitRoutine()
     {
-        currentAnimator.Play();
+        _currentAnimator.Play();
         yield return new WaitForSeconds(0.3f);
-        currentCollider.enabled = false;
+        _currentCollider.enabled = false;
     }
     private void FollowMouse()
     { 

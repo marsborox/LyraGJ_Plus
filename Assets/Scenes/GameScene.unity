@@ -11632,6 +11632,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 859534956746889397, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: _dashSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 859534956746889397, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: _dashSpeedCoef
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 859534956746889397, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: _maxDashDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 859534956746889397, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: _dashCooldownTimer
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3986896122668706926, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -13862,7 +13878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textOfDialogue: {fileID: 339429247}
   characterImage: {fileID: 688705910}
-  closeDialogueButton: {fileID: 898583180}
+  _closeDialogueButton: {fileID: 898583180}
 --- !u!1 &1851071323
 GameObject:
   m_ObjectHideFlags: 0
@@ -15139,9 +15155,61 @@ PrefabInstance:
       value: SoundManager
       objectReference: {fileID: 0}
     - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: _gameMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: b17708490ffb149f8b14366ff900cbe5, type: 3}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: _menuMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: b17708490ffb149f8b14366ff900cbe5, type: 3}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: _creditsMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: b17708490ffb149f8b14366ff900cbe5, type: 3}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: _postGameMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: b17708490ffb149f8b14366ff900cbe5, type: 3}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
       propertyPath: soundEffectVolume
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: _pianoSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: _guitarSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: _saxofonSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: '_pianoSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1cc8dbe8034ef4c4e8235ac017167637, type: 3}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: '_pianoSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e855c798af4f427f96a106b31b2ac35, type: 3}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: '_guitarSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ce9c0a91f13f469b80047e13f62810e, type: 3}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: '_guitarSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ab15db9247a8a493693260ac48bad231, type: 3}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: '_saxofonSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1929aaacf7fc241049276e4d3b7ec31a, type: 3}
+    - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
+      propertyPath: '_saxofonSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 67ba2ce012f574ba8a66495c9a60e0e3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

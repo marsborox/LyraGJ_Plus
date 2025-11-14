@@ -6,7 +6,7 @@ public class UnitCombat : MonoBehaviour
     public int healthMax = 10;
     public int healthCurrent;
     public float healthFraction;
-    [SerializeField] private Image _healthBar;
+    public Image healthBar;
     void Start()
     {
         healthCurrent = healthMax;
@@ -18,7 +18,7 @@ public class UnitCombat : MonoBehaviour
     void SetHealthBar()
     {
         healthFraction = (float)healthCurrent / (float)healthMax;
-        _healthBar.fillAmount = healthFraction;
+        healthBar.fillAmount = healthFraction;
     }
     public void TakeDamage(int damage)
     {

@@ -3,18 +3,18 @@ using UnityEngine.UI;
 
 public class MainMenu_UI : UI
 {
-    public Button newGameButton;
-    public Button optionsButton;
-    public Button creditsButton;
-    public Button quitButton;
-    public UI optionsUI;
+    [SerializeField] private Button _newGameButton;
+    [SerializeField] private Button _optionsButton;
+    [SerializeField] private Button _creditsButton;
+    [SerializeField] private Button _quitButton;
+    [SerializeField] private UI _optionsUI;
 
-    public UI credits;
+    [SerializeField] private UI _credits;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InitiateButton(newGameButton, MySceneManager.instance.OpenGameScene);
-        InitiateButton(quitButton, QuitToWindows);
+        InitiateButton(_newGameButton, MySceneManager.instance.OpenGameScene);
+        InitiateButton(_quitButton, QuitToWindows);
         //InitiateButton(creditsButton, ButtonGUIMethod, credits.gameObject);
         //InitiateButton(optionsButton, ButtonGUIMethod, optionsUI.gameObject);
     }

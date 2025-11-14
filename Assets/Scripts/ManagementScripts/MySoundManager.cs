@@ -17,16 +17,16 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     public AudioClip buttonClickSound;
 
     [Header("Music")]
-    public AudioClip menuMusic;
-    public AudioClip gameMusic;
-    public AudioClip postGameMusic;
-    public AudioClip creditsMusic;
+    [SerializeField] private AudioClip _menuMusic;
+    [SerializeField] private AudioClip _gameMusic;
+    [SerializeField] private AudioClip _postGameMusic;
+    [SerializeField] private AudioClip _creditsMusic;
 
     public AudioSource currentMusic;
 
-    public List<AudioClip> pianoSounds;
-    public List<AudioClip> saxofonSounds;
-    public List<AudioClip> guitarSounds;
+    [SerializeField] private List<AudioClip> _pianoSounds;
+    [SerializeField] private List<AudioClip> _saxofonSounds;
+    [SerializeField] private List<AudioClip> _guitarSounds;
 
     private void Awake()
     {
@@ -48,22 +48,22 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     }
     public void PlayMenuMusic()
     {
-        PlayMusicClip(menuMusic, musicVolume);
+        PlayMusicClip(_menuMusic, musicVolume);
         //Debug.Log("playing music");
     }
     public void PlayGameMusic()
     {
-        PlayMusicClip(gameMusic, musicVolume);
+        PlayMusicClip(_gameMusic, musicVolume);
         //Debug.Log("playing music");
     }
     public void PlayPostGameMusic()
     {
-        PlayMusicClip(postGameMusic, musicVolume);
+        PlayMusicClip(_postGameMusic, musicVolume);
         //Debug.Log("playing music");
     }
     public void PlayCreditsMusic()
     {
-        PlayMusicClip(creditsMusic, musicVolume);
+        PlayMusicClip(_creditsMusic, musicVolume);
         //Debug.Log("playing music");
     }
     public void StopCurrentMusic()
@@ -191,20 +191,20 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
     public void PlayGuitar()
     {
-        int index = Random.Range(0, guitarSounds.Count);
-        PlayClip(guitarSounds[index], soundEffectVolume);
+        int index = Random.Range(0, _guitarSounds.Count);
+        PlayClip(_guitarSounds[index], soundEffectVolume);
     }
 
     public void PlaySaxofone()
     {
-        int index = Random.Range(0, saxofonSounds.Count);
-        PlayClip(saxofonSounds[index], soundEffectVolume);
+        int index = Random.Range(0, _saxofonSounds.Count);
+        PlayClip(_saxofonSounds[index], soundEffectVolume);
     }
 
     public void PlayPiano()
     {
-        int index = Random.Range(0, pianoSounds.Count);
-        PlayClip(pianoSounds[index], soundEffectVolume);
+        int index = Random.Range(0, _pianoSounds.Count);
+        PlayClip(_pianoSounds[index], soundEffectVolume);
     }
 
 }

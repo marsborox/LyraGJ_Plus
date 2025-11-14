@@ -106,7 +106,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 2eb1bb93ee805446ebb9259c4bbad2d9, type: 3}
   - {fileID: 21300000, guid: 353f51c64cf2348bfa8263796085207b, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &158243530053298534
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: ee4dd5f1858564610ae8066626e27b4f, type: 3}
   - {fileID: 21300000, guid: 89df1af99dbcc4aac9a91af39b74da6e, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &871338527384969577
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +899,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: c595358aa30be461c91f40049e0b0854, type: 3}
   - {fileID: 21300000, guid: 51009f5c526634757986891330a2d007, type: 3}
-  frameDuration: 0.2
+  _frameDuration: 0.2
 --- !u!1 &2583849601467725708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,14 +1768,13 @@ MonoBehaviour:
   canMove: 1
   canDash: 1
   _mouseFollow: {fileID: 1477771279173098806}
-  dashSpeed: 0
-  dashCooldownTimer: 0
-  dashCooldownTime: 0
-  isDashing: 0
-  isDashReady: 1
-  maxDashDistance: 5
-  maxDashTime: 0
-  dashSpeedCoef: 3
+  _dashSpeed: 0
+  _dashCooldownTimer: 0.5
+  _dashCooldownTime: 0
+  _isDashing: 0
+  _isDashReady: 1
+  _maxDashDistance: 10
+  _dashSpeedCoef: 3
   _dashDestination: {x: 0, y: 0, z: 0}
 --- !u!114 &723713826427866658
 MonoBehaviour:
@@ -1792,7 +1791,7 @@ MonoBehaviour:
   healthMax: 10
   healthCurrent: 0
   healthFraction: 0
-  _healthBar: {fileID: 2174684710203813611}
+  healthBar: {fileID: 2174684710203813611}
   weapon1: {fileID: 8881615355800754850}
   weapon2: {fileID: 3626787188444012202}
   weapon3: {fileID: 6684086850587309295}

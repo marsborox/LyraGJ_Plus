@@ -6,13 +6,13 @@ public class UnitMovement : MonoBehaviour
 
     public Direction currentDirection = Direction.LEFT;
 
-    public float movementSpeed = 100f;
     public DirectionMovement currentUnitVisual;
     public DirectionMovement goingUp;
     public DirectionMovement goingDown;
     public DirectionMovement goingLeft;
 
     public GameObject weapons;
+    public float movementSpeed = 100f;
 
     public bool canMove = true;
     public bool canDash = true;

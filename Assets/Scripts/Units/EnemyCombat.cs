@@ -10,6 +10,7 @@ public class EnemyCombat : UnitCombat
 {
     public enum AttackPhase { READY, ANIMATION, POSTANIMATION,POSTHIT}
     public Player player;
+
     [SerializeField] private EnemyMovement _enemyMovement;
     [SerializeField] private Enemy _enemy;
 
@@ -42,6 +43,7 @@ public class EnemyCombat : UnitCombat
     public float disadvantageCoef = 1.5f;
 
     [SerializeField]private AttackPhase _currentAttackPhase = AttackPhase.READY;
+
     void Update()
     {
         base.Update();

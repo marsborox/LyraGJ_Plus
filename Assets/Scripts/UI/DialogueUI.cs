@@ -7,11 +7,11 @@ public class DialogueUI : UI
     public TextMeshProUGUI textOfDialogue;
     public Image characterImage;
 
-    public Button closeDialogueButton;
+    [SerializeField] private Button _closeDialogueButton;
 
     private void Start()
     {
-        InitiateButton(closeDialogueButton,CloseUI);
+        InitiateButton(_closeDialogueButton,CloseUI);
     }
 
     public void CloseUI()
