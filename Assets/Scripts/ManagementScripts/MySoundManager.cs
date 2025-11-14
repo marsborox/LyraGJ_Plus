@@ -17,10 +17,12 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     public AudioClip buttonClickSound;
 
     [Header("Music")]
+
     [SerializeField] private AudioClip _menuMusic;
     [SerializeField] private AudioClip _gameMusic;
     [SerializeField] private AudioClip _postGameMusic;
     [SerializeField] private AudioClip _creditsMusic;
+
 
     public AudioSource currentMusic;
 
@@ -49,6 +51,11 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     public void PlayMenuMusic()
     {
         PlayMusicClip(_menuMusic, musicVolume);
+        //Debug.Log("playing music");
+    }
+    public void PlayLobbyMusic()
+    {
+        PlayMusicClip(lobbyMusic, musicVolume);
         //Debug.Log("playing music");
     }
     public void PlayGameMusic()
@@ -152,7 +159,9 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
             case "MainMenu":
                 PlayMenuMusic();
                 break;
-
+            case "LobbyScene":
+                PlayLobbyMusic();
+                break;
             case "GameScene":
                 PlayGameMusic();
                 break;
