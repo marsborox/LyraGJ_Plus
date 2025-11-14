@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
     public Unit sourceUnit;
     public string targetTag;
     public float movementSpeed = 8f;
-    public float damage;
+    public int damage;
 
     private void Start()
     {

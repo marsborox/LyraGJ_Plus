@@ -1,8 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-
-using Unity.VisualScripting;
-
 using UnityEngine;
 
 
@@ -30,11 +27,7 @@ public class EnemyCombat : UnitCombat
     public bool isAttacking = false;
 
     public bool canMove = true;
-    public float knockBackThrust = 10f;
-    bool isKnockedBack = false;
-    public Rigidbody2D myRigidBody;
-    public float knockBackTime = 0.2f;
-
+    
     //coefs point of view of enemy
 
     [Header(" type coef")]
@@ -47,11 +40,11 @@ public class EnemyCombat : UnitCombat
     void Update()
     {
         base.Update();
-        if (isKnockedBack)
+        if (isPushedBack)
         {
             return;
         }
-        if (!isKnockedBack)
+        if (!isPushedBack)
         {
             myRigidBody.linearVelocity = Vector3.zero;
         }
@@ -69,16 +62,8 @@ public class EnemyCombat : UnitCombat
         //PerformEnemyBehavior();
         BehaviorSwitch();
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("collision");
-        if (other.gameObject.tag == "PlayerWeapon")
-        {
-            Debug.Log("collision w weapon");
-            Weapon weapon = other.gameObject.GetComponent<WeaponCollider>().weaponIBelongTo;
-            AnalyseAndTakeDamage(weapon);
-        }
-    }
+
+
     void AnalyseAndTakeDamage(Weapon inputWeapon)
     {
         int weaponTypeIndex = ConvertType(inputWeapon.weaponType);
@@ -103,22 +88,7 @@ public class EnemyCombat : UnitCombat
         TakeDamage(damageTaken);
         //Debug.Log("Enemy type " + _enemy.enemyType.ToString() + " took damage: " + damageTaken.ToString() 
         //    + " from weapon type " + inputWeapon.weaponType.ToString());
-        GetKnockBack();
-    }
-    void GetKnockBack()
-    {
-        if (isKnockedBack)
-            return;
-        Vector2 difference = (transform.position - player.transform.position).normalized * knockBackThrust * myRigidBody.mass;
-        myRigidBody.AddForce(difference, ForceMode2D.Impulse);
-        isKnockedBack = true;
-        StartCoroutine(KnockBackRoutine());
-    }
-    IEnumerator KnockBackRoutine()
-    {
-        yield return new WaitForSeconds(knockBackTime);
-        isKnockedBack = false;
-        myRigidBody.linearVelocity = Vector3.zero;
+        //GetPushedBack();
     }
     int ConvertType(Type inputType)
     {
@@ -174,7 +144,7 @@ public class EnemyCombat : UnitCombat
                     return;
                 }
             case AttackPhase.POSTHIT:
-                {
+                {// ***************** remove this
                     if (!CheckIfInRange())
                     {
                         _enemyMovement.MoveToTarget(player);
@@ -231,7 +201,6 @@ public class EnemyCombat : UnitCombat
         isAttackReady = false;
         _currentAttackPhase = AttackPhase.POSTHIT;
     }
-
     public void CooldownTimer()
     {
         if (!(coolDownTimer < 0))
@@ -245,7 +214,6 @@ public class EnemyCombat : UnitCombat
             }
         }
     }
-
     /*
     void PerformTimers()
     {
@@ -271,7 +239,22 @@ public class EnemyCombat : UnitCombat
         coolDownTimer = attackCooldown; // move to post hit prob
         isAttackReady = false;//move to post hit or not we want to make sure it wont attack many times
     }*/
-
-
-
+    #region PushBack
+    /*
+    void GetPushedBack()
+    {
+        if (isPushedBack)
+            return;
+        Vector2 difference = (transform.position - player.transform.position).normalized * pushBackForce * myRigidBody.mass;
+        myRigidBody.AddForce(difference, ForceMode2D.Impulse);
+        isPushedBack = true;
+        StartCoroutine(PushBackRoutine());
+    }
+    IEnumerator PushBackRoutine()
+    {
+        yield return new WaitForSeconds(pushBackTime);
+        isPushedBack = false;
+        myRigidBody.linearVelocity = Vector3.zero;
+    }*/
+    #endregion
 }

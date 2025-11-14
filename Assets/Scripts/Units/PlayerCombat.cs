@@ -11,6 +11,8 @@ public class PlayerCombat : UnitCombat
     public Weapon weapon2New;
     public Weapon weapon3New;
     public Weapon weapon4New;
+
+
     public void Weapon1_OnClick()
     {
         //Debug.Log("playerCombat.wpn1 attack");

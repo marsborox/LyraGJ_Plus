@@ -512,8 +512,9 @@ MonoBehaviour:
   weaponType: 0
   maxCooldown: 1
   damage: 1
-  mouseFollow: {fileID: 1477771279173098806}
   attackAnimationTime: 0.3
+  pushbackForce: 0
+  mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   projectilePrefab: {fileID: 6644402386810928938, guid: b82f19a88e687ea46b2a0154fed67ec0, type: 3}
 --- !u!1 &728965464587962960
@@ -1492,7 +1493,7 @@ GameObject:
   - component: {fileID: 3378089230030055086}
   m_Layer: 3
   m_Name: GrenadeLauncher
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1527,8 +1528,9 @@ MonoBehaviour:
   weaponType: 0
   maxCooldown: 1
   damage: 1
-  mouseFollow: {fileID: 1477771279173098806}
   attackAnimationTime: 0.5
+  pushbackForce: 0
+  mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   _grenadePrefab: {fileID: 5810026968037255196, guid: eea5b762f2942d64281f29ab4e544422, type: 3}
 --- !u!1 &3986896122668706926
@@ -1543,12 +1545,12 @@ GameObject:
   - component: {fileID: 6534805966441198531}
   - component: {fileID: 6243917595417204822}
   - component: {fileID: 8184401127856028204}
-  - component: {fileID: 7287768026732415858}
-  - component: {fileID: 2395246204302797546}
   - component: {fileID: 6110641428596706858}
   - component: {fileID: 859534956746889397}
   - component: {fileID: 723713826427866658}
   - component: {fileID: 5617343433286424686}
+  - component: {fileID: 7287768026732415858}
+  - component: {fileID: 2395246204302797546}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1636,6 +1638,115 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 6243917595417204822}
   holdHreshold: 0.1
+--- !u!114 &6110641428596706858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986896122668706926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1becf41d06173458636d91c7102e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitStats
+  healthMax_s:
+    name: healthMax
+    amount: 20
+    upgradeAmount: 5
+  damage_s:
+    name: damage
+    amount: 2
+    upgradeAmount: 1
+  movementSpeed_s:
+    name: movementSpeed
+    amount: 3
+    upgradeAmount: 1
+  attackSpeed_s:
+    name: attackSpeed
+    amount: 100
+    upgradeAmount: 25
+  attackRange_s:
+    name: attackRange
+    amount: 0
+    upgradeAmount: 0
+  attackInterval: 0
+  attackTimer: 0
+  SpeedToIntervaL: 100
+  statListFloat: []
+  statList: []
+--- !u!114 &859534956746889397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986896122668706926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25107ce640575644a4daa8ac6f3a794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  currentDirection: 2
+  currentUnitVisual: {fileID: 8478153812751325787}
+  goingUp: {fileID: 2353081068572894406}
+  goingDown: {fileID: 4880690286573580683}
+  goingLeft: {fileID: 8478153812751325787}
+  weapons: {fileID: 5158036404265290629}
+  movementSpeed: 5
+  canMove: 1
+  canDash: 1
+  _mouseFollow: {fileID: 1477771279173098806}
+  _dashSpeed: 0
+  _dashCooldownTimer: 0.5
+  _dashCooldownTime: 0
+  _isDashing: 0
+  _isDashReady: 1
+  _maxDashDistance: 10
+  _dashSpeedCoef: 3
+  _dashDestination: {x: 0, y: 0, z: 0}
+--- !u!114 &723713826427866658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986896122668706926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1a4cdbb5a76d949aa8953da8d96b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  healthMax: 10
+  healthCurrent: 0
+  healthFraction: 0
+  healthBar: {fileID: 2174684710203813611}
+  tagThatHitsUs: EnemyWeapon
+  projectileTagThatHitsUs: EnemyProjectile
+  projectileTagWeShot: PlayerProjectile
+  isPushedBack: 0
+  pushBackTime: 0.2
+  myRigidBody: {fileID: 2395246204302797546}
+  weapon1: {fileID: 8881615355800754850}
+  weapon2: {fileID: 3626787188444012202}
+  weapon3: {fileID: 6684086850587309295}
+  weapon4: {fileID: 0}
+  weapon1New: {fileID: 2248609410062747645}
+  weapon2New: {fileID: 8044613271016147169}
+  weapon3New: {fileID: 4240516522687103533}
+  weapon4New: {fileID: 3378089230030055086}
+--- !u!114 &5617343433286424686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986896122668706926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f5991b391fc5648b6a7d2040cb7553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!61 &7287768026732415858
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1694,7 +1805,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -1709,109 +1820,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &6110641428596706858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986896122668706926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b1becf41d06173458636d91c7102e85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitStats
-  healthMax_s:
-    name: healthMax
-    amount: 20
-    upgradeAmount: 5
-  damage_s:
-    name: damage
-    amount: 2
-    upgradeAmount: 1
-  movementSpeed_s:
-    name: movementSpeed
-    amount: 3
-    upgradeAmount: 1
-  attackSpeed_s:
-    name: attackSpeed
-    amount: 100
-    upgradeAmount: 25
-  attackRange_s:
-    name: attackRange
-    amount: 0
-    upgradeAmount: 0
-  attackInterval: 0
-  attackTimer: 0
-  SpeedToIntervaL: 100
-  statListFloat: []
-  statList: []
---- !u!114 &859534956746889397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986896122668706926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d25107ce640575644a4daa8ac6f3a794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  currentDirection: 2
-  movementSpeed: 5
-  currentUnitVisual: {fileID: 8478153812751325787}
-  goingUp: {fileID: 2353081068572894406}
-  goingDown: {fileID: 4880690286573580683}
-  goingLeft: {fileID: 8478153812751325787}
-  weapons: {fileID: 5158036404265290629}
-  canMove: 1
-  canDash: 1
-  _mouseFollow: {fileID: 1477771279173098806}
-  _dashSpeed: 0
-  _dashCooldownTimer: 0.5
-  _dashCooldownTime: 0
-  _isDashing: 0
-  _isDashReady: 1
-  _maxDashDistance: 10
-  _dashSpeedCoef: 3
-  _dashDestination: {x: 0, y: 0, z: 0}
---- !u!114 &723713826427866658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986896122668706926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb1a4cdbb5a76d949aa8953da8d96b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
-  healthMax: 10
-  healthCurrent: 0
-  healthFraction: 0
-  healthBar: {fileID: 2174684710203813611}
-  weapon1: {fileID: 8881615355800754850}
-  weapon2: {fileID: 3626787188444012202}
-  weapon3: {fileID: 6684086850587309295}
-  weapon4: {fileID: 0}
-  weapon1New: {fileID: 2248609410062747645}
-  weapon2New: {fileID: 8044613271016147169}
-  weapon3New: {fileID: 4240516522687103533}
-  weapon4New: {fileID: 3378089230030055086}
---- !u!114 &5617343433286424686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986896122668706926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19f5991b391fc5648b6a7d2040cb7553, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &3996855304987699569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,8 +2047,9 @@ MonoBehaviour:
   weaponType: 1
   maxCooldown: 1
   damage: 2
-  mouseFollow: {fileID: 0}
   attackAnimationTime: 0.5
+  pushbackForce: 0
+  mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 3405487246262069932}
   downAttackAnimator: {fileID: 6597135062488278026}
@@ -2158,8 +2167,9 @@ MonoBehaviour:
   weaponType: 2
   maxCooldown: 1
   damage: 2
-  mouseFollow: {fileID: 0}
   attackAnimationTime: 0.5
+  pushbackForce: 0
+  mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 8479648715776645013}
   downAttackAnimator: {fileID: 6793574039955839907}
@@ -2216,8 +2226,9 @@ MonoBehaviour:
   weaponType: 0
   maxCooldown: 1
   damage: 2
-  mouseFollow: {fileID: 0}
   attackAnimationTime: 0.5
+  pushbackForce: 0
+  mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 4974832783693468471}
   downAttackAnimator: {fileID: 7354367979854219450}
@@ -3207,8 +3218,9 @@ MonoBehaviour:
   weaponType: 3
   maxCooldown: 1
   damage: 2
-  mouseFollow: {fileID: 0}
   attackAnimationTime: 0.5
+  pushbackForce: 0
+  mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 6447553475759269154}
   downAttackAnimator: {fileID: 1043397045206900084}
@@ -3548,8 +3560,9 @@ MonoBehaviour:
   weaponType: 0
   maxCooldown: 3
   damage: 1
-  mouseFollow: {fileID: 1477771279173098806}
   attackAnimationTime: 0.2
+  pushbackForce: 0
+  mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   _myCollider: {fileID: 3573217600909049118}
   _animationVisual1: {fileID: 472082327721423585}
@@ -4136,8 +4149,9 @@ MonoBehaviour:
   weaponType: 0
   maxCooldown: 1
   damage: 1
-  mouseFollow: {fileID: 1477771279173098806}
   attackAnimationTime: 0.4
+  pushbackForce: 0
+  mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   _myCollider: {fileID: 8696068938215601874}
   _animationVisual: {fileID: 158243530053298534}

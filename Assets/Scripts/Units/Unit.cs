@@ -29,9 +29,9 @@ public class Unit : MonoBehaviour
     {
         return unitStats.healthMax_s.amount;
     }
-    public float ReturnDamageAmount()
+    public int ReturnDamageAmount()
     {
-        return unitStats.damage_s.amount;
+        return (int)unitStats.damage_s.amount;
     }
     public float ReturnMovementSpeedAmount()
     {
@@ -57,13 +57,17 @@ public class Unit : MonoBehaviour
     {
         return unitStats.score;
     }*/
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(int damageAmount)
     {
-        //unitEventHandler.ChangeHealth(-damageAmount);
+        unitCombat.TakeDamage(damageAmount);
     }
     public void GetHeal(float healAmount)
     {
         //unitEventHandler.ChangeHealth(healAmount);
+    }
+    public void GetPushedBack(Vector3 pushedFrom, float pushBackForce, float pushBackDuration)
+    {
+        unitCombat.GetPushedBack(pushedFrom,pushBackForce,pushBackDuration);
     }
     public void Attack()
     {

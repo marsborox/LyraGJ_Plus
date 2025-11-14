@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 6361448257711618213}
   m_Layer: 0
   m_Name: Explosion
-  m_TagString: PlayerWeapon
+  m_TagString: Explosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,12 +282,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771950af4b87d724c9030b0131a00f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Explosion
+  damage: 1
+  pushBackSpeed: 2
+  pushBackForce: 10
+  pushBackDuration: 0.5
   _targetScale: 13.5
   _explosionSpeed: 50
   _postExplosionTime: 2
   _alphaDecrement: 0
-  _myCollider: {fileID: 0}
-  _thisSprite: {fileID: 0}
+  _myCollider: {fileID: 6361448257711618213}
+  _thisSprite: {fileID: 3500403576879426865}
   _isExploding: 0
   _isFading: 0
   grenade: {fileID: 615476982072069816}
