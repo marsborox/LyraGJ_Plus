@@ -6,19 +6,18 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum GameStage {SPAWNING, POSTWAVE,DIALOGUE,NEWWAVE }
+public enum GameStage {SPAWNING, POSTWAVE, DIALOGUE, NEWWAVE, END}
 public class GameManager : Singleton<GameManager>
 {
-    public static new GameManager isntance => Singleton<GameManager>.instance;
+    public static new GameManager instance => Singleton<GameManager>.instance;
 
     public GameStage stage = GameStage.NEWWAVE;
 
     public int enemiesPerWave = 10;
-    int realEnemiesPerWave;//no time to fix why it spawns 1 extra 
 
+    public GameObject portal;
     public int spawnedEnemiesThisWave = 0;
     public int enemiesInField = 0;
-
 
     public bool isEndOfWave=false;
     public bool isSpawning=false;
@@ -31,7 +30,6 @@ public class GameManager : Singleton<GameManager>
     {
         //we wait 1s til leverything really loads
         StartCoroutine(StartSpawnDelayRoutine());
-        realEnemiesPerWave = enemiesPerWave - 1;
     }
 
     // Update is called once per frame
@@ -46,10 +44,14 @@ public class GameManager : Singleton<GameManager>
         { 
             case GameStage.SPAWNING:
                 {
-                    UnitSpawner.instance.AutoSpawnEnemies();
+                    portal.SetActive(false);
+
                     if (spawnedEnemiesThisWave == enemiesPerWave)
                     {
                         stage = GameStage.POSTWAVE;
+                    } else
+                    {
+                        UnitSpawner.instance.AutoSpawnEnemies();
                     }
                     break;
                 }
@@ -61,7 +63,8 @@ public class GameManager : Singleton<GameManager>
                     //display conversation
                     if (enemiesInField == 0)
                     {
-                        stage = GameStage.DIALOGUE;
+                        // stage = GameStage.DIALOGUE; skipping for now, we need to update dialogues
+                        stage = GameStage.END;
                     }
                     
                     break; 
@@ -77,6 +80,12 @@ public class GameManager : Singleton<GameManager>
                 { 
                     break; 
                 }
+            case GameStage.END:
+                {
+                    portal.SetActive(true);
+                    break;
+                }
+
         }
     }
     void ControlGameFlow()
