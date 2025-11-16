@@ -43,7 +43,6 @@ public class EnemyCombat : UnitCombat
         base.Update();
         if (isStunned)
         {
-
             return;
         }
         if (isPushedBack)
@@ -71,65 +70,35 @@ public class EnemyCombat : UnitCombat
         BehaviorSwitch();
     }
 
-
-    void AnalyseAndTakeDamage(Weapon inputWeapon)
-    {
-        int weaponTypeIndex = ConvertType(inputWeapon.weaponType);
-        int enemyTypeIndex = ConvertType(_enemy.enemyType);
-        int damageTaken;
-
-        if (weaponTypeIndex == 9999)
-        {//if is no special type
-            damageTaken = inputWeapon.damage;
-        }
-        else
-        //bigger brackets are attacking weapon, inside are coef values of
-        //enemy type receiving dmg from that wpn
-        {
-            float[,] matrix = { { normalCoef, disadvantageCoef, advantageCoef },
-                            { advantageCoef, normalCoef, disadvantageCoef },
-                            { disadvantageCoef, advantageCoef, normalCoef } };
-            float usedModifier = matrix[weaponTypeIndex, enemyTypeIndex];
-            damageTaken = (int)(inputWeapon.damage * usedModifier);
-        }
-
-        TakeDamage(damageTaken);
-        //Debug.Log("Enemy type " + _enemy.enemyType.ToString() + " took damage: " + damageTaken.ToString() 
-        //    + " from weapon type " + inputWeapon.weaponType.ToString());
-        //GetPushedBack();
-    }
-    int ConvertType(Type inputType)
-    {
-        switch (inputType)
-        {
-            case Type.RED:
-                {
-                    return 1;
-                }
-            case Type.GREEN:
-                {
-                    return 0;
-                }
-            case Type.BLUE:
-                {
-                    return 2;
-                }
-            default: return 9999;
-        }
-    }
     void Die()
     {
-        //Debug.Log("MotherFucker died");
+        //Debug.Log("Enemy died");
         GameManager.instance.EnemyDied();
         Destroy(gameObject);
     }
-
+    void BehaviorTest()//for simplifying behavior switch
+    {
+        if (!CheckIfInRange())
+        {
+            _enemyMovement.MoveToTarget(player);
+            return;
+        }
+        if (isAttackReady)
+        {
+            StartAttackAnimation();
+        }
+        else 
+        {
+            CooldownTimer();
+        }
+    }
     void BehaviorSwitch()
     {
         switch (_currentAttackPhase)
         { 
             case AttackPhase.READY:
-                {
+                {//SO behav
+                    /*
                     if (CheckIfInRange())
                     {
                         //start attack animation
@@ -138,26 +107,28 @@ public class EnemyCombat : UnitCombat
                     else
                     {
                         _enemyMovement.MoveToTarget(player);
-                    }
+                    }*/
+                    BehaviorTest();
                     return;
                 }
             case AttackPhase.ANIMATION:
-                {
+                {//this will be gone and handled on animator
                     AttackAnimationTimer();
                     return;
                 }
             case AttackPhase.POSTANIMATION:
-                {
+                {//this will be gone and initiated on animator
                     AttackHitPostAnimation();
                     return;
                 }
             case AttackPhase.POSTHIT:
-                {// ***************** remove this
-                    if (!CheckIfInRange())
+                {//SO behav
+                    /*if (!CheckIfInRange())
                     {
                         _enemyMovement.MoveToTarget(player);
                     }
                     CooldownTimer();
+                    */
                     return;
                 }
             default :
@@ -172,7 +143,6 @@ public class EnemyCombat : UnitCombat
         //bool isInRrange;
         float distance = Vector3.Distance(player.transform.position, transform.position);
         return (distance < range);
-
     }
     void StartAttackAnimation()
     {
@@ -205,10 +175,10 @@ public class EnemyCombat : UnitCombat
         {
             player.TakeDamage(damage); //does not do anything rn
         }
-        
         coolDownTimer = attackCooldown;
         isAttackReady = false;
-        _currentAttackPhase = AttackPhase.POSTHIT;
+        //_currentAttackPhase = AttackPhase.POSTHIT;
+        _currentAttackPhase = AttackPhase.READY;
     }
     public void CooldownTimer()
     {
@@ -266,6 +236,53 @@ IEnumerator PushBackRoutine()
     yield return new WaitForSeconds(pushBackTime);
     isPushedBack = false;
     myRigidBody.linearVelocity = Vector3.zero;
+}*/
+#endregion
+#region old type conversion
+/*void AnalyseAndTakeDamage(Weapon inputWeapon)
+{
+    int weaponTypeIndex = ConvertType(inputWeapon.weaponType);
+    int enemyTypeIndex = ConvertType(_enemy.enemyType);
+    int damageTaken;
+
+    if (weaponTypeIndex == 9999)
+    {//if is no special type
+        damageTaken = inputWeapon.damage;
+    }
+    else
+    //bigger brackets are attacking weapon, inside are coef values of
+    //enemy type receiving dmg from that wpn
+    {
+        float[,] matrix = { { normalCoef, disadvantageCoef, advantageCoef },
+                        { advantageCoef, normalCoef, disadvantageCoef },
+                        { disadvantageCoef, advantageCoef, normalCoef } };
+        float usedModifier = matrix[weaponTypeIndex, enemyTypeIndex];
+        damageTaken = (int)(inputWeapon.damage * usedModifier);
+    }
+
+    TakeDamage(damageTaken);
+    //Debug.Log("Enemy type " + _enemy.enemyType.ToString() + " took damage: " + damageTaken.ToString() 
+    //    + " from weapon type " + inputWeapon.weaponType.ToString());
+    //GetPushedBack();
+}
+int ConvertType(Type inputType)
+{
+    switch (inputType)
+    {
+        case Type.RED:
+            {
+                return 1;
+            }
+        case Type.GREEN:
+            {
+                return 0;
+            }
+        case Type.BLUE:
+            {
+                return 2;
+            }
+        default: return 9999;
+    }
 }*/
 #endregion
 
