@@ -1039,6 +1039,7 @@ MonoBehaviour:
   isPushedBack: 0
   pushBackTime: 0.2
   myRigidBody: {fileID: 7886990425334265719}
+  thisUnit: {fileID: 4176866416230126860}
   player: {fileID: 0}
   _enemyMovement: {fileID: 3549913713549301225}
   _enemy: {fileID: 4176866416230126860}

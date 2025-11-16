@@ -9,11 +9,14 @@ public class Weapon : MonoBehaviour
     public int damage = 1;
     public float attackAnimationTime = 0.5f;
     public float pushbackForce;
+    public float pushBackDuration;
+    public string projectileTag = "PlayerProjectile";
 
     public MouseFollow mouseFollow;
     public Player player;
 
     private float _coolDownTimer = 0;
+    
 
     private void Start()
     {
@@ -64,5 +67,9 @@ public class Weapon : MonoBehaviour
     public virtual void AttackHit()
     {  
         Debug.Log("AttackHit not implemented on this weapon");
+    }
+    public virtual void DealHit(Unit unit)
+    { 
+    
     }
 }

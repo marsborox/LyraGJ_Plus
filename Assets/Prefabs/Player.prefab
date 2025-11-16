@@ -514,6 +514,7 @@ MonoBehaviour:
   damage: 1
   attackAnimationTime: 0.3
   pushbackForce: 0
+  pushBackDuration: 0
   mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   projectilePrefab: {fileID: 6644402386810928938, guid: b82f19a88e687ea46b2a0154fed67ec0, type: 3}
@@ -1530,6 +1531,7 @@ MonoBehaviour:
   damage: 1
   attackAnimationTime: 0.5
   pushbackForce: 0
+  pushBackDuration: 0
   mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   _grenadePrefab: {fileID: 5810026968037255196, guid: eea5b762f2942d64281f29ab4e544422, type: 3}
@@ -1727,6 +1729,7 @@ MonoBehaviour:
   isPushedBack: 0
   pushBackTime: 0.2
   myRigidBody: {fileID: 2395246204302797546}
+  thisUnit: {fileID: 6243917595417204822}
   weapon1: {fileID: 8881615355800754850}
   weapon2: {fileID: 3626787188444012202}
   weapon3: {fileID: 6684086850587309295}
@@ -2049,6 +2052,7 @@ MonoBehaviour:
   damage: 2
   attackAnimationTime: 0.5
   pushbackForce: 0
+  pushBackDuration: 0
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 3405487246262069932}
@@ -2169,6 +2173,7 @@ MonoBehaviour:
   damage: 2
   attackAnimationTime: 0.5
   pushbackForce: 0
+  pushBackDuration: 0
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 8479648715776645013}
@@ -2228,6 +2233,7 @@ MonoBehaviour:
   damage: 2
   attackAnimationTime: 0.5
   pushbackForce: 0
+  pushBackDuration: 0
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 4974832783693468471}
@@ -3220,6 +3226,7 @@ MonoBehaviour:
   damage: 2
   attackAnimationTime: 0.5
   pushbackForce: 0
+  pushBackDuration: 0
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 6447553475759269154}
@@ -3562,6 +3569,7 @@ MonoBehaviour:
   damage: 1
   attackAnimationTime: 0.2
   pushbackForce: 0
+  pushBackDuration: 0
   mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   _myCollider: {fileID: 3573217600909049118}
@@ -4150,7 +4158,8 @@ MonoBehaviour:
   maxCooldown: 1
   damage: 1
   attackAnimationTime: 0.4
-  pushbackForce: 0
+  pushbackForce: 5
+  pushBackDuration: 0.2
   mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   _myCollider: {fileID: 8696068938215601874}

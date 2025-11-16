@@ -15,9 +15,14 @@ public class UnitCombat : MonoBehaviour
 
     public bool isPushedBack = false;
     public float pushBackTime = 0.2f;
+
+    public bool isStunned = false;
+    public float stunDuration;
+    public float stunTimer;
     //public float pushBackForce = 10f;
 
     public Rigidbody2D myRigidBody;
+    public Unit thisUnit;
     void Start()
     {
         healthCurrent = healthMax;
@@ -25,10 +30,14 @@ public class UnitCombat : MonoBehaviour
     public void Update()
     {
         SetHealthBar();
+        if (isStunned)
+        {
+            StunTimer();
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("GotHitBySomething");
+        //Debug.Log("GotHitBySomething");
         GetHitFromWeapon(other);
         GetHitFromExplosion(other);
         GetHitFromProjectile(other);
@@ -40,8 +49,9 @@ public class UnitCombat : MonoBehaviour
             //Debug.Log("collision w weapon");
             Weapon weapon = other.gameObject.GetComponent<WeaponCollider>().weaponIBelongTo;
             //AnalyseAndTakeDamage(weapon);
+            weapon.DealHit(this.thisUnit);
             Debug.Log("got hit by enemyWeapon");
-
+            
         }
     }
     private void GetHitFromExplosion(Collider2D other)
@@ -61,6 +71,7 @@ public class UnitCombat : MonoBehaviour
             Projectile projectile = other.gameObject.GetComponent<Projectile>();
             Debug.Log("got hit by enemyProjectile");
 
+            projectile.ProjectileHit(this.thisUnit);
             //get knocked back
             //get effect
         }
@@ -75,7 +86,7 @@ public class UnitCombat : MonoBehaviour
         healthCurrent -= damage;
         //Debug.Log(damage+" damage taken");
     }
-    public void GetPushedBack(Vector3 pushedFrom,float pushBackForce, float pushBackDuration)
+    public void GetPushedBackFrom(Vector3 pushedFrom,float pushBackForce, float pushBackDuration)
     {
         if (isPushedBack)
             return;
@@ -84,10 +95,42 @@ public class UnitCombat : MonoBehaviour
         isPushedBack = true;
         StartCoroutine(PushBackRoutine(pushBackDuration));
     }
+    public void GetPushedBackInDirection(float directionAngle, float pushBackForce, float pushBackDuration)
+    {//this is broken and one daz will fix it
+        //basically get me angle of object that hit me and use that angle
+        if (isPushedBack)
+            return;
+        Debug.Log(directionAngle);
+        //Debug.Log("beingPushedBack");
+        float yDistance = 1f;
+        float xDistance = 1/Mathf.Tan(directionAngle);
+
+        Vector2 someVector = new Vector2(xDistance,yDistance);
+        
+        Vector3 direction = someVector.normalized * pushBackForce * myRigidBody.mass;
+        //Debug.Log(direction);
+
+        myRigidBody.AddForce(direction, ForceMode2D.Impulse);
+        isPushedBack = true;
+        StartCoroutine(PushBackRoutine(pushBackDuration));
+}
     IEnumerator PushBackRoutine(float pushBackDuration)
     {
         yield return new WaitForSeconds(pushBackDuration);
         isPushedBack = false;
         myRigidBody.linearVelocity = Vector3.zero;
+    }
+    void StunTimer()
+    {
+        stunTimer -= Time.deltaTime;
+        if (stunTimer < 0)
+        { 
+            isStunned = false;
+        }
+    }
+    public void GetStunned(float time)
+    {
+        stunTimer = time;
+        isStunned = true;
     }
 }
