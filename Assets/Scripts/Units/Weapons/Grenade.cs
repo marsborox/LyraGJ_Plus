@@ -20,17 +20,14 @@ public class Grenade : Projectile
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!_isMoving)
             return;
         GrenadeMovementHorisontal();
         GrenadeMovementVertical();
     }
-    public override void FixedUpdate()
-    {
-        
-    }
+
     public void GrenadeMovementHorisontal()
     {
         transform.position = Vector3.MoveTowards(transform.position, _destination, _horisontalVelocity * Time.deltaTime);

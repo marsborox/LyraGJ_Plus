@@ -4,7 +4,6 @@ using TMPro;
 public class Explosion : MonoBehaviour
 {
     public int damage;
-    public float pushBackSpeed;
     public float pushBackForce;
     public float pushBackDuration;
 
@@ -27,7 +26,7 @@ public class Explosion : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("hitting " + other.tag);
+        //Debug.Log("hitting " + other.tag);
         if (other.tag == "Player" || other.tag == "Enemy")
         {
             Unit unitWeHit = other.gameObject.GetComponent<Unit>();

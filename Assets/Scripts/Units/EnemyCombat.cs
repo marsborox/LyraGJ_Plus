@@ -39,7 +39,13 @@ public class EnemyCombat : UnitCombat
 
     void Update()
     {
+
         base.Update();
+        if (isStunned)
+        {
+
+            return;
+        }
         if (isPushedBack)
         {
             return;
@@ -60,6 +66,8 @@ public class EnemyCombat : UnitCombat
     private void FixedUpdate()
     {
         //PerformEnemyBehavior();
+        if (isStunned)
+            return;
         BehaviorSwitch();
     }
 
@@ -176,6 +184,7 @@ public class EnemyCombat : UnitCombat
         //isAttackReady= false;//move to post hit or not we want to make sure it wont attack many times
         //play attackAnimation
     }
+
     void AttackAnimationTimer()
     {
         if (!(attackAnimationTimer < 0))
@@ -214,47 +223,49 @@ public class EnemyCombat : UnitCombat
             }
         }
     }
-    /*
-    void PerformTimers()
-    {
-        CooldownTimer();
-        //PerformTimer(ref attackAnimationTimer, ref isAttacking);
-        AttackAnimationTimer();
 
-    }*/
-
-    /*
-    public void PerformTimer(ref float timer, ref bool indicator)
-    {
-        if (!(timer < 0))
-        {
-            timer -= Time.deltaTime;
-            if (timer < 0) { indicator = true; }
-        }
-    }
-    */
-
-    /*private void StartCooldown()
-    {
-        coolDownTimer = attackCooldown; // move to post hit prob
-        isAttackReady = false;//move to post hit or not we want to make sure it wont attack many times
-    }*/
-    #region PushBack
-    /*
-    void GetPushedBack()
-    {
-        if (isPushedBack)
-            return;
-        Vector2 difference = (transform.position - player.transform.position).normalized * pushBackForce * myRigidBody.mass;
-        myRigidBody.AddForce(difference, ForceMode2D.Impulse);
-        isPushedBack = true;
-        StartCoroutine(PushBackRoutine());
-    }
-    IEnumerator PushBackRoutine()
-    {
-        yield return new WaitForSeconds(pushBackTime);
-        isPushedBack = false;
-        myRigidBody.linearVelocity = Vector3.zero;
-    }*/
-    #endregion
 }
+/*
+void PerformTimers()
+{
+    CooldownTimer();
+    //PerformTimer(ref attackAnimationTimer, ref isAttacking);
+    AttackAnimationTimer();
+
+}*/
+
+/*
+public void PerformTimer(ref float timer, ref bool indicator)
+{
+    if (!(timer < 0))
+    {
+        timer -= Time.deltaTime;
+        if (timer < 0) { indicator = true; }
+    }
+}
+*/
+
+/*private void StartCooldown()
+{
+    coolDownTimer = attackCooldown; // move to post hit prob
+    isAttackReady = false;//move to post hit or not we want to make sure it wont attack many times
+}*/
+#region PushBack
+/*
+void GetPushedBack()
+{
+    if (isPushedBack)
+        return;
+    Vector2 difference = (transform.position - player.transform.position).normalized * pushBackForce * myRigidBody.mass;
+    myRigidBody.AddForce(difference, ForceMode2D.Impulse);
+    isPushedBack = true;
+    StartCoroutine(PushBackRoutine());
+}
+IEnumerator PushBackRoutine()
+{
+    yield return new WaitForSeconds(pushBackTime);
+    isPushedBack = false;
+    myRigidBody.linearVelocity = Vector3.zero;
+}*/
+#endregion
+

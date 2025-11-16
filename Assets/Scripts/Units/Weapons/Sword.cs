@@ -7,6 +7,7 @@ public class Sword : Weapon
     [SerializeField] private GameObject _animationVisual;
     [SerializeField] private GameObject _visualCollider;
     
+
     public override void ClickAttack()
     {
         //Debug.Log("Sword. attackHit");
@@ -20,7 +21,14 @@ public class Sword : Weapon
         player.playerMovement.CanNotMove();
         StartCoroutine(AttackHitRoutine());
         StartCoroutine(AttackAnimationRoutine());
+
     }
+    public override void DealHit(Unit unit)
+    {
+        unit.TakeDamage(damage);
+        unit.GetPushedBack(this.transform.position,pushbackForce,pushBackDuration);
+    }
+
     IEnumerator AttackHitRoutine()
     {
         yield return new WaitForSeconds(0.3f);

@@ -8,6 +8,7 @@ public class Unit : MonoBehaviour
     public UnitStats unitStats;
     public UnitCombat unitCombat;
     public string targetTag;
+    
     public void Update()
     {
         
@@ -67,8 +68,17 @@ public class Unit : MonoBehaviour
     }
     public void GetPushedBack(Vector3 pushedFrom, float pushBackForce, float pushBackDuration)
     {
-        unitCombat.GetPushedBack(pushedFrom,pushBackForce,pushBackDuration);
+        unitCombat.GetPushedBackFrom(pushedFrom,pushBackForce,pushBackDuration);
     }
+    public void GetPushedBackInDirection(float directionAngle, float pushBackForce, float pushBackDuration)
+    {
+        unitCombat.GetPushedBackInDirection(directionAngle,pushBackForce,pushBackDuration);
+    }
+    public void GetStunned(float time)
+    {
+        unitCombat.GetStunned(time);
+    }
+
     public void Attack()
     {
         //unitEventHandler.Attack();

@@ -6,6 +6,7 @@ public class BowAuto : Weapon
 {
     public Projectile projectilePrefab;
     private Coroutine _animationRoutine;
+    
     public override void ClickAttack()
     {
         ShootProjectile();
@@ -24,7 +25,10 @@ public class BowAuto : Weapon
         projectile.transform.up = mouseFollow.transform.up;
         projectile.sourceUnit = player;
         projectile.targetTag = player.targetTag;
-
+        projectile.gameObject.tag = player.unitCombat.projectileTagWeShot;
+        projectile.damage = damage;
+        projectile.pushBackDuration = pushBackDuration;
+        projectile.pushBackForce = pushbackForce;
         _animationRoutine = StartCoroutine(AnimationRoutine());
     }
     IEnumerator AnimationRoutine()
