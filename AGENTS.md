@@ -9,7 +9,4 @@
     - Default, TransparentFX, Ignore Raycast, Water, UI
 - Active game object:
   - Name: Health Bar
-  - Name: TestUI
-  - Tag: Untagged
-  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
