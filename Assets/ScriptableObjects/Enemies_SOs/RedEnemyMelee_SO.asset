@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e79248c012565fe45b4fff68fefcd99e, type: 3}
-  m_Name: RedEnemy_SO
+  m_Name: RedEnemyMelee_SO
   m_EditorClassIdentifier: 
   enemyType: 0
   range: 1
@@ -22,4 +22,4 @@ MonoBehaviour:
   spriteColor:
     serializedVersion: 2
     rgba: 4282466750
-  behavior: {fileID: 0}
+  behavior: {fileID: 11400000, guid: cc37d312f8cf1714caf72785f99d807e, type: 2}

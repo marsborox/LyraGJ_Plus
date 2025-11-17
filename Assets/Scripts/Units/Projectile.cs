@@ -10,24 +10,20 @@ public class Projectile : MonoBehaviour
     public float pushBackDuration;
     public float miniStunDuration;
 
+    //we will hardcode that if player with anything hits projectile it gets destroyed
+    
+    
     private void Start()
     {
-
+        Debug.Log(this.gameObject.tag + " has been spawned");
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Wall")
         {// adjust this
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
-        else if (other.tag == targetTag)
-        {
-
-        }
-        if (other.tag == targetTag)
-        {
-
-        }
+        PlayerDestroyEnemyProjectile(other);
     }
     public virtual void FixedUpdate()
     {
@@ -39,10 +35,24 @@ public class Projectile : MonoBehaviour
     }
     public void ProjectileHit(Unit unit)
     {
-        
         unit.TakeDamage(damage);
         // must pass rotation of this object
         //unit.GetPushedBack(this.transform.position,pushBackForce,pushBackDuration);
         unit.GetStunned(miniStunDuration);
+    }
+    //if our target tag is player and this is jsut a proejctile and other tag is weapon or projectile of player destroy this
+
+    void PlayerDestroyEnemyProjectile(Collider2D other)
+    {
+        if (!(this.gameObject.tag == "EnemyProjectile"))
+        {
+            return;
+        }
+
+        if (/*targetTag == "Player" &&*/ (other.gameObject.tag == "PlayerProjectile") || (other.gameObject.tag == "PlayerWeapon"))
+        {
+            Debug.Log("EnemyProjectile destoryed by " + other.gameObject.tag);
+            Destroy(this.gameObject);
+        }
     }
 }

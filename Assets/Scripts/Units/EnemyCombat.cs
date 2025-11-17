@@ -7,8 +7,9 @@ public class EnemyCombat : UnitCombat
 {
     public enum AttackPhase { READY, ANIMATION, POSTANIMATION,POSTHIT}
     public Player player;
+    public EnemyBehavior_SO behaviorTemplate;
+    public EnemyMovement enemyMovement;
 
-    [SerializeField] private EnemyMovement _enemyMovement;
     [SerializeField] private Enemy _enemy;
 
     [Header("combatStats")]
@@ -19,7 +20,7 @@ public class EnemyCombat : UnitCombat
     public int damage = 1;
     public float attackCooldown = 1f;
     public float coolDownTimer = 0f;
-    private bool isAttackReady = true;
+    public bool isAttackReady = true;
     //public float movementSpeed = 1f;
 
     public float attackAnimationTime = 0.5f;
@@ -73,14 +74,14 @@ public class EnemyCombat : UnitCombat
     void Die()
     {
         //Debug.Log("Enemy died");
-        GameManager.instance.EnemyDied();
+        if(GameManager.instance !=null) GameManager.instance.EnemyDied();
         Destroy(gameObject);
     }
     void BehaviorTest()//for simplifying behavior switch
     {
         if (!CheckIfInRange())
         {
-            _enemyMovement.MoveToTarget(player);
+            enemyMovement.MoveToTarget(player);
             return;
         }
         if (isAttackReady)
@@ -108,7 +109,8 @@ public class EnemyCombat : UnitCombat
                     {
                         _enemyMovement.MoveToTarget(player);
                     }*/
-                    BehaviorTest();
+                    //BehaviorTest();
+                    behaviorTemplate.PerformBehavior(this, player);
                     return;
                 }
             case AttackPhase.ANIMATION:
@@ -122,13 +124,7 @@ public class EnemyCombat : UnitCombat
                     return;
                 }
             case AttackPhase.POSTHIT:
-                {//SO behav
-                    /*if (!CheckIfInRange())
-                    {
-                        _enemyMovement.MoveToTarget(player);
-                    }
-                    CooldownTimer();
-                    */
+                {
                     return;
                 }
             default :
@@ -138,22 +134,7 @@ public class EnemyCombat : UnitCombat
                 }
         }
     }
-    bool CheckIfInRange()
-    {
-        //bool isInRrange;
-        float distance = Vector3.Distance(player.transform.position, transform.position);
-        return (distance < range);
-    }
-    void StartAttackAnimation()
-    {
-        //Debug.Log("Starting AttackAnimaiton");
-        //coolDownTimer = attackCooldown; // move to post hit prob
-        attackAnimationTimer = attackAnimationTime;
-        isAttacking = true;
-        _currentAttackPhase = AttackPhase.ANIMATION;
-        //isAttackReady= false;//move to post hit or not we want to make sure it wont attack many times
-        //play attackAnimation
-    }
+
 
     void AttackAnimationTimer()
     {
@@ -167,18 +148,29 @@ public class EnemyCombat : UnitCombat
             }
         }
     }
-    void AttackHitPostAnimation()
+    public void StartAttackAnimation()
+    {
+        //Debug.Log("Starting AttackAnimaiton");
+        attackAnimationTimer = attackAnimationTime;
+        isAttacking = true;
+        _currentAttackPhase = AttackPhase.ANIMATION;
+        //play attackAnimation
+    }
+    public void AttackHitPostAnimation()
     {
         //Debug.Log("AttackAnimation ended, switching to posthitCooldown;");
         //this must exist bcs when well have normal animation we will use this tere
-        if (CheckIfInRange())
-        {
-            player.TakeDamage(damage); //does not do anything rn
-        }
+        //will be initiated by animation event
+        behaviorTemplate.PostAttackAction(this,player);
         coolDownTimer = attackCooldown;
         isAttackReady = false;
-        //_currentAttackPhase = AttackPhase.POSTHIT;
         _currentAttackPhase = AttackPhase.READY;
+    }
+    public bool CheckIfInRange()
+    {
+        //bool isInRrange;
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        return (distance < range);
     }
     public void CooldownTimer()
     {
