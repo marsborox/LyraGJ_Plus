@@ -103,7 +103,9 @@ public class PlayerController : MonoBehaviour
     }
     void OnDash()
     {
-        player.playerMovement.Dash();
+        player.playerMovement.DashWSAD(_rawInput);
+        //player.playerMovement.DashMouse();
+        
     }
     void OnWeapon1()
     {

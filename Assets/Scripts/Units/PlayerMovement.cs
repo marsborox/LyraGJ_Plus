@@ -52,7 +52,17 @@ public class PlayerMovement : UnitMovement
         _myRigidbody2D.MovePosition(_myRigidbody2D.position + rawInput * movementSpeed * Time.fixedDeltaTime);
         currentUnitVisual.Animate(Time.deltaTime);
     }
-    public void Dash()
+    public void DashWSAD(Vector2 rawInput)
+    {
+        if (_isDashing || !canDash)
+        {
+            return;
+        }
+        _dashDestination = (Vector2)this.transform.position + rawInput.normalized*_maxDashDistance;
+        //Debug.Log(input);
+        _isDashing = true;
+    }
+    /*public void DashMouse()
     {
         if (_isDashing||!canDash) 
         {
@@ -76,8 +86,8 @@ public class PlayerMovement : UnitMovement
         //take direction from mouse pos, if distance to mouse is greater than max dash distance
         //move to max distance, else move to mouse pos
         //Start dash cd
-    }
-    private Vector3 ReturnDashPosition(Vector3 mousePos)
+    }*/
+    /*private Vector3 ReturnDashPosition(Vector3 mousePos)
     {
         Vector3 destination;
         float angle = (_mouseFollow.transform.localEulerAngles.z+90)*Mathf.Deg2Rad;//90 bcs its rotated
@@ -88,7 +98,7 @@ public class PlayerMovement : UnitMovement
         float yIncrement = Mathf.Sin(angle) * _maxDashDistance;
         destination = new Vector3(transform.position.x+xIncrement, transform.position.y+yIncrement, transform.position.z);
         return destination;
-    }
+    }*/
     public void DoDashing()
     {
         if (_isDashing)

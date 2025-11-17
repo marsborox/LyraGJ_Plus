@@ -58,7 +58,10 @@ public class Enemy : Unit
         combat.attackAnimationTime = enemyTemplate.attackAnimationTime;
 
         SetEnemyType(enemyTemplate.enemyType);
-        
+        if (enemyTemplate.behavior != null)
+        { 
+            combat.behaviorTemplate = enemyTemplate.behavior;
+        }
     }
     
 }

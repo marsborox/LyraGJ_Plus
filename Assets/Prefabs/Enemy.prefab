@@ -1038,15 +1038,20 @@ MonoBehaviour:
   projectileTagWeShot: EnemyProjectile
   isPushedBack: 0
   pushBackTime: 0.2
+  isStunned: 0
+  stunDuration: 0
+  stunTimer: 0
   myRigidBody: {fileID: 7886990425334265719}
   thisUnit: {fileID: 4176866416230126860}
   player: {fileID: 0}
-  _enemyMovement: {fileID: 3549913713549301225}
+  behaviorTemplate: {fileID: 11400000, guid: cc37d312f8cf1714caf72785f99d807e, type: 2}
+  enemyMovement: {fileID: 3549913713549301225}
   _enemy: {fileID: 4176866416230126860}
   range: 1
   damage: 1
   attackCooldown: 5
   coolDownTimer: 0
+  isAttackReady: 1
   attackAnimationTime: 0.5
   attackAnimationTimer: 0
   isAttacking: 0

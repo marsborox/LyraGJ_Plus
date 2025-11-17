@@ -17,10 +17,15 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public float minSpawnTime = 0.5f;
     public float maxSpawnTime = 3f;
 
+    
 
     bool spawningDone = true;
 
     public bool spawningAllowed = true;
+    [Header("TestSOs")]
+    public Enemy_SO meleeSO;
+    public Enemy_SO archerSO;
+    public Enemy_SO mageSO;
     private void Start()
     {
 
@@ -74,5 +79,26 @@ public class UnitSpawner : Singleton<UnitSpawner>
         int randomIndex = Random.Range(0, enemy_SOs.Count);
 
         return enemy_SOs[randomIndex];
+    }
+    public void TestSpawnMelee()
+    {
+        TestSpawn(meleeSO);
+    }
+    public void TestSpawnArcher()
+    {
+        TestSpawn(archerSO);
+    }
+    public void TestSpawnMage()
+    {
+        TestSpawn(mageSO);
+    }
+    void TestSpawn(Enemy_SO usedTemplate)
+    {
+        SpawnPoint spawnPoint;
+        int randomIndex = Random.Range(0, spawnPoints.Count);
+        spawnPoint = spawnPoints[randomIndex];
+        Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+        
+        spawnedEnemy.SetProperties(usedTemplate, player);
     }
 }

@@ -50,7 +50,7 @@ public class UnitCombat : MonoBehaviour
             Weapon weapon = other.gameObject.GetComponent<WeaponCollider>().weaponIBelongTo;
             //AnalyseAndTakeDamage(weapon);
             weapon.DealHit(this.thisUnit);
-            Debug.Log("got hit by enemyWeapon");
+            //Debug.Log("got hit by enemyWeapon");
             
         }
     }
@@ -60,7 +60,7 @@ public class UnitCombat : MonoBehaviour
         {
             //get damage
             Explosion explosion = other.gameObject.GetComponent<Explosion>();
-            Debug.Log("got hit by explosion");
+            //Debug.Log("got hit by explosion");
         }
     }
     private void GetHitFromProjectile(Collider2D other)
@@ -69,8 +69,7 @@ public class UnitCombat : MonoBehaviour
         {
             //get damage
             Projectile projectile = other.gameObject.GetComponent<Projectile>();
-            Debug.Log("got hit by enemyProjectile");
-
+            //Debug.Log("got hit by enemyProjectile");
             projectile.ProjectileHit(this.thisUnit);
             //get knocked back
             //get effect

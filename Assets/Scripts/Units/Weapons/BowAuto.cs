@@ -20,15 +20,15 @@ public class BowAuto : Weapon
     {
         if (_animationRoutine != null)
             return;
-        Projectile projectile = Instantiate(projectilePrefab);
-        projectile.transform.position = player.transform.position;
-        projectile.transform.up = mouseFollow.transform.up;
-        projectile.sourceUnit = player;
-        projectile.targetTag = player.targetTag;
-        projectile.gameObject.tag = player.unitCombat.projectileTagWeShot;
-        projectile.damage = damage;
-        projectile.pushBackDuration = pushBackDuration;
-        projectile.pushBackForce = pushbackForce;
+        Projectile projectile = Instantiate(projectilePrefab); //same w SO
+        projectile.transform.position = player.transform.position;//same w SO
+        projectile.transform.up = mouseFollow.transform.up;//similar w SO
+        projectile.sourceUnit = player;//same w SO
+        projectile.targetTag = player.targetTag;//same w SO
+        projectile.gameObject.tag = player.unitCombat.projectileTagWeShot;//same w SO
+        projectile.damage = damage;//same w SO
+        projectile.pushBackDuration = pushBackDuration;//not in SO
+        projectile.pushBackForce = pushbackForce;//not in SO
         _animationRoutine = StartCoroutine(AnimationRoutine());
     }
     IEnumerator AnimationRoutine()

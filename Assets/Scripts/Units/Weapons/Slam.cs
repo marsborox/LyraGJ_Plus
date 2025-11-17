@@ -37,7 +37,6 @@ public class Slam : Weapon
         yield return new WaitForSeconds(attackAnimationTime);
         _animationVisual1.SetActive(false);
         _animationVisual2.SetActive(false);
-        
         player.playerMovement.CanMove();
     }
     public override void DealHit(Unit unit)
