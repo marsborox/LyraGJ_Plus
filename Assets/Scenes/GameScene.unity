@@ -2527,11 +2527,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.25
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5.07
+  orthographic size: 3.66
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2575,7 +2575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollowing
   targetToFollow: {fileID: 246055969}
-  zoom: 0.5
+  zoom: 0.89
   speed: 5
   offset: {x: 0, y: 0}
 --- !u!1 &525898045
@@ -2742,6 +2742,9 @@ MonoBehaviour:
   minSpawnTime: 0.5
   maxSpawnTime: 2
   spawningAllowed: 1
+  meleeSO: {fileID: 0}
+  archerSO: {fileID: 0}
+  mageSO: {fileID: 0}
 --- !u!1 &598830070
 GameObject:
   m_ObjectHideFlags: 0
