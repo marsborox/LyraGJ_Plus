@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 518943399b40ece4a805db073a5cc3c1
+guid: 73125f020335a414885fa6406abe632b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 688569362982359022
-    second: Velver Rope_0
+      213: 2080748258868178904
+    second: Prah_dvere_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Velver Rope_0
+      name: Prah_dvere_0
       rect:
         serializedVersion: 2
-        x: 931
-        y: 513
-        width: 237
-        height: 127
-      alignment: 9
-      pivot: {x: 0.48982129, y: 0.11061685}
+        x: 936
+        y: 580
+        width: 231
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eefc7cbff2a4e8900800000000000000
-      internalID: 688569362982359022
+      spriteID: 8dfa9d4648d40ec10800000000000000
+      internalID: 2080748258868178904
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8d7edfa59b78b4847842d16fcf3196b0
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Velver Rope_0: 688569362982359022
+      Prah_dvere_0: 2080748258868178904
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
