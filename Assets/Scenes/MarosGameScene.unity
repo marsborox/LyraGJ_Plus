@@ -12216,6 +12216,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 859534956746889397, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: _maxDashDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 859534956746889397, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: _dashCooldownTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 859534956746889397, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: _dashCooldownTimer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2248609410062747645, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: pushbackForce
       value: 10
