@@ -403,12 +403,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229642068}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.493, y: 1.888, z: 0}
+  m_LocalScale: {x: 0.76, y: 0.76, z: 0.76}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6670245707551472949}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &229642071
 AudioSource:
@@ -521,10 +521,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProximityMusic
   player: {fileID: 908410528}
   audioSource: {fileID: 229642071}
-  maxDistance: 3.6
+  maxDistance: 3
   minDistance: 0.1
   minVolume: 0
-  fadeSpeed: 2
+  fadeSpeed: 5
 --- !u!1 &300367810
 GameObject:
   m_ObjectHideFlags: 0
@@ -5319,20 +5319,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8912029462421136783, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 229642069}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5462686301572751191, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1784269719}
   m_SourcePrefab: {fileID: 100100000, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
---- !u!4 &6670245707551472949 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8912029462421136783, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
-  m_PrefabInstance: {fileID: 6670245707551472948}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5342,6 +5334,7 @@ SceneRoots:
   - {fileID: 1148714916}
   - {fileID: 1383636733}
   - {fileID: 2132470175}
+  - {fileID: 229642069}
   - {fileID: 6670245707551472948}
   - {fileID: 1464871749}
   - {fileID: 765751239}
