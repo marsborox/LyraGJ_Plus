@@ -62,6 +62,7 @@ public class Unit : MonoBehaviour
     {
         //Debug.Log("unit TakingDamage");
         unitCombat.TakeDamage(damageAmount);
+
     }
     public void GetHeal(float healAmount)
     {

@@ -41,14 +41,15 @@ public class PlayerMovement : UnitMovement
     {
         DoDashing();
     }
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Wall")
         {
             _isDashing = false;
+            Debug.Log("playerMovement player hit wall");
         }
     }
-    public void MoveVector(Vector2 rawInput)
+    public void MoveByVector(Vector2 rawInput)
     {
         if (!canMove)
             return;
@@ -58,7 +59,7 @@ public class PlayerMovement : UnitMovement
         _myRigidbody2D.MovePosition(_myRigidbody2D.position + rawInput * movementSpeed * Time.fixedDeltaTime);
         currentUnitVisual.Animate(Time.deltaTime);
     }
-    public void MoveMouse()
+    public void MoveByMouse()
     {
         //Debug.Log("mouseMovement");
         if (!canMove)
@@ -67,7 +68,11 @@ public class PlayerMovement : UnitMovement
         //Debug.Log(mousePosition);
         //_myRigidbody2D.MovePosition(mousePosition /* * movementSpeed * Time.fixedDeltaTime*/);
         //_myRigidbody2D.MovePosition( (transform.position - mousePosition) * movementSpeed * Time.fixedDeltaTime/* - transform.position*/);
-        transform.position = Vector2.MoveTowards(transform.position, mousePosition, movementSpeed*Time.fixedDeltaTime);
+
+        Vector3 movePosition = (mousePosition - (Vector2)this.transform.position).normalized;
+        
+        //transform.position = Vector2.MoveTowards(transform.position, movePosition, movementSpeed*Time.fixedDeltaTime);
+        _myRigidbody2D.MovePosition(transform.position + movePosition * movementSpeed * Time.fixedDeltaTime); ;
     }
     public void DashWSAD(Vector2 rawInput)
     {
@@ -140,7 +145,7 @@ public class PlayerMovement : UnitMovement
         //adjusted by 45 degree
         float directionAngle = (_mouseFollow.ReturnMouseDirectionAngle()) + 45;
         if (directionAngle > 360) directionAngle -= 360;
-        Debug.Log(directionAngle);
+        //Debug.Log(directionAngle);
         if (directionAngle < 90)
         {
             currentDirection = Direction.UP;

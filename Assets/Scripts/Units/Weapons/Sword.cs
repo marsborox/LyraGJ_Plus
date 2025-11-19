@@ -27,6 +27,7 @@ public class Sword : Weapon
     {
         unit.GetPushedBack(this.transform.position,pushbackForce,pushBackDuration);
         unit.TakeDamage(damage);
+
     }
 
     IEnumerator AttackHitRoutine()

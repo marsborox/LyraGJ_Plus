@@ -40,7 +40,7 @@ public class EnemyCombat : UnitCombat
 
     void Update()
     {
-
+        CooldownTimer();
         base.Update();
         if (isStunned)
         {
@@ -66,11 +66,10 @@ public class EnemyCombat : UnitCombat
     private void FixedUpdate()
     {
         //PerformEnemyBehavior();
-        if (!isAttackReady)
-        {
-            CooldownTimer();
-        }
+
         if (isStunned)
+            return;
+        if (isPushedBack)
             return;
         BehaviorSwitch();
     }
@@ -117,7 +116,7 @@ public class EnemyCombat : UnitCombat
         healthCurrent -= damage;
         Debug.Log("Taking damage in enemyCombat");
         //Debug.Log(damage+" damage taken");
-
+        ResetAttackAnimation();
     }
 
     void Die()
@@ -183,14 +182,7 @@ public class EnemyCombat : UnitCombat
                 }
         }
     }
-    public void ResetAttackAnimation()
-    {
-        if (_currentAttackPhase == AttackPhase.ANIMATION)
-        {
-            isAttacking = false;
-            _currentAttackPhase = AttackPhase.READY;
-        }
-    }
+    
     void AttackAnimationTimer()
     {
         if (!(attackAnimationTimer < 0))
@@ -201,6 +193,16 @@ public class EnemyCombat : UnitCombat
                 isAttacking = false;
                 AttackHitPostAnimation();
             }
+        }
+    }
+    public void ResetAttackAnimation()
+    {
+        if (_currentAttackPhase == AttackPhase.ANIMATION)
+        {
+            isAttacking = false;
+            attackAnimationTimer = -0.0001f;//basically set to zero
+            _currentAttackPhase = AttackPhase.READY;
+
         }
     }
 }

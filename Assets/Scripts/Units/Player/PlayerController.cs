@@ -76,11 +76,16 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //player.playerMovement.MoveVector(_rawInput);// from HadesControls
+        player.playerMovement.MoveByVector(_rawInput);// from HadesControls
         //player.input = _rawInput;
         //CheckClickHoldAction();
         CheckClickHoldActions();
     }
+    void Update()
+    {
+        
+    }
+
     void OnMove(InputValue value)
     {
         _rawInput = value.Get<Vector2>();
@@ -167,7 +172,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void StartStopPressed(ref Clicker clicker/*,Action onClick, Action onHold*/)
-    {
+    {// thi is just to take click method kidna discontinued
         if(!clicker.isPressed)
         {   //onstart stop
             clicker.isPressed = true;
