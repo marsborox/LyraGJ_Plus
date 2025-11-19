@@ -8,7 +8,8 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Water, UI
 - Active game object:
-  - Name: Sprite-0001
+  - Name: Mousefollow
   - Tag: Untagged
-  - Layer: Default
+  - Layer: 3
+
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
