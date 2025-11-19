@@ -79,6 +79,6 @@ public class Player : Unit
     }
     public void MoveLMB()
     {
-        playerMovement.MoveMouse();
+        playerMovement.MoveByMouse();
     }
 }
