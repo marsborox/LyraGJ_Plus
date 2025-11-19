@@ -513,8 +513,9 @@ MonoBehaviour:
   maxCooldown: 1
   damage: 1
   attackAnimationTime: 0.3
-  pushbackForce: 0
-  pushBackDuration: 0
+  pushbackForce: 10
+  pushBackDuration: 0.1
+  projectileTag: PlayerProjectile
   mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   projectilePrefab: {fileID: 6644402386810928938, guid: b82f19a88e687ea46b2a0154fed67ec0, type: 3}
@@ -1532,6 +1533,7 @@ MonoBehaviour:
   attackAnimationTime: 0.5
   pushbackForce: 0
   pushBackDuration: 0
+  projectileTag: PlayerProjectile
   mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   _grenadePrefab: {fileID: 5810026968037255196, guid: eea5b762f2942d64281f29ab4e544422, type: 3}
@@ -1638,6 +1640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844d707d560731848acfa9a4747d9c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   holdHreshold: 0.1
 --- !u!114 &6110641428596706858
@@ -1700,11 +1703,11 @@ MonoBehaviour:
   canDash: 1
   _mouseFollow: {fileID: 1477771279173098806}
   _dashSpeed: 0
-  _dashCooldownTimer: 0.5
-  _dashCooldownTime: 0
+  _dashCooldownTimer: 0
+  _dashCooldownTime: 0.5
   _isDashing: 0
   _isDashReady: 1
-  _maxDashDistance: 10
+  _maxDashDistance: 5
   _dashSpeedCoef: 3
   _dashDestination: {x: 0, y: 0, z: 0}
 --- !u!114 &723713826427866658
@@ -1728,6 +1731,9 @@ MonoBehaviour:
   projectileTagWeShot: PlayerProjectile
   isPushedBack: 0
   pushBackTime: 0.2
+  isStunned: 0
+  stunDuration: 0
+  stunTimer: 0
   myRigidBody: {fileID: 2395246204302797546}
   thisUnit: {fileID: 6243917595417204822}
   weapon1: {fileID: 8881615355800754850}
@@ -2053,6 +2059,7 @@ MonoBehaviour:
   attackAnimationTime: 0.5
   pushbackForce: 0
   pushBackDuration: 0
+  projectileTag: PlayerProjectile
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 3405487246262069932}
@@ -2174,6 +2181,7 @@ MonoBehaviour:
   attackAnimationTime: 0.5
   pushbackForce: 0
   pushBackDuration: 0
+  projectileTag: PlayerProjectile
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 8479648715776645013}
@@ -2234,6 +2242,7 @@ MonoBehaviour:
   attackAnimationTime: 0.5
   pushbackForce: 0
   pushBackDuration: 0
+  projectileTag: PlayerProjectile
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 4974832783693468471}
@@ -3227,6 +3236,7 @@ MonoBehaviour:
   attackAnimationTime: 0.5
   pushbackForce: 0
   pushBackDuration: 0
+  projectileTag: PlayerProjectile
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
   upAttackAnimator: {fileID: 6447553475759269154}
@@ -3568,8 +3578,9 @@ MonoBehaviour:
   maxCooldown: 3
   damage: 1
   attackAnimationTime: 0.2
-  pushbackForce: 0
-  pushBackDuration: 0
+  pushbackForce: 15
+  pushBackDuration: 0.3
+  projectileTag: PlayerProjectile
   mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   _myCollider: {fileID: 3573217600909049118}
@@ -4158,8 +4169,9 @@ MonoBehaviour:
   maxCooldown: 1
   damage: 1
   attackAnimationTime: 0.4
-  pushbackForce: 5
+  pushbackForce: 10
   pushBackDuration: 0.2
+  projectileTag: PlayerProjectile
   mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
   _myCollider: {fileID: 8696068938215601874}

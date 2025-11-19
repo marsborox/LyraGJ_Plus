@@ -80,8 +80,9 @@ public class UnitCombat : MonoBehaviour
         healthFraction = (float)healthCurrent / (float)healthMax;
         healthBar.fillAmount = healthFraction;
     }
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
+        //Debug.Log("taking damage from unitCombat");
         healthCurrent -= damage;
         //Debug.Log(damage+" damage taken");
     }

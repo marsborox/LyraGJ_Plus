@@ -4,8 +4,11 @@ using Unity.VisualScripting;
 
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+using static UnityEngine.Rendering.DebugUI;
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private MouseFollow _mouseFollow;
     public Player player;
     public float holdHreshold=0.2f;//100/250ms 50frames/1s
     private Vector2 _rawInput;
@@ -19,14 +22,14 @@ public class PlayerController : MonoBehaviour
         public float actionTimer = 0f;
     }
 
-    private Clicker _action1Clicker = new Clicker();
-    private Clicker _action2Clicker = new Clicker();
+    private Clicker _LMBClicker = new Clicker();
+    private Clicker _RMBClicker = new Clicker();
     private Clicker _action3Clicker = new Clicker();
     private Clicker _action4Clicker = new Clicker();
 
     private PlayerInput _playerInput;
-    private InputAction _action1;
-    private InputAction _action2;
+    private InputAction _LMB1;
+    private InputAction _RMB2;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,10 +38,10 @@ public class PlayerController : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
         //_action1 = _playerInput.actions["Action1"];
         //_action2 = _playerInput.actions["Action2"];
-        _action1Clicker.action = _playerInput.actions["Action1"];
-        _action1Clicker.name = "action1";
-        _action2Clicker.action = _playerInput.actions["Action2"];
-        _action2Clicker.name = "action2";
+        _LMBClicker.action = _playerInput.actions["Action1"];
+        _LMBClicker.name = "action1";
+        _RMBClicker.action = _playerInput.actions["Action2"];
+        _RMBClicker.name = "action2";
     }
     void Start()
     {
@@ -46,11 +49,11 @@ public class PlayerController : MonoBehaviour
     }
     private void OnEnable()
     {
-        _action1Clicker.action.started += ctx => StartStopPressed(ref _action1Clicker,player.AttackWeapon1Click);
-        _action1Clicker.action.canceled += ctx => StartStopPressed(ref _action1Clicker, player.AttackWeapon1Click);
+        _LMBClicker.action.started += ctx => StartStopPressed(ref _LMBClicker/*,player.AttackWeapon1Click*/);
+        _LMBClicker.action.canceled += ctx => StartStopPressed(ref _LMBClicker /*,player.AttackWeapon1Click*/);
 
-        _action2Clicker.action.started += ctx => StartStopPressed(ref _action2Clicker, player.AttackWeapon2Click);
-        _action2Clicker.action.canceled += ctx => StartStopPressed(ref _action2Clicker, player.AttackWeapon2Click);
+        _RMBClicker.action.started += ctx => StartStopPressed(ref _RMBClicker /*,player.AttackWeapon2Click*/);
+        _RMBClicker.action.canceled += ctx => StartStopPressed(ref _RMBClicker /*,player.AttackWeapon2Click*/);
         //_action1.started += ctx => StartPressed1();
         //_action1.canceled += ctx => StopPressed1();
         //_action2.started += ctx => StartPressed2();
@@ -59,11 +62,11 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
 
-        _action1Clicker.action.started -= ctx => StartStopPressed(ref _action1Clicker);
-        _action1Clicker.action.canceled -= ctx => StartStopPressed(ref _action1Clicker);
+        _LMBClicker.action.started -= ctx => StartStopPressed(ref _LMBClicker);
+        _LMBClicker.action.canceled -= ctx => StartStopPressed(ref _LMBClicker);
 
-        _action2Clicker.action.started -= ctx => StartStopPressed(ref _action2Clicker);
-        _action2Clicker.action.canceled -= ctx => StartStopPressed(ref _action2Clicker);
+        _RMBClicker.action.started -= ctx => StartStopPressed(ref _RMBClicker);
+        _RMBClicker.action.canceled -= ctx => StartStopPressed(ref _RMBClicker);
 
         //_action1.started -= ctx => StartPressed1();
         //_action1.canceled -= ctx => StopPressed1();
@@ -73,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        player.playerMovement.Move(_rawInput);
+        //player.playerMovement.MoveVector(_rawInput);// from HadesControls
         //player.input = _rawInput;
         //CheckClickHoldAction();
         CheckClickHoldActions();
@@ -101,39 +104,46 @@ public class PlayerController : MonoBehaviour
             player.playerMovement.currentDirection = PlayerMovement.Direction.UP;
         }
     }
+
+        
     void OnDash()
     {
-        player.playerMovement.DashWSAD(_rawInput);
-        //player.playerMovement.DashMouse();
+        //player.playerMovement.DashWSAD(_rawInput);
+        player.playerMovement.DashMouse();
         
     }
+    #region 1234attacks
     void OnWeapon1()
     {
         //Debug.Log("weapon1");
-        player.AttackWeapon1();
+        //player.AttackWeapon1();
+        player.AttackWeapon1Click();
     }
     void OnWeapon2()
     {
         //Debug.Log("weapon2");
-        player.AttackWeapon2();
+        //player.AttackWeapon2();
+        player.AttackWeapon2Click();
     }
     void OnWeapon3()
     {
         //Debug.Log("weapon3");
-        player.AttackWeapon3();
+        //player.AttackWeapon3();
+        player.AttackWeapon3Click();
     }
     void OnWeapon4()
     {
         //Debug.Log("weapon4");
-        
+        player.AttackWeapon4Click();
     }
+    #endregion
     void OnAction1()
     { 
-    
+        
     }
     void OnAction2()
     { 
-    
+        
     }
     void OnAction3()
     {//q
@@ -144,6 +154,18 @@ public class PlayerController : MonoBehaviour
     {//e
         player.AttackWeapon4Click();
     }
+    void CheckClickHoldActions()
+    {
+        //CheckClickHoldAction(ref _action1Clicker);
+        //CheckClickHoldAction(ref _action2Clicker);
+
+        //CheckClickHoldAction(ref _LMBClicker, player.AttackWeapon1Hold);
+        //CheckClickHoldAction(ref _LMB2Clicker, player.AttackWeapon2Hold);
+
+        CheckClickHoldAction(ref _LMBClicker, player.MoveLMB);
+        //CheckClickHoldAction(ref _LMB2Clicker, player.AttackWeapon2Hold);
+    }
+
     void StartStopPressed(ref Clicker clicker/*,Action onClick, Action onHold*/)
     {
         if(!clicker.isPressed)
@@ -167,10 +189,10 @@ public class PlayerController : MonoBehaviour
             clicker.actionTimer = 0;
         }
     }
-    void StartStopPressed(ref Clicker clicker,Action onClick)
+    void StartStopPressed(ref Clicker clicker,Action onClick,Action onHold)
     {
         if (!clicker.isPressed)
-        {   //onstart stop
+        {   //to detect just one click
             clicker.isPressed = true;
             onClick();
         }
@@ -179,7 +201,7 @@ public class PlayerController : MonoBehaviour
             //press released
             if (clicker.isHeld)
             {
-
+                onHold();
                 //DoHeldThing
                 //Debug.Log(clicker.name + " was held for (s): " + clicker.actionTimer.ToString());
             }
@@ -191,14 +213,6 @@ public class PlayerController : MonoBehaviour
             clicker.isHeld = false;
             clicker.actionTimer = 0;
         }
-    }
-    void CheckClickHoldActions()
-    { 
-        //CheckClickHoldAction(ref _action1Clicker);
-        //CheckClickHoldAction(ref _action2Clicker);
-
-        CheckClickHoldAction(ref _action1Clicker, player.AttackWeapon1Hold);
-        CheckClickHoldAction(ref _action2Clicker, player.AttackWeapon2Hold);
     }
     void CheckClickHoldAction(ref Clicker clicker)
     {
@@ -226,6 +240,8 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    void DoNothing()
+    { }
 }
 
     #region discontinued

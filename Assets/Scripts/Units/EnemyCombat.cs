@@ -66,9 +66,58 @@ public class EnemyCombat : UnitCombat
     private void FixedUpdate()
     {
         //PerformEnemyBehavior();
+        if (!isAttackReady)
+        {
+            CooldownTimer();
+        }
         if (isStunned)
             return;
         BehaviorSwitch();
+    }
+
+    public void StartAttackAnimation()
+    {
+        //Debug.Log("Starting AttackAnimaiton");
+        attackAnimationTimer = attackAnimationTime;
+        isAttacking = true;
+        _currentAttackPhase = AttackPhase.ANIMATION;
+        //play attackAnimation
+    }
+    public void AttackHitPostAnimation()
+    {
+        //Debug.Log("AttackAnimation ended, switching to posthitCooldown;");
+        //this must exist bcs when well have normal animation we will use this tere
+        //will be initiated by animation event
+        behaviorTemplate.PostAttackAction(this,player);
+        coolDownTimer = attackCooldown;
+        isAttackReady = false;
+        _currentAttackPhase = AttackPhase.READY;
+    }
+    public bool CheckIfInRange()
+    {
+        //bool isInRrange;
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        return (distance < range);
+    }
+    public void CooldownTimer()
+    {
+        if (!(coolDownTimer < 0))
+        {
+            coolDownTimer -= Time.deltaTime;
+            if (coolDownTimer < 0) 
+            { 
+                isAttackReady = true;
+                _currentAttackPhase = AttackPhase.READY;
+                //Debug.Log("Attack Ready");
+            }
+        }
+    }
+    public override void TakeDamage(int damage)
+    {
+        healthCurrent -= damage;
+        Debug.Log("Taking damage in enemyCombat");
+        //Debug.Log(damage+" damage taken");
+
     }
 
     void Die()
@@ -134,8 +183,14 @@ public class EnemyCombat : UnitCombat
                 }
         }
     }
-
-
+    public void ResetAttackAnimation()
+    {
+        if (_currentAttackPhase == AttackPhase.ANIMATION)
+        {
+            isAttacking = false;
+            _currentAttackPhase = AttackPhase.READY;
+        }
+    }
     void AttackAnimationTimer()
     {
         if (!(attackAnimationTimer < 0))
@@ -148,44 +203,6 @@ public class EnemyCombat : UnitCombat
             }
         }
     }
-    public void StartAttackAnimation()
-    {
-        //Debug.Log("Starting AttackAnimaiton");
-        attackAnimationTimer = attackAnimationTime;
-        isAttacking = true;
-        _currentAttackPhase = AttackPhase.ANIMATION;
-        //play attackAnimation
-    }
-    public void AttackHitPostAnimation()
-    {
-        //Debug.Log("AttackAnimation ended, switching to posthitCooldown;");
-        //this must exist bcs when well have normal animation we will use this tere
-        //will be initiated by animation event
-        behaviorTemplate.PostAttackAction(this,player);
-        coolDownTimer = attackCooldown;
-        isAttackReady = false;
-        _currentAttackPhase = AttackPhase.READY;
-    }
-    public bool CheckIfInRange()
-    {
-        //bool isInRrange;
-        float distance = Vector3.Distance(player.transform.position, transform.position);
-        return (distance < range);
-    }
-    public void CooldownTimer()
-    {
-        if (!(coolDownTimer < 0))
-        {
-            coolDownTimer -= Time.deltaTime;
-            if (coolDownTimer < 0) 
-            { 
-                isAttackReady = true;
-                _currentAttackPhase = AttackPhase.READY;
-                //Debug.Log("Attack Ready");
-            }
-        }
-    }
-
 }
 /*
 void PerformTimers()

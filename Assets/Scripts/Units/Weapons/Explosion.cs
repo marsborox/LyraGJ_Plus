@@ -30,8 +30,8 @@ public class Explosion : MonoBehaviour
         if (other.tag == "Player" || other.tag == "Enemy")
         {
             Unit unitWeHit = other.gameObject.GetComponent<Unit>();
-            unitWeHit.TakeDamage(damage);
             unitWeHit.GetPushedBack(this.transform.position,pushBackForce,pushBackDuration);
+            unitWeHit.TakeDamage(damage);
         }
     }
     private void Start()

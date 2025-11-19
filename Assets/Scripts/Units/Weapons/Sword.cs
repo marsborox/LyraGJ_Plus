@@ -25,8 +25,8 @@ public class Sword : Weapon
     }
     public override void DealHit(Unit unit)
     {
-        unit.TakeDamage(damage);
         unit.GetPushedBack(this.transform.position,pushbackForce,pushBackDuration);
+        unit.TakeDamage(damage);
     }
 
     IEnumerator AttackHitRoutine()

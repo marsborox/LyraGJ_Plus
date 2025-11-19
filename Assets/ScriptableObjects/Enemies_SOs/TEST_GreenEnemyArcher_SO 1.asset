@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e79248c012565fe45b4fff68fefcd99e, type: 3}
-  m_Name: RedEnemyMelee_SO
+  m_Name: TEST_GreenEnemyArcher_SO 1
   m_EditorClassIdentifier: 
-  enemyType: 0
-  range: 1
+  enemyType: 1
+  range: 5
   damage: 1
   attackCooldown: 1
   movementSpeed: 1
-  attackAnimationTime: 3
+  attackAnimationTime: 0.5
   health: 10
   spriteColor:
     serializedVersion: 2
-    rgba: 4282466750
-  behavior: {fileID: 11400000, guid: cc37d312f8cf1714caf72785f99d807e, type: 2}
+    rgba: 4286558840
+  behavior: {fileID: 11400000, guid: d1e00de0522abf24abacc9b76430e561, type: 2}

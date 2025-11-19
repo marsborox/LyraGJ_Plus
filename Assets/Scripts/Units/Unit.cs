@@ -60,6 +60,7 @@ public class Unit : MonoBehaviour
     }*/
     public void TakeDamage(int damageAmount)
     {
+        //Debug.Log("unit TakingDamage");
         unitCombat.TakeDamage(damageAmount);
     }
     public void GetHeal(float healAmount)
@@ -77,6 +78,7 @@ public class Unit : MonoBehaviour
     public void GetStunned(float time)
     {
         unitCombat.GetStunned(time);
+        ///Debug.Log("getting stun");
     }
 
     public void Attack()
