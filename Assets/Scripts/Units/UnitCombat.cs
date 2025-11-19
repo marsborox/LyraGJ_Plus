@@ -84,7 +84,7 @@ public class UnitCombat : MonoBehaviour
     {
         //Debug.Log("taking damage from unitCombat");
         healthCurrent -= damage;
-        //Debug.Log(damage+" damage taken");
+
     }
     public void GetPushedBackFrom(Vector3 pushedFrom,float pushBackForce, float pushBackDuration)
     {

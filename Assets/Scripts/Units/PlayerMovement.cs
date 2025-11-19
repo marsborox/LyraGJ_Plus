@@ -68,7 +68,11 @@ public class PlayerMovement : UnitMovement
         //Debug.Log(mousePosition);
         //_myRigidbody2D.MovePosition(mousePosition /* * movementSpeed * Time.fixedDeltaTime*/);
         //_myRigidbody2D.MovePosition( (transform.position - mousePosition) * movementSpeed * Time.fixedDeltaTime/* - transform.position*/);
-        transform.position = Vector2.MoveTowards(transform.position, mousePosition, movementSpeed*Time.fixedDeltaTime);
+
+        Vector3 movePosition = (mousePosition - (Vector2)this.transform.position).normalized;
+        
+        //transform.position = Vector2.MoveTowards(transform.position, movePosition, movementSpeed*Time.fixedDeltaTime);
+        _myRigidbody2D.MovePosition(transform.position + movePosition * movementSpeed * Time.fixedDeltaTime); ;
     }
     public void DashWSAD(Vector2 rawInput)
     {
