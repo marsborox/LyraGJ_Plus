@@ -65,7 +65,7 @@ public class Player : Unit
 
         ((PlayerCombat)unitCombat).Weapon2_OnHold();
     }
-    public void AttackWeapon3Click() 
+    public void AttackWeapon3Click()
     {
         if (unitCombat == null) return;
 
@@ -77,5 +77,8 @@ public class Player : Unit
 
         ((PlayerCombat)unitCombat).Weapon4_OnClick();
     }
-
+    public void MoveLMB()
+    {
+        playerMovement.MoveMouse();
+    }
 }

@@ -18,5 +18,4 @@ public class EnemyBehavior_SO : ScriptableObject
     {
         Debug.Log("PostAttack action not implemented");
     }
-
 }

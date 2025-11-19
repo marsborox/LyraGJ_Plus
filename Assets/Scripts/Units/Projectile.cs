@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
     
     private void Start()
     {
-        Debug.Log(this.gameObject.tag + " has been spawned");
+        //Debug.Log(this.gameObject.tag + " has been spawned");
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -35,10 +35,11 @@ public class Projectile : MonoBehaviour
     }
     public void ProjectileHit(Unit unit)
     {
-        unit.TakeDamage(damage);
+        //Debug.Log("projectile hit");
         // must pass rotation of this object
         //unit.GetPushedBack(this.transform.position,pushBackForce,pushBackDuration);
         unit.GetStunned(miniStunDuration);
+        unit.TakeDamage(damage);
     }
     //if our target tag is player and this is jsut a proejctile and other tag is weapon or projectile of player destroy this
 
@@ -48,7 +49,6 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
-
         if (/*targetTag == "Player" &&*/ (other.gameObject.tag == "PlayerProjectile") || (other.gameObject.tag == "PlayerWeapon"))
         {
             Debug.Log("EnemyProjectile destoryed by " + other.gameObject.tag);

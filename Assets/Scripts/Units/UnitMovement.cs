@@ -75,4 +75,9 @@ public class UnitMovement : MonoBehaviour
         canMove = false;
         canDash = false;
     }
+    public virtual void DirectionAngleSnapped()
+    {
+
+
+    }
 }
