@@ -19,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Unit
   - 
   - 
   - 
@@ -46,6 +46,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 1077783423
+    locked: 0
+  - name: MiddleGround
+    uniqueID: 3191484183
+    locked: 0
+  - name: Explosions
+    uniqueID: 446571117
+    locked: 0
+  - name: Units
+    uniqueID: 1835196397
+    locked: 0
+  - name: Projectiles
+    uniqueID: 410136507
+    locked: 0
+  - name: ForeGround
+    uniqueID: 3361923059
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

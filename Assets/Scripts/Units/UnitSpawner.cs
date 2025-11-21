@@ -82,17 +82,18 @@ public class UnitSpawner : Singleton<UnitSpawner>
     }
     public void TestSpawnMelee()
     {
-        TestSpawn(meleeSO);
+        SpawnEnemy(meleeSO);
     }
     public void TestSpawnArcher()
     {
-        TestSpawn(archerSO);
+        SpawnEnemy(archerSO);
     }
     public void TestSpawnMage()
     {
-        TestSpawn(mageSO);
+        SpawnEnemy(mageSO);
     }
-    void TestSpawn(Enemy_SO usedTemplate)
+    void SpawnEnemy
+        (Enemy_SO usedTemplate)
     {
         SpawnPoint spawnPoint;
         int randomIndex = Random.Range(0, spawnPoints.Count);
