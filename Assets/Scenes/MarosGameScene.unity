@@ -25997,8 +25997,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   roomPrefab: {fileID: 8677274332305830929, guid: 9f5c6ededa2a27a42b684ec3640e1602, type: 3}
-  roomList:
-  - {fileID: 1985444032}
+  roomPrefabList:
+  - {fileID: 8677274332305830929, guid: 9f5c6ededa2a27a42b684ec3640e1602, type: 3}
+  - {fileID: 4894995592605812377, guid: 782c51fd554c6b54e9de8f88d2d633bf, type: 3}
+  - {fileID: 279181043406650404, guid: bad105da257047e4f828e5c132a27a93, type: 3}
+  - {fileID: 768302069482165149, guid: 0124286ab53cf85449a04bcc09b5cf7a, type: 3}
+  - {fileID: 2102328204662617530, guid: 19a8bb95c0a5d7b4fbbf460d9c8425dc, type: 3}
+  - {fileID: 6122592117311866743, guid: 2c97f937604fcf647befb08cbe1650c9, type: 3}
+  - {fileID: 1671595158991609687, guid: 453621d844c361f4babf9b31031061bb, type: 3}
+  roomList: []
   roomSize: 20
   roomGridSize: 200
   startTile: {fileID: 1985444032}
@@ -26258,6 +26265,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 859534956746889397, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: movementSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3986896122668706926, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -36831,7 +36842,7 @@ PrefabInstance:
       objectReference: {fileID: 1148714917}
     - target: {fileID: 5398758484447006955, guid: 553674528514548459c5007ade46c226, type: 3}
       propertyPath: orthographic size
-      value: 5.55
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37581,7 +37592,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2077581539166765724, guid: 9f5c6ededa2a27a42b684ec3640e1602, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5114051439095151075, guid: 9f5c6ededa2a27a42b684ec3640e1602, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9f5c6ededa2a27a42b684ec3640e1602, type: 3}
 --- !u!4 &1985444031 stripped
 Transform:

@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    public bool leftDoor;
+    public bool rightDoor;
+    public bool topDoor;
+    public bool bottomDoor;
     
     [SerializeField] private EntryTrigger _triggerLeft;
     [SerializeField] private EntryTrigger _triggerRight;
@@ -16,13 +20,16 @@ public class Room : MonoBehaviour
     public bool enemiesSpawned = false;
     public int xPosInArray;
     public int yPosInArray;
+
+
     public void TriggerActivated(EntryTrigger trigger)
     {
-        if (!heroEntered)
+        /*if (!heroEntered)
         {
             HeroEntering(trigger);
         }
-        else HeroLeaving(trigger);
+        else HeroLeaving(trigger);*/
+        HeroLeaving(trigger);
         trigger.gameObject.SetActive(false);
     }
 
@@ -39,5 +46,22 @@ public class Room : MonoBehaviour
         Debug.Log("hero leaved Room from " + trigger.name);
         //instantiating next room
         RoomManager.instance.SpawnRoom(this,trigger.direction);
+    }
+
+    public void DisableLeftTrigger()
+    {
+        _triggerLeft.gameObject.SetActive(false);
+    }
+    public void DisableRightTrigger()
+    {
+        _triggerRight.gameObject.SetActive(false);
+    }
+    public void DisableTopTrigger() 
+    {
+        _triggerTop.gameObject.SetActive(false);
+    }
+    public void DisableBottomTrigger() 
+    {
+        _triggerBottom.gameObject.SetActive(false);
     }
 }
