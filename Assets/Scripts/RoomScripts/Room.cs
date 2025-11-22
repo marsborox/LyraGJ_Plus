@@ -64,4 +64,28 @@ public class Room : MonoBehaviour
     {
         _triggerBottom.gameObject.SetActive(false);
     }
+
+
+    public bool SpawnedNeighborFromLeft()
+    {
+        _triggerLeft.gameObject.SetActive(false);
+        return leftDoor;
+    }
+    public bool SpawnedNeighborFromRight()
+    {
+        _triggerRight.gameObject.SetActive(false);
+        return rightDoor;
+    }
+    public bool SpawnedNeighborFromTop()
+    {
+        _triggerTop.gameObject.SetActive(false);
+        return topDoor;
+    }
+    public bool SpawnedNeighborFromBottom()
+    {
+        _triggerBottom.gameObject.SetActive(false);
+        return bottomDoor;
+    }
+
+
 }

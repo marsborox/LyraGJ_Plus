@@ -10,6 +10,8 @@
 using System;
 using System.Collections.Generic;
 
+using JetBrains.Annotations;
+
 using NUnit.Framework;
 
 using Unity.Mathematics;
@@ -28,6 +30,10 @@ public class RoomManager : Singleton<RoomManager>
     public Room[,] roomGrid;
     // first value is Y second X
     public Room startTile;
+    class NeighborReference
+    {
+        string neighborStatus;
+    }
     private void Awake()
     {
         base.Awake();
@@ -78,10 +84,16 @@ public class RoomManager : Singleton<RoomManager>
         Room neighborTop;
         Room neighborBottom;
 
-        SetRoomByCoord(xOfSpawn - 1, yOfSpawn, out neighborLeft);
-        SetRoomByCoord(xOfSpawn + 1, yOfSpawn,out neighborRight);
-        SetRoomByCoord(xOfSpawn, yOfSpawn + 1, out neighborTop);
-        SetRoomByCoord(xOfSpawn, yOfSpawn - 1, out neighborBottom);
+        
+        { }
+        List<Room>neighborList = new List<Room>();
+        
+        //rooms set above
+        GetRoomByCoord(xOfSpawn - 1, yOfSpawn, out neighborLeft);
+
+        GetRoomByCoord(xOfSpawn + 1, yOfSpawn,out neighborRight);
+        GetRoomByCoord(xOfSpawn, yOfSpawn + 1, out neighborTop);
+        GetRoomByCoord(xOfSpawn, yOfSpawn - 1, out neighborBottom);
         Debug.Log("We know our neighbors");
 
         // make list of viable Rooms to Spawn
@@ -93,6 +105,7 @@ public class RoomManager : Singleton<RoomManager>
         List<Room> removeList = new List<Room>();
         if (!(neighborLeft == null))
         {
+            neighborList.Add(neighborLeft);
             foreach (Room room in returnList) 
             {
                 if (neighborLeft.rightDoor!=room.leftDoor)
@@ -104,6 +117,7 @@ public class RoomManager : Singleton<RoomManager>
         }
         if (!(neighborRight == null))
         {
+            neighborList.Add(neighborRight);
             foreach (Room room in returnList)
             {
                 if (neighborRight.leftDoor != room.rightDoor) 
@@ -115,6 +129,7 @@ public class RoomManager : Singleton<RoomManager>
         }
         if (!(neighborTop == null))
         {
+            neighborList.Add(neighborRight);
             foreach (Room room in returnList)
             {
                 if (neighborTop.topDoor != room.bottomDoor) 
@@ -126,6 +141,7 @@ public class RoomManager : Singleton<RoomManager>
         }
         if (!(neighborBottom == null))
         {
+            neighborList.Add(neighborRight);
             foreach (Room room in returnList)
             {
                 if (neighborBottom.bottomDoor != room.topDoor) 
@@ -136,7 +152,14 @@ public class RoomManager : Singleton<RoomManager>
             }
         }
         foreach (Room room in removeList)
-        { returnList.Remove(room); }
+        { 
+            returnList.Remove(room); 
+        }
+        Debug.Log("NUmberOfNeghbors: " + neighborList.Count);
+        foreach ( Room room in neighborList)
+        { 
+            Debug.Log(nameof(room));
+        }
 
         int randomRoomIndex = UnityEngine.Random.Range(0,returnList.Count-1);
         Debug.Log("Number of viable rooms: " + returnList.Count);
@@ -176,6 +199,26 @@ public class RoomManager : Singleton<RoomManager>
 
         roomList.Add(spawnedRoom);
     }
+    private void DoNeighborStuffLeft(Room room) 
+    {
+        bool door = room.rightDoor;
+        room.DisableRightTrigger();
+    }
+    private void DoNeighborStuffRight(Room room)
+    {
+        bool door = room.leftDoor;
+        room.DisableLeftTrigger();
+    }
+    private void DoNeighborStuffTop(Room room)
+    {
+        bool door = room.bottomDoor;
+        room.DisableBottomTrigger();
+    }
+    private void DoNeighborTopfBottom(Room room)
+    {
+        bool door = room.topDoor;
+        room.DisableTopTrigger();
+    }
 
     private void CheckNeighbors(int x, int y)
     {
@@ -203,7 +246,7 @@ public class RoomManager : Singleton<RoomManager>
         else
             return 1;
     }
-    private void SetRoomByCoord(int x, int y,out Room room)
+    private void GetRoomByCoord(int x, int y,out Room room)
     {
         room = roomGrid[y, x];
     }
