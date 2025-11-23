@@ -2,7 +2,7 @@
 - Project name: LyraGJ_Plus
 - Unity version: Unity 6000.2.9f1
 - Active game object:
-  - Name: MapGrid
+  - Name: 1_DefaultRoomTest
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

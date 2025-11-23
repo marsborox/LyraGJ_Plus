@@ -30,6 +30,8 @@ public class RoomManager : Singleton<RoomManager>
     public Room[,] roomGrid;
     // first value is Y second X
     public Room startTile;
+
+    private int spawnedRoomCounter = 0;
     class NeighborReference
     {
         string neighborStatus;
@@ -50,6 +52,7 @@ public class RoomManager : Singleton<RoomManager>
         roomGrid[centreCoord, centreCoord] = startTile;
         startTile.xPosInArray = centreCoord;
         startTile.yPosInArray = centreCoord;
+        spawnedRoomCounter++;
     }
     /*
      spawning logic
@@ -64,15 +67,17 @@ public class RoomManager : Singleton<RoomManager>
      */
     public void SpawnRoom(Room inputRoom, Direction direction)
     {
+        Debug.Log("-------------------------------- NEW SPAWN ------------------------------------");
         Debug.Log("SpawningRoom");
         //check from which direction we are comming from - we know from inputdirection
         //get x/y pos of tile we are spawning
         int xOfSpawn;
         int yOfSpawn;
         GetCoordsOfSpawnedRoom(out xOfSpawn,out yOfSpawn,inputRoom,direction);
-        Debug.Log("We Have coords of new room");
+        Debug.Log("We Have coords of new inputRoom");
         //Debug.Log("Coords of spawned room are x: "+ xOfSpawn+" y: "+yOfSpawn);
         //check neighboring tiles of one we will spawn, //put neighbors into some collection???
+        Debug.Log("spawning removeRoom at x: "+xOfSpawn + "y: "+yOfSpawn);
         if (roomGrid[yOfSpawn, xOfSpawn])
         {
             Debug.Log("SlotAlreadyUsed");
@@ -84,85 +89,122 @@ public class RoomManager : Singleton<RoomManager>
         Room neighborTop;
         Room neighborBottom;
 
-        
-        { }
         List<Room>neighborList = new List<Room>();
         
         //rooms set above
         GetRoomByCoord(xOfSpawn - 1, yOfSpawn, out neighborLeft);
-
         GetRoomByCoord(xOfSpawn + 1, yOfSpawn,out neighborRight);
         GetRoomByCoord(xOfSpawn, yOfSpawn + 1, out neighborTop);
         GetRoomByCoord(xOfSpawn, yOfSpawn - 1, out neighborBottom);
-        Debug.Log("We know our neighbors");
+        //Debug.Log("We know our neighbors");
 
         // make list of viable Rooms to Spawn
         List<Room> returnList = new List<Room>();
         //returnList = roomPrefabList;
-        foreach(Room room in roomPrefabList) returnList.Add(room);
+        //foreach(Room room in roomPrefabList) returnList.Add(room);
+
 
         Debug.Log("Number of returnList rooms: "+ returnList.Count);
         List<Room> removeList = new List<Room>();
+        Debug.Log("-----------------------Removing Rooms from potential list----------------------------");
         if (!(neighborLeft == null))
         {
             neighborList.Add(neighborLeft);
-            foreach (Room room in returnList) 
+            foreach (Room room in roomPrefabList) 
             {
                 if (neighborLeft.rightDoor!=room.leftDoor)
                 {
                     //returnList.Remove(room);
-                    removeList.Add(room);
+                    //removeList.Add(room);
+                    AddRoomPrefabToList(room,ref removeList);
+                    Debug.Log(room.name + " removed because wrong left");
                 }
             }
         }
         if (!(neighborRight == null))
         {
             neighborList.Add(neighborRight);
-            foreach (Room room in returnList)
+            foreach (Room room in roomPrefabList)
             {
+                //Debug.Log("Right Neighbors door: "+neighborRight.leftDoor.ToString() + " checked left removeRoom door: "+room.rightDoor.ToString());
+                
                 if (neighborRight.leftDoor != room.rightDoor) 
                 {
                     //returnList.Remove(room);
-                    removeList.Add(room);
+                    //removeList.Add(room);
+                    AddRoomPrefabToList(room, ref removeList);
+                    Debug.Log(room.name + " removed because wrong right");
                 }
             }
         }
         if (!(neighborTop == null))
         {
-            neighborList.Add(neighborRight);
-            foreach (Room room in returnList)
+            neighborList.Add(neighborTop);
+            foreach (Room room in roomPrefabList)
             {
-                if (neighborTop.topDoor != room.bottomDoor) 
+
+                if (neighborTop.bottomDoor != room.topDoor) 
                 {
                     //returnList.Remove(room);
-                    removeList.Add(room);
+                    //removeList.Add(room);
+                    AddRoomPrefabToList(room, ref removeList);
+                    Debug.Log(room.name + " removed because wrong top");
                 }
             }
         }
         if (!(neighborBottom == null))
         {
-            neighborList.Add(neighborRight);
-            foreach (Room room in returnList)
+            neighborList.Add(neighborBottom);
+            
+            foreach (Room room in roomPrefabList)
             {
-                if (neighborBottom.bottomDoor != room.topDoor) 
+                if (neighborBottom.topDoor != room.bottomDoor) 
                 { 
                     //returnList.Remove(room);
-                    removeList.Add(room);
+                    //removeList.Add(room);
+                    AddRoomPrefabToList(room, ref removeList);
+                    Debug.Log(room.name + " removed because wrong bottom");
                 }
             }
         }
-        foreach (Room room in removeList)
-        { 
-            returnList.Remove(room); 
+        //scan over non compatible prefabs if our is not in that list we can use it
+        //returnList.Clear();//clean this remove above and this
+        foreach (Room roomPrefab in roomPrefabList)
+        {//not sure if works 
+            if (removeList.Count==0)
+            {
+                returnList.Add(roomPrefab);
+                Debug.Log("RemoveList is Empty");
+            }
+            else
+            {
+                bool isRemove = false;
+                foreach (Room removeRoom in removeList)
+                {
+
+                    //returnList.Remove(roomPrefab);
+                    if (roomPrefab.name == removeRoom.name)
+                    {
+                        isRemove = true;
+                    }
+                }
+                if(!isRemove)returnList.Add(roomPrefab);
+            }
         }
-        Debug.Log("NUmberOfNeghbors: " + neighborList.Count);
-        foreach ( Room room in neighborList)
+        Debug.Log("NumberOfNeghbors: " + neighborList.Count);
+        /*foreach ( Room room in neighborList)
         { 
             Debug.Log(nameof(room));
-        }
-
+        }*/
+        
         int randomRoomIndex = UnityEngine.Random.Range(0,returnList.Count-1);
-        Debug.Log("Number of viable rooms: " + returnList.Count);
+        Debug.Log("not viable roomPrefabs: "+ removeList.Count);
+        Debug.Log("Number of viable roomPrefabs: " + returnList.Count);
+
+        PrintAllRoomNamesInList(removeList,nameof(removeList));
+        PrintAllRoomNamesInList(returnList, nameof(returnList));
+        //******************************************************************************
+        //tuna nejaky if returnlistcount 0 - podla smeru vyber dead end else
         Room pickedRoomPrefab = returnList[randomRoomIndex];
 
         Vector3 spawnPosition = this.transform.position;
@@ -173,27 +215,32 @@ public class RoomManager : Singleton<RoomManager>
         //Room spawnedRoom = Instantiate(roomPrefab,spawnPosition,Quaternion.identity);
         Room spawnedRoom = Instantiate(pickedRoomPrefab, spawnPosition, Quaternion.identity);
         Debug.Log("SpawningRoom");
-        AddRoomToArray(spawnedRoom,inputRoom, direction);
+        roomGrid[yOfSpawn,xOfSpawn]=spawnedRoom;
+        spawnedRoom.xPosInArray = xOfSpawn;
+        spawnedRoom.yPosInArray = yOfSpawn;
+        spawnedRoom.roomID = spawnedRoomCounter;
+        spawnedRoomCounter++;
+        //AddRoomToArray(spawnedRoom,inputRoom, direction);
         //disable triggers of neighboring tiles  to new room //w doors???
         //disable triggers of spawned tile
         try
         { 
-            DisableTriggerIfNotNull(neighborLeft, neighborLeft.DisableRightTrigger, spawnedRoom.DisableLeftTrigger); 
+            DisableTriggersIfNotNull(neighborLeft, neighborLeft.DisableRightTrigger, spawnedRoom.DisableLeftTrigger); 
         } catch 
         { Debug.Log("no left neighbor"); };
         try 
         { 
-            DisableTriggerIfNotNull(neighborRight, neighborRight.DisableLeftTrigger, spawnedRoom.DisableRightTrigger); 
+            DisableTriggersIfNotNull(neighborRight, neighborRight.DisableLeftTrigger, spawnedRoom.DisableRightTrigger); 
         } catch 
         { Debug.Log("no right neighbor"); };
         try 
         { 
-            DisableTriggerIfNotNull(neighborTop, neighborTop.DisableBottomTrigger, spawnedRoom.DisableTopTrigger); 
+            DisableTriggersIfNotNull(neighborTop, neighborTop.DisableBottomTrigger, spawnedRoom.DisableTopTrigger); 
         } catch 
         { Debug.Log("no top neighbor"); };
         try 
         { 
-            DisableTriggerIfNotNull(neighborBottom, neighborBottom.DisableTopTrigger, spawnedRoom.DisableBottomTrigger); 
+            DisableTriggersIfNotNull(neighborBottom, neighborBottom.DisableTopTrigger, spawnedRoom.DisableBottomTrigger); 
         } catch 
         { Debug.Log("no bottom neighbor"); };
 
@@ -219,6 +266,31 @@ public class RoomManager : Singleton<RoomManager>
         bool door = room.topDoor;
         room.DisableTopTrigger();
     }
+    public void AddRoomPrefabToList(Room inputRoom, ref List<Room>list)
+    {
+        if (list.Count == 0)
+        {
+            list.Add(inputRoom);
+            //Debug.Log("provided list was empty adding removeRoom to list");
+        }
+        else
+        {
+            bool wasUsed = false;
+            foreach (Room listRoom in list)
+            {
+                if (listRoom.roomName == inputRoom.roomName)
+                {
+                    wasUsed = true;
+                }
+
+            }
+            if (!wasUsed)
+            {
+                list.Add(inputRoom);
+                //Debug.Log("adding removeRoom to list");
+            }
+        }
+    }
 
     private void CheckNeighbors(int x, int y)
     {
@@ -239,13 +311,7 @@ public class RoomManager : Singleton<RoomManager>
             return true;
 
     }
-    private int IsGridSlotUsedInt(int x, int y)
-    {
-        if (roomGrid[y, x] == null)
-            return 0;
-        else
-            return 1;
-    }
+
     private void GetRoomByCoord(int x, int y,out Room room)
     {
         room = roomGrid[y, x];
@@ -260,7 +326,7 @@ public class RoomManager : Singleton<RoomManager>
     { 
         //if(!(room ==null)) inputIsDoor
     }*/
-    private void DisableTriggerIfNotNull(Room room, Action action1,Action action2)
+    private void DisableTriggersIfNotNull(Room room, Action action1,Action action2)
     {
         if (!(room == null)) { action1(); action2(); }
         else { Debug.Log("DontHaveNeighbor"); }
@@ -279,46 +345,10 @@ public class RoomManager : Singleton<RoomManager>
         }
         return position;
     }
-    private void AddRoomToArray(Room addedRoom, Room roomWeCameFrom,Direction direction)
-    {
-        switch (direction)
-        {
-            case Direction.LEFT:
-                {
-                    roomGrid[roomWeCameFrom.yPosInArray, roomWeCameFrom.xPosInArray - 1] = roomWeCameFrom;
-                    addedRoom.xPosInArray = roomWeCameFrom.xPosInArray - 1;
-                    addedRoom.yPosInArray = roomWeCameFrom.yPosInArray;
-                }
-                break;
-            case Direction.RIGHT:
-                {
-                    roomGrid[roomWeCameFrom.yPosInArray, roomWeCameFrom.xPosInArray + 1] = roomWeCameFrom;
-                    addedRoom.xPosInArray = roomWeCameFrom.xPosInArray + 1;
-                    addedRoom.yPosInArray = roomWeCameFrom.yPosInArray;
-                }
-                break;
-            case Direction.UP:
-                {
-                    roomGrid[roomWeCameFrom.yPosInArray+1, roomWeCameFrom.xPosInArray] = roomWeCameFrom;
-                    roomGrid[roomWeCameFrom.yPosInArray, roomWeCameFrom.xPosInArray + 1] = roomWeCameFrom;
-                    addedRoom.xPosInArray = roomWeCameFrom.xPosInArray;
-                    addedRoom.yPosInArray = roomWeCameFrom.yPosInArray + 1;
-                }
-                break;
-            case Direction.DOWN:
-                {
-                    roomGrid[roomWeCameFrom.yPosInArray-1, roomWeCameFrom.xPosInArray] = roomWeCameFrom;
-                    addedRoom.xPosInArray = roomWeCameFrom.xPosInArray;
-                    addedRoom.yPosInArray = roomWeCameFrom.yPosInArray - 1;
-                }
-                break;
-            default:
-                {
-                    Debug.Log("Unknown direction");
-                    break;
-                }
-        }
-    }
+    
+    
+    
+
 
     private void GetCoordsOfSpawnedRoom(out int x,out int y,Room roomWeCameFrom, Direction direction)
     {
@@ -357,4 +387,86 @@ public class RoomManager : Singleton<RoomManager>
                 }
         }
     }
+    public void TestArrayContent()
+    {
+        int ammountOfNull=0;
+        int ammountOfUsed = 0;
+        Debug.Log("--------------------------TESTING ARRAY --------------------");
+        for (int y = 0; y < roomGridSize; y++)
+        {
+            for (int x = 0; x < roomGridSize; x++) 
+            {
+                if (roomGrid[y, x] != null)
+                {
+                    Room room = roomGrid[y, x];
+                    string resultText;
+                    ammountOfUsed++;
+                    if (room.yPosInArray == y && room.xPosInArray == x)
+                    {
+                        resultText = "data correct";
+                    }
+                    else
+                    {
+                        resultText = "data NOT correct";
+                        Debug.Log("expected X: "+x +" Y: "+y);
+                        Debug.Log("delivered X: "+ room.xPosInArray + " Y: "+ room.yPosInArray);
+                    }
+
+                    Debug.Log("removeRoom ID: " + room.roomID + " " + resultText);
+                }
+                else 
+                {
+                    ammountOfNull++;
+                }
+            }
+        }
+        Debug.Log("gridslots null: "+ ammountOfNull + "gridslots used: "+ammountOfUsed);
+    }
+    public void PrintAllRoomNamesInList(List<Room> roomList,string listName)
+    {
+        foreach (Room room in roomList)
+        {
+            Debug.Log("ListName: "+ listName + " RoomName: "+room.name);
+        }
+    }
 }
+/*private void AddRoomToArray(Room addedRoom, Room roomWeCameFrom,Direction direction)
+{
+    switch (direction)
+    {
+        case Direction.LEFT:
+            {
+                roomGrid[roomWeCameFrom.yPosInArray, roomWeCameFrom.xPosInArray - 1] = roomWeCameFrom;
+                addedRoom.xPosInArray = roomWeCameFrom.xPosInArray - 1;
+                addedRoom.yPosInArray = roomWeCameFrom.yPosInArray;
+            }
+            break;
+        case Direction.RIGHT:
+            {
+                roomGrid[roomWeCameFrom.yPosInArray, roomWeCameFrom.xPosInArray + 1] = roomWeCameFrom;
+                addedRoom.xPosInArray = roomWeCameFrom.xPosInArray + 1;
+                addedRoom.yPosInArray = roomWeCameFrom.yPosInArray;
+            }
+            break;
+        case Direction.UP:
+            {
+                roomGrid[roomWeCameFrom.yPosInArray+1, roomWeCameFrom.xPosInArray] = roomWeCameFrom;
+                roomGrid[roomWeCameFrom.yPosInArray, roomWeCameFrom.xPosInArray + 1] = roomWeCameFrom;
+                addedRoom.xPosInArray = roomWeCameFrom.xPosInArray;
+                addedRoom.yPosInArray = roomWeCameFrom.yPosInArray + 1;
+            }
+            break;
+        case Direction.DOWN:
+            {
+                roomGrid[roomWeCameFrom.yPosInArray-1, roomWeCameFrom.xPosInArray] = roomWeCameFrom;
+                addedRoom.xPosInArray = roomWeCameFrom.xPosInArray;
+                addedRoom.yPosInArray = roomWeCameFrom.yPosInArray - 1;
+            }
+            break;
+        default:
+            {
+                Debug.Log("Unknown direction");
+                break;
+            }
+    }
+}*/

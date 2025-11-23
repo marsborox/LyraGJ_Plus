@@ -9,6 +9,7 @@ public class Room : MonoBehaviour
     public bool rightDoor;
     public bool topDoor;
     public bool bottomDoor;
+    public string roomName;
     
     [SerializeField] private EntryTrigger _triggerLeft;
     [SerializeField] private EntryTrigger _triggerRight;
@@ -20,7 +21,7 @@ public class Room : MonoBehaviour
     public bool enemiesSpawned = false;
     public int xPosInArray;
     public int yPosInArray;
-
+    public int roomID;
 
     public void TriggerActivated(EntryTrigger trigger)
     {
