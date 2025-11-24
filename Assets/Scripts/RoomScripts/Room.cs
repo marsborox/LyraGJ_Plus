@@ -44,7 +44,7 @@ public class Room : MonoBehaviour
     }
     public void HeroLeaving(EntryTrigger trigger)
     {
-        Debug.Log("hero leaved Room from " + trigger.name);
+        //Debug.Log("hero leaved Room from " + trigger.name);
         //instantiating next room
         RoomManager.instance.SpawnRoom(this,trigger.direction);
     }

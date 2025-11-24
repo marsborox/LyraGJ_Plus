@@ -25959,8 +25959,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1016398357}
   - component: {fileID: 1016398358}
+  - component: {fileID: 1016398359}
   m_Layer: 0
-  m_Name: MapGrid
+  m_Name: RoomManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26011,10 +26012,28 @@ MonoBehaviour:
   - {fileID: 4441032900191404571, guid: 082b31325542e76489019399f6c73b5c, type: 3}
   - {fileID: 4441032900191404571, guid: d9e9ed445d4304446b27de4b8f1528d7, type: 3}
   - {fileID: 4441032900191404571, guid: 612aabf1abfb3474984d747106ce8b18, type: 3}
+  deadEndPrefabList:
+  - {fileID: 2600748145702403077, guid: 919d0e919980e404dba8d4fea5b8d8cb, type: 3}
+  - {fileID: 2600748145702403077, guid: fb4d56ff9652b4c4abab7c0c744db1e7, type: 3}
+  - {fileID: 2600748145702403077, guid: 7f611321ad8a95c4689ba24126e547c0, type: 3}
+  - {fileID: 2600748145702403077, guid: 7b64111fdfabcc549ba568b78f7b1d40, type: 3}
   roomList: []
   roomSize: 20
   roomGridSize: 200
   startTile: {fileID: 1985444032}
+  _roomSpawner: {fileID: 1016398359}
+--- !u!114 &1016398359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016398356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d693c5dd8a488a44ad5d6d1c771443e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoomSpawner
 --- !u!1 &1027780658
 GameObject:
   m_ObjectHideFlags: 0
@@ -37630,13 +37649,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2077581539166765724, guid: 9f5c6ededa2a27a42b684ec3640e1602, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5114051439095151075, guid: 9f5c6ededa2a27a42b684ec3640e1602, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5c6ededa2a27a42b684ec3640e1602, type: 3}
 --- !u!4 &1985444031 stripped
 Transform:
