@@ -114,7 +114,7 @@ public class EnemyCombat : UnitCombat
     public override void TakeDamage(int damage)
     {
         healthCurrent -= damage;
-        Debug.Log("Taking damage in enemyCombat");
+        //Debug.Log("Taking damage in enemyCombat");
         //Debug.Log(damage+" damage taken");
         ResetAttackAnimation();
     }

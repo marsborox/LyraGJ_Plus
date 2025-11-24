@@ -795,8 +795,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1835196397
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -979,7 +979,7 @@ MonoBehaviour:
   blueGoingDown: {fileID: 5134632440540526977}
   blueGoingLeft: {fileID: 5387190479982831746}
   enemyMovement: {fileID: 3549913713549301225}
-  enemyTemplate: {fileID: 0}
+  enemyTemplate: {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
 --- !u!114 &1474502790447180861
 MonoBehaviour:
   m_ObjectHideFlags: 0
