@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1835196397
-  m_SortingLayer: 3
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2eb1bb93ee805446ebb9259c4bbad2d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -631,7 +631,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1835196397
-  m_SortingLayer: 3
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ee4dd5f1858564610ae8066626e27b4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -874,7 +874,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1835196397
-  m_SortingLayer: 3
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c595358aa30be461c91f40049e0b0854, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1572,7 +1572,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2289666882399615885}
@@ -1698,7 +1698,7 @@ MonoBehaviour:
   goingDown: {fileID: 4880690286573580683}
   goingLeft: {fileID: 8478153812751325787}
   weapons: {fileID: 5158036404265290629}
-  movementSpeed: 5
+  movementSpeed: 15
   canMove: 1
   canDash: 1
   _mouseFollow: {fileID: 1477771279173098806}

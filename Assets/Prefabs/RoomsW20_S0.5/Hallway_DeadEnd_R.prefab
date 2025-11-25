@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2139879181182777076, guid: 5f5a524add81ec74389c0d566d2b7953, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145186647556173913, guid: 5f5a524add81ec74389c0d566d2b7953, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3635706897005968131, guid: 5f5a524add81ec74389c0d566d2b7953, type: 3}
       propertyPath: leftDoor
       value: 0
@@ -54,6 +62,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4728209522759378853, guid: 5f5a524add81ec74389c0d566d2b7953, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708423661215771410, guid: 5f5a524add81ec74389c0d566d2b7953, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6912771700606549874, guid: 5f5a524add81ec74389c0d566d2b7953, type: 3}
