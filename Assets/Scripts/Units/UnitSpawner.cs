@@ -26,6 +26,8 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public Enemy_SO meleeSO;
     public Enemy_SO archerSO;
     public Enemy_SO mageSO;
+
+    public List<Enemy_SO>testSos = new List<Enemy_SO>();
     private void Start()
     {
 
@@ -92,8 +94,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
     {
         SpawnEnemy(mageSO);
     }
-    void SpawnEnemy
-        (Enemy_SO usedTemplate)
+    void SpawnEnemy(Enemy_SO usedTemplate)
     {
         SpawnPoint spawnPoint;
         int randomIndex = Random.Range(0, spawnPoints.Count);
@@ -101,5 +102,14 @@ public class UnitSpawner : Singleton<UnitSpawner>
         Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
         
         spawnedEnemy.SetProperties(usedTemplate, player);
+    }
+    public void SpawnRandomEnemy(float x,float y)
+    {
+        Debug.Log("spawning random test enemy");
+        Vector2 spawnPosition = new Vector2(x, y);
+        int randomTemplateIndex = Random.Range(0,testSos.Count-1);
+        Enemy_SO usedTemplate = testSos[randomTemplateIndex];
+        Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        spawnedEnemy.SetProperties(usedTemplate,player);
     }
 }
