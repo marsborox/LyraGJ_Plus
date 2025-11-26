@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.AI;
 
 using static UnityEngine.GraphicsBuffer;
 
@@ -8,10 +9,14 @@ public class EnemyMovement : UnitMovement
     public Enemy thisEnemy;
 
     [SerializeField] private EnemyCombat enemyCombat;
+    [SerializeField] private NavMeshAgent _agent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
-        
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
+        _agent.speed = movementSpeed;
     }
     // Update is called once per frame
     void Update()
@@ -47,7 +52,13 @@ public class EnemyMovement : UnitMovement
                 currentDirection = Direction.DOWN;
             }
         }
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
+        //Debug.Log("TryingToMove");
+        _agent.SetDestination(player.transform.position);
+    }
+    public void MoveToTargetPathf()
+    {
+        
     }
     public void Move(Unit target)
     {

@@ -416,7 +416,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4160947473599294138}
-  - {fileID: 4118068618019899897}
   - {fileID: 7804971913641499977}
   - {fileID: 6996088569372807488}
   m_Father: {fileID: 0}
@@ -465,8 +464,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4118068618019899897}
   - component: {fileID: 7333450536264610401}
+  - component: {fileID: 8221786280606363486}
   m_Layer: 0
-  m_Name: VisualTemp
+  m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,12 +480,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2681225099403295178}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 46, y: 46, z: 1}
+  m_LocalScale: {x: 48, y: 48, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4276402292191518156}
+  m_Father: {fileID: 4160947473599294138}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7333450536264610401
 SpriteRenderer:
@@ -545,6 +545,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8221786280606363486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681225099403295178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &2872231677811986811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1024,7 @@ Transform:
   - {fileID: 481734105704711844}
   - {fileID: 8500980552038067667}
   - {fileID: 866545396327359882}
+  - {fileID: 4118068618019899897}
   m_Father: {fileID: 4276402292191518156}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &1219082531922309653
@@ -1249,6 +1266,8 @@ GameObject:
   - component: {fileID: 2939529854071672702}
   - component: {fileID: 5707850620608112885}
   - component: {fileID: 1018679787825900489}
+  - component: {fileID: 1743190798705022825}
+  - component: {fileID: 6808775817630331775}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Wall
@@ -2635,6 +2654,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1743190798705022825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502373528803934477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!114 &6808775817630331775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502373528803934477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709c8d6349be44c68dff3d220992400c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifierTilemap
+  m_AffectedAgents: ffffffff
+  m_TileModifiers: []
 --- !u!1 &8758337751695732964
 GameObject:
   m_ObjectHideFlags: 0
