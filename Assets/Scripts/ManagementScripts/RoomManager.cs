@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+
+using NavMeshPlus.Components;
+
 using UnityEngine;
 
 public enum Direction {LEFT, RIGHT, UP, DOWN}
@@ -19,6 +22,7 @@ public class RoomManager : Singleton<RoomManager>
     [SerializeField]private RoomSpawner _roomSpawner;
     private int _spawnedRoomCounter = 0;
 
+    public NavMeshSurface surface;
     private void Awake()
     {
         base.Awake();
@@ -41,6 +45,7 @@ public class RoomManager : Singleton<RoomManager>
     public void SpawnRoom(Room inputRoom, Direction direction)
     {
         _roomSpawner.SpawnRoom(inputRoom,direction,roomPrefabList, deadEndPrefabList,ref roomList,roomGrid,roomSize,ref _spawnedRoomCounter);
+        surface.BuildNavMesh();
     }
     
     public void TestArrayContent()

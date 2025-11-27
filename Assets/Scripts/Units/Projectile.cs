@@ -51,7 +51,7 @@ public class Projectile : MonoBehaviour
         }
         if (/*targetTag == "Player" &&*/ (other.gameObject.tag == "PlayerProjectile") || (other.gameObject.tag == "PlayerWeapon"))
         {
-            Debug.Log("EnemyProjectile destoryed by " + other.gameObject.tag);
+            //Debug.Log("EnemyProjectile destoryed by " + other.gameObject.tag);
             Destroy(this.gameObject);
         }
     }

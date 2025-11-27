@@ -97,7 +97,7 @@ public class Room : MonoBehaviour
     public void SpawnEnemies()
     {
         _spawnTrigger.gameObject.SetActive(false);
-        Debug.Log("we shall spawn enemies");
+        //Debug.Log("we shall spawn enemies");
         TestSpawnSomeEnemies();
     }
     private void TestSpawnSomeEnemies()
@@ -105,15 +105,15 @@ public class Room : MonoBehaviour
         int randomMin = 3;
         int randomMax = 5;
         int spawnAmount = Random.Range(randomMin, randomMax);
-        Debug.Log("we know how many enemies: " + spawnAmount.ToString());
+        //Debug.Log("we know how many enemies: " + spawnAmount.ToString());
         for (int i = 0; i<=spawnAmount; i++)
         {
-            Debug.Log("spawning enemy");
+            //Debug.Log("spawning enemy");
             float spawnPosX = Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
             float spawnPosY = Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
             UnitSpawner.instance.SpawnRandomEnemy(spawnPosX, spawnPosY);
         }
-        Debug.Log("spawning done");
+        //Debug.Log("spawning done");
 
     }
 }

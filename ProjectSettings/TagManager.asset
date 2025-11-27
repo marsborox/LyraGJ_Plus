@@ -55,6 +55,9 @@ TagManager:
   - name: Explosions
     uniqueID: 446571117
     locked: 0
+  - name: Environment
+    uniqueID: 1678486579
+    locked: 0
   - name: Units
     uniqueID: 1835196397
     locked: 0
