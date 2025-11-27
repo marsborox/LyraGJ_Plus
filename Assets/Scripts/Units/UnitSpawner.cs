@@ -105,9 +105,9 @@ public class UnitSpawner : Singleton<UnitSpawner>
     }
     public void SpawnRandomEnemy(float x,float y)
     {
-        Debug.Log("spawning random test enemy");
+        //Debug.Log("spawning random test enemy");
         Vector2 spawnPosition = new Vector2(x, y);
-        int randomTemplateIndex = Random.Range(0,testSos.Count-1);
+        int randomTemplateIndex = Random.Range(0,testSos.Count);//may say out of bounds?
         Enemy_SO usedTemplate = testSos[randomTemplateIndex];
         Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         spawnedEnemy.SetProperties(usedTemplate,player);
