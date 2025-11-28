@@ -1304,6 +1304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Template_DeadEnd_R
       objectReference: {fileID: 0}
+    - target: {fileID: 2872231677811986811, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4276402292191518156, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1362,6 +1366,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5238122392826839402, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
       propertyPath: bottomDoor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5863931009270008368, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455511819393420445, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
