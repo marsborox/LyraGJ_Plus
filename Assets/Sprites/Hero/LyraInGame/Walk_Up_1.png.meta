@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 264d9f73eac444601b55e9c8040533c4
+guid: 5241341c919e54bf295d914cc84b6b55
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8328335969738516614
-    second: Walk_Up_3_0
+      213: 5894551858436284118
+    second: Walk_Up_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,15 +109,28 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk_Up_3_0
+      name: Walk_Up_1_0
       rect:
         serializedVersion: 2
         x: 22
-        y: 22
+        y: 20
         width: 79
         height: 86
       alignment: 0
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6886f566071349370800000000000000
-      internalID: 8328335969738516614
+      spriteID: 6de96304fa7adc150800000000000000
+      internalID: 5894551858436284118
       vertices: []
       indices: 
       edges: []
@@ -148,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Walk_Up_3_0: 8328335969738516614
+      Walk_Up_1_0: 5894551858436284118
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

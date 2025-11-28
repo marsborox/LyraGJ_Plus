@@ -5,20 +5,19 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer _sprite; 
     public UnitStats unitStats;
     public UnitCombat unitCombat;
     public string targetTag;
-    
+
+    private void Start()
+    {
+        _sprite.enabled = false;
+    }
     public void Update()
     {
         
     }
-
-    private void OnEnable()
-    { 
-
-    }
-        
     public virtual void Die()
     { }
     public float ReturnHealthCurrent()

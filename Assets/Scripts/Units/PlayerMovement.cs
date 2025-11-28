@@ -14,12 +14,8 @@ public class PlayerMovement : UnitMovement
     //[SerializeField] private float _maxDashTime;
     [SerializeField] private float _dashSpeedCoef;
 
-
-
     [SerializeField] private Vector3 _dashDestination;
     //[SerializeField] private Vector3 _mousePosVector;
-
-
 
     private Rigidbody2D _myRigidbody2D;
 

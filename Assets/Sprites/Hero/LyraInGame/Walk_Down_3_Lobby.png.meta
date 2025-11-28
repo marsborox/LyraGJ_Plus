@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 539c703e4fe0245f0a49f4df4e320c14
+guid: 9cc2ee404d85b446a817702c53077d93
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4141375346314860197
-    second: Walk_Left_3_Lobby_0
+      213: 6225111986121956997
+    second: Walk_Down_3_Lobby_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,17 +109,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk_Left_3_Lobby_0
+      name: Walk_Down_3_Lobby_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 20
-        width: 57
-        height: 88
+        x: 22
+        y: 22
+        width: 79
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b59a7518011e686c0800000000000000
-      internalID: -4141375346314860197
+      spriteID: 58e53db8e5a046650800000000000000
+      internalID: 6225111986121956997
       vertices: []
       indices: 
       edges: []
@@ -148,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Walk_Left_3_Lobby_0: -4141375346314860197
+      Walk_Down_3_Lobby_0: 6225111986121956997
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

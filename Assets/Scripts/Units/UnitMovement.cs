@@ -29,28 +29,28 @@ public class UnitMovement : MonoBehaviour
         {
             case Direction.UP:
                 {
-                    goingUp.gameObject.SetActive(true);
+                    //goingUp.gameObject.SetActive(true);
                     currentUnitVisual = goingUp;
                     playerRotation = 0f;
                     break;
                 }
             case Direction.DOWN:
                 {
-                    goingDown.gameObject.SetActive(true);
+                    //goingDown.gameObject.SetActive(true);
                     currentUnitVisual = goingDown;
                     playerRotation = 0f;
                     break;
                 }
             case Direction.LEFT:
                 {
-                    goingLeft.gameObject.SetActive(true);
+                    //goingLeft.gameObject.SetActive(true);
                     currentUnitVisual = goingLeft;
                     playerRotation = 0f;
                     break;
                 }
             case Direction.RIGHT:
                 {
-                    goingLeft.gameObject.SetActive(true);
+                    //goingLeft.gameObject.SetActive(true);
                     currentUnitVisual = goingLeft;
                     playerRotation = 180f;
                     break;
