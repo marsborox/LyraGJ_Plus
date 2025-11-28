@@ -29,7 +29,6 @@ public class RoomManager : Singleton<RoomManager>
     }
     private void Start()
     {
-        
         SetupGridAndStartRoom();
     }
     private void SetupGridAndStartRoom()

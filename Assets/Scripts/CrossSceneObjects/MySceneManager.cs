@@ -28,4 +28,10 @@ public class MySceneManager : SingletonPersistent<MySceneManager>
     {
         Application.Quit();
     }
+    public void OpenMarosTestScene()
+    {
+        Debug.Log("Opening MarosGameScene");
+        SceneManager.LoadScene("MarosGameScene");
+        //SceneManager.LoadScene("MarosGameScene");
+    }
 }
