@@ -5,6 +5,7 @@ public class Player : Unit
 {
     public PlayerMovement playerMovement;
     //private Rigidbody2D _myRigidbody2D;
+    
     private void Awake()
     {
         //_myRigidbody2D = GetComponent<Rigidbody2D>();

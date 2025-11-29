@@ -24,7 +24,7 @@ public class UnitMovement : MonoBehaviour
     {
         var visual = transform.rotation;
         float playerRotation = 0;
-        DisableAllVisuals();
+        /*DisableAllVisuals();
         switch (currentDirection)
         {
             case Direction.UP:
@@ -55,9 +55,9 @@ public class UnitMovement : MonoBehaviour
                     playerRotation = 180f;
                     break;
                 }
-        }
+        }*/
         //weapons.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
-        currentUnitVisual.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
+        //currentUnitVisual.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
     }
     void DisableAllVisuals()
     {
