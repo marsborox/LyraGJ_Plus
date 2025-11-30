@@ -404,7 +404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BowAuto
   weaponType: 0
   maxCooldown: 1
-  damage: 1
+  damage: 4
   attackAnimationTime: 0.3
   pushbackForce: 10
   pushBackDuration: 0.1
@@ -1174,7 +1174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   weaponType: 0
   maxCooldown: 1
-  damage: 1
+  damage: 5
   attackAnimationTime: 0.5
   pushbackForce: 0
   pushBackDuration: 0
@@ -1406,6 +1406,8 @@ MonoBehaviour:
   movementSpeed: 15
   canMove: 1
   canDash: 1
+  animator: {fileID: 25080310193069001}
+  spriteRenderer: {fileID: 7857623088765052746}
   _mouseFollow: {fileID: 1477771279173098806}
   _dashSpeed: 0
   _dashCooldownTimer: 0
@@ -1544,9 +1546,9 @@ Animator:
   m_GameObject: {fileID: 3986896122668706926}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2eba248451c9d97469abad2103184eb4, type: 2}
+  m_Controller: {fileID: 9100000, guid: f482e0b3f2bec5b4bb8e087684632a3f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -3303,7 +3305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   weaponType: 0
   maxCooldown: 3
-  damage: 1
+  damage: 9
   attackAnimationTime: 0.2
   pushbackForce: 15
   pushBackDuration: 0.3
@@ -3894,7 +3896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   weaponType: 0
   maxCooldown: 1
-  damage: 1
+  damage: 5
   attackAnimationTime: 0.4
   pushbackForce: 10
   pushBackDuration: 0.2

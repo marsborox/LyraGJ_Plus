@@ -15,27 +15,27 @@ public class TransparentDetection : MonoBehaviour
     [SerializeField] private int _unitsEnteredCollider;
     private void OnTriggerEnter2D(Collider2D other)
     {//might want to expand on enemies and projectiles
-        Debug.Log("House trigger enter");
+        //Debug.Log("House trigger enter");
         if (other.gameObject.GetComponent<Unit>())
         {   //fade the tree
             _unitsEnteredCollider++;
             //we pass our sprite renderer, time to fade, sprite renderer alpha color, how transparent it will be
             StartCoroutine(FadeRoutine(_spriteToFade, _transparencyFadeTime, _spriteToFade.color.a, _transparencyAmount));
-            Debug.Log("UnitBehindBuilding entering");
+            //Debug.Log("UnitBehindBuilding entering");
         }
     }
     //we want to return to original (no) transparency
     //when moved out
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("House trigger exit");
+        //Debug.Log("House trigger exit");
         if (other.gameObject.GetComponent<Unit>())
         {
             _unitsEnteredCollider--;
             if (_unitsEnteredCollider > 0)
                 return;
             StartCoroutine(FadeRoutine(_spriteToFade, _transparencyFadeTime, _spriteToFade.color.a, 1f));
-            Debug.Log("UnitBehindBuilding leaving");
+            //Debug.Log("UnitBehindBuilding leaving");
         }
     }
 

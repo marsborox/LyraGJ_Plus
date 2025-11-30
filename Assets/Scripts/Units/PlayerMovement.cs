@@ -198,13 +198,16 @@ public class PlayerMovement : UnitMovement
         animator.SetFloat("Yinput",vertical);
         //animator.SetFloat();
 
-        if (horizontal < 0)
+        if (horizontal > 0)
         {
             spriteRenderer.flipX = true;
+            //Debug.Log("facingLeft");
         }
         else
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
+            //Debug.Log("facingRight");
         }
+        //Debug.Log("Should be animating, direction X: "+horizontal.ToString() + " Y: "+vertical.ToString());
     }
 }

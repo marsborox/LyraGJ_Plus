@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
 
     private void Start()
     {
-        _sprite.enabled = false;
+        //_sprite.enabled = false;
     }
     public void Update()
     {
