@@ -78,3 +78,20 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# --- FMOD Studio Build Artifacts ---
+# Bank build output (regenerated per-machine)
+**/Build/**
+
+# --- FMOD Unity Integration Artifacts ---
+# FMOD cache inside Unity project
+[Ll]ibrary/FMOD/**
+
+# FMOD native plugin binaries (large .dll/.so/.dylib/.a files)
+# These come from the FMOD Unity package and should not be versioned.
+Assets/Plugins/FMOD/**
+
+# --- FMOD Autosaves (optional but recommended) ---
+# Avoid versioning autosaves/temporary files
+*.fspro.user
+*.autosave
