@@ -23,7 +23,7 @@ public class PlayerCombat : UnitCombat
         // Debug.Log("playerCombat.wpn1 attack");
         if (emitter != null) {
             emitter.SetParameter("Piano_attack", 1);
-            StartCoroutine(StopAttack("Piano_attack"));
+            StartCoroutine(StopAttack("Piano_attack", 0.6f));
         }
 
         weapon1New.ClickAttack();
@@ -37,7 +37,7 @@ public class PlayerCombat : UnitCombat
         // Debug.Log("playerCombat.wpn2 attack");
         if (emitter != null) {
             emitter.SetParameter("Saxophone_attack", 1);
-            StartCoroutine(StopAttack("Saxophone_attack"));
+            StartCoroutine(StopAttack("Saxophone_attack", 1f));
         }
 
         weapon2New.ClickAttack();
@@ -87,9 +87,9 @@ public class PlayerCombat : UnitCombat
         }*/
     }
 
-    IEnumerator StopAttack(string attackName)
+    IEnumerator StopAttack(string attackName, float delay)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(delay);
         emitter.SetParameter(attackName, 0f);
     }
 }
