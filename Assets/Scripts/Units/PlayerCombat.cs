@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerCombat : UnitCombat
 {
@@ -11,11 +12,20 @@ public class PlayerCombat : UnitCombat
     public Weapon weapon2New;
     public Weapon weapon3New;
     public Weapon weapon4New;
+    private FMODUnity.StudioEventEmitter emitter;
 
-
+    private void Awake()
+    {
+        emitter = GetComponent<FMODUnity.StudioEventEmitter>();
+    }
     public void Weapon1_OnClick()
     {
-        //Debug.Log("playerCombat.wpn1 attack");
+        // Debug.Log("playerCombat.wpn1 attack");
+        if (emitter != null) {
+            emitter.SetParameter("Piano_attack", 1);
+            StartCoroutine(StopAttack("Piano_attack"));
+        }
+
         weapon1New.ClickAttack();
     }
     public void Weapon1_OnHold()
@@ -24,6 +34,12 @@ public class PlayerCombat : UnitCombat
     }
     public void Weapon2_OnClick() 
     {
+        // Debug.Log("playerCombat.wpn2 attack");
+        if (emitter != null) {
+            emitter.SetParameter("Saxophone_attack", 1);
+            StartCoroutine(StopAttack("Saxophone_attack"));
+        }
+
         weapon2New.ClickAttack();
     }
     public void Weapon2_OnHold()
@@ -69,5 +85,11 @@ public class PlayerCombat : UnitCombat
             //MySoundManager.instance.PlaySaxofone();
             weapon4.Attack();
         }*/
+    }
+
+    IEnumerator StopAttack(string attackName)
+    {
+        yield return new WaitForSeconds(0.5f);
+        emitter.SetParameter(attackName, 0f);
     }
 }

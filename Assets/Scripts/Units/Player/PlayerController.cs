@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     private PlayerInput _playerInput;
     private InputAction _action1;
     private InputAction _action2;
-    private FMODUnity.StudioEventEmitter emitter;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -39,7 +38,6 @@ public class PlayerController : MonoBehaviour
         _action1Clicker.name = "action1";
         _action2Clicker.action = _playerInput.actions["Action2"];
         _action2Clicker.name = "action2";
-        emitter = GetComponent<FMODUnity.StudioEventEmitter>();
     }
     void Start()
     {
@@ -74,21 +72,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (emitter != null) {
-            if (_rawInput.x != 0)
-            {
-                emitter.SetParameter("RPM", 1200);
-            }
-            else if (_rawInput.y != 0)
-            {
-                emitter.SetParameter("RPM", 2500);
-            }
-            else
-            {                
-                emitter.SetParameter("RPM", 0);
-            }
-        }
-
         player.playerMovement.Move(_rawInput);
         //player.input = _rawInput;
         //CheckClickHoldAction();
