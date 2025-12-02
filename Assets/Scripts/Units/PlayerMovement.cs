@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : UnitMovement
 {
-    public Animator animator;
-    public SpriteRenderer spriteRenderer;
+    
     [SerializeField] private MouseFollow _mouseFollow;
-
+    [SerializeField] private AnimationController _animationController;
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashCooldownTimer;
     [SerializeField] private float _dashCooldownTime;
@@ -38,7 +37,7 @@ public class PlayerMovement : UnitMovement
     private void FixedUpdate()
     {
         DoDashing();
-        HandleAnimation();
+        //HandleAnimation();
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -72,7 +71,8 @@ public class PlayerMovement : UnitMovement
         Vector3 movePosition = (mousePosition - (Vector2)this.transform.position).normalized;
         
         //transform.position = Vector2.MoveTowards(transform.position, movePosition, movementSpeed*Time.fixedDeltaTime);
-        _myRigidbody2D.MovePosition(transform.position + movePosition * movementSpeed * Time.fixedDeltaTime); ;
+        _myRigidbody2D.MovePosition(transform.position + movePosition * movementSpeed * Time.fixedDeltaTime);
+        _animationController.HandleAnimation();
     }
     public void DashWSAD(Vector2 rawInput)
     {
@@ -163,51 +163,5 @@ public class PlayerMovement : UnitMovement
             currentDirection= Direction.RIGHT;
         }
     }
-    private void HandleAnimation()
-    {
-        //float horizontal = Input.GetAxis("Horizontal");
-        //float vertical = Input.GetAxis("Vertical");
 
-        float horizontal=0;
-        float vertical=0;
-        switch (currentDirection)
-        { 
-        case Direction.UP:
-                {
-                    vertical = 1;
-                    break;
-                }
-                case Direction.DOWN:
-                {
-                    vertical = -1;
-                    break;
-                }
-                case Direction.LEFT:
-                {
-                    horizontal = -1;
-                    break;
-                }
-                case Direction.RIGHT:
-                {
-                    horizontal = 1;
-                    break;
-                }
-        }
-
-        animator.SetFloat("Xinput",horizontal);
-        animator.SetFloat("Yinput",vertical);
-        //animator.SetFloat();
-
-        if (horizontal > 0)
-        {
-            spriteRenderer.flipX = true;
-            //Debug.Log("facingLeft");
-        }
-        else
-        {
-            spriteRenderer.flipX = false;
-            //Debug.Log("facingRight");
-        }
-        //Debug.Log("Should be animating, direction X: "+horizontal.ToString() + " Y: "+vertical.ToString());
-    }
 }

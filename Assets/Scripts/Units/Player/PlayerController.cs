@@ -8,8 +8,10 @@ using UnityEngine.InputSystem;
 using static UnityEngine.Rendering.DebugUI;
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private MouseFollow _mouseFollow;
     public Player player;
+    public PlayerMovement playerMovement;
+    [SerializeField] private MouseFollow _mouseFollow;
+    [SerializeField] private AnimationController _animationController;
     public float holdHreshold=0.2f;//100/250ms 50frames/1s
     private Vector2 _rawInput;
 
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
         public bool isHeld = false;
         public float actionTimer = 0f;
     }
+
 
     private Clicker _LMBClicker = new Clicker();
     private Clicker _RMBClicker = new Clicker();
@@ -123,23 +126,27 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("weapon1");
         //player.AttackWeapon1();
         player.AttackWeapon1Click();
+        _animationController.HandleAnimation();
     }
     void OnWeapon2()
     {
         //Debug.Log("weapon2");
         //player.AttackWeapon2();
         player.AttackWeapon2Click();
+        _animationController.HandleAnimation();
     }
     void OnWeapon3()
     {
         //Debug.Log("weapon3");
         //player.AttackWeapon3();
         player.AttackWeapon3Click();
+        _animationController.HandleAnimation();
     }
     void OnWeapon4()
     {
         //Debug.Log("weapon4");
         player.AttackWeapon4Click();
+        _animationController.HandleAnimation();
     }
     #endregion
     void OnAction1()
@@ -168,6 +175,7 @@ public class PlayerController : MonoBehaviour
         //CheckClickHoldAction(ref _LMB2Clicker, player.AttackWeapon2Hold);
 
         CheckClickHoldAction(ref _LMBClicker, player.MoveLMB);
+
         //CheckClickHoldAction(ref _LMB2Clicker, player.AttackWeapon2Hold);
     }
 
