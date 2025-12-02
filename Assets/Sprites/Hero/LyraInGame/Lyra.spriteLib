@@ -63,8 +63,8 @@ MonoBehaviour:
       m_Sprite: {fileID: 21300000, guid: 5241341c919e54bf295d914cc84b6b55, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: 5241341c919e54bf295d914cc84b6b55, type: 3}
-    - m_Name: Walk_Up_3
-      m_Hash: 315403883
+    - m_Name: Walk_Up_2
+      m_Hash: 634101501
       m_Sprite: {fileID: 21300000, guid: 264d9f73eac444601b55e9c8040533c4, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: 21300000, guid: 264d9f73eac444601b55e9c8040533c4, type: 3}
@@ -106,5 +106,5 @@ MonoBehaviour:
     m_FromMain: 0
     m_EntryOverrideCount: 13
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 639002951718253407
+  m_ModificationHash: 639003017940237155
   m_Version: 1
