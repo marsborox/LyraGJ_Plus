@@ -47,7 +47,6 @@ public class PlayerMovement : UnitMovement
             //Debug.Log("playerMovement player hit wall");
         }
     }
-
     public void MoveByVector(Vector2 rawInput)
     {
         if (!canMove)

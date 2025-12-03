@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _sprite; 
+    //[SerializeField] private SpriteRenderer _sprite; 
     public UnitStats unitStats;
     public UnitCombat unitCombat;
     public string targetTag;
 
-    private void Start()
+
+    public void Start()
     {
         //_sprite.enabled = false;
     }

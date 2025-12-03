@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 public enum Type { RED, GREEN, BLUE, WHITE }
 public class Enemy : Unit
@@ -15,10 +16,38 @@ public class Enemy : Unit
     public DirectionMovement blueGoingDown;
     public DirectionMovement blueGoingLeft;
 
+    public SpriteLibrary spriteLibrary;
 
     public EnemyMovement enemyMovement;
     public Enemy_SO enemyTemplate;
 
+    [SerializeField] private AnimationController _animationController;
+
+    private void Start()
+    {
+        base.Start();
+        _animationController.animator.enabled = false;
+    }
+    public void SetProperties(Enemy_SO enemyTemplate, Player player)
+    {
+        var combat = (EnemyCombat)unitCombat;
+        combat.range=enemyTemplate.range;
+        combat.damage=enemyTemplate.damage;
+        combat.attackCooldown=enemyTemplate.attackCooldown;
+        enemyMovement.movementSpeed=enemyTemplate.movementSpeed;
+        combat.healthMax = enemyTemplate.health;
+        combat.player = player;
+        combat.attackCooldown = enemyTemplate.attackCooldown;
+        combat.attackAnimationTime = enemyTemplate.attackAnimationTime;
+        spriteLibrary.spriteLibraryAsset = enemyTemplate.enemySpriteLibrary;
+        _animationController.animator.enabled = true;//broken
+        //spriteLibrary.RefreshSpriteResolvers();
+        SetEnemyType(enemyTemplate.enemyType);
+        if (enemyTemplate.behavior != null)
+        { 
+            combat.behaviorTemplate = enemyTemplate.behavior;
+        }
+    }
     public void SetEnemyType(Type newEnemyType)
     {
         enemyType = newEnemyType;
@@ -45,23 +74,4 @@ public class Enemy : Unit
                 }
         }
     }
-    public void SetProperties(Enemy_SO enemyTemplate, Player player)
-    {
-        var combat = (EnemyCombat)unitCombat;
-        combat.range=enemyTemplate.range;
-        combat.damage=enemyTemplate.damage;
-        combat.attackCooldown=enemyTemplate.attackCooldown;
-        enemyMovement.movementSpeed=enemyTemplate.movementSpeed;
-        combat.healthMax = enemyTemplate.health;
-        combat.player = player;
-        combat.attackCooldown = enemyTemplate.attackCooldown;
-        combat.attackAnimationTime = enemyTemplate.attackAnimationTime;
-
-        SetEnemyType(enemyTemplate.enemyType);
-        if (enemyTemplate.behavior != null)
-        { 
-            combat.behaviorTemplate = enemyTemplate.behavior;
-        }
-    }
-    
 }

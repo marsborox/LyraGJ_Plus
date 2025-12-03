@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: TEST_BlueEnemyMage_SO 1
   m_EditorClassIdentifier: 
   enemyType: 2
-  range: 8
+  enemySpriteLibrary: {fileID: 7108339969198208228, guid: 3106606e9faa41f4ea1d181f9468ba14, type: 3}
   damage: 1
+  health: 10
+  range: 8
   attackCooldown: 5
   movementSpeed: 1
   attackAnimationTime: 0.5
-  health: 10
   spriteColor:
     serializedVersion: 2
     rgba: 4294796621

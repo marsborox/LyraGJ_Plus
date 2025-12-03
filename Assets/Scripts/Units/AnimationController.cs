@@ -4,16 +4,20 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class AnimationController : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
+    public Animator animator;
+    [SerializeField] private float horizontalX;
+    [SerializeField] private float verticalY;
+
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private UnitMovement _unitMovement;
+    
     private Vector2 _lastMoveDirection = Vector2.down;// will default to down when game starts
 
     private void FixedUpdate()
     {
         HandleIdleAnimation();
     }
-    public void HandleAnimationNoIdle()
+    private void HandleAnimationNoIdle()
     {
         //float horizontal = Input.GetAxis("Horizontal");
         //float vertical = Input.GetAxis("Vertical");
@@ -45,8 +49,8 @@ public class AnimationController : MonoBehaviour
                 }
         }
 
-        _animator.SetFloat("Xinput", horizontal);
-        _animator.SetFloat("Yinput", vertical);
+        animator.SetFloat("Xinput", horizontal);
+        animator.SetFloat("Yinput", vertical);
 
         //_animator.SetFloat("Xinput", vertical);
         //_animator.SetFloat("Yinput", horizontal);
@@ -97,7 +101,6 @@ public class AnimationController : MonoBehaviour
         }
         Vector2 movement = new Vector2(horizontal, vertical);
 
-
         if (horizontal > 0)
         {
             _spriteRenderer.flipX = true;
@@ -112,17 +115,24 @@ public class AnimationController : MonoBehaviour
         {//this should check if we ahve moved
             _lastMoveDirection = movement;
         }
-        Debug.Log("Should be animating, direction X: " + horizontal.ToString() + " Y: " + vertical.ToString());
-        Debug.Log("velocity is "+movement);
-        _animator.SetFloat("Xinput", _lastMoveDirection.x);
-        _animator.SetFloat("Yinput", _lastMoveDirection.y);
-        _animator.SetFloat("Speed", movement.magnitude);
+        //Debug.Log("Should be animating, direction X: " + horizontal.ToString() + " Y: " + vertical.ToString());
+        //Debug.Log("velocity is "+movement);
+
+        // TEST REMOVE
+        horizontalX = horizontal;
+        verticalY = vertical;
+
+        //END TEST
+
+        animator.SetFloat("Xinput", _lastMoveDirection.x);
+        animator.SetFloat("Yinput", _lastMoveDirection.y);
+        animator.SetFloat("Speed", movement.magnitude);
 
         //_animator.SetFloat("Xinput", vertical);
         //_animator.SetFloat("Yinput", horizontal);
         //animator.SetFloat();
     }
-    void HandleIdleAnimation()
+    public void HandleIdleAnimation()
     {
         
         float horizontal = 0;
@@ -135,10 +145,10 @@ public class AnimationController : MonoBehaviour
             return;
         }
         //_lastMoveDirection = movement;
-        Debug.Log("Should be animating, direction X: " + horizontal.ToString() + " Y: " + vertical.ToString());
-        Debug.Log("velocity is " + movement);
-        _animator.SetFloat("Xinput", _lastMoveDirection.x);
-        _animator.SetFloat("Yinput", _lastMoveDirection.y);
-        _animator.SetFloat("Speed", movement.magnitude);
+        //Debug.Log("Should be animating, direction X: " + horizontal.ToString() + " Y: " + vertical.ToString());
+        //Debug.Log("velocity is " + movement);
+        animator.SetFloat("Xinput", _lastMoveDirection.x);
+        animator.SetFloat("Yinput", _lastMoveDirection.y);
+        animator.SetFloat("Speed", movement.magnitude);
     }
 }
