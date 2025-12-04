@@ -5,8 +5,7 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 public class AnimationController : MonoBehaviour
 {
     public Animator animator;
-    [SerializeField] private float horizontalX;
-    [SerializeField] private float verticalY;
+
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private UnitMovement _unitMovement;
@@ -118,11 +117,6 @@ public class AnimationController : MonoBehaviour
         //Debug.Log("Should be animating, direction X: " + horizontal.ToString() + " Y: " + vertical.ToString());
         //Debug.Log("velocity is "+movement);
 
-        // TEST REMOVE
-        horizontalX = horizontal;
-        verticalY = vertical;
-
-        //END TEST
 
         animator.SetFloat("Xinput", _lastMoveDirection.x);
         animator.SetFloat("Yinput", _lastMoveDirection.y);

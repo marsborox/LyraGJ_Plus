@@ -59,9 +59,9 @@ public class EnemyMovement : UnitMovement
         //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
         //Debug.Log("TryingToMove");
         _agent.SetDestination(player.transform.position);
-        Debug.Log("pre animation");
+        //Debug.Log("pre animation");
         _animationController.HandleAnimation();
-        Debug.Log("post animation");
+        //Debug.Log("post animation");
     }
     void DirectionChecker()
     {

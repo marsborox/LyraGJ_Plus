@@ -23,10 +23,14 @@ public class Enemy : Unit
 
     [SerializeField] private AnimationController _animationController;
 
+    private void Awake()
+    {
+        _animationController.animator.enabled = false;//broken
+    }
     private void Start()
     {
         base.Start();
-        _animationController.animator.enabled = false;
+        
     }
     public void SetProperties(Enemy_SO enemyTemplate, Player player)
     {
@@ -40,7 +44,10 @@ public class Enemy : Unit
         combat.attackCooldown = enemyTemplate.attackCooldown;
         combat.attackAnimationTime = enemyTemplate.attackAnimationTime;
         spriteLibrary.spriteLibraryAsset = enemyTemplate.enemySpriteLibrary;
+        spriteLibrary.RefreshSpriteResolvers();
         _animationController.animator.enabled = true;//broken
+        _animationController.animator.Rebind();
+        _animationController.animator.Update(0f);
         //spriteLibrary.RefreshSpriteResolvers();
         SetEnemyType(enemyTemplate.enemyType);
         if (enemyTemplate.behavior != null)
