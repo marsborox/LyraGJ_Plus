@@ -45,9 +45,9 @@ public class Enemy : Unit
         combat.attackAnimationTime = enemyTemplate.attackAnimationTime;
         spriteLibrary.spriteLibraryAsset = enemyTemplate.enemySpriteLibrary;
         spriteLibrary.RefreshSpriteResolvers();
-        _animationController.animator.enabled = true;//broken
         _animationController.animator.Rebind();
         _animationController.animator.Update(0f);
+        _animationController.animator.enabled = true;
         //spriteLibrary.RefreshSpriteResolvers();
         SetEnemyType(enemyTemplate.enemyType);
         if (enemyTemplate.behavior != null)

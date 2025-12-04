@@ -4,5 +4,5 @@
 - Active game object:
   - Name: Visual
   - Tag: Untagged
-  - Layer: Default
+  - Layer: 3
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
