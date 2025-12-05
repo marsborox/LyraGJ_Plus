@@ -60,7 +60,7 @@ public class EnemyMovement : UnitMovement
         //Debug.Log("TryingToMove");
         _agent.SetDestination(player.transform.position);
         //Debug.Log("pre animation");
-        _animationController.HandleAnimation();
+        //_animationController.HandleAnimation();//temporarily Shut Down
         //Debug.Log("post animation");
     }
     void DirectionChecker()

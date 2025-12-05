@@ -9,12 +9,31 @@ public class AnimationController : MonoBehaviour
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private UnitMovement _unitMovement;
+    [SerializeField] private Rigidbody2D _myRigidBody;
     
+    public bool isMoving = false;
     private Vector2 _lastMoveDirection = Vector2.down;// will default to down when game starts
+    private void Start()
+    {
 
+    }
     private void FixedUpdate()
     {
-        HandleIdleAnimation();
+        //HandleIdleAnimation();
+        CheckIfMoving();
+    }
+    private void CheckIfMoving()
+    {
+        if (_myRigidBody.linearVelocity == Vector2.zero)
+        {
+            HandleIdleAnimation();
+            isMoving = false;
+        }
+        else
+        {
+            HandleIdleAnimation();
+            isMoving = true;
+        }
     }
     private void HandleAnimationNoIdle()
     {
@@ -128,7 +147,6 @@ public class AnimationController : MonoBehaviour
     }
     public void HandleIdleAnimation()
     {
-        
         float horizontal = 0;
         float vertical = 0;
 
