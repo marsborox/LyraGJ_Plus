@@ -9,9 +9,12 @@ public class MeleeBasic_SO : EnemyBehavior_SO
         if (!source.CheckIfInRange())
         {
             source.enemyMovement.MoveToTarget(source.player);
+;
         }
         if (source.isAttackReady && source.CheckIfInRange())
         {
+ 
+            source.enemyMovement.StayIdle();
             source.StartAttackAnimation();
         }
     }
@@ -21,6 +24,6 @@ public class MeleeBasic_SO : EnemyBehavior_SO
         {
             target.TakeDamage(source.damage);
         }
-        //source.AttackHitPostAnimation();
+
     }
 }

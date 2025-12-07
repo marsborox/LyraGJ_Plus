@@ -1343,9 +1343,9 @@ GameObject:
   - component: {fileID: 859534956746889397}
   - component: {fileID: 723713826427866658}
   - component: {fileID: 5617343433286424686}
-  - component: {fileID: 2306286124255401933}
   - component: {fileID: 7287768026732415858}
   - component: {fileID: 2395246204302797546}
+  - component: {fileID: 361598244255013037}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1434,7 +1434,7 @@ MonoBehaviour:
   player: {fileID: 6243917595417204822}
   playerMovement: {fileID: 859534956746889397}
   _mouseFollow: {fileID: 1477771279173098806}
-  _animationController: {fileID: 2306286124255401933}
+  _animationController: {fileID: 361598244255013037}
   holdHreshold: 0.1
 --- !u!114 &6110641428596706858
 MonoBehaviour:
@@ -1490,12 +1490,12 @@ MonoBehaviour:
   goingUp: {fileID: 0}
   goingDown: {fileID: 0}
   goingLeft: {fileID: 0}
+  animationController: {fileID: 361598244255013037}
   weapons: {fileID: 5158036404265290629}
   movementSpeed: 15
   canMove: 1
   canDash: 1
   _mouseFollow: {fileID: 1477771279173098806}
-  _animationController: {fileID: 2306286124255401933}
   _dashSpeed: 0
   _dashCooldownTimer: 0
   _dashCooldownTime: 0.5
@@ -1550,21 +1550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f5991b391fc5648b6a7d2040cb7553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &2306286124255401933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986896122668706926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dedfd0410d962bf4eb79c414feec0bab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationController
-  _animator: {fileID: 2572192969637178638}
-  _spriteRenderer: {fileID: 7560524408307729954}
-  _unitMovement: {fileID: 859534956746889397}
 --- !u!61 &7287768026732415858
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1638,6 +1623,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &361598244255013037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986896122668706926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820327a086a96ae4495481d4aee8f4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationController
+  animator: {fileID: 2572192969637178638}
+  _spriteRenderer: {fileID: 7560524408307729954}
+  _unitMovement: {fileID: 859534956746889397}
+  isMoving: 0
 --- !u!1 &3996855304987699569
 GameObject:
   m_ObjectHideFlags: 0

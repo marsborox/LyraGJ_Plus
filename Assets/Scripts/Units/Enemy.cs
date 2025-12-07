@@ -14,7 +14,7 @@ public class Enemy : Unit
     public EnemyMovement enemyMovement;
     //public Enemy_SO enemyTemplate;
 
-    [SerializeField] private AnimationController _animationController;
+    [SerializeField] private UnitAnimationController _animationController;
     [SerializeField] private SpriteResolver _spriteResolver;
     [SerializeField] private GameObject _unitVisual;
 

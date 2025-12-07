@@ -10,7 +10,7 @@ public class UnitMovement : MonoBehaviour
     public DirectionMovement goingUp;
     public DirectionMovement goingDown;
     public DirectionMovement goingLeft;
-
+    public UnitAnimationController animationController;
     public GameObject weapons;
     public float movementSpeed = 100f;
 
@@ -46,5 +46,9 @@ public class UnitMovement : MonoBehaviour
     {
 
 
+    }
+    public void StayIdle()
+    {
+        animationController.HandleIdleAnimation();
     }
 }

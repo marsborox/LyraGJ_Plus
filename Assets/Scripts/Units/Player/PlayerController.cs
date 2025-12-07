@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public Player player;
     public PlayerMovement playerMovement;
     [SerializeField] private MouseFollow _mouseFollow;
-    [SerializeField] private AnimationController _animationController;
+    [SerializeField] private UnitAnimationController _animationController;
     public float holdHreshold=0.2f;//100/250ms 50frames/1s
     private Vector2 _rawInput;
 
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
         public InputAction action;
         public bool isPressed = false;
         public bool isHeld = false;
+        public bool wasHeld = false;
         public float actionTimer = 0f;
     }
 
@@ -240,6 +241,20 @@ public class PlayerController : MonoBehaviour
         }
     }
     void CheckClickHoldAction(ref Clicker clicker, Action onHold)
+    {
+        if (clicker.isPressed)
+        {
+            //onClick();
+            //clicker.isPressed = true;
+            clicker.actionTimer += Time.deltaTime;
+            if (clicker.actionTimer > holdHreshold)
+            {
+                onHold();
+                clicker.isHeld = true;
+            }
+        }
+    }
+    void CheckClickHoldReleaseAction(ref Clicker clicker, Action onHold,Action onRelease)
     {
         if (clicker.isPressed)
         {

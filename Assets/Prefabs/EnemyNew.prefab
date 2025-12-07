@@ -299,10 +299,10 @@ GameObject:
   - component: {fileID: 1474502790447180861}
   - component: {fileID: 471255943450887182}
   - component: {fileID: 3549913713549301225}
-  - component: {fileID: 5304897937402018970}
   - component: {fileID: 1022234959872122541}
   - component: {fileID: 7886990425334265719}
   - component: {fileID: 2287612007222378992}
+  - component: {fileID: 1123149760818088287}
   m_Layer: 0
   m_Name: EnemyNew
   m_TagString: Enemy
@@ -347,7 +347,7 @@ MonoBehaviour:
   enemyType: 0
   spriteLibrary: {fileID: 9194200120919051774}
   enemyMovement: {fileID: 3549913713549301225}
-  _animationController: {fileID: 5304897937402018970}
+  _animationController: {fileID: 1123149760818088287}
   _spriteResolver: {fileID: 7066643326341800927}
   _unitVisual: {fileID: 5535077813506137143}
 --- !u!114 &1474502790447180861
@@ -451,25 +451,10 @@ MonoBehaviour:
   movementSpeed: 1
   canMove: 1
   canDash: 1
+  animationController: {fileID: 1123149760818088287}
   thisEnemy: {fileID: 4176866416230126860}
   enemyCombat: {fileID: 471255943450887182}
   _agent: {fileID: 2287612007222378992}
-  _animationController: {fileID: 5304897937402018970}
---- !u!114 &5304897937402018970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5279515869294326761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dedfd0410d962bf4eb79c414feec0bab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationController
-  animator: {fileID: 4815074252831520146}
-  _spriteRenderer: {fileID: 5648023735614035241}
-  _unitMovement: {fileID: 3549913713549301225}
 --- !u!61 &1022234959872122541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -565,6 +550,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1123149760818088287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5279515869294326761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a29b38dad57f06468903976df472e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitAnimationController
+  animator: {fileID: 4815074252831520146}
+  _spriteRenderer: {fileID: 5648023735614035241}
+  _unitMovement: {fileID: 3549913713549301225}
+  isMoving: 0
 --- !u!1 &5535077813506137143
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +697,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5535077813506137143}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2eba248451c9d97469abad2103184eb4, type: 2}
   m_CullingMode: 0

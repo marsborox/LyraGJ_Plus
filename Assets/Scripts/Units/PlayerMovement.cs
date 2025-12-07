@@ -4,7 +4,7 @@ public class PlayerMovement : UnitMovement
 {
     
     [SerializeField] private MouseFollow _mouseFollow;
-    [SerializeField] private AnimationController _animationController;
+
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashCooldownTimer;
     [SerializeField] private float _dashCooldownTime;
@@ -71,7 +71,7 @@ public class PlayerMovement : UnitMovement
         
         //transform.position = Vector2.MoveTowards(transform.position, movePosition, movementSpeed*Time.fixedDeltaTime);
         _myRigidbody2D.MovePosition(transform.position + movePosition * movementSpeed * Time.fixedDeltaTime);
-        _animationController.HandleAnimation();
+        animationController.HandleAnimation();
     }
     public void DashWSAD(Vector2 rawInput)
     {
