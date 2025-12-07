@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        player.playerMovement.MoveByVector(_rawInput);// from HadesControls
+        //player.playerMovement.MoveByVector(_rawInput);// from HadesControls W,S,A,D
         //player.input = _rawInput;
         //CheckClickHoldAction();
         CheckClickHoldActions();

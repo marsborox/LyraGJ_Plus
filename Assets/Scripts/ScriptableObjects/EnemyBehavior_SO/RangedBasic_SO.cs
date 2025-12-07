@@ -20,6 +20,7 @@ public class RangedBasic_SO : EnemyBehavior_SO
         }
         if (source.isAttackReady && source.CheckIfInRange())
         {
+            source.enemyMovement.StayIdle();
             source.StartAttackAnimation();
             //ShootProjectile(source, target);
         }

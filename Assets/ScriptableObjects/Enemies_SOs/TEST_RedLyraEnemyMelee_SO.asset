@@ -16,11 +16,11 @@ MonoBehaviour:
   enemySpriteLibrary: {fileID: 7108339969198208228, guid: 884ec8f019c63c24ba2a2f428b514134, type: 3}
   damage: 1
   health: 10
-  range: 1
+  range: 10
   attackCooldown: 1
   movementSpeed: 5
   attackAnimationTime: 3
   spriteColor:
     serializedVersion: 2
     rgba: 4282466750
-  behavior: {fileID: 11400000, guid: cc37d312f8cf1714caf72785f99d807e, type: 2}
+  behavior: {fileID: 11400000, guid: 014a763ed9df6af449791f17583db7b6, type: 2}
