@@ -30,8 +30,7 @@ public class MySceneManager : SingletonPersistent<MySceneManager>
     }
     public void OpenMarosTestScene()
     {
-        Debug.Log("Opening MarosGameScene");
-        SceneManager.LoadScene("MarosGameScene");
+        SceneManager.LoadScene("GameScene2");
         //SceneManager.LoadScene("MarosGameScene");
     }
 }

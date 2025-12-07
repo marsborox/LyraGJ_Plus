@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: TEST_GreenEnemyArcher_SO 1
   m_EditorClassIdentifier: 
   enemyType: 1
-  range: 5
+  enemySpriteLibrary: {fileID: 7108339969198208228, guid: 178d46b32b9edcc4ab81a51a23338e64, type: 3}
   damage: 1
+  health: 10
+  range: 5
   attackCooldown: 1
   movementSpeed: 1
   attackAnimationTime: 0.5
-  health: 10
   spriteColor:
     serializedVersion: 2
     rgba: 4286558840

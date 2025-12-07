@@ -2,10 +2,12 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+using static Unity.VisualScripting.Member;
 using static UnityEngine.GraphicsBuffer;
 
 public class EnemyMovement : UnitMovement
 {
+    
     public Enemy thisEnemy;
 
     [SerializeField] private EnemyCombat enemyCombat;
@@ -22,46 +24,52 @@ public class EnemyMovement : UnitMovement
     void Update()
     {
         base.Update();
+        DirectionChecker();
     }
     public void MoveToTarget(Player player)
     {
-        //bool isInRange = false;
-        
+
         float horizontalDistance = Mathf.Abs(player.transform.position.x - transform.position.x);
         float verticalDistance = Mathf.Abs(player.transform.position.y - transform.position.y);
 
+        //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
+        //Debug.Log("TryingToMove");
+        _agent.SetDestination(player.transform.position);
+        animationController.HandleAnimation();
+        
+        //Debug.Log("pre animation");
+        //animationController.HandleAnimation();
+        //animationController.HandleAnimation();
+        //Debug.Log("post animation");
+    }
+
+    void DirectionChecker()
+    {
+
+        float horizontalDistance = Mathf.Abs(_agent.steeringTarget.x - transform.position.x);
+        float verticalDistance = Mathf.Abs(_agent.steeringTarget.y - transform.position.y);
+
         if (horizontalDistance >= verticalDistance)
         {
-            if (player.transform.position.x < transform.position.x)
+            if (_agent.steeringTarget.x < transform.position.x)
             {
                 currentDirection = Direction.LEFT;
             }
-            else if (player.transform.position.x >= transform.position.x)
+            else if (_agent.steeringTarget.x >= transform.position.x)
             {
                 currentDirection = Direction.RIGHT;
             }
         }
         else
         {
-            if (player.transform.position.y > transform.position.y)
+            if (_agent.steeringTarget.y > transform.position.y)
             {
                 currentDirection = Direction.UP;
             }
-            else if (player.transform.position.y <= transform.position.y)
+            else if (_agent.steeringTarget.y <= transform.position.y)
             {
                 currentDirection = Direction.DOWN;
             }
         }
-        //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
-        //Debug.Log("TryingToMove");
-        _agent.SetDestination(player.transform.position);
-    }
-    public void MoveToTargetPathf()
-    {
-        
-    }
-    public void Move(Unit target)
-    {
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, movementSpeed * Time.deltaTime);
     }
 }

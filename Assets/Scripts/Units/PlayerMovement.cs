@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : UnitMovement
 {
-
+    
     [SerializeField] private MouseFollow _mouseFollow;
 
     [SerializeField] private float _dashSpeed;
@@ -14,14 +14,11 @@ public class PlayerMovement : UnitMovement
     //[SerializeField] private float _maxDashTime;
     [SerializeField] private float _dashSpeedCoef;
 
-
-
     [SerializeField] private Vector3 _dashDestination;
     //[SerializeField] private Vector3 _mousePosVector;
 
-
-
     private Rigidbody2D _myRigidbody2D;
+
 
     private void Awake()
     {
@@ -40,6 +37,7 @@ public class PlayerMovement : UnitMovement
     private void FixedUpdate()
     {
         DoDashing();
+        //HandleAnimation();
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -57,7 +55,7 @@ public class PlayerMovement : UnitMovement
         //transform.position += delta;
         //_myRigidbody2D.linearVelocity = delta;
         _myRigidbody2D.MovePosition(_myRigidbody2D.position + rawInput * movementSpeed * Time.fixedDeltaTime);
-        currentUnitVisual.Animate(Time.deltaTime);
+        //currentUnitVisual.Animate(Time.deltaTime);
     }
     public void MoveByMouse()
     {
@@ -72,7 +70,8 @@ public class PlayerMovement : UnitMovement
         Vector3 movePosition = (mousePosition - (Vector2)this.transform.position).normalized;
         
         //transform.position = Vector2.MoveTowards(transform.position, movePosition, movementSpeed*Time.fixedDeltaTime);
-        _myRigidbody2D.MovePosition(transform.position + movePosition * movementSpeed * Time.fixedDeltaTime); ;
+        _myRigidbody2D.MovePosition(transform.position + movePosition * movementSpeed * Time.fixedDeltaTime);
+        animationController.HandleAnimation();
     }
     public void DashWSAD(Vector2 rawInput)
     {
@@ -163,4 +162,5 @@ public class PlayerMovement : UnitMovement
             currentDirection= Direction.RIGHT;
         }
     }
+
 }

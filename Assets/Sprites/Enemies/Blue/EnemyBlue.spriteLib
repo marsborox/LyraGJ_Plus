@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteLibrarySourceAsset
+  m_Library:
+  - m_Name: Idle
+    m_Hash: 1008081451
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Walk_Down_0
+      m_Hash: 110946008
+      m_Sprite: {fileID: 21300000, guid: b15c854b3d9a4084191b079e1033c4dc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: b15c854b3d9a4084191b079e1033c4dc, type: 3}
+    - m_Name: Walk_Left_0
+      m_Hash: 426469960
+      m_Sprite: {fileID: 21300000, guid: 67bd1b872efec3848ad4ebf41e2fd495, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 67bd1b872efec3848ad4ebf41e2fd495, type: 3}
+    - m_Name: Walk_Up_0
+      m_Hash: 197525457
+      m_Sprite: {fileID: 21300000, guid: ace5a2ced7ca8124eb54e58bc1dd6f82, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: ace5a2ced7ca8124eb54e58bc1dd6f82, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 3
+  - m_Name: Walk
+    m_Hash: 765711723
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Walk_Down_0
+      m_Hash: 110946008
+      m_Sprite: {fileID: 21300000, guid: b15c854b3d9a4084191b079e1033c4dc, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: b15c854b3d9a4084191b079e1033c4dc, type: 3}
+    - m_Name: Walk_Down_1
+      m_Hash: 832296526
+      m_Sprite: {fileID: 21300000, guid: 4f9f8ca341bf10047aa41eb2931aa68a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 4f9f8ca341bf10047aa41eb2931aa68a, type: 3}
+    - m_Name: Walk_Down_2
+      m_Hash: 680691700
+      m_Sprite: {fileID: 21300000, guid: 984ca57ffc8ec784fa19bbf36562f588, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 984ca57ffc8ec784fa19bbf36562f588, type: 3}
+    - m_Name: Walk_Left_0
+      m_Hash: 426469960
+      m_Sprite: {fileID: 21300000, guid: 67bd1b872efec3848ad4ebf41e2fd495, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 67bd1b872efec3848ad4ebf41e2fd495, type: 3}
+    - m_Name: Walk_Left_1
+      m_Hash: 778853086
+      m_Sprite: {fileID: 21300000, guid: 592cc966ff8d341499396a16e0ad2f2a, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 592cc966ff8d341499396a16e0ad2f2a, type: 3}
+    - m_Name: Walk_Left_2
+      m_Hash: 929368932
+      m_Sprite: {fileID: 21300000, guid: 499ec6a8882da2a45a49bfca512d1824, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 499ec6a8882da2a45a49bfca512d1824, type: 3}
+    - m_Name: Walk_Left_3
+      m_Hash: 6437874
+      m_Sprite: {fileID: 21300000, guid: e4d6052c1bfeb1a42a8a01d47659e218, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: e4d6052c1bfeb1a42a8a01d47659e218, type: 3}
+    - m_Name: Walk_Left_4
+      m_Hash: 503754321
+      m_Sprite: {fileID: 21300000, guid: e72513785e62c3a479bc352272c33994, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: e72513785e62c3a479bc352272c33994, type: 3}
+    - m_Name: Walk_Left_5
+      m_Hash: 687972039
+      m_Sprite: {fileID: 21300000, guid: ded3811264d72ca4ca4ed378c4ab16b1, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: ded3811264d72ca4ca4ed378c4ab16b1, type: 3}
+    - m_Name: Walk_Left_6
+      m_Hash: 805883773
+      m_Sprite: {fileID: 21300000, guid: e20f3d53bfcecb44390310cb85c6413f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: e20f3d53bfcecb44390310cb85c6413f, type: 3}
+    - m_Name: Walk_Up_0
+      m_Hash: 197525457
+      m_Sprite: {fileID: 21300000, guid: ace5a2ced7ca8124eb54e58bc1dd6f82, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: ace5a2ced7ca8124eb54e58bc1dd6f82, type: 3}
+    - m_Name: Walk_Up_1
+      m_Hash: 1019400007
+      m_Sprite: {fileID: 21300000, guid: 2473845db8f12774fb8e27bf2a6fb419, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 2473845db8f12774fb8e27bf2a6fb419, type: 3}
+    - m_Name: Walk_Up_2
+      m_Hash: 634101501
+      m_Sprite: {fileID: 21300000, guid: 11c9adf706ba15449a02fa3a58d7b04f, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 11c9adf706ba15449a02fa3a58d7b04f, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 13
+  m_PrimaryLibraryGUID: 
+  m_ModificationHash: 639002996134735181
+  m_Version: 1

@@ -10,7 +10,7 @@ public class UnitMovement : MonoBehaviour
     public DirectionMovement goingUp;
     public DirectionMovement goingDown;
     public DirectionMovement goingLeft;
-
+    public UnitAnimationController animationController;
     public GameObject weapons;
     public float movementSpeed = 100f;
 
@@ -24,40 +24,7 @@ public class UnitMovement : MonoBehaviour
     {
         var visual = transform.rotation;
         float playerRotation = 0;
-        DisableAllVisuals();
-        switch (currentDirection)
-        {
-            case Direction.UP:
-                {
-                    goingUp.gameObject.SetActive(true);
-                    currentUnitVisual = goingUp;
-                    playerRotation = 0f;
-                    break;
-                }
-            case Direction.DOWN:
-                {
-                    goingDown.gameObject.SetActive(true);
-                    currentUnitVisual = goingDown;
-                    playerRotation = 0f;
-                    break;
-                }
-            case Direction.LEFT:
-                {
-                    goingLeft.gameObject.SetActive(true);
-                    currentUnitVisual = goingLeft;
-                    playerRotation = 0f;
-                    break;
-                }
-            case Direction.RIGHT:
-                {
-                    goingLeft.gameObject.SetActive(true);
-                    currentUnitVisual = goingLeft;
-                    playerRotation = 180f;
-                    break;
-                }
-        }
-        //weapons.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
-        currentUnitVisual.transform.rotation = Quaternion.Euler(visual.x, playerRotation, visual.z);
+        
     }
     void DisableAllVisuals()
     {
@@ -79,5 +46,9 @@ public class UnitMovement : MonoBehaviour
     {
 
 
+    }
+    public void StayIdle()
+    {
+        animationController.HandleIdleAnimation();
     }
 }

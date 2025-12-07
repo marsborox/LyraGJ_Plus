@@ -100,7 +100,6 @@ public class UnitSpawner : Singleton<UnitSpawner>
         int randomIndex = Random.Range(0, spawnPoints.Count);
         spawnPoint = spawnPoints[randomIndex];
         Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-        
         spawnedEnemy.SetProperties(usedTemplate, player);
     }
     public void SpawnRandomEnemy(float x,float y)
