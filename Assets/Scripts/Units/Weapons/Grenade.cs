@@ -6,6 +6,7 @@ public class Grenade : Projectile
 {
     public Explosion explosion;
     public const float GRAVITY_ACCELERATION = 9.8f/*9.8f*/;
+    
 
     [SerializeField] private GameObject _grenadeVisual;
     [SerializeField] private float _horisontalVelocity;
@@ -41,6 +42,7 @@ public class Grenade : Projectile
 
         if ((-1 * _currentVerticalVelocity) > _horisontalVelocity)
         {
+            explosion.damage = damage;
             explosion.gameObject.SetActive(true);
             _isMoving = false;
         }

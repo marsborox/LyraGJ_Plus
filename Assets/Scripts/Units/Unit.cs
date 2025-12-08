@@ -60,7 +60,7 @@ public class Unit : MonoBehaviour
     }*/
     public void TakeDamage(int damageAmount)
     {
-        //Debug.Log("unit TakingDamage");
+        //Debug.Log("unit TakingDamage: "+damageAmount);
         unitCombat.TakeDamage(damageAmount);
 
     }
