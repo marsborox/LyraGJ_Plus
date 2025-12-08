@@ -82,4 +82,8 @@ public class Player : Unit
     {
         playerMovement.MoveByMouse();
     }
+    /*public void StopMakeIdle()
+    { 
+        playerMovement.
+    }*/
 }
