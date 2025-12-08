@@ -66,7 +66,7 @@ public class UnitAnimationController : MonoBehaviour
             _spriteRenderer.flipX = false;
             //Debug.Log("facingRight");
         }
-        Debug.Log("Should be animating, direction X: "+horizontal.ToString() + " Y: "+vertical.ToString());
+        //Debug.Log("Should be animating, direction X: "+horizontal.ToString() + " Y: "+vertical.ToString());
     }
     public void HandleAnimation/*AutoDIrectionCheck*/()
     {

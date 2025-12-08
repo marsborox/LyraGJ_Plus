@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &7427372101679965586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,8 +62,8 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_MinRegionArea: 0
-  m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: 3786143f42fe3064788e52dbcaef8f8a, type: 2}
+  m_HideEditorLogs: 1
+  m_NavMeshData: {fileID: 23800000, guid: 8fb272d173cc3e44d9089c4e40662966, type: 2}
 --- !u!114 &3667731180170854730
 MonoBehaviour:
   m_ObjectHideFlags: 0

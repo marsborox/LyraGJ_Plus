@@ -1,3 +1,4 @@
+using System;
 using NavMeshPlus.Extensions;
 using System.Collections.Generic;
 using UnityEngine;
@@ -124,8 +125,8 @@ namespace NavMeshPlus.Components
             var isPrefab = isInPreviewScene || EditorUtility.IsPersistent(this);
             if (isPrefab)
             {
-                //Debug.LogFormat("NavMeshData from {0}.{1} will not be added to the NavMesh world because the gameObject is a prefab.",
-                //    gameObject.name, name);
+                Debug.LogFormat("NavMeshData from {0}.{1} will not be added to the NavMesh world because the gameObject is a prefab.",
+                    gameObject.name, name);
                 return;
             }
 #endif

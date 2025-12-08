@@ -6,16 +6,8 @@ using UnityEngine.UIElements;
 
 public class RoomSpawner : MonoBehaviour
 {
-    //public List<Room> roomList = new List<Room>();
-    //public Room startTile;
-    //public Room[,] roomGrid;
-    //public float roomSize;
-    //public int roomGridSize = 200;
 
-    //private int spawnedRoomCounter = 0;
-
-
-    public void SpawnRoom(Room inputRoom, Direction direction, List<Room> roomPrefabList,List<Room>deadEndPrefabList,ref List<Room>roomList, Room[,] roomGrid,int roomSize,ref int spawnedRoomCounter)
+    public  Room SpawnRoom(Room inputRoom, Direction direction, List<Room> roomPrefabList,List<Room>deadEndPrefabList,ref List<Room>roomList, Room[,] roomGrid,int roomSize,ref int spawnedRoomCounter)
     {
         //Debug.Log("-------------------------------- NEW SPAWN ------------------------------------");
         //Debug.Log("SpawningRoom");
@@ -33,7 +25,7 @@ public class RoomSpawner : MonoBehaviour
         if (roomGrid[yOfSpawn, xOfSpawn])
         {
             //Debug.Log("SlotAlreadyUsed");
-            return;
+            return null;
         }
 
         Room neighborLeft;
@@ -207,6 +199,7 @@ public class RoomSpawner : MonoBehaviour
         { /*Debug.Log("no bottom neighbor");*/ };
 
         roomList.Add(spawnedRoom);
+        return spawnedRoom;
     }
     public void AddRoomPrefabToList(Room inputRoom, ref List<Room> list)
     {

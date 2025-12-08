@@ -8,7 +8,7 @@ public class ScenePortal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Entering portal");
+            Debug.Log("Entering portalPrefab");
             switch (gameScene)
             {
                 case GameScene.LOBBY:

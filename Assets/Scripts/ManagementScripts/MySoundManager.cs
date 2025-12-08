@@ -169,7 +169,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
                 PlayPostGameMusic();
                 break;
             default:
-                Debug.Log("Scene must be added");
+                //Debug.Log("Scene must be added");
                 break;
         }
     }
