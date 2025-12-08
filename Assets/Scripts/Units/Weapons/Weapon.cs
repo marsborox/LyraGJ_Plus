@@ -6,7 +6,9 @@ public class Weapon : MonoBehaviour
 
     public Type weaponType;
     public float maxCooldown = 1f;
-    public int damage = 1;
+    public int damageBase = 1;
+    public int damageApplied;
+    public int damageMultiplier = 2;
     public float attackAnimationTime = 0.5f;
     public float pushbackForce;
     public float pushBackDuration;
@@ -71,5 +73,31 @@ public class Weapon : MonoBehaviour
     public virtual void DealHit(Unit unit)
     { 
     
+    }
+    public void CalculateDamage()
+    {
+        if (player.rythmBonus.CheckIfInRythm())
+        {
+            damageApplied = damageBase * damageMultiplier;
+        }
+        else
+        {
+        damageApplied = damageBase;
+        }
+    }
+    public int ReturnCalculateDamage()
+    {
+        int appliedDamage;
+        if (player.rythmBonus.CheckIfInRythm())
+        {
+            appliedDamage = damageBase * damageMultiplier;
+            //Debug.Log("doing crit damage: "+appliedDamage);
+        }
+        else
+        {
+            appliedDamage = damageBase;
+            //Debug.Log("doing nonCrit damage: " + appliedDamage);
+        }
+        return appliedDamage;
     }
 }

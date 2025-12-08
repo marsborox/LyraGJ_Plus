@@ -26,7 +26,7 @@ public class BowAuto : Weapon
         projectile.sourceUnit = player;//same w SO
         projectile.targetTag = player.targetTag;//same w SO
         projectile.gameObject.tag = player.unitCombat.projectileTagWeShot;//same w SO
-        projectile.damage = damage;//same w SO
+        projectile.damage = ReturnCalculateDamage();//same w SO
         projectile.pushBackDuration = pushBackDuration;//not in SO
         projectile.pushBackForce = pushbackForce;//not in SO
         _animationRoutine = StartCoroutine(AnimationRoutine());

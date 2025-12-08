@@ -42,6 +42,6 @@ public class Slam : Weapon
     public override void DealHit(Unit unit)
     {
         unit.GetPushedBack(this.transform.position,pushbackForce,pushBackDuration);
-        unit.TakeDamage(damage);
+        unit.TakeDamage(ReturnCalculateDamage());
     }
 }
