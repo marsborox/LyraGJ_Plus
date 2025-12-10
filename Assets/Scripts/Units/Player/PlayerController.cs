@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
     private InputAction _LMB1;
     private InputAction _RMB2;
     
-    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
