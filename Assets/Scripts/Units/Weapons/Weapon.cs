@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 
     public Type weaponType;
     public float maxCooldown = 1f;
+    public float coolDownTimer = 0;
     public int damageBase = 1;
     public int damageApplied;
     public int damageMultiplier = 2;
@@ -17,12 +18,11 @@ public class Weapon : MonoBehaviour
     public MouseFollow mouseFollow;
     public Player player;
 
-    private float _coolDownTimer = 0;
     
 
     private void Start()
     {
-        _coolDownTimer = 0;
+        coolDownTimer = 0;
     }
 
     public void Update()
@@ -31,30 +31,33 @@ public class Weapon : MonoBehaviour
     }
     public bool CanAttack()
     {
-        return _coolDownTimer <= 0;
+        return coolDownTimer <= 0;
     } 
     public float CoolDownValue()
     {
-        float currentTimer = _coolDownTimer < 0 ? 0 : _coolDownTimer;
-        return maxCooldown - (currentTimer / maxCooldown);
+        float currentTimer = coolDownTimer < 0 ? 0 : coolDownTimer;
+        float returnValue = 1 - (currentTimer / maxCooldown);
+        //return maxCooldown - (currentTimer / maxCooldown);
+        Debug.Log("weaponCdTimer " + currentTimer+ " valueFor imageFill "+ returnValue + " weapon "+this.name );
+        return returnValue;
     }
 
     public void CoolDownTimer()
     {
-        if (_coolDownTimer > 0)
+        if (coolDownTimer > 0)
         { 
-            _coolDownTimer-= Time.deltaTime;
+            coolDownTimer -= Time.deltaTime;
         }
     }
     public void StartCooldown()
     {
-        _coolDownTimer = maxCooldown;
+        coolDownTimer = maxCooldown;
     }
     public void Attack()
     {
         if (CanAttack())
         {
-            _coolDownTimer = maxCooldown;
+            coolDownTimer = maxCooldown;
             AttackHit();
         }
     }

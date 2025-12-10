@@ -5,6 +5,10 @@ public class GrenadeLauncher : Weapon
     [SerializeField] private Grenade _grenadePrefab;
     public override void ClickAttack()
     {
+        if (!CanAttack())
+            return;
+        coolDownTimer = maxCooldown;
+
         Grenade grenade = Instantiate(_grenadePrefab);
         grenade.damage = ReturnCalculateDamage();
         grenade.transform.position = transform.position;

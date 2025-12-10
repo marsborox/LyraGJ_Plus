@@ -20,6 +20,11 @@ public class BowAuto : Weapon
     {
         if (_animationRoutine != null)
             return;
+        if (!CanAttack())
+        {
+            return;
+        }
+        coolDownTimer = maxCooldown;
         Projectile projectile = Instantiate(projectilePrefab); //same w SO
         projectile.transform.position = player.transform.position;//same w SO
         projectile.transform.up = mouseFollow.transform.up;//similar w SO
