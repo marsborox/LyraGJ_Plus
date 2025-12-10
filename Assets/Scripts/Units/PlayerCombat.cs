@@ -13,6 +13,12 @@ public class PlayerCombat : UnitCombat
     public Weapon weapon3New;
     public Weapon weapon4New;
     private FMODUnity.StudioEventEmitter emitter;
+    float pianoIntensity = 0f;
+    float saxophoneIntensity = 0f;
+    Coroutine pianoDecayRoutine;
+    Coroutine saxophoneDecayRoutine;
+    float pianoHoldTimer = 0f;
+    float saxophoneHoldTimer = 0f;
 
     private void Awake()
     {
@@ -22,8 +28,7 @@ public class PlayerCombat : UnitCombat
     {
         // Debug.Log("playerCombat.wpn1 attack");
         if (emitter != null) {
-            emitter.SetParameter("Piano_attack", 1);
-            StartCoroutine(StopAttack("Piano_attack", 0.6f));
+            PlayPianoAccent();
         }
 
         weapon1New.ClickAttack();
@@ -36,8 +41,7 @@ public class PlayerCombat : UnitCombat
     {
         // Debug.Log("playerCombat.wpn2 attack");
         if (emitter != null) {
-            emitter.SetParameter("Saxophone_attack", 1);
-            StartCoroutine(StopAttack("Saxophone_attack", 1f));
+            PlaySaxophoneAccent();
         }
 
         weapon2New.ClickAttack();
@@ -86,10 +90,70 @@ public class PlayerCombat : UnitCombat
             weapon4.Attack();
         }*/
     }
-
-    IEnumerator StopAttack(string attackName, float delay)
+    public void PlayPianoAccent()
     {
-        yield return new WaitForSeconds(delay);
-        emitter.SetParameter(attackName, 0f);
+        pianoHoldTimer = 0.5f;
+        pianoIntensity += 0.8f;
+        pianoIntensity = Mathf.Clamp01(pianoIntensity);
+
+        emitter.SetParameter("Piano_attack", pianoIntensity);
+
+        if (pianoDecayRoutine != null)
+            StopCoroutine(pianoDecayRoutine);
+
+        pianoDecayRoutine = StartCoroutine(PianoDecay());
+    }
+    IEnumerator PianoDecay()
+    {
+        while (pianoIntensity > 0f)
+        {
+            // float val;
+            // emitter.EventInstance.getParameterByName("Piano_attack", out val);
+            // Debug.Log("Piano_attack = " + val);
+
+            if (pianoHoldTimer > 0f)
+            {
+                pianoHoldTimer -= Time.deltaTime;
+            } else {
+                pianoIntensity -= Time.deltaTime * 0.8f; // decay speed
+                emitter.SetParameter("Piano_attack", pianoIntensity);
+            }
+            yield return null;
+        }
+
+        pianoIntensity = 0f;
+    }
+    public void PlaySaxophoneAccent()
+    {
+        saxophoneHoldTimer = 0.5f;
+        saxophoneIntensity += 0.8f;
+        saxophoneIntensity = Mathf.Clamp01(saxophoneIntensity);
+
+        emitter.SetParameter("Saxophone_attack", saxophoneIntensity);
+
+        if (saxophoneDecayRoutine != null)
+            StopCoroutine(saxophoneDecayRoutine);
+
+        saxophoneDecayRoutine = StartCoroutine(SaxophoneDecay());
+    }
+    IEnumerator SaxophoneDecay()
+    {
+        while (saxophoneIntensity > 0f)
+        {
+            // float val;
+            // emitter.EventInstance.getParameterByName("Saxophone_attack", out val);
+            // Debug.Log("Saxophone_attack = " + val);
+
+            if (saxophoneHoldTimer > 0f)
+            {
+                saxophoneHoldTimer -= Time.deltaTime;
+            } else {
+                saxophoneIntensity -= Time.deltaTime * 0.8f; // decay speed
+                emitter.SetParameter("Saxophone_attack", saxophoneIntensity);
+            }
+            yield return null;
+        }
+
+        saxophoneIntensity = 0f;
     }
 }

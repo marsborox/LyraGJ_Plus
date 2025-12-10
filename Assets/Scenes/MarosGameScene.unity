@@ -124,7 +124,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6243917595417204822, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
   m_PrefabInstance: {fileID: 1148714916}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1034387098}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9a1e4950c8535a488cb95213999efb6, type: 3}
@@ -26153,6 +26153,11 @@ Transform:
   - {fileID: 1899391291}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1034387098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3986896122668706926, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+  m_PrefabInstance: {fileID: 1148714916}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1065125234
 GameObject:
   m_ObjectHideFlags: 0
@@ -26411,7 +26416,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3986896122668706926, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1879464990}
   m_SourcePrefab: {fileID: 100100000, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
 --- !u!4 &1148714917 stripped
 Transform:
@@ -37207,12 +37215,47 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5730095958024378426, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
   m_PrefabInstance: {fileID: 1148714916}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1034387098}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29ccaaf13b45e7a4aa9c9e17c545a7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1879464990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034387098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 503432647
+      Data2: 1180924521
+      Data3: -1824378445
+      Data4: 1060321124
+    Path: event:/Main_hudba_jazz
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: Piano_attack
+    Value: 0
+  - Name: Saxophone_attack
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1899391290
 GameObject:
   m_ObjectHideFlags: 0
