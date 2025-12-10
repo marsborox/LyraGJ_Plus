@@ -156,4 +156,16 @@ public class PlayerCombat : UnitCombat
 
         saxophoneIntensity = 0f;
     }
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        if (healthCurrent <= 0)
+        {
+            Die();
+        }
+    }
+    private void Die()
+    {
+        MySceneManager.instance.OpenLobbyScene();
+    }
 }
