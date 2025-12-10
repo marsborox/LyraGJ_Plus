@@ -877,6 +877,7 @@ GameObject:
   - component: {fileID: 2395246204302797546}
   - component: {fileID: 361598244255013037}
   - component: {fileID: 5730095958024378426}
+  - component: {fileID: 4997513507974104024}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1188,6 +1189,37 @@ MonoBehaviour:
   beatPeriod: 4
   period: 0
   accuracyTolerance: 0.1
+--- !u!114 &4997513507974104024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986896122668706926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 503432647
+      Data2: 1180924521
+      Data3: -1824378445
+      Data4: 1060321124
+    Path: event:/Main_hudba_jazz
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &3996855304987699569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1414,6 +1446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 1
   maxCooldown: 1
+  coolDownTimer: 0
   damageBase: 1
   damageApplied: 0
   damageMultiplier: 2
@@ -1423,7 +1456,6 @@ MonoBehaviour:
   projectileTag: PlayerProjectile
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
-  _coolDownTimer: 0
   upAttackAnimator: {fileID: 3405487246262069932}
   downAttackAnimator: {fileID: 6597135062488278026}
   leftAttackAnimator: {fileID: 2449107558230112822}
@@ -1539,6 +1571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 2
   maxCooldown: 1
+  coolDownTimer: 0
   damageBase: 1
   damageApplied: 0
   damageMultiplier: 2
@@ -1548,7 +1581,6 @@ MonoBehaviour:
   projectileTag: PlayerProjectile
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
-  _coolDownTimer: 0
   upAttackAnimator: {fileID: 8479648715776645013}
   downAttackAnimator: {fileID: 6793574039955839907}
   leftAttackAnimator: {fileID: 2325721387431919354}
@@ -1603,6 +1635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 0
   maxCooldown: 1
+  coolDownTimer: 0
   damageBase: 1
   damageApplied: 0
   damageMultiplier: 2
@@ -1612,7 +1645,6 @@ MonoBehaviour:
   projectileTag: PlayerProjectile
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
-  _coolDownTimer: 0
   upAttackAnimator: {fileID: 4974832783693468471}
   downAttackAnimator: {fileID: 7354367979854219450}
   leftAttackAnimator: {fileID: 6525880583875663745}
@@ -2600,6 +2632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 3
   maxCooldown: 1
+  coolDownTimer: 0
   damageBase: 1
   damageApplied: 0
   damageMultiplier: 2
@@ -2609,7 +2642,6 @@ MonoBehaviour:
   projectileTag: PlayerProjectile
   mouseFollow: {fileID: 0}
   player: {fileID: 6243917595417204822}
-  _coolDownTimer: 0
   upAttackAnimator: {fileID: 6447553475759269154}
   downAttackAnimator: {fileID: 1043397045206900084}
   leftAttackAnimator: {fileID: 2716042592804548938}
@@ -3447,7 +3479,7 @@ PrefabInstance:
       objectReference: {fileID: 6243917595417204822}
     - target: {fileID: 6660183504305069722, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
       propertyPath: maxCooldown
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6660183504305069722, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
       propertyPath: mouseFollow
