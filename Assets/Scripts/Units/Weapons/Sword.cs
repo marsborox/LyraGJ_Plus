@@ -12,16 +12,20 @@ public class Sword : Weapon
     {
         //Debug.Log("Sword. attackHit");
         //currentCollider = currentAnimator.gameObject.GetComponent<Collider2D>();
-
         //Quaternion rotation = Quaternion.Euler(0f, 0f, mouseFollow.transform.eulerAngles.z-90);
         //_visualCollider.transform.rotation = rotation;
+
+        if (!CanAttack())
+            return;
+        coolDownTimer = maxCooldown;
+
         _visualCollider.transform.rotation = mouseFollow.ReturnMouseDirection();
         _myCollider.enabled = true;
         _animationVisual.SetActive(true);
         player.playerMovement.CanNotMove();
         StartCoroutine(AttackHitRoutine());
         StartCoroutine(AttackAnimationRoutine());
-
+        //Attack();
     }
     public override void DealHit(Unit unit)
     {

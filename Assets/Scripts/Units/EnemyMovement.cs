@@ -2,9 +2,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-using static Unity.VisualScripting.Member;
-using static UnityEngine.GraphicsBuffer;
-
 public class EnemyMovement : UnitMovement
 {
     

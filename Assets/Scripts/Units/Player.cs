@@ -9,6 +9,7 @@ public class Player : Unit
     
     private void Awake()
     {
+
         //_myRigidbody2D = GetComponent<Rigidbody2D>();
     }
     private void Update()

@@ -11,6 +11,7 @@ public class Slam : Weapon
     {
         if (!CanAttack())
             return;
+        coolDownTimer = maxCooldown;
         //Debug.Log("Sword. attackHit");
         //currentCollider = currentAnimator.gameObject.GetComponent<Collider2D>();
 

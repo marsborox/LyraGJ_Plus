@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene2.unity
     guid: 5a93e80948d4f4742987c926982671ac
+  - enabled: 1
+    path: Assets/Scenes/MarosGameScene.unity
+    guid: 193f21f4eae455c43ac624784fe59cce
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

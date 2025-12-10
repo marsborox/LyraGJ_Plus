@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4412909346340435659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3268264493929228408}
+  - component: {fileID: 2340119675553180260}
+  m_Layer: 3
+  m_Name: GrenadeLauncher
+  m_TagString: PlayerWeapon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3268264493929228408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412909346340435659}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2340119675553180260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412909346340435659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ac0b2f4ace9cd43a76d6776576c0b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  weaponType: 0
+  maxCooldown: 1
+  damageBase: 1
+  damageApplied: 0
+  damageMultiplier: 2
+  attackAnimationTime: 0.5
+  pushbackForce: 0
+  pushBackDuration: 0
+  projectileTag: PlayerProjectile
+  mouseFollow: {fileID: 0}
+  player: {fileID: 0}
+  _grenadePrefab: {fileID: 5810026968037255196, guid: eea5b762f2942d64281f29ab4e544422, type: 3}
