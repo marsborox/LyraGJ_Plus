@@ -21,7 +21,8 @@ public class MySceneManager : SingletonPersistent<MySceneManager>
     }
     public void OpenGameScene()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("MarosGameScene");
+        // SceneManager.LoadScene("GameScene");
         MySoundManager.instance.PlayGameMusic();
     }
     public void QuitToWindows()
@@ -30,7 +31,7 @@ public class MySceneManager : SingletonPersistent<MySceneManager>
     }
     public void OpenMarosTestScene()
     {
-        SceneManager.LoadScene("MarosGameScene");
+        // SceneManager.LoadScene("MarosGameScene");
         //SceneManager.LoadScene("MarosGameScene");
     }
 }

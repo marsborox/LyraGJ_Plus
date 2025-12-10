@@ -501,6 +501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2827231054900610017, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3106638223668718107, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2700,9 +2704,61 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 747419036}
+    - target: {fileID: 723713826427866658, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3986896122668706926, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997513507974104024, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: EventPlayTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158036404265290629, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243917595417204822, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: unitCombat
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639172428510084549, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639172428510084549, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639172428510084549, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6663774296562797640, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560524408307729954, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560524408307729954, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2710,7 +2766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.27
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4600,7 +4656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1704404091
 Transform:
   m_ObjectHideFlags: 0
@@ -5021,7 +5077,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 96525f0152462405f9661e313df9f619, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5266,6 +5322,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5688874235654620695, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 96525f0152462405f9661e313df9f619, type: 2}
     - target: {fileID: 6932467533595296489, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
       propertyPath: gameScene
       value: 2
@@ -5333,6 +5393,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5462686301572751191, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2129354227}
+    - targetCorrespondingSourceObject: {fileID: 5462686301572751191, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2129354228}
   m_SourcePrefab: {fileID: 100100000, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
 --- !u!1 &2129354226 stripped
 GameObject:
@@ -5347,7 +5410,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129354226}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f1adcd3cf4249f24ab4b3b0be928f894, type: 2}
   m_CullingMode: 0
@@ -5361,6 +5424,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2129354228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129354226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80ba491e69324c8db20f5d2c6478a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HueSatApplier
+  spriteRenderers:
+  - {fileID: 2129354231}
+  - {fileID: 2044669477}
+  tilemapRenderers: []
+  hue: 0
+  saturation: 0
+--- !u!212 &2129354231 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5688874235654620695, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
+  m_PrefabInstance: {fileID: 2129354225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2132470173
 GameObject:
   m_ObjectHideFlags: 0
