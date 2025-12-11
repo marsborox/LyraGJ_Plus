@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2444626207354911922
+--- !u!1001 &7534419309140470257
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,12 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5782317468981537541, guid: b23344f982f449547a281edd6f1385e7, type: 3}
       propertyPath: m_Name
-      value: 10U_320x320_HouseJazz01 Variant
+      value: 10U_320x320_HouseJazz03 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6558888915003829536, guid: b23344f982f449547a281edd6f1385e7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 4171352571131425965, guid: d68c21fa8c176aa47878d2e895fdfbb2, type: 3}
+      objectReference: {fileID: 9190292728038927065, guid: 6d84c3dbbc33fc546ad76668e0d69782, type: 3}
     - target: {fileID: 6788631150223376761, guid: b23344f982f449547a281edd6f1385e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
