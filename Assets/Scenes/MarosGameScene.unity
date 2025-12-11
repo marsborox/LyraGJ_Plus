@@ -36329,6 +36329,10 @@ PrefabInstance:
       propertyPath: _roomObjectSpawner
       value: 
       objectReference: {fileID: 1016398360}
+    - target: {fileID: 2436977931790500122, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.41
+      objectReference: {fileID: 0}
     - target: {fileID: 3001962532995320145, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
       propertyPath: portalPrefab
       value: 
