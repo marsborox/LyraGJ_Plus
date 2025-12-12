@@ -44,7 +44,7 @@ public class PlayerMovement : UnitMovement
         if (other.gameObject.tag == "Wall")
         {
             _isDashing = false;
-            
+            canDash = false;
             //Debug.Log("playerMovement player hit wall");
         }
     }
@@ -52,7 +52,7 @@ public class PlayerMovement : UnitMovement
     {
         if (other.gameObject.tag == "Wall")
         {
-            _isDashing = false;
+            canDash = true;
 
             //Debug.Log("playerMovement player hit wall");
         }
