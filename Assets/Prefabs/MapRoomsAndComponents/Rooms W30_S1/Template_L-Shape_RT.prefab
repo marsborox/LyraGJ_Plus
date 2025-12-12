@@ -696,6 +696,10 @@ PrefabInstance:
       propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
       value: 96
       objectReference: {fileID: 0}
+    - target: {fileID: 1001640085394578236, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4998745189804394654, guid: 782c708d2544a8144ab1b1b1f0e4aec0, type: 3}
     - target: {fileID: 2080590463258408812, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
       propertyPath: m_Size.x
       value: 10
@@ -1049,7 +1053,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8352227827329487161, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
+    - {fileID: 7990912840309556218, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
