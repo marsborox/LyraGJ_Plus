@@ -696,6 +696,10 @@ PrefabInstance:
       propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
       value: 86
       objectReference: {fileID: 0}
+    - target: {fileID: 1001640085394578236, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4970038208638374338, guid: 4936d3ad3a22dbd4794e360dc1fdbc54, type: 3}
     - target: {fileID: 2678011772850029851, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
       propertyPath: m_Name
       value: Template_T_NoLeft
@@ -756,8 +760,13 @@ PrefabInstance:
       propertyPath: bottomDoor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7455511819393420445, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7990912840309556218, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}

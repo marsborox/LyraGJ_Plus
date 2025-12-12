@@ -696,6 +696,10 @@ PrefabInstance:
       propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
       value: 86
       objectReference: {fileID: 0}
+    - target: {fileID: 1001640085394578236, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8240175912693563785, guid: 5a46ff0491ca06a448a13af3a7be704a, type: 3}
     - target: {fileID: 2080590463258408812, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
       propertyPath: m_Size.x
       value: 10
@@ -1204,8 +1208,13 @@ PrefabInstance:
       propertyPath: bottomDoor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5863931009270008368, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7076529316947545850, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55680e02136156d49adf6cca5ba1b3a7, type: 3}

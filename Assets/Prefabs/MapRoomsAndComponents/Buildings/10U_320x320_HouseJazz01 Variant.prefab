@@ -10,8 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5782317468981537541, guid: b23344f982f449547a281edd6f1385e7, type: 3}
       propertyPath: m_Name
-      value: 10U_320x320_House Variant
+      value: 10U_320x320_HouseJazz01 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6558888915003829536, guid: b23344f982f449547a281edd6f1385e7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4171352571131425965, guid: d68c21fa8c176aa47878d2e895fdfbb2, type: 3}
     - target: {fileID: 6788631150223376761, guid: b23344f982f449547a281edd6f1385e7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

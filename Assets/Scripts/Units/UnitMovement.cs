@@ -13,7 +13,6 @@ public class UnitMovement : MonoBehaviour
     public UnitAnimationController animationController;
     public GameObject weapons;
     public float movementSpeed = 100f;
-
     public bool canMove = true;
     public bool canDash = true;
     public void Update()

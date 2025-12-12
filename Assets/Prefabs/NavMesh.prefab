@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7427372101679965586}
   - component: {fileID: 3667731180170854730}
   - component: {fileID: 5149768714235479428}
+  - component: {fileID: 1393842579887335237}
   m_Layer: 0
   m_Name: NavMesh
   m_TagString: Untagged
@@ -64,7 +65,7 @@ MonoBehaviour:
   m_BuildHeightMesh: 0
   m_MinRegionArea: 0
   m_HideEditorLogs: 1
-  m_NavMeshData: {fileID: 23800000, guid: 8fb272d173cc3e44d9089c4e40662966, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 8a8f2c8ad9b80754fb4648ff5e5d25bf, type: 2}
 --- !u!114 &3667731180170854730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +83,18 @@ MonoBehaviour:
   m_CompressBounds: 1
   m_OverrideVector: {x: 1, y: 1, z: 1}
 --- !u!114 &5149768714235479428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5507873561208121069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055ea15345d458841b114e0d635bb523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &1393842579887335237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
