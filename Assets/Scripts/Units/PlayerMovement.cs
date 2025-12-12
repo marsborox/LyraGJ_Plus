@@ -48,9 +48,14 @@ public class PlayerMovement : UnitMovement
             //Debug.Log("playerMovement player hit wall");
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D other)
     {
-        
+        if (other.gameObject.tag == "Wall")
+        {
+            _isDashing = false;
+
+            //Debug.Log("playerMovement player hit wall");
+        }
     }
     public void MoveByVector(Vector2 rawInput)
     {
