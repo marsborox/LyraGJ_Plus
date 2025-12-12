@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using static UnityEngine.GraphicsBuffer;
+
 public class PlayerMovement : UnitMovement
 {
     
@@ -44,7 +46,7 @@ public class PlayerMovement : UnitMovement
         if (other.gameObject.tag == "Wall")
         {
             _isDashing = false;
-            canDash = false;
+            //canDash = false;
             //Debug.Log("playerMovement player hit wall");
         }
     }
@@ -52,7 +54,7 @@ public class PlayerMovement : UnitMovement
     {
         if (other.gameObject.tag == "Wall")
         {
-            canDash = true;
+            //canDash = true;
 
             //Debug.Log("playerMovement player hit wall");
         }
@@ -104,7 +106,13 @@ public class PlayerMovement : UnitMovement
             _myRigidbody2D.linearVelocity = delta;*/
             //_myRigidbody2D.MovePosition(_myRigidbody2D.position + (Vector2)_dashDestination * movementSpeed * Time.fixedDeltaTime);
             //_myRigidbody2D.MovePosition(_dashDestination * dashSpeed * Time.fixedDeltaTime);
-            transform.position = Vector3.MoveTowards(transform.position, _dashDestination, _dashSpeed*Time.deltaTime);
+
+            
+            //********************************
+            transform.position = Vector3.MoveTowards(transform.position, _dashDestination, _dashSpeed*Time.deltaTime);//rework dash
+            _myRigidbody2D.MovePosition(transform.position - _dashDestination * _dashSpeed * Time.fixedDeltaTime);
+
+            //transform.position = Vector3.MoveTowards(transform.position,)
             float distance = Vector3.Distance(transform.position, _dashDestination);
             if (distance < 0.01)
             {
@@ -112,6 +120,7 @@ public class PlayerMovement : UnitMovement
             }
         }
     }
+
     public void DashMouse()
     {
         if (_isDashing||!canDash) 
@@ -136,6 +145,14 @@ public class PlayerMovement : UnitMovement
         //take direction from mouse pos, if distance to mouse is greater than max dash distance
         //move to max distance, else move to mouse pos
         //Start dash cd
+    }
+    public void DashMouseNew()
+    {
+        if (_isDashing || !canDash)
+        {
+            return;
+        }
+
     }
     private Vector3 ReturnDashPosition(Vector3 mousePos)
     {
