@@ -36,9 +36,9 @@ public class Weapon : MonoBehaviour
     public float CoolDownValue()
     {
         float currentTimer = coolDownTimer < 0 ? 0 : coolDownTimer;
-        float returnValue = 1 - (currentTimer / maxCooldown);
-        //return maxCooldown - (currentTimer / maxCooldown);
-        Debug.Log("weaponCdTimer " + currentTimer+ " valueFor imageFill "+ returnValue + " weapon "+this.name );
+        float returnValue = 1 - (currentTimer / maxCooldown);//so it fills from empty to full
+        
+        //Debug.Log("weaponCdTimer " + currentTimer+ " valueFor imageFill "+ returnValue + " weapon "+this.name );
         return returnValue;
     }
 

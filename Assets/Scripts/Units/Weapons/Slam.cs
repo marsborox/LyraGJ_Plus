@@ -20,7 +20,7 @@ public class Slam : Weapon
         //_visualCollider.transform.rotation = mouseFollow.ReturnMouseDirection();
         _myCollider.enabled = true;
         _animationVisual1.SetActive(true);
-        _animationVisual2.SetActive(true);
+        //_animationVisual2.SetActive(true);
         player.playerMovement.CanNotMove();
         StartCoroutine(AttackHitRoutine());
         StartCoroutine(AttackAnimationRoutine());
@@ -37,7 +37,7 @@ public class Slam : Weapon
     {
         yield return new WaitForSeconds(attackAnimationTime);
         _animationVisual1.SetActive(false);
-        _animationVisual2.SetActive(false);
+        //_animationVisual2.SetActive(false);
         player.playerMovement.CanMove();
     }
     public override void DealHit(Unit unit)
