@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Player : Unit
 {
+
     public PlayerMovement playerMovement;
     public RythmBonus rythmBonus;
     //private Rigidbody2D _myRigidbody2D;

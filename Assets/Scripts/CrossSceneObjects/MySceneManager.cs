@@ -17,12 +17,16 @@ public class MySceneManager : SingletonPersistent<MySceneManager>
     public void OpenLobbyScene()
     {
         SceneManager.LoadScene("LobbyScene");
+        Debug.Log("scene changed");
+        PlayerSingleton.instance.transform.position = PlayerSpawnPoint.instance.transform.position;//move player to centre of map
         MySoundManager.instance.PlayLobbyMusic();
     }
     public void OpenGameScene()
     {
         SceneManager.LoadScene("MarosGameScene");
         // SceneManager.LoadScene("GameScene");
+        Debug.Log("scene changed");
+        PlayerSingleton.instance.transform.position = PlayerSpawnPoint.instance.transform.position;//move player to centre of map
         MySoundManager.instance.PlayGameMusic();
     }
     public void QuitToWindows()

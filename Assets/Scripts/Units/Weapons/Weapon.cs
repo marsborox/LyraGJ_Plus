@@ -18,8 +18,6 @@ public class Weapon : MonoBehaviour
     public MouseFollow mouseFollow;
     public Player player;
 
-    
-
     private void Start()
     {
         coolDownTimer = 0;

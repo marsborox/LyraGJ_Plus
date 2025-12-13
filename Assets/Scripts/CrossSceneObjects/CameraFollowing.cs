@@ -11,12 +11,14 @@ public class CameraFollowing : MonoBehaviour
 
     void Start()
     {
+        SetFollowPlayer();
         camera = GetComponent<Camera>();
         if (camera != null && camera.orthographic) {
             camera.orthographicSize *= zoom;
         }
 
         MoveCamera();
+        
     }
 
 
@@ -31,5 +33,9 @@ public class CameraFollowing : MonoBehaviour
 
         Vector3 desiredPosition = targetToFollow.position + new Vector3(offset.x, offset.y, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, desiredPosition, speed * Time.deltaTime);
+    }
+    private void SetFollowPlayer()
+    { 
+        targetToFollow = PlayerSingleton.instance.transform;
     }
 }
