@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BowAuto
   weaponType: 0
-  maxCooldown: 1
-  damageBase: 1
+  maxCooldown: 0.3
+  coolDownTimer: 0
+  damageBase: 2
   damageApplied: 0
   damageMultiplier: 2
   attackAnimationTime: 0.3

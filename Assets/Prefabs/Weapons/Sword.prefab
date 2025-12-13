@@ -152,8 +152,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   weaponType: 0
-  maxCooldown: 1
-  damageBase: 1
+  maxCooldown: 0.5
+  coolDownTimer: 0
+  damageBase: 3
   damageApplied: 0
   damageMultiplier: 2
   attackAnimationTime: 0.4
