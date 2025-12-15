@@ -14,8 +14,6 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public float minSpawnTime = 0.5f;
     public float maxSpawnTime = 3f;
 
-    
-
     bool spawningDone = true;
 
     public bool spawningAllowed = true;

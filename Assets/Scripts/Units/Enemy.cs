@@ -8,15 +8,17 @@ public class Enemy : Unit
 {
     public Type enemyType;
 
-
     public SpriteLibrary spriteLibrary;
 
     public EnemyMovement enemyMovement;
     //public Enemy_SO enemyTemplate;
 
+    
     [SerializeField] private UnitAnimationController _animationController;
     [SerializeField] private SpriteResolver _spriteResolver;
     [SerializeField] private GameObject _unitVisual;
+    [SerializeField] private EnemyShield _enemShield;
+    
 
     private void Awake()
     {
@@ -48,6 +50,8 @@ public class Enemy : Unit
         //_unitVisual.SetActive(true);
         //spriteLibrary.RefreshSpriteResolvers();
         SetEnemyType(enemyTemplate.enemyType);
+
+
         if (enemyTemplate.behavior != null)
         { 
             combat.behaviorTemplate = enemyTemplate.behavior;
@@ -56,23 +60,27 @@ public class Enemy : Unit
     public void SetEnemyType(Type newEnemyType)
     {
         enemyType = newEnemyType;
+        Color32 color = new Color32();
 
         switch (enemyType)
         {
             case Type.RED:
                 {
+                    color = new Color32(255,0,0,40);
                     break;
                 }
             case Type.GREEN:
                 {
-
+                    color = new Color32(0, 255, 0, 40);
                     break;
                 }
             case Type.BLUE:
                 {
-
+                    color = new Color32(0, 0, 255, 40);
                     break;
                 }
         }
+        
+        _enemShield.SetShieldType(enemyType, color);
     }
 }

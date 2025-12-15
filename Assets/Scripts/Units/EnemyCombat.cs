@@ -9,6 +9,7 @@ public class EnemyCombat : UnitCombat
     public Player player;
     public EnemyBehavior_SO behaviorTemplate;
     public EnemyMovement enemyMovement;
+    public bool isShielded = true;
 
     [SerializeField] private Enemy _enemy;
 

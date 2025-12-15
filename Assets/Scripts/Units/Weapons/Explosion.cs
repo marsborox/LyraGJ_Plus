@@ -30,9 +30,17 @@ public class Explosion : MonoBehaviour
         if (other.tag == "Player" || other.tag == "Enemy")
         {
             Unit unitWeHit = other.gameObject.GetComponent<Unit>();
-            unitWeHit.GetPushedBack(this.transform.position,pushBackForce,pushBackDuration);
-            unitWeHit.TakeDamage(damage);
+            if (unitWeHit is Player || (unitWeHit is Enemy && (!((EnemyCombat)unitWeHit.unitCombat).isShielded)))
+            {
+                unitWeHit.GetPushedBack(this.transform.position, pushBackForce, pushBackDuration);
+                unitWeHit.TakeDamage(damage);
+            }
+            else 
+            {
+                Debug.Log("enemy shielded");
+            }
         }
+
     }
     private void Start()
     {
