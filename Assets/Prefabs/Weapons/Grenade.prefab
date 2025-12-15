@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84810a00647a56e4993066e83dcf6c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  projectileType: 0
   sourceUnit: {fileID: 0}
   targetTag: 
   movementSpeed: 3
@@ -56,6 +57,7 @@ MonoBehaviour:
   miniStunDuration: 0
   explosion: {fileID: 5947589335151071232}
   _grenadeVisual: {fileID: 3454605397913634583}
+  _grenadeShadow: {fileID: 8543808286550092334}
   _horisontalVelocity: 0
   _currentVerticalVelocity: 0
   _destination: {x: 0, y: 0, z: 0}
@@ -341,8 +343,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 446571117
-  m_SortingLayer: -4
+  m_SortingLayerID: 1835196397
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -13,7 +13,7 @@ public class TransparentDetection : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {//might want to expand on enemies and projectiles
         //Debug.Log("House trigger enter");
-        if (other.gameObject.GetComponent<Unit>())
+        if (other.gameObject.GetComponent<Unit>()|| other.gameObject.GetComponent<Projectile>()|| other.gameObject.tag=="Explosion")
         {   //fade the tree
             _unitsEnteredCollider++;
             //we pass our sprite renderer, time to fade, sprite renderer alpha color, how transparent it will be
@@ -26,7 +26,7 @@ public class TransparentDetection : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         //Debug.Log("House trigger exit");
-        if (other.gameObject.GetComponent<Unit>())
+        if (other.gameObject.GetComponent<Unit>() || other.gameObject.GetComponent<Projectile>() || other.gameObject.tag == "Explosion")
         {
             _unitsEnteredCollider--;
             if (_unitsEnteredCollider > 0)
