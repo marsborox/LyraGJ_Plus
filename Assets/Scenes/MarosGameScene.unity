@@ -26039,29 +26039,13 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2118335213}
-    - target: {fileID: 723713826427866658, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
-      propertyPath: healthMax
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 963801728030566303, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
-      propertyPath: maxCooldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 965469982444938934, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
-      propertyPath: maxCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2248609410062747645, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
-      propertyPath: maxCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3986896122668706926, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4361122227700079499, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
-      propertyPath: maxCooldown
-      value: 0.3
+    - target: {fileID: 4486851435730944008, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,12 +6,15 @@ public class PlayerMovement : UnitMovement
 {
     
     [SerializeField] private MouseFollow _mouseFollow;
+    [SerializeField] private PlayerDashChecker _dashChecker;
 
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashCooldownTimer;
     [SerializeField] private float _dashCooldownTime;
     [SerializeField] private bool _isDashing=false;
     [SerializeField] private bool _isDashReady = true;
+    [SerializeField] private bool _isTouchingWall=false;
+    
     [SerializeField] private float _maxDashDistance;
     //[SerializeField] private float _maxDashTime;
     [SerializeField] private float _dashSpeedCoef;
@@ -46,6 +49,7 @@ public class PlayerMovement : UnitMovement
         if (other.gameObject.tag == "Wall")
         {
             _isDashing = false;
+            _isTouchingWall=true;
             //canDash = false;
             //Debug.Log("playerMovement player hit wall");
         }
@@ -54,6 +58,7 @@ public class PlayerMovement : UnitMovement
     {
         if (other.gameObject.tag == "Wall")
         {
+            _isTouchingWall = false;
             //canDash = true;
 
             //Debug.Log("playerMovement player hit wall");
@@ -98,26 +103,31 @@ public class PlayerMovement : UnitMovement
     
     public void DoDashing()
     {
-        if (_isDashing)
+        if (!_isDashing) return;
+
+        if (_isTouchingWall && _dashChecker.isPointingAtWall)
         {
-            //Debug.Log("is Dashing");
-            //doing movement if 
-            /*Vector3 delta = (_dashDestination * dashSpeed * Time.deltaTime);
-            _myRigidbody2D.linearVelocity = delta;*/
-            //_myRigidbody2D.MovePosition(_myRigidbody2D.position + (Vector2)_dashDestination * movementSpeed * Time.fixedDeltaTime);
-            //_myRigidbody2D.MovePosition(_dashDestination * dashSpeed * Time.fixedDeltaTime);
+            _isDashing = false;
+            return;
+        }
+        
+        //Debug.Log("is Dashing");
+        //doing movement if 
+        /*Vector3 delta = (_dashDestination * dashSpeed * Time.deltaTime);
+        _myRigidbody2D.linearVelocity = delta;*/
+        //_myRigidbody2D.MovePosition(_myRigidbody2D.position + (Vector2)_dashDestination * movementSpeed * Time.fixedDeltaTime);
+        //_myRigidbody2D.MovePosition(_dashDestination * dashSpeed * Time.fixedDeltaTime);
 
             
-            //********************************
-            transform.position = Vector3.MoveTowards(transform.position, _dashDestination, _dashSpeed*Time.deltaTime);//rework dash
-            _myRigidbody2D.MovePosition(transform.position - _dashDestination * _dashSpeed * Time.fixedDeltaTime);
+        //********************************
+        transform.position = Vector3.MoveTowards(transform.position, _dashDestination, _dashSpeed*Time.deltaTime);//rework dash
+        _myRigidbody2D.MovePosition(transform.position - _dashDestination * _dashSpeed * Time.fixedDeltaTime);
 
-            //transform.position = Vector3.MoveTowards(transform.position,)
-            float distance = Vector3.Distance(transform.position, _dashDestination);
-            if (distance < 0.01)
-            {
-                _isDashing = false;
-            }
+        //transform.position = Vector3.MoveTowards(transform.position,)
+        float distance = Vector3.Distance(transform.position, _dashDestination);
+        if (distance < 0.01)
+        {
+            _isDashing = false;
         }
     }
 
