@@ -9,6 +9,7 @@ public class Grenade : Projectile
     
 
     [SerializeField] private GameObject _grenadeVisual;
+    [SerializeField] private GameObject _grenadeShadow;
     [SerializeField] private float _horisontalVelocity;
     [SerializeField] private float _currentVerticalVelocity;
     [SerializeField] private Vector3 _destination;
@@ -32,6 +33,7 @@ public class Grenade : Projectile
     public void GrenadeMovementHorisontal()
     {
         transform.position = Vector3.MoveTowards(transform.position, _destination, _horisontalVelocity * Time.deltaTime);
+
     }
     public void GrenadeMovementVertical()
     {
@@ -45,6 +47,8 @@ public class Grenade : Projectile
             explosion.damage = damage;
             explosion.gameObject.SetActive(true);
             _isMoving = false;
+            _grenadeVisual.gameObject.SetActive(false);
+            _grenadeShadow.gameObject.SetActive(false);
         }
     }
     public void CalcBalistics(Vector2 destination)
