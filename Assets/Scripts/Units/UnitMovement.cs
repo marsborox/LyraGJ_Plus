@@ -23,7 +23,6 @@ public class UnitMovement : MonoBehaviour
     {
         var visual = transform.rotation;
         float playerRotation = 0;
-        
     }
     void DisableAllVisuals()
     {

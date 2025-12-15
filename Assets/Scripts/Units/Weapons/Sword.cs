@@ -29,6 +29,10 @@ public class Sword : Weapon
     }
     public override void DealHit(Unit unit)
     {
+        if (((EnemyCombat)unit.unitCombat).isShielded)
+        {
+            return;
+        }
         unit.GetPushedBack(this.transform.position,pushbackForce,pushBackDuration);
         unit.TakeDamage(ReturnCalculateDamage());
 

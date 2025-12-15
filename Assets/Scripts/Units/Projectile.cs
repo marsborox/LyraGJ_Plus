@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public Type projectileType;
     public Unit sourceUnit;
     public string targetTag;
     public float movementSpeed = 8f;
@@ -38,6 +39,13 @@ public class Projectile : MonoBehaviour
         //Debug.Log("projectile hit");
         // must pass rotation of this object
         //unit.GetPushedBack(this.transform.position,pushBackForce,pushBackDuration);
+        if (unit is Enemy)
+        {
+            if (((EnemyCombat)unit.unitCombat).isShielded)
+            {
+                return;
+            }
+        }
         unit.GetStunned(miniStunDuration);
         unit.TakeDamage(damage);
     }

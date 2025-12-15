@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1a4cdbb5a76d949aa8953da8d96b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
-  healthMax: 10
+  healthMax: 100
   healthCurrent: 0
   healthFraction: 0
   healthBar: {fileID: 0}
@@ -3465,6 +3465,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3766374174507064292, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766374174507064292, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4093163375738783104, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
       propertyPath: m_Name
       value: Sword
@@ -3479,7 +3487,7 @@ PrefabInstance:
       objectReference: {fileID: 6243917595417204822}
     - target: {fileID: 6660183504305069722, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
       propertyPath: maxCooldown
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6660183504305069722, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
       propertyPath: mouseFollow
@@ -3647,6 +3655,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.93
       objectReference: {fileID: 0}
+    - target: {fileID: 1550232842817667334, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.035513878
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550232842817667334, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3082428331932385457, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3663,6 +3679,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 6243917595417204822}
+    - target: {fileID: 8043821946930344442, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
+      propertyPath: weaponType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043821946930344442, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
+      propertyPath: maxCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8043821946930344442, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
       propertyPath: mouseFollow
       value: 
