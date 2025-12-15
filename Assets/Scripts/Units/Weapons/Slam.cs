@@ -14,6 +14,7 @@ public class Slam : Weapon
         coolDownTimer = maxCooldown;
         //Debug.Log("Sword. attackHit");
         //currentCollider = currentAnimator.gameObject.GetComponent<Collider2D>();
+
         //Quaternion rotation = Quaternion.Euler(0f, 0f, mouseFollow.transform.eulerAngles.z-90);
         //_visualCollider.transform.rotation = rotation;
         //_visualCollider.transform.rotation = mouseFollow.ReturnMouseDirection();

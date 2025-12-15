@@ -27,7 +27,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public List<Enemy_SO>testSos = new List<Enemy_SO>();
     private void Start()
     {
-        player = PlayerSingleton.instance.player;
+
     }
     private void Update()
     {
