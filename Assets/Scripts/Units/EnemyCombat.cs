@@ -11,7 +11,10 @@ public class EnemyCombat : UnitCombat
     public EnemyMovement enemyMovement;
     public bool isShielded = true;
 
+    [Tooltip("MUST BE IN %")]
+    [SerializeField] private int _chanceForHealthPickup = 20;
     [SerializeField] private Enemy _enemy;
+    [SerializeField] private HealthPickup _healthPickup;
 
     [Header("combatStats")]
 
@@ -124,7 +127,18 @@ public class EnemyCombat : UnitCombat
     {
         //Debug.Log("Enemy died");
         if(GameManager.instance !=null) GameManager.instance.EnemyDied();
+
+        CheckDropHealth();
         Destroy(gameObject);
+    }
+    private void CheckDropHealth()
+    {
+        int drop = Random.Range(0, 100);
+        if (drop < _chanceForHealthPickup)
+        {
+            HealthPickup healthPickup = Instantiate(_healthPickup);
+            healthPickup.transform.position = transform.position;
+        }
     }
     void BehaviorTest()//for simplifying behavior switch
     {
