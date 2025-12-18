@@ -84,7 +84,14 @@ public class UnitCombat : MonoBehaviour
     {
         //Debug.Log("taking damage from unitCombat");
         healthCurrent -= damage;
-
+    }
+    public virtual void GetHeal(int heal)
+    {
+        healthCurrent += heal;
+        if (healthCurrent > healthMax)
+        {
+            healthCurrent = healthMax;
+        }
     }
     public void GetPushedBackFrom(Vector3 pushedFrom,float pushBackForce, float pushBackDuration)
     {

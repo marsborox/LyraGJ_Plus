@@ -164,6 +164,7 @@ public class PlayerCombat : UnitCombat
             Die();
         }
     }
+
     private void Die()
     {
         MySceneManager.instance.OpenLobbyScene();

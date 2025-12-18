@@ -64,9 +64,9 @@ public class Unit : MonoBehaviour
         unitCombat.TakeDamage(damageAmount);
 
     }
-    public void GetHeal(float healAmount)
+    public void GetHeal(int healAmount)
     {
-        //unitEventHandler.ChangeHealth(healAmount);
+        unitCombat.GetHeal(healAmount);
     }
     public void GetPushedBack(Vector3 pushedFrom, float pushBackForce, float pushBackDuration)
     {
