@@ -2814,7 +2814,6 @@ MonoBehaviour:
   archerSO: {fileID: 11400000, guid: 0e9d7911df658a9449718d4927dceacf, type: 2}
   mageSO: {fileID: 11400000, guid: 4f7296c3a7d049e4984af6ea98cbc074, type: 2}
   testSos:
-  - {fileID: 11400000, guid: 52e8630b62725a54098fa03aaf003814, type: 2}
   - {fileID: 11400000, guid: 4f7296c3a7d049e4984af6ea98cbc074, type: 2}
   - {fileID: 11400000, guid: 0e9d7911df658a9449718d4927dceacf, type: 2}
   - {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
