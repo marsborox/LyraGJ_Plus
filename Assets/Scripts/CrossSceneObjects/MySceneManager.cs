@@ -21,8 +21,8 @@ public class MySceneManager : SingletonPersistent<MySceneManager>
     }
     public void OpenGameScene()
     {
-        SceneManager.LoadScene("MarosGameScene");
-        // SceneManager.LoadScene("GameScene");
+        //SceneManager.LoadScene("MarosGameScene");
+        SceneManager.LoadScene("GameScene");
         MySoundManager.instance.PlayGameMusic();
     }
     public void QuitToWindows()
