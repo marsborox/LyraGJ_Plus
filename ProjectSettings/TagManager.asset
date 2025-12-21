@@ -16,7 +16,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - cast shadow
   - Water
   - UI
   - Unit
@@ -69,6 +69,12 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3947125755
+    locked: 0
+  - name: Cast shadow
+    uniqueID: 3505486227
     locked: 0
   m_RenderingLayers:
   - Default
