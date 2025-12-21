@@ -164,7 +164,10 @@ public class PlayerCombat : UnitCombat
             Die();
         }
     }
-
+    public override void SetHealthBar()
+    { 
+    
+    }
     private void Die()
     {
         MySceneManager.instance.OpenLobbyScene();

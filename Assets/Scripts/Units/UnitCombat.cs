@@ -75,7 +75,7 @@ public class UnitCombat : MonoBehaviour
             //get effect
         }
     }
-    void SetHealthBar()
+    public virtual void SetHealthBar()
     {
         healthFraction = (float)healthCurrent / (float)healthMax;
         healthBar.fillAmount = healthFraction;

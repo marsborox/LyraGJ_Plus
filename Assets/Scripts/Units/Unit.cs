@@ -28,7 +28,8 @@ public class Unit : MonoBehaviour
     }
     public float ReturnHealthMax()
     {
-        return unitStats.healthMax_s.amount;
+        //return unitStats.healthMax_s.amount;
+        return unitCombat.healthMax;
     }
     public int ReturnDamageAmount()
     {
