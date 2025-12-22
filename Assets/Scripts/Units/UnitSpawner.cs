@@ -77,6 +77,24 @@ public class UnitSpawner : Singleton<UnitSpawner>
 
         return enemy_SOs[randomIndex];
     }
+    private void SpawnEnemy(Enemy_SO usedTemplate)
+    {
+        SpawnPoint spawnPoint;
+        int randomIndex = Random.Range(0, spawnPoints.Count);
+        spawnPoint = spawnPoints[randomIndex];
+        Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+        spawnedEnemy.SetProperties(usedTemplate, player);
+    }
+    public void SpawnRandomEnemy(float x,float y,Room room)
+    {
+        //Debug.Log("spawning random test enemy");
+        Vector2 spawnPosition = new Vector2(x, y);
+        int randomTemplateIndex = Random.Range(0,testSos.Count);//may say out of bounds?
+        Enemy_SO usedTemplate = testSos[randomTemplateIndex];
+        Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        spawnedEnemy.SetProperties(usedTemplate,player,room);
+
+    }
     public void TestSpawnMelee()
     {
         SpawnEnemy(meleeSO);
@@ -89,21 +107,5 @@ public class UnitSpawner : Singleton<UnitSpawner>
     {
         SpawnEnemy(mageSO);
     }
-    void SpawnEnemy(Enemy_SO usedTemplate)
-    {
-        SpawnPoint spawnPoint;
-        int randomIndex = Random.Range(0, spawnPoints.Count);
-        spawnPoint = spawnPoints[randomIndex];
-        Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-        spawnedEnemy.SetProperties(usedTemplate, player);
-    }
-    public void SpawnRandomEnemy(float x,float y)
-    {
-        //Debug.Log("spawning random test enemy");
-        Vector2 spawnPosition = new Vector2(x, y);
-        int randomTemplateIndex = Random.Range(0,testSos.Count);//may say out of bounds?
-        Enemy_SO usedTemplate = testSos[randomTemplateIndex];
-        Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-        spawnedEnemy.SetProperties(usedTemplate,player);
-    }
+
 }

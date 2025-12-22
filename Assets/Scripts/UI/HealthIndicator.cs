@@ -14,6 +14,6 @@ public class HealthIndicator_UI : MonoBehaviour
     {
         float healthFraction = (float)_player.ReturnHealthCurrent() / (float)_player.ReturnHealthMax();
         _healthBar.fillAmount = healthFraction;
-        Debug.Log("fillingHealthInUI");
+        //Debug.Log("fillingHealthInUI");
     }
 }

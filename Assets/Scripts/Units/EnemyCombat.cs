@@ -16,6 +16,8 @@ public class EnemyCombat : UnitCombat
     [SerializeField] private Enemy _enemy;
     [SerializeField] private HealthPickup _healthPickup;
 
+    public Room roomISpawnedIn;
+
     [Header("combatStats")]
 
     public float range = 0.2f;
@@ -130,6 +132,7 @@ public class EnemyCombat : UnitCombat
 
         CheckDropHealth();
         Destroy(gameObject);
+        roomISpawnedIn.EnemyDied();
     }
     private void CheckDropHealth()
     {
