@@ -18,7 +18,9 @@ public class Room : MonoBehaviour
     [SerializeField] private SpawnTrigger _spawnTrigger;
     [SerializeField] private Transform _spawnAreaLT;
     [SerializeField] private Transform _spawnAreaRB;
-    
+
+    [SerializeField] private GameObject _barriers; 
+
     public List <EntryTrigger> entryTriggerList = new List<EntryTrigger>();
     public bool heroEntered = false;
     public bool enemiesSpawned = false;
@@ -26,6 +28,7 @@ public class Room : MonoBehaviour
     public int yPosInArray;
     public int roomID;
 
+    public int enemiesInRoomCount = 0;
     private void Start()
     {
         
@@ -97,6 +100,7 @@ public class Room : MonoBehaviour
     public void SpawnEnemies()
     {
         _spawnTrigger.gameObject.SetActive(false);
+        _barriers.SetActive(true);
         //Debug.Log("we shall spawn enemies");
         TestSpawnSomeEnemies();
     }
@@ -111,9 +115,23 @@ public class Room : MonoBehaviour
             //Debug.Log("spawning enemy");
             float spawnPosX = Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
             float spawnPosY = Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
-            UnitSpawner.instance.SpawnRandomEnemy(spawnPosX, spawnPosY);
+
+            UnitSpawner.instance.SpawnRandomEnemy(spawnPosX, spawnPosY,this);
+            enemiesInRoomCount++;
         }
+        
         //Debug.Log("spawning done");
 
     }
+    public void EnemyDied()
+    {
+        enemiesInRoomCount--;
+        if (enemiesInRoomCount == 0)
+        {
+            //do something
+            //Debug.Log("Room Clear");
+            _barriers.SetActive(false);
+        }
+    }
+    
 }
