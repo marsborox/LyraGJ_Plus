@@ -131,6 +131,7 @@ public class Room : MonoBehaviour
             //do something
             //Debug.Log("Room Clear");
             _barriers.SetActive(false);
+            //DoPostRoom Stuff
         }
     }
     

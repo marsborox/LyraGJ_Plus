@@ -62,7 +62,6 @@ public class RoomManager : Singleton<RoomManager>
             //Debug.Log("should spawn normalRoom");
             Room spawnedRoom = _roomSpawner.SpawnRoom(inputRoom, direction, roomPrefabList, deadEndPrefabList, ref roomList, roomGrid, roomSize, ref _spawnedRoomCounter);
             surface.BuildNavMesh();
-            
         }
     }
     
