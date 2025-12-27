@@ -40,8 +40,9 @@ public class Room : MonoBehaviour
             HeroEntering(trigger);
         }
         else HeroLeaving(trigger);*/
-        HeroLeaving(trigger);
+        SpawnRoom(trigger);
         trigger.gameObject.SetActive(false);
+        GlobalEventManager.instance.TriggerOnPlayerLeaveRoom(this, trigger);
     }
 
     public void HeroEntering(EntryTrigger trigger)
@@ -52,7 +53,7 @@ public class Room : MonoBehaviour
         //hero vosiel, spawn
         
     }
-    public void HeroLeaving(EntryTrigger trigger)
+    public void SpawnRoom(EntryTrigger trigger)
     {
         //Debug.Log("hero leaved Room from " + trigger.name);
         //instantiating next room
@@ -130,9 +131,15 @@ public class Room : MonoBehaviour
         {
             //do something
             //Debug.Log("Room Clear");
-            _barriers.SetActive(false);
+            LiftBarriers();
+            
             //DoPostRoom Stuff
+            GlobalEventManager.instance.TriggerOnRoomCleared(this);
         }
+    }
+    private void LiftBarriers()
+    {
+        _barriers.SetActive(false);
     }
     
 }
