@@ -10,7 +10,14 @@ public class Level_SO : ScriptableObject
     
     }
     //on each roomspawn
-
+    public virtual void UnsubscribeToEvents(Room room) 
+    { 
+    
+    }
+    public virtual void SpawnRoom(Room room)
+    { 
+    
+    }
 
     //public static RoomEvent OnPlayerEnterRoom;
     //public static RoomEvent OnPlayerLeaveRoom;
