@@ -25,6 +25,11 @@ public class MySceneManager : SingletonPersistent<MySceneManager>
         SceneManager.LoadScene("GameScene");
         MySoundManager.instance.PlayGameMusic();
     }
+    public void OpenTutorialScene()
+    {
+        SceneManager.LoadScene("TutorialScene");
+        MySoundManager.instance.PlayGameMusic();//mabye change music
+    }
     public void QuitToWindows()
     {
         Application.Quit();
