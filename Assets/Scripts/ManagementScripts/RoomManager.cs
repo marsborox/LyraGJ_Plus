@@ -36,6 +36,7 @@ public class RoomManager : Singleton<RoomManager>
     private void Start()
     {
         SetupGridAndStartRoom();
+        LevelManager.instance.levelSettings.SubscribeToEvents(startTile);
     }
     private void SetupGridAndStartRoom()
     {
@@ -61,6 +62,7 @@ public class RoomManager : Singleton<RoomManager>
         {
             //Debug.Log("should spawn normalRoom");
             Room spawnedRoom = _roomSpawner.SpawnRoom(inputRoom, direction, roomPrefabList, deadEndPrefabList, ref roomList, roomGrid, roomSize, ref _spawnedRoomCounter);
+            LevelManager.instance.levelSettings.SubscribeToEvents(spawnedRoom);
             surface.BuildNavMesh();
         }
     }

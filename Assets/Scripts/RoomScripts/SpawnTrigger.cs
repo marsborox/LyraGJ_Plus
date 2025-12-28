@@ -8,7 +8,7 @@ public class SpawnTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            _roomImIn.SpawnEnemies();
+            //_roomImIn.SpawnEnemies();
             GlobalEventManager.instance.TriggerOnPlayerEnterRoom(_roomImIn);
         }
     }

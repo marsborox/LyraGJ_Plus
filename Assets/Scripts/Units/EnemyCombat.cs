@@ -133,7 +133,8 @@ public class EnemyCombat : UnitCombat
         CheckDropHealth();
         Destroy(gameObject);
         GlobalEventManager.instance.TriggerEnemyDied(_enemy, roomISpawnedIn);
-        roomISpawnedIn.EnemyDied();
+
+        //roomISpawnedIn.EnemyDied();
     }
     private void CheckDropHealth()
     {

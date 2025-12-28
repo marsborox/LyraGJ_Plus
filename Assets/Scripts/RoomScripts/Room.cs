@@ -40,7 +40,7 @@ public class Room : MonoBehaviour
             HeroEntering(trigger);
         }
         else HeroLeaving(trigger);*/
-        SpawnRoom(trigger);
+        SpawnRoom(trigger);//subscribed over SO
         trigger.gameObject.SetActive(false);
         GlobalEventManager.instance.TriggerOnPlayerLeaveRoom(this, trigger);
     }
@@ -98,10 +98,15 @@ public class Room : MonoBehaviour
         _triggerBottom.gameObject.SetActive(false);
         return bottomDoor;
     }
-    public void SpawnEnemies()
+    public void SpawnEnemies(Room room)
     {
+        if (room != this)
+        {
+            //Debug.Log("notThisRoom ");
+            return;
+        }
         _spawnTrigger.gameObject.SetActive(false);
-        _barriers.SetActive(true);
+        _barriers.SetActive(true);   
         //Debug.Log("we shall spawn enemies");
         TestSpawnSomeEnemies();
     }
@@ -124,20 +129,25 @@ public class Room : MonoBehaviour
         //Debug.Log("spawning done");
 
     }
-    public void EnemyDied()
+    public void EnemyDied(Enemy enemy,Room room)
     {
+        if (room != this)
+        {
+            Debug.Log("notThisRoom");
+            return;
+        }
         enemiesInRoomCount--;
         if (enemiesInRoomCount == 0)
         {
             //do something
             //Debug.Log("Room Clear");
-            LiftBarriers();
+            //LiftBarriers();
             
             //DoPostRoom Stuff
             GlobalEventManager.instance.TriggerOnRoomCleared(this);
         }
     }
-    private void LiftBarriers()
+    public void LiftBarriers(Room room)
     {
         _barriers.SetActive(false);
     }
