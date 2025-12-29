@@ -10,6 +10,8 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
     public static RoomEvent OnPlayerEnterRoom;
     public static RoomEvent OnPlayerLeaveRoom;
     public static RoomEvent OnRoomCleared;
+    
+    public static EnemyEvent OnEnemySpawned;
     public static EnemyEvent OnEnemyDied;
     
     void Start()
@@ -36,7 +38,12 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
         //triggered in Room EnemyDied part where we register room cleared
         OnRoomCleared?.Invoke(room);
     }
-    public void TriggerEnemyDied(Enemy enemy,Room room)
+    public void TriggerOnEnemySpawn(Enemy enemy, Room room)
+    {
+        //triggered in Room.SpawnRandomEnemy
+        OnEnemySpawned?.Invoke(enemy,room);
+    }
+    public void TriggerOnEnemyDied(Enemy enemy,Room room)
     { 
         //triggered in EnemyCombat Die
         OnEnemyDied?.Invoke(enemy, room);

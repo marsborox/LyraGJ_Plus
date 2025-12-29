@@ -108,7 +108,25 @@ public class Room : MonoBehaviour
         _spawnTrigger.gameObject.SetActive(false);
         _barriers.SetActive(true);   
         //Debug.Log("we shall spawn enemies");
-        TestSpawnSomeEnemies();
+        //TestSpawnSomeEnemies();
+        SpawnEnemiesFromLevelSO();
+    }
+    public void SpawnEnemiesFromLevelSO()
+    {
+        int randomMin = GameManager.instance.levelSettings.minEnemiesPerRoom;
+        int randomMax = GameManager.instance.levelSettings.maxEnemiesPerRoom;
+        
+        int spawnAmount = Random.Range(randomMin, randomMax);
+        //Debug.Log("we know how many enemies: " + spawnAmount.ToString());
+        for (int i = 0; i <= spawnAmount; i++)
+        {
+            //Debug.Log("spawning enemy");
+            float spawnPosX = Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
+            float spawnPosY = Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
+
+            UnitSpawner.instance.SpawnRandomEnemy(spawnPosX, spawnPosY, this);
+            enemiesInRoomCount++;
+        }
     }
     private void TestSpawnSomeEnemies()
     { //some random for testing
@@ -126,6 +144,24 @@ public class Room : MonoBehaviour
             enemiesInRoomCount++;
         }
         
+        //Debug.Log("spawning done");
+
+    }
+
+    public void SpawnXAmomountOfEnemies(int spawnAmount)
+    { //some random for testing
+
+        //Debug.Log("we know how many enemies: " + spawnAmount.ToString());
+        for (int i = 0; i <= spawnAmount; i++)
+        {
+            //Debug.Log("spawning enemy");
+            float spawnPosX = Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
+            float spawnPosY = Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
+
+            UnitSpawner.instance.SpawnRandomEnemy(spawnPosX, spawnPosY, this);
+            enemiesInRoomCount++;
+        }
+
         //Debug.Log("spawning done");
 
     }

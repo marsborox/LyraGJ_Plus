@@ -1,10 +1,24 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 //[CreateAssetMenu(fileName = "Level_SO", menuName = "Scriptable Objects/Level_SO")]
 public class Level_SO : ScriptableObject
 {
-    int minEnemiesPerRoom;
-    int maxEnemiesPerRoom;
+    //public List<int> spawnDiaogueOnRoomIndexList = new List<int>();
+    
+    
+    public List<DialogueToIndex> dialogueWRoomClearedIndexList = new List<DialogueToIndex>();
+    [System.Serializable]
+    public class DialogueToIndex
+    {
+        public int spawnOnRoomCleared;
+        public Dialogue_SO dialogue;
+    }
+
+
+
+    public int minEnemiesPerRoom;
+    public int maxEnemiesPerRoom;
     public virtual void SubscribeToEvents(Room room)
     { 
     

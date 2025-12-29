@@ -2808,51 +2808,6 @@ Transform:
   - {fileID: 1065125235}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &654592294
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 654592295}
-  - component: {fileID: 654592296}
-  m_Layer: 0
-  m_Name: LevelManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &654592295
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654592294}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.67738, y: -4.40002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &654592296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654592294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94975a6b61c803644a9c40df7f5f5f2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  levelSettings: {fileID: 11400000, guid: 528e746bce986a347aecf571832401db, type: 2}
 --- !u!1 &658615007
 GameObject:
   m_ObjectHideFlags: 0
@@ -35517,7 +35472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1401216780
 Transform:
   m_ObjectHideFlags: 0
@@ -35546,13 +35501,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 2
-  enemiesPerWave: 10
   portal: {fileID: 0}
+  dialogueUI: {fileID: 1763506785}
+  levelSettings: {fileID: 11400000, guid: 528e746bce986a347aecf571832401db, type: 2}
+  enemiesPerWave: 10
   spawnedEnemiesThisWave: 0
   enemiesInField: 0
   isEndOfWave: 1
   isSpawning: 0
-  dialogueUI: {fileID: 1763506785}
   dialogueSOs:
   - {fileID: 11400000, guid: ac7095dc8b7b2470ca211b6803d6cc9e, type: 2}
   - {fileID: 11400000, guid: 64eb8608fd7e04c44a5fa001cfebf762, type: 2}
@@ -37428,10 +37384,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NavMesh
       objectReference: {fileID: 0}
-    - target: {fileID: 7427372101679965586, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: 9b7de95f08e896645bb28107bdd0dc05, type: 2}
     - target: {fileID: 8803382701963967928, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -37753,5 +37705,4 @@ SceneRoots:
   - {fileID: 2141534351}
   - {fileID: 2054711394}
   - {fileID: 2264448607211703655}
-  - {fileID: 654592295}
   - {fileID: 209087947}

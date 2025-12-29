@@ -10,7 +10,10 @@ public class ClearXAmountRooms_SO : Level_SO
         //GlobalEventManager.OnPlayerLeaveRoom += room.SpawnRoom; //need some thinking
 
         GlobalEventManager.OnRoomCleared += room.LiftBarriers;
+        //GlobalEventManager.OnRoomCleared += GameManager.instance.CountClearedRooms;
+        GlobalEventManager.OnRoomCleared += GameManager.instance.PostRoomCleared;
         GlobalEventManager.OnEnemyDied += room.EnemyDied;//something here prob count dead units track in level mngr
+        
     }
     //on each roomspawn
     public override void UnsubscribeToEvents(Room room)
