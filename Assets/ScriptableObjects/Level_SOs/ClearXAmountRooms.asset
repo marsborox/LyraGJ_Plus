@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: ClearXAmountRooms
   m_EditorClassIdentifier: Assembly-CSharp::ClearXAmountRooms_SO
+  dialogueWRoomClearedIndexList: []
   minEnemiesPerRoom: 3
   maxEnemiesPerRoom: 5

@@ -35,6 +35,7 @@ public class GameManager : Singleton<GameManager>
 
     public List<Dialogue_SO> dialogueSOs = new List<Dialogue_SO>();
 
+    public Dialogue_SO processedDialogue;
     private int _dialogueStage = 0;
     private int _dialogPart = 0;
     void Start()
@@ -185,7 +186,7 @@ public class GameManager : Singleton<GameManager>
 
         PrepareDialog();
     }
-    public void ContinueDialogue()
+    public void ContinueDialog()
     {
         _dialogPart++;
 
