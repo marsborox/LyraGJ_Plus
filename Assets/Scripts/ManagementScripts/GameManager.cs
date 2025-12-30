@@ -1,12 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
-using NUnit.Framework;
-
-using Unity.VisualScripting;
-
 using UnityEngine;
-using UnityEngine.UI;
 
 using static Level_SO;
 
@@ -106,7 +100,9 @@ public class GameManager : Singleton<GameManager>
         roomsCleared++;
         SpawnDialogue(roomsCleared);
         //if(roomsCleared = levelSettings.)
+        //Debug.Log("postClearRoom eventWorking");
     }
+    #region NewDialogueLogic
     public void SpawnDialogue(int indexOfClearedRoom)
     {
         int returnIndex = int.MaxValue;
@@ -122,12 +118,11 @@ public class GameManager : Singleton<GameManager>
                 if (returnIndex == indexOfClearedRoom)
                 {
                     ProcessDialogue(dialogueToIndexReturn.dialogue);
+                    Debug.Log("RoomIndex for dialogue: " + returnIndex);
                 }
             }
         }
     }
-    #region NewDialogueLogic
-
 
     private void ProcessDialogue(Dialogue_SO dialogue)
     {
@@ -157,7 +152,7 @@ public class GameManager : Singleton<GameManager>
         if (_dialogPart < dialogue.parts.Length)
         {
             Debug.Log("Let's continue dialog!");
-            PrepareDialog();
+            PrepareDialogue(dialogue);
         }
         else
         {
@@ -166,7 +161,7 @@ public class GameManager : Singleton<GameManager>
 
             stage = GameStage.SPAWNING;
             _dialogueStage++;
-            Time.timeScale = 1f;
+            Time.timeScale = 1f;//unpause
             if (_dialogueStage > (dialogueSOs.Count - 1))//bcs count is max index+1
             {
                 _dialogueStage = 0;

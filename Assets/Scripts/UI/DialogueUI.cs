@@ -18,7 +18,7 @@ public class DialogueUI : UI
     public void CloseUI()
     {
         //temp shutdown for dialogue refactor
+        GameManager.instance.ContinueDialogue();
         //GameManager.instance.ContinueDialog();
-        
     }
 }

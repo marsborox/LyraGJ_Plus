@@ -169,7 +169,7 @@ public class Room : MonoBehaviour
     {
         if (room != this)
         {
-            Debug.Log("notThisRoom");
+            //Debug.Log("notThisRoom");
             return;
         }
         enemiesInRoomCount--;
