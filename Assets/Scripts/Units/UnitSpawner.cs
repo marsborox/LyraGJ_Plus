@@ -93,7 +93,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
         Enemy_SO usedTemplate = testSos[randomTemplateIndex];
         Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         spawnedEnemy.SetProperties(usedTemplate,player,room);
-
+        GlobalEventManager.instance.TriggerOnEnemySpawn(spawnedEnemy,room);
     }
     public void TestSpawnMelee()
     {

@@ -9,6 +9,7 @@ public class DialogueUI : UI
 
     [SerializeField] private Button _closeDialogueButton;
 
+
     private void Start()
     {
         InitiateButton(_closeDialogueButton,CloseUI);
@@ -16,6 +17,8 @@ public class DialogueUI : UI
 
     public void CloseUI()
     {
+        //temp shutdown for dialogue refactor
         GameManager.instance.ContinueDialogue();
+        //GameManager.instance.ContinueDialog();
     }
 }
