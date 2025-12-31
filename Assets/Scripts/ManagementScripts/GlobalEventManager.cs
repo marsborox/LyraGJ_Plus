@@ -37,6 +37,8 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
     { 
         //triggered in Room EnemyDied part where we register room cleared
         OnRoomCleared?.Invoke(room);
+        //Debug.Log("room Cleared event completed");
+        
     }
     public void TriggerOnEnemySpawn(Enemy enemy, Room room)
     {

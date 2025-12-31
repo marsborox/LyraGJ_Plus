@@ -27,7 +27,7 @@ public class GameManager : Singleton<GameManager>
     public bool isEndOfWave=false;
     public bool isSpawning=false;
 
-    public List<Dialogue_SO> dialogueSOs = new List<Dialogue_SO>();
+    //public List<Dialogue_SO> dialogueSOs = new List<Dialogue_SO>();
 
     public Dialogue_SO processedDialogue;
     private int _dialogueStage = 0;
@@ -97,81 +97,66 @@ public class GameManager : Singleton<GameManager>
     }
     public void PostRoomCleared(Room room)
     {
-        roomsCleared++;
         SpawnDialogue(roomsCleared);
-        //if(roomsCleared = levelSettings.)
-        //Debug.Log("postClearRoom eventWorking");
     }
     #region NewDialogueLogic
     public void SpawnDialogue(int indexOfClearedRoom)
     {
-        int returnIndex = int.MaxValue;
-        DialogueToIndex dialogueToIndexReturn;
-
+        processedDialogue = null;
+        //Debug.Log("spawning dialogue");
         foreach (DialogueToIndex dialogueToIndex in levelSettings.dialogueWRoomClearedIndexList)
         {
-            if (dialogueToIndex.spawnOnRoomCleared < returnIndex)
+            if (dialogueToIndex.spawnOnRoomCleared == indexOfClearedRoom)
             {
-                returnIndex = dialogueToIndex.spawnOnRoomCleared;
-                dialogueToIndexReturn = dialogueToIndex;
-
-                if (returnIndex == indexOfClearedRoom)
-                {
-                    ProcessDialogue(dialogueToIndexReturn.dialogue);
-                    Debug.Log("RoomIndex for dialogue: " + returnIndex);
-                }
+                processedDialogue = dialogueToIndex.dialogue;
+                ProcessDialogue(processedDialogue);
             }
         }
     }
 
     private void ProcessDialogue(Dialogue_SO dialogue)
     {
+        //Debug.Log("processingDialogue");
         Time.timeScale = 0f;//pause
-
         dialogueUI.gameObject.SetActive(true);
         dialogueUI.characterImage.SetNativeSize();
-
         PrepareDialogue(dialogue);
     }
     private void PrepareDialogue(Dialogue_SO dialogue)
     {
-        dialogue = dialogueSOs[_dialogueStage];
+        //dialogue = dialogueSOs[_dialogueStage];
         if (_dialogPart < dialogue.parts.Length)
         {
             DialoguePart part = dialogue.parts[_dialogPart];
             dialogueUI.textOfDialogue.text = part.dialogueText;
             dialogueUI.characterImage.sprite = part.characterImage;
-            Debug.Log(_dialogPart);
+            //Debug.Log(_dialogPart);
         }
     }
     public void ContinueDialogue()
     {
         _dialogPart++;
 
-        Dialogue_SO dialogue = dialogueSOs[_dialogueStage];
+        Dialogue_SO dialogue = processedDialogue;
         if (_dialogPart < dialogue.parts.Length)
         {
-            Debug.Log("Let's continue dialog!");
+            //Debug.Log("Let's continue dialog!");
             PrepareDialogue(dialogue);
         }
         else
         {
-            Debug.Log("NO more talking!");
+            //Debug.Log("NO more talking!");
             dialogueUI.gameObject.SetActive(false);
-
-            stage = GameStage.SPAWNING;
-            _dialogueStage++;
             Time.timeScale = 1f;//unpause
-            if (_dialogueStage > (dialogueSOs.Count - 1))//bcs count is max index+1
-            {
-                _dialogueStage = 0;
-            }
+
             _dialogPart = 0;
         }
     }
 
     #endregion
     #region originalDialogueLogic
+    //DISCONTINUED
+    /*
     public void DisplayDialogue()
     {
         Time.timeScale = 0f;//pause
@@ -216,7 +201,7 @@ public class GameManager : Singleton<GameManager>
             dialogueUI.characterImage.sprite = part.characterImage;
             Debug.Log(_dialogPart);
         }
-    }
+    }*/
     #endregion
 
 
@@ -249,6 +234,7 @@ public class GameManager : Singleton<GameManager>
     }
     public void CountClearedRooms(Room room)
     {
-        roomsCleared++;
+        //Remove This
+        //roomsCleared++;
     }
 }

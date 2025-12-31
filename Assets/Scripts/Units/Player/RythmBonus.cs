@@ -32,7 +32,7 @@ public class RythmBonus : MonoBehaviour
 
     private void RythmBonusTimer()
     {
-        rythmBonusCheckValue += ( Time.deltaTime/*/beatFrequency*/);
+        rythmBonusCheckValue += ( Time.unscaledDeltaTime /*Time.deltaTime*/ /*beatFrequency*/);
         if (rythmBonusCheckValue > period)
         {
             rythmBonusCheckValue -= period;

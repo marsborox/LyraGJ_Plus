@@ -19,7 +19,9 @@ public class Room : MonoBehaviour
     [SerializeField] private Transform _spawnAreaLT;
     [SerializeField] private Transform _spawnAreaRB;
 
-    [SerializeField] private GameObject _barriers; 
+    [SerializeField] private GameObject _barriers;
+
+    [SerializeField] private bool isCleared = true;
 
     public List <EntryTrigger> entryTriggerList = new List<EntryTrigger>();
     public bool heroEntered = false;
@@ -42,6 +44,7 @@ public class Room : MonoBehaviour
         else HeroLeaving(trigger);*/
         SpawnRoom(trigger);//subscribed over SO
         trigger.gameObject.SetActive(false);
+        isCleared = false;
         GlobalEventManager.instance.TriggerOnPlayerLeaveRoom(this, trigger);
     }
 
@@ -49,7 +52,7 @@ public class Room : MonoBehaviour
     { 
         heroEntered = true;
         //Spawning/activating enemies
-        Debug.Log("hero Entered Room from " + trigger.name);
+        //Debug.Log("hero Entered Room from " + trigger.name);
         //hero vosiel, spawn
         
     }
@@ -165,24 +168,26 @@ public class Room : MonoBehaviour
         //Debug.Log("spawning done");
 
     }
-    public void EnemyDied(Enemy enemy,Room room)
+
+    public void EnemyDied(Enemy enemy, Room room)
     {
-        if (room != this)
+        if (!isCleared)
         {
-            //Debug.Log("notThisRoom");
-            return;
-        }
-        enemiesInRoomCount--;
-        if (enemiesInRoomCount == 0)
-        {
-            //do something
-            //Debug.Log("Room Clear");
-            //LiftBarriers();
-            
-            //DoPostRoom Stuff
-            GlobalEventManager.instance.TriggerOnRoomCleared(this);
+            enemiesInRoomCount--;
+            if (enemiesInRoomCount == 0)
+            {
+                //do something
+                //Debug.Log("__________________________________________");
+                //Debug.Log("Room Clear");
+                //LiftBarriers();
+                isCleared = true;
+                GameManager.instance.roomsCleared++;
+                //DoPostRoom Stuff
+                GlobalEventManager.instance.TriggerOnRoomCleared(this);
+            }
         }
     }
+
     public void LiftBarriers(Room room)
     {
         _barriers.SetActive(false);
