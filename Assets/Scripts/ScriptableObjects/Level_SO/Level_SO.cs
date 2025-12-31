@@ -4,10 +4,7 @@ using UnityEngine;
 //[CreateAssetMenu(fileName = "Level_SO", menuName = "Scriptable Objects/Level_SO")]
 public class Level_SO : ScriptableObject
 {
-
     //public List<int> spawnDiaogueOnRoomIndexList = new List<int>();
-    
-    
     public List<DialogueToIndex> dialogueWRoomClearedIndexList = new List<DialogueToIndex>();
     [System.Serializable]
     public class DialogueToIndex

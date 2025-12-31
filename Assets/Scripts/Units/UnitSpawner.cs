@@ -77,13 +77,18 @@ public class UnitSpawner : Singleton<UnitSpawner>
 
         return enemy_SOs[randomIndex];
     }
-    private void SpawnEnemy(Enemy_SO usedTemplate)
+    public void SpawnEnemy(Enemy_SO usedTemplate)
     {
         SpawnPoint spawnPoint;
         int randomIndex = Random.Range(0, spawnPoints.Count);
         spawnPoint = spawnPoints[randomIndex];
         Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
         spawnedEnemy.SetProperties(usedTemplate, player);
+    }
+    public void SpawnEnemy(Room room, Enemy_SO enemySO)
+    {
+        Enemy spawnedEnemy = Instantiate(enemyPrefab,room.transform.position,Quaternion.identity);
+        spawnedEnemy.SetProperties(enemySO, player);
     }
     public void SpawnRandomEnemy(float x,float y,Room room)
     {
