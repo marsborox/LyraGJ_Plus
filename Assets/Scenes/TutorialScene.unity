@@ -2259,10 +2259,10 @@ MonoBehaviour:
   meleeSO: {fileID: 11400000, guid: 5e91d7cc713b3644aa868176787d1aa0, type: 2}
   archerSO: {fileID: 11400000, guid: 0e9d7911df658a9449718d4927dceacf, type: 2}
   mageSO: {fileID: 11400000, guid: 4f7296c3a7d049e4984af6ea98cbc074, type: 2}
-  testSos:
+  enemySOs:
+  - {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
   - {fileID: 11400000, guid: 4f7296c3a7d049e4984af6ea98cbc074, type: 2}
   - {fileID: 11400000, guid: 0e9d7911df658a9449718d4927dceacf, type: 2}
-  - {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
 --- !u!1001 &606415667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2275,6 +2275,10 @@ PrefabInstance:
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 239221477}
+    - target: {fileID: 1592202640683675663, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: levelSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b09000c2be6ea8439ef7f1c149c13d3, type: 2}
     - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.03479

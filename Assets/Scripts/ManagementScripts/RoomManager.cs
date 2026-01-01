@@ -37,7 +37,8 @@ public class RoomManager : Singleton<RoomManager>
     {
         SetupGridAndStartRoom();
         GameManager.instance.levelSettings.SubscribeToEventsSingletons(startTile);
-        GameManager.instance.levelSettings.SubscribeToEventsRoom(startTile);
+        GameManager.instance.levelSettings.StartRoomSetup(startTile);
+        //GameManager.instance.levelSettings.SubscribeToEventsRoom(startTile);
     }
     private void SetupGridAndStartRoom()
     {
