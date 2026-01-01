@@ -9,6 +9,7 @@ public class EntryTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             _roomImIn.TriggerActivated(this);
+
         }
     }
 }

@@ -42,8 +42,8 @@ public class Room : MonoBehaviour
             HeroEntering(trigger);
         }
         else HeroLeaving(trigger);*/
-        SpawnRoom(trigger);//subscribed over SO
         trigger.gameObject.SetActive(false);
+        SpawnRoom(trigger);//subscribed over SO
         isCleared = false;
         GlobalEventManager.instance.TriggerOnPlayerLeaveRoom(this, trigger);
     }

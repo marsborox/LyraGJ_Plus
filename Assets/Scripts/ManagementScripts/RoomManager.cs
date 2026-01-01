@@ -40,6 +40,10 @@ public class RoomManager : Singleton<RoomManager>
         GameManager.instance.levelSettings.StartRoomSetup(startTile);
         //GameManager.instance.levelSettings.SubscribeToEventsRoom(startTile);
     }
+    private void OnEnable()
+    {
+        
+    }
     private void SetupGridAndStartRoom()
     {
         roomGrid = new Room[roomGridSize, roomGridSize];
@@ -81,4 +85,5 @@ public class RoomManager : Singleton<RoomManager>
         surface.BuildNavMesh();
         _roomObjectSpawner.SpawnPortal(spawnedRoom);
     }
+
 }

@@ -95,7 +95,7 @@ public class GameManager : Singleton<GameManager>
                 }
         }
     }
-    public void PostRoomCleared(Room room)
+    public void SpawnDialogue(Room room)
     {
         SpawnDialogue(roomsCleared);
     }
@@ -204,7 +204,10 @@ public class GameManager : Singleton<GameManager>
     }*/
     #endregion
 
-
+    public void ForceRoomCleared(Room room)
+    {
+        roomsCleared++;
+    }
     void ControlGameFlow()
     {
         if (spawnedEnemiesThisWave == enemiesPerWave)

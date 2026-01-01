@@ -2276,6 +2276,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 239221477}
     - target: {fileID: 1592202640683675663, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: roomsCleared
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1592202640683675663, guid: 3156fcab12795674ea94e8594f060663, type: 3}
       propertyPath: levelSettings
       value: 
       objectReference: {fileID: 11400000, guid: 5b09000c2be6ea8439ef7f1c149c13d3, type: 2}
@@ -2321,7 +2325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7545743468549897413, guid: 3156fcab12795674ea94e8594f060663, type: 3}
       propertyPath: m_Name
-      value: GameManager (1)
+      value: GameManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

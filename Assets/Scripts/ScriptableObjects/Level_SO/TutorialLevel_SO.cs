@@ -8,14 +8,16 @@ public class TutorialLevel_SO : Level_SO
     [SerializeField] private Enemy_SO _blueEnemy;
     public override void SubscribeToEventsSingletons(Room room)
     {
-        GlobalEventManager.OnRoomCleared += GameManager.instance.PostRoomCleared;
+        GlobalEventManager.OnRoomCleared += GameManager.instance.SpawnDialogue;
         GlobalEventManager.OnPlayerEnterRoom += SpawnTutorialRoom;
     }
     public override void StartRoomSetup(Room room)
     {
         GlobalEventManager.OnPlayerEnterRoom += room.LiftBarriers;
-        GlobalEventManager.OnPlayerEnterRoom += GameManager.instance.PostRoomCleared;
-        GlobalEventManager.OnPlayerLeaveRoom += room.ForceRoomCleared;
+        GlobalEventManager.OnPlayerEnterRoom += GameManager.instance.SpawnDialogue;
+        GlobalEventManager.OnPlayerLeaveRoom += GameManager.instance.ForceRoomCleared;
+        //GlobalEventManager.OnPlayerLeaveRoom += GameManager.ForceRoomCleared;
+
         GlobalEventManager.OnPlayerLeaveRoom += SingleUnSubscribe;
     }
     public override void SubscribeToEventsRoom(Room room)
@@ -29,8 +31,8 @@ public class TutorialLevel_SO : Level_SO
     }
     public void SingleUnSubscribe(Room room)
     {
-        GlobalEventManager.OnPlayerEnterRoom -= GameManager.instance.PostRoomCleared;
-
+        GlobalEventManager.OnPlayerLeaveRoom -= GameManager.instance.ForceRoomCleared;
+        GlobalEventManager.OnPlayerEnterRoom -= GameManager.instance.SpawnDialogue;
     }
 
     public void SpawnTutorialRoom(Room room)
@@ -41,7 +43,7 @@ public class TutorialLevel_SO : Level_SO
         { 
             case 0: 
                 {
-
+                    
                     break; 
                 }
 

@@ -5,7 +5,7 @@ public class ClearXAmountRooms_SO : Level_SO
 {
     public override void SubscribeToEventsSingletons(Room room)
     {
-        GlobalEventManager.OnRoomCleared += GameManager.instance.PostRoomCleared;
+        GlobalEventManager.OnRoomCleared += GameManager.instance.SpawnDialogue;
     }
     public override void SubscribeToEventsRoom(Room room)
     {
