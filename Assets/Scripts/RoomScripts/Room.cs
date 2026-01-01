@@ -104,7 +104,7 @@ public class Room : MonoBehaviour
     public void SpawnEnemies(Room room)
     {
         if (room != this)
-        {
+        {// to trigger only on our room
             //Debug.Log("notThisRoom ");
             return;
         }
@@ -131,7 +131,7 @@ public class Room : MonoBehaviour
             enemiesInRoomCount++;
         }
     }
-    private void TestSpawnSomeEnemies()
+    public void SpawnSomeEnemiesRandomly()
     { //some random for testing
         int randomMin = 3;
         int randomMax = 5;
@@ -187,7 +187,25 @@ public class Room : MonoBehaviour
             }
         }
     }
-
+    public void SpawnParticularEnemy(Room room, Enemy_SO enemySO)
+    {
+        if (room != this)
+        {// to trigger only on our room
+            Debug.Log("notThisRoom ");
+            return;
+        }
+        UnitSpawner.instance.SpawnEnemy(room,enemySO);
+    }
+    public void ForceRoomCleared(Room room)
+    {
+        if (room != this)
+        {// to trigger only on our room
+            //Debug.Log("notThisRoom ");
+            return;
+        }
+        GameManager.instance.roomsCleared++;
+        GlobalEventManager.instance.TriggerOnRoomCleared(room);
+    }
     public void LiftBarriers(Room room)
     {
         _barriers.SetActive(false);

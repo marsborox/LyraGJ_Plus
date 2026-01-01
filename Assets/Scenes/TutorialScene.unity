@@ -2087,6 +2087,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4eb8e492d7e9a84290ea7ca9a580032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BowAuto
+--- !u!114 &239221477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2213380607945376703, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+  m_PrefabInstance: {fileID: 1991998145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9aae82d5a2e744ab4aad40b1fc3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &309730531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5507873561208121069, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
@@ -2248,10 +2259,75 @@ MonoBehaviour:
   meleeSO: {fileID: 11400000, guid: 5e91d7cc713b3644aa868176787d1aa0, type: 2}
   archerSO: {fileID: 11400000, guid: 0e9d7911df658a9449718d4927dceacf, type: 2}
   mageSO: {fileID: 11400000, guid: 4f7296c3a7d049e4984af6ea98cbc074, type: 2}
-  testSos:
+  enemySOs:
+  - {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
   - {fileID: 11400000, guid: 4f7296c3a7d049e4984af6ea98cbc074, type: 2}
   - {fileID: 11400000, guid: 0e9d7911df658a9449718d4927dceacf, type: 2}
-  - {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
+--- !u!1001 &606415667
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1592202640683675663, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: dialogueUI
+      value: 
+      objectReference: {fileID: 239221477}
+    - target: {fileID: 1592202640683675663, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: levelSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b09000c2be6ea8439ef7f1c149c13d3, type: 2}
+    - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.03479
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -14.15644
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7545743468549897413, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: m_Name
+      value: GameManager (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3156fcab12795674ea94e8594f060663, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -34741,16 +34817,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 2
-  enemiesPerWave: 10
   portal: {fileID: 0}
+  dialogueUI: {fileID: 0}
+  levelSettings: {fileID: 0}
+  enemiesPerWave: 10
   spawnedEnemiesThisWave: 0
   enemiesInField: 0
+  totalEnemyKilled: 0
+  roomsCleared: 0
   isEndOfWave: 1
   isSpawning: 0
-  dialogueUI: {fileID: 0}
-  dialogueSOs:
-  - {fileID: 11400000, guid: ac7095dc8b7b2470ca211b6803d6cc9e, type: 2}
-  - {fileID: 11400000, guid: 64eb8608fd7e04c44a5fa001cfebf762, type: 2}
+  processedDialogue: {fileID: 0}
 --- !u!114 &1413023119 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7427372101679965586, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
@@ -37100,3 +37177,4 @@ SceneRoots:
   - {fileID: 6915627130281284305}
   - {fileID: 2960843891260748786}
   - {fileID: 1667912701}
+  - {fileID: 606415667}

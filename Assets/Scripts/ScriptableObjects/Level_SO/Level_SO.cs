@@ -4,10 +4,7 @@ using UnityEngine;
 //[CreateAssetMenu(fileName = "Level_SO", menuName = "Scriptable Objects/Level_SO")]
 public class Level_SO : ScriptableObject
 {
-
     //public List<int> spawnDiaogueOnRoomIndexList = new List<int>();
-    
-    
     public List<DialogueToIndex> dialogueWRoomClearedIndexList = new List<DialogueToIndex>();
     [System.Serializable]
     public class DialogueToIndex
@@ -19,26 +16,20 @@ public class Level_SO : ScriptableObject
     public int minEnemiesPerRoom;
     public int maxEnemiesPerRoom;
     public virtual void SubscribeToEventsSingletons(Room room)
-    { 
-    
-    }
+    { }
+    public virtual void StartRoomSetup(Room room)
+    { }
     public virtual void SubscribeToEventsRoom(Room room)
-    { 
-    
-    }
+    { }
+    public virtual void UnsubscribeToEventsRoom(Room room)
+    { }
     //on each roomspawn
     public virtual void UnsubscribeToEvents(Room room) 
-    { 
-    
-    }
+    { }
     public virtual void SubscribeOnSpawnRoom(Room room)
-    { 
-        
-    }
+    { }
     public virtual void UnSubscribeOnSpawnRoom(Room room)
-    {
-
-    }
+    { }
     //public static RoomEvent OnPlayerEnterRoom;
     //public static RoomEvent OnPlayerLeaveRoom;
     //public static RoomEvent OnRoomCleared;

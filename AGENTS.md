@@ -2,7 +2,7 @@
 - Project name: LyraGJ_Plus
 - Unity version: Unity 6000.2.9f1
 - Active game object:
-  - Name: Player
-  - Tag: Player
-  - Layer: cast shadow
+  - Name: PortalTutorial
+  - Tag: Untagged
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
