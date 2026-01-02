@@ -126,7 +126,7 @@ public class GameManager : Singleton<GameManager>
         if (dialogueUI == null)
         { Debug.Log("dialogueUI null"); }
         dialogueUI.gameObject.SetActive(true);
-        dialogueUI.characterImage.SetNativeSize();
+        // dialogueUI.characterImage.SetNativeSize();
         PrepareDialogue(dialogue);
     }
     private void PrepareDialogue(Dialogue_SO dialogue)
@@ -136,7 +136,7 @@ public class GameManager : Singleton<GameManager>
         {
             DialoguePart part = dialogue.parts[_dialogPart];
             dialogueUI.textOfDialogue.text = part.dialogueText;
-            dialogueUI.characterImage.sprite = part.characterImage;
+            // dialogueUI.characterImage.sprite = part.characterImage;
             //Debug.Log(_dialogPart);
         }
     }

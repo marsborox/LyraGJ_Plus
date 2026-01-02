@@ -36501,6 +36501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2827231054900610017, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3106638223668718107, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -36522,6 +36526,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1148714921}
     - target: {fileID: 4804070944252759952, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575622043452660597, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

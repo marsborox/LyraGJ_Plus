@@ -5,14 +5,15 @@ using UnityEngine.UI;
 public class DialogueUI : UI
 {
     public TextMeshProUGUI textOfDialogue;
-    public Image characterImage;
+    public Image leftCharacterImage;
+    public Image rightCharacterImage;
 
     [SerializeField] private Button _closeDialogueButton;
 
 
     private void Start()
     {
-        InitiateButton(_closeDialogueButton,CloseUI);
+        InitiateButton(_closeDialogueButton, CloseUI);
     }
 
     public void CloseUI()
