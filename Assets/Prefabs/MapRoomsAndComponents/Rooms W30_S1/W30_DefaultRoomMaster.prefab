@@ -541,6 +541,7 @@ MonoBehaviour:
   _spawnAreaLT: {fileID: 5788504518689888898}
   _spawnAreaRB: {fileID: 6509315344148929895}
   _barriers: {fileID: 2771706782273127683}
+  isCleared: 0
   entryTriggerList:
   - {fileID: 4998544995608501813}
   - {fileID: 2303699770744030960}

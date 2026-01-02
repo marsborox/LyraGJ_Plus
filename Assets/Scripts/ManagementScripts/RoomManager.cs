@@ -35,6 +35,7 @@ public class RoomManager : Singleton<RoomManager>
     }
     private void Start()
     {
+        Debug.Log("RoomManager start");
         SetupGridAndStartRoom();
         GameManager.instance.levelSettings.SubscribeToEventsSingletons(startTile);
         GameManager.instance.levelSettings.StartRoomSetup(startTile);
@@ -42,7 +43,9 @@ public class RoomManager : Singleton<RoomManager>
     }
     private void OnEnable()
     {
-        
+        Debug.Log("RoomManager OnEnable");
+        //SetupGridAndStartRoom();
+
     }
     private void SetupGridAndStartRoom()
     {

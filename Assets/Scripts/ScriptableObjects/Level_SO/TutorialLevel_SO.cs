@@ -13,6 +13,7 @@ public class TutorialLevel_SO : Level_SO
     }
     public override void StartRoomSetup(Room room)
     {
+        Debug.Log("startroomsetup room: "+room.roomID.ToString());
         GlobalEventManager.OnPlayerEnterRoom += room.LiftBarriers;
         GlobalEventManager.OnPlayerEnterRoom += GameManager.instance.SpawnDialogue;
         GlobalEventManager.OnPlayerLeaveRoom += GameManager.instance.ForceRoomCleared;
@@ -24,9 +25,9 @@ public class TutorialLevel_SO : Level_SO
     {
         //GlobalEventManager.OnPlayerEnterRoom += SpawnTutorialRoom;
         //GlobalEventManager.OnPlayerLeaveRoom += room.SpawnRoom; //need some thinking
+        GlobalEventManager.OnEnemyDied += room.EnemyDied;//something here prob count dead units track in level mngr
         GlobalEventManager.OnRoomCleared += room.LiftBarriers;
         //GlobalEventManager.OnRoomCleared += GameManager.instance.CountClearedRooms;
-        GlobalEventManager.OnEnemyDied += room.EnemyDied;//something here prob count dead units track in level mngr
         
     }
     public void SingleUnSubscribe(Room room)
@@ -38,7 +39,8 @@ public class TutorialLevel_SO : Level_SO
     public void SpawnTutorialRoom(Room room)
     {
         int roomsCleared = GameManager.instance.roomsCleared;
-
+        // int roomsSpawned = GameManager.
+        //Debug.Log("tutorial room spawn triggered");
         switch (roomsCleared)
         { 
             case 0: 
@@ -71,7 +73,7 @@ public class TutorialLevel_SO : Level_SO
                 }
                 case 5:
                 {
-                    room.SpawnSomeEnemiesRandomly();
+                    room.SpawnSomeEnemiesRandomly(room);
                     break;
                 }
             default:

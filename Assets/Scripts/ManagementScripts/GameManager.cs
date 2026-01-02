@@ -116,8 +116,10 @@ public class GameManager : Singleton<GameManager>
 
     private void ProcessDialogue(Dialogue_SO dialogue)
     {
-        //Debug.Log("processingDialogue");
+        Debug.Log("processingDialogue");
         Time.timeScale = 0f;//pause
+        if (dialogueUI == null)
+        { Debug.Log("dialogueUI null"); }
         dialogueUI.gameObject.SetActive(true);
         dialogueUI.characterImage.SetNativeSize();
         PrepareDialogue(dialogue);

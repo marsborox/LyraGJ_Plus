@@ -88,7 +88,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public void SpawnEnemy(Room room, Enemy_SO enemySO)
     {
         Enemy spawnedEnemy = Instantiate(enemyPrefab,room.transform.position,Quaternion.identity);
-        spawnedEnemy.SetProperties(enemySO, player);
+        spawnedEnemy.SetProperties(enemySO, player,room);
         room.enemiesInRoomCount++;
     }
     public void SpawnRandomEnemy(float x,float y,Room room)
