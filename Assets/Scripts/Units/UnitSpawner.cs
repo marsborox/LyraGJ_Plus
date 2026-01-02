@@ -22,7 +22,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public Enemy_SO archerSO;
     public Enemy_SO mageSO;
 
-    public List<Enemy_SO>testSos = new List<Enemy_SO>();
+    public List<Enemy_SO>enemySOs = new List<Enemy_SO>();
     private void Start()
     {
 
@@ -77,6 +77,30 @@ public class UnitSpawner : Singleton<UnitSpawner>
 
         return enemy_SOs[randomIndex];
     }
+    public void SpawnEnemy(Enemy_SO usedTemplate)
+    {
+        SpawnPoint spawnPoint;
+        int randomIndex = Random.Range(0, spawnPoints.Count);
+        spawnPoint = spawnPoints[randomIndex];
+        Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+        spawnedEnemy.SetProperties(usedTemplate, player);
+    }
+    public void SpawnEnemy(Room room, Enemy_SO enemySO)
+    {
+        Enemy spawnedEnemy = Instantiate(enemyPrefab,room.transform.position,Quaternion.identity);
+        spawnedEnemy.SetProperties(enemySO, player);
+        room.enemiesInRoomCount++;
+    }
+    public void SpawnRandomEnemy(float x,float y,Room room)
+    {
+        //Debug.Log("spawning random test enemy");
+        Vector2 spawnPosition = new Vector2(x, y);
+        int randomTemplateIndex = Random.Range(0,enemySOs.Count);//may say out of bounds?
+        Enemy_SO usedTemplate = enemySOs[randomTemplateIndex];
+        Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        spawnedEnemy.SetProperties(usedTemplate,player,room);
+        GlobalEventManager.instance.TriggerOnEnemySpawn(spawnedEnemy,room);
+    }
     public void TestSpawnMelee()
     {
         SpawnEnemy(meleeSO);
@@ -89,21 +113,5 @@ public class UnitSpawner : Singleton<UnitSpawner>
     {
         SpawnEnemy(mageSO);
     }
-    void SpawnEnemy(Enemy_SO usedTemplate)
-    {
-        SpawnPoint spawnPoint;
-        int randomIndex = Random.Range(0, spawnPoints.Count);
-        spawnPoint = spawnPoints[randomIndex];
-        Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-        spawnedEnemy.SetProperties(usedTemplate, player);
-    }
-    public void SpawnRandomEnemy(float x,float y)
-    {
-        //Debug.Log("spawning random test enemy");
-        Vector2 spawnPosition = new Vector2(x, y);
-        int randomTemplateIndex = Random.Range(0,testSos.Count);//may say out of bounds?
-        Enemy_SO usedTemplate = testSos[randomTemplateIndex];
-        Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-        spawnedEnemy.SetProperties(usedTemplate,player);
-    }
+
 }

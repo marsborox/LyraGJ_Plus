@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37babba98b8a06042bb6ebefb715abed, type: 3}
+  m_Name: ClearXAmountRooms
+  m_EditorClassIdentifier: Assembly-CSharp::ClearXAmountRooms_SO
+  dialogueWRoomClearedIndexList:
+  - spawnOnRoomCleared: 2
+    dialogue: {fileID: 11400000, guid: ac7095dc8b7b2470ca211b6803d6cc9e, type: 2}
+  - spawnOnRoomCleared: 3
+    dialogue: {fileID: 11400000, guid: 64eb8608fd7e04c44a5fa001cfebf762, type: 2}
+  minEnemiesPerRoom: 3
+  maxEnemiesPerRoom: 5

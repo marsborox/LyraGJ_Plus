@@ -36,6 +36,9 @@ public class RoomManager : Singleton<RoomManager>
     private void Start()
     {
         SetupGridAndStartRoom();
+        GameManager.instance.levelSettings.SubscribeToEventsSingletons(startTile);
+        GameManager.instance.levelSettings.StartRoomSetup(startTile);
+        //GameManager.instance.levelSettings.SubscribeToEventsRoom(startTile);
     }
     private void SetupGridAndStartRoom()
     {
@@ -61,8 +64,8 @@ public class RoomManager : Singleton<RoomManager>
         {
             //Debug.Log("should spawn normalRoom");
             Room spawnedRoom = _roomSpawner.SpawnRoom(inputRoom, direction, roomPrefabList, deadEndPrefabList, ref roomList, roomGrid, roomSize, ref _spawnedRoomCounter);
+            GameManager.instance.levelSettings.SubscribeToEventsRoom(spawnedRoom);
             surface.BuildNavMesh();
-            
         }
     }
     
@@ -74,6 +77,7 @@ public class RoomManager : Singleton<RoomManager>
     {
         Debug.Log("Spawqning final room");
         Room spawnedRoom = _roomSpawner.SpawnRoom(inputRoom, direction, roomPrefabList, deadEndPrefabList, ref roomList, roomGrid, roomSize, ref _spawnedRoomCounter);
+        GameManager.instance.levelSettings.SubscribeToEventsRoom(spawnedRoom);
         surface.BuildNavMesh();
         _roomObjectSpawner.SpawnPortal(spawnedRoom);
     }
