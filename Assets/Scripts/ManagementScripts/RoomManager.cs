@@ -35,10 +35,17 @@ public class RoomManager : Singleton<RoomManager>
     }
     private void Start()
     {
+        Debug.Log("RoomManager start");
         SetupGridAndStartRoom();
         GameManager.instance.levelSettings.SubscribeToEventsSingletons(startTile);
         GameManager.instance.levelSettings.StartRoomSetup(startTile);
         //GameManager.instance.levelSettings.SubscribeToEventsRoom(startTile);
+    }
+    private void OnEnable()
+    {
+        Debug.Log("RoomManager OnEnable");
+        //SetupGridAndStartRoom();
+
     }
     private void SetupGridAndStartRoom()
     {
@@ -81,4 +88,5 @@ public class RoomManager : Singleton<RoomManager>
         surface.BuildNavMesh();
         _roomObjectSpawner.SpawnPortal(spawnedRoom);
     }
+
 }

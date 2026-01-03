@@ -128,11 +128,12 @@ public class EnemyCombat : UnitCombat
     void Die()
     {
         //Debug.Log("Enemy died");
-        if(GameManager.instance !=null) GameManager.instance.EnemyDied();
-
+        if(GameManager.instance !=null) 
+        GameManager.instance.EnemyDied();
+        Debug.Log("enemyDeath processing");
         CheckDropHealth();
-        Destroy(gameObject);
         GlobalEventManager.instance.TriggerOnEnemyDied(_enemy, roomISpawnedIn);
+        Destroy(gameObject);
 
         //roomISpawnedIn.EnemyDied();
     }

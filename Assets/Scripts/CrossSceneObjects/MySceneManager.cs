@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MySceneManager : SingletonPersistent<MySceneManager>
+public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
 {
-    public static new MySceneManager instance => SingletonPersistent<MySceneManager>.instance;
+    public static new MySceneManager instance => Singleton/*Persistent*/<MySceneManager>.instance;
 
     protected override void Awake()
     {
@@ -12,23 +12,27 @@ public class MySceneManager : SingletonPersistent<MySceneManager>
     public void OpenMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
-        MySoundManager.instance.PlayMenuMusic();
+        //MySoundManager.instance.PlayMenuMusic();
     }
     public void OpenLobbyScene()
     {
         SceneManager.LoadScene("LobbyScene");
-        MySoundManager.instance.PlayLobbyMusic();
+        //MySoundManager.instance.PlayLobbyMusic();
     }
     public void OpenGameScene()
     {
         //SceneManager.LoadScene("MarosGameScene");
         SceneManager.LoadScene("GameScene");
-        MySoundManager.instance.PlayGameMusic();
+        //MySoundManager.instance.PlayGameMusic();
     }
     public void OpenTutorialScene()
     {
         SceneManager.LoadScene("TutorialScene");
-        MySoundManager.instance.PlayGameMusic();//mabye change music
+        //MySoundManager.instance.PlayGameMusic();//mabye change music
+    }
+    public void OpenDevScene()
+    {
+        SceneManager.LoadScene("MarosGameScene");
     }
     public void QuitToWindows()
     {

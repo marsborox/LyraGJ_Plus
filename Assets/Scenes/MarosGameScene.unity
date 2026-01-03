@@ -37345,6 +37345,10 @@ PrefabInstance:
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 1763506785}
+    - target: {fileID: 1592202640683675663, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: levelSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: a23c81b48be4d804db75901e5e4053e2, type: 2}
     - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.64492
@@ -37631,6 +37635,10 @@ PrefabInstance:
       propertyPath: _roomObjectSpawner
       value: 
       objectReference: {fileID: 1016398360}
+    - target: {fileID: 2116813870915767902, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
+      propertyPath: maxSpawnedRoomCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2436977931790500122, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9

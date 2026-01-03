@@ -21,7 +21,7 @@ public class Room : MonoBehaviour
 
     [SerializeField] private GameObject _barriers;
 
-    [SerializeField] private bool isCleared = true;
+    [SerializeField] private bool isCleared = false;
 
     public List <EntryTrigger> entryTriggerList = new List<EntryTrigger>();
     public bool heroEntered = false;
@@ -42,10 +42,11 @@ public class Room : MonoBehaviour
             HeroEntering(trigger);
         }
         else HeroLeaving(trigger);*/
-        SpawnRoom(trigger);//subscribed over SO
         trigger.gameObject.SetActive(false);
-        isCleared = false;
+        SpawnRoom(trigger);//subscribed over SO
+        //isCleared = false;
         GlobalEventManager.instance.TriggerOnPlayerLeaveRoom(this, trigger);
+
     }
 
     public void HeroEntering(EntryTrigger trigger)
@@ -103,11 +104,12 @@ public class Room : MonoBehaviour
     }
     public void SpawnEnemies(Room room)
     {
-        if (room != this)
+        if (room != this || isCleared)
         {// to trigger only on our room
             //Debug.Log("notThisRoom ");
             return;
         }
+        //isCleared = false;
         _spawnTrigger.gameObject.SetActive(false);
         _barriers.SetActive(true);   
         //Debug.Log("we shall spawn enemies");
@@ -131,8 +133,14 @@ public class Room : MonoBehaviour
             enemiesInRoomCount++;
         }
     }
-    public void SpawnSomeEnemiesRandomly()
+    public void SpawnSomeEnemiesRandomly(Room room)
     { //some random for testing
+
+        if (room != this|| isCleared)
+        {// to trigger only on our room
+            Debug.Log("notThisRoom ");
+            return;
+        }
         int randomMin = 3;
         int randomMax = 5;
         int spawnAmount = Random.Range(randomMin, randomMax);
@@ -146,7 +154,7 @@ public class Room : MonoBehaviour
             UnitSpawner.instance.SpawnRandomEnemy(spawnPosX, spawnPosY,this);
             enemiesInRoomCount++;
         }
-        
+        _barriers.SetActive(true);
         //Debug.Log("spawning done");
 
     }
@@ -168,33 +176,56 @@ public class Room : MonoBehaviour
         //Debug.Log("spawning done");
 
     }
+    public void SpawnParticularEnemy(Room room, Enemy_SO enemySO)
+    {
+        
+        if (room != this|| isCleared)
+        {// to trigger only on our room
+            //Debug.Log("notThisRoom ");
+            return;
+        }
+
+        //isCleared = false;
+        UnitSpawner.instance.SpawnEnemy(room,enemySO);
+        _barriers.SetActive(true);
+    }
 
     public void EnemyDied(Enemy enemy, Room room)
     {
-        if (!isCleared)
+        //Debug.Log("Enemy died in room: "+room.roomID.ToString());
+        //Debug.Log("Enemy died in room");
+         if (!isCleared)
         {
+            //Debug.Log("enemyDied in room not cleared");
             enemiesInRoomCount--;
-            if (enemiesInRoomCount == 0)
+            if (enemiesInRoomCount <=0)
             {
+                //ClearRoom(room);
                 //do something
                 //Debug.Log("__________________________________________");
-                //Debug.Log("Room Clear");
-                //LiftBarriers();
+                Debug.Log("Room Clear");
+                LiftBarriers(room);//should work without this but here we are
+                                   //scheduling it for event does not work
                 isCleared = true;
                 GameManager.instance.roomsCleared++;
                 //DoPostRoom Stuff
-                GlobalEventManager.instance.TriggerOnRoomCleared(this);
+                //GlobalEventManager.instance.TriggerOnRoomCleared(this);
+                GlobalEventManager.instance.TriggerOnRoomCleared(room);
             }
         }
     }
-    public void SpawnParticularEnemy(Room room, Enemy_SO enemySO)
+    public void ClearRoom(Room room)
     {
-        if (room != this)
-        {// to trigger only on our room
-            Debug.Log("notThisRoom ");
-            return;
-        }
-        UnitSpawner.instance.SpawnEnemy(room,enemySO);
+        //do something
+        //Debug.Log("__________________________________________");
+        Debug.Log("Room Clear");
+        LiftBarriers(room);//should work without this but here we are
+                           //scheduling it for event does not work
+        isCleared = true;
+        GameManager.instance.roomsCleared++;
+        //DoPostRoom Stuff
+        //GlobalEventManager.instance.TriggerOnRoomCleared(this);
+        GlobalEventManager.instance.TriggerOnRoomCleared(room);
     }
     public void ForceRoomCleared(Room room)
     {
@@ -203,12 +234,20 @@ public class Room : MonoBehaviour
             //Debug.Log("notThisRoom ");
             return;
         }
+        isCleared = true;
         GameManager.instance.roomsCleared++;
         GlobalEventManager.instance.TriggerOnRoomCleared(room);
     }
     public void LiftBarriers(Room room)
     {
-        _barriers.SetActive(false);
+        if (_barriers == null)
+        {
+            Debug.Log("barriers NULL");
+        }
+        else
+        {
+            _barriers.SetActive(false);
+        }
     }
     
 }

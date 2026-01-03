@@ -69,6 +69,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
         Enemy_SO usedTemplate = GetRandomTemplate();
         GameManager.instance.AcknowledgeSpawnedEnemy();
         spawnedEnemy.SetProperties(usedTemplate,player);
+        GameManager.instance.enemiesInField++;
     }
 
     Enemy_SO GetRandomTemplate()
@@ -84,12 +85,14 @@ public class UnitSpawner : Singleton<UnitSpawner>
         spawnPoint = spawnPoints[randomIndex];
         Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
         spawnedEnemy.SetProperties(usedTemplate, player);
+        GameManager.instance.enemiesInField++;
     }
     public void SpawnEnemy(Room room, Enemy_SO enemySO)
     {
         Enemy spawnedEnemy = Instantiate(enemyPrefab,room.transform.position,Quaternion.identity);
-        spawnedEnemy.SetProperties(enemySO, player);
+        spawnedEnemy.SetProperties(enemySO, player,room);
         room.enemiesInRoomCount++;
+        GameManager.instance.enemiesInField++;
     }
     public void SpawnRandomEnemy(float x,float y,Room room)
     {
@@ -100,6 +103,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
         Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         spawnedEnemy.SetProperties(usedTemplate,player,room);
         GlobalEventManager.instance.TriggerOnEnemySpawn(spawnedEnemy,room);
+        GameManager.instance.enemiesInField++;
     }
     public void TestSpawnMelee()
     {
