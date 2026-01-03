@@ -46,6 +46,7 @@ public class Room : MonoBehaviour
         SpawnRoom(trigger);//subscribed over SO
         //isCleared = false;
         GlobalEventManager.instance.TriggerOnPlayerLeaveRoom(this, trigger);
+
     }
 
     public void HeroEntering(EntryTrigger trigger)
@@ -191,18 +192,20 @@ public class Room : MonoBehaviour
 
     public void EnemyDied(Enemy enemy, Room room)
     {
-        Debug.Log("Enemy died in room: "+room.roomID.ToString());
+        //Debug.Log("Enemy died in room: "+room.roomID.ToString());
         //Debug.Log("Enemy died in room");
          if (!isCleared)
         {
             //Debug.Log("enemyDied in room not cleared");
             enemiesInRoomCount--;
-            if (enemiesInRoomCount == 0)
+            if (enemiesInRoomCount <=0)
             {
+                //ClearRoom(room);
                 //do something
                 //Debug.Log("__________________________________________");
-                //Debug.Log("Room Clear");
-                LiftBarriers(room);
+                Debug.Log("Room Clear");
+                LiftBarriers(room);//should work without this but here we are
+                                   //scheduling it for event does not work
                 isCleared = true;
                 GameManager.instance.roomsCleared++;
                 //DoPostRoom Stuff
@@ -210,6 +213,19 @@ public class Room : MonoBehaviour
                 GlobalEventManager.instance.TriggerOnRoomCleared(room);
             }
         }
+    }
+    public void ClearRoom(Room room)
+    {
+        //do something
+        //Debug.Log("__________________________________________");
+        Debug.Log("Room Clear");
+        LiftBarriers(room);//should work without this but here we are
+                           //scheduling it for event does not work
+        isCleared = true;
+        GameManager.instance.roomsCleared++;
+        //DoPostRoom Stuff
+        //GlobalEventManager.instance.TriggerOnRoomCleared(this);
+        GlobalEventManager.instance.TriggerOnRoomCleared(room);
     }
     public void ForceRoomCleared(Room room)
     {
@@ -225,8 +241,13 @@ public class Room : MonoBehaviour
     public void LiftBarriers(Room room)
     {
         if (_barriers == null)
-        { Debug.Log("barriers NULL"); }
-        _barriers.SetActive(false);
+        {
+            Debug.Log("barriers NULL");
+        }
+        else
+        {
+            _barriers.SetActive(false);
+        }
     }
     
 }

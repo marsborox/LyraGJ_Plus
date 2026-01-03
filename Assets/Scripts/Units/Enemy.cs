@@ -48,7 +48,6 @@ public class Enemy : Unit
         //spriteLibrary.RefreshSpriteResolvers();
         SetEnemyType(enemyTemplate.enemyType);
 
-
         if (enemyTemplate.behavior != null)
         { 
             combat.behaviorTemplate = enemyTemplate.behavior;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum GameScene {LOBBY, JAZZ,TUTORIAL,TESTCOMBAT}
+public enum GameScene {LOBBY, JAZZ,TUTORIAL,TESTCOMBAT,DEV}
 public class ScenePortal : MonoBehaviour
 {
     public GameScene gameScene;
@@ -29,6 +29,11 @@ public class ScenePortal : MonoBehaviour
                 case GameScene.TUTORIAL:
                     {
                         MySceneManager.instance.OpenTutorialScene();
+                        break;
+                    }
+                case GameScene.DEV:
+                    {
+                        MySceneManager.instance.OpenDevScene();
                         break;
                     }
             }

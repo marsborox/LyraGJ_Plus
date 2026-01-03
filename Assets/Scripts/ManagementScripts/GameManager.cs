@@ -29,9 +29,9 @@ public class GameManager : Singleton<GameManager>
 
     //public List<Dialogue_SO> dialogueSOs = new List<Dialogue_SO>();
 
-    public Dialogue_SO processedDialogue;
+    [SerializeField] public Dialogue_SO processedDialogue;
     private int _dialogueStage = 0;
-    private int _dialogPart = 0;
+    [SerializeField] private int _dialogPart = 0;
     void Start()
     {
         //we wait 1s til leverything really loads
@@ -45,7 +45,7 @@ public class GameManager : Singleton<GameManager>
         
     }
     void GameFlow()
-    {
+    {//DISCONTINUED FOR NOW
         switch (stage)
         { 
             case GameStage.SPAWNING:
@@ -97,13 +97,18 @@ public class GameManager : Singleton<GameManager>
     }
     public void SpawnDialogue(Room room)
     {
+        if (dialogueUI == null)
+        {
+            Debug.Log("Missing DialogueUI");
+        }
         SpawnDialogue(roomsCleared);
     }
     #region NewDialogueLogic
     public void SpawnDialogue(int indexOfClearedRoom)
     {
         processedDialogue = null;
-        //Debug.Log("spawning dialogue");
+        Debug.Log("spawning dialogue");
+        Debug.Log("dialogue list count: "+ levelSettings.dialogueWRoomClearedIndexList.Count.ToString());
         foreach (DialogueToIndex dialogueToIndex in levelSettings.dialogueWRoomClearedIndexList)
         {
             if (dialogueToIndex.spawnOnRoomCleared == indexOfClearedRoom)

@@ -38,10 +38,12 @@ public class TutorialLevel_SO : Level_SO
 
     public void SpawnTutorialRoom(Room room)
     {
-        int roomsCleared = GameManager.instance.roomsCleared;
+        //int roomID = GameManager.instance.roomsCleared;
+        int roomID = RoomManager.instance.spawnedRoomCount;
+
         // int roomsSpawned = GameManager.
         //Debug.Log("tutorial room spawn triggered");
-        switch (roomsCleared)
+        switch (roomID)
         { 
             case 0: 
                 {
