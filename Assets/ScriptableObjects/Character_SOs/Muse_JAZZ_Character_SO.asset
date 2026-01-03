@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99aa4fd30e0ef43a988e4b1141c0bf62, type: 3}
   m_Name: Muse_JAZZ_Character_SO
   m_EditorClassIdentifier: Assembly-CSharp::Character_SO
+  character: 1
   portraits:
   - emotion: 0
     sprite: {fileID: 2687790837704321749, guid: 47e4e4e1ec47245e78578b65d0054701, type: 3}

@@ -23971,6 +23971,10 @@ PrefabInstance:
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 1991998146}
+    - target: {fileID: 1783625682560518767, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: cutscenesManager
+      value: 
+      objectReference: {fileID: 1991998147}
     - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.03479
@@ -24013,7 +24017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7545743468549897413, guid: 3156fcab12795674ea94e8594f060663, type: 3}
       propertyPath: m_Name
-      value: GameManager (1)
+      value: GameManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34801,10 +34805,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5526ae234501c1b47983d18cb5f6a4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 2
   portal: {fileID: 0}
-  dialogueUI: {fileID: 0}
-  levelSettings: {fileID: 0}
+  cutscenesManager: {fileID: 0}
+  stage: 2
   enemiesPerWave: 10
   spawnedEnemiesThisWave: 0
   enemiesInField: 0
@@ -34812,7 +34815,6 @@ MonoBehaviour:
   roomsCleared: 0
   isEndOfWave: 1
   isSpawning: 0
-  processedDialogue: {fileID: 0}
 --- !u!114 &1413023119 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7427372101679965586, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
@@ -36497,6 +36499,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -30
       objectReference: {fileID: 0}
+    - target: {fileID: 2630051330496657852, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630051330496657852, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630051330496657852, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630051330496657852, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630051330496657852, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ContinueDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630051330496657852, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CutscenesManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630051330496657852, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2827231054900610017, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_Name
       value: GameUI
@@ -36537,6 +36567,22 @@ PrefabInstance:
       propertyPath: weaponToTrack
       value: 
       objectReference: {fileID: 217954735}
+    - target: {fileID: 6594433032629925652, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 11400000, guid: 528e746bce986a347aecf571832401db, type: 2}
+    - target: {fileID: 6594433032629925652, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: characterPortraits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594433032629925652, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: 'characterPortraits.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 52c2e676ea06d40f5afed89abe81d316, type: 2}
+    - target: {fileID: 6594433032629925652, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: 'characterPortraits.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8046dc0e4728c4834a7fac874fa08418, type: 2}
     - target: {fileID: 6669598971931224901, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: playerCombat
       value: 
@@ -36597,6 +36643,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a9aae82d5a2e744ab4aad40b1fc3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1991998147 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6594433032629925652, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+  m_PrefabInstance: {fileID: 1991998145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea1c6dd08d5a4401b75c40b00a1aece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutscenesManager
 --- !u!1 &1995380297
 GameObject:
   m_ObjectHideFlags: 0

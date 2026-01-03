@@ -851,6 +851,7 @@ GameObject:
   - component: {fileID: 8444590749498551919}
   - component: {fileID: 8950179413353747222}
   - component: {fileID: 6669598971931224901}
+  - component: {fileID: 6594433032629925652}
   m_Layer: 0
   m_Name: GameUI
   m_TagString: Untagged
@@ -966,6 +967,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerCombat: {fileID: 0}
+--- !u!114 &6594433032629925652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827231054900610017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea1c6dd08d5a4401b75c40b00a1aece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutscenesManager
+  level: {fileID: 0}
+  characterPortraits: []
+  dialogueUI: {fileID: 2213380607945376703}
 --- !u!1 &3662135833739731237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,10 +2219,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a9aae82d5a2e744ab4aad40b1fc3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnContinueDialogueClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6594433032629925652}
+        m_TargetAssemblyTypeName: CutscenesManager, Assembly-CSharp
+        m_MethodName: ContinueDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   textOfDialogue: {fileID: 9060055585972877530}
   leftCharacterImage: {fileID: 7920400594392415459}
   rightCharacterImage: {fileID: 473673297058748757}
-  _closeDialogueButton: {fileID: 2630051330496657852}
+  continueButton: {fileID: 2630051330496657852}
 --- !u!1 &6702042242831539975
 GameObject:
   m_ObjectHideFlags: 0

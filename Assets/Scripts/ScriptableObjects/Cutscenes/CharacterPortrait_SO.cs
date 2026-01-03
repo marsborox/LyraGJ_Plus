@@ -8,7 +8,8 @@ public struct EmotionPair
 }
 
 [CreateAssetMenu(fileName = "Character_SO", menuName = "Scriptable Objects/Character_SO")]
-public class Character_SO : ScriptableObject
+public class CharacterPortrait_SO : ScriptableObject
 {
+    public CharacterID character;
     public EmotionPair[] portraits;
 }

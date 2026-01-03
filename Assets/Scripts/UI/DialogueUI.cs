@@ -1,25 +1,41 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DialogueUI : UI
 {
-    public TextMeshProUGUI textOfDialogue;
-    public Image leftCharacterImage;
-    public Image rightCharacterImage;
+    public UnityEvent OnContinueDialogueClicked;
 
-    [SerializeField] private Button _closeDialogueButton;
+    [SerializeField] private TextMeshProUGUI textOfDialogue;
+    [SerializeField] private Image leftCharacterImage;
+    [SerializeField] private Image rightCharacterImage;
 
+    [SerializeField] private Button continueButton;
 
-    private void Start()
+    public void Show(Sprite image, string text, bool isOnLeftSide = true)
     {
-        InitiateButton(_closeDialogueButton, CloseUI);
+        textOfDialogue.text = text;
+
+        leftCharacterImage.gameObject.SetActive(isOnLeftSide);
+        rightCharacterImage.gameObject.SetActive(!isOnLeftSide);
+
+        if (isOnLeftSide)
+        {
+            leftCharacterImage.sprite = image;
+            rightCharacterImage.sprite = null;
+        } else
+        {
+            leftCharacterImage.sprite = null;
+            rightCharacterImage.sprite = image;
+        }
     }
-
-    public void CloseUI()
+    private void Awake()
     {
-        //temp shutdown for dialogue refactor
-        GameManager.instance.ContinueDialogue();
-        //GameManager.instance.ContinueDialog();
+        continueButton.onClick.AddListener(ContinueButtonClick);
+    }
+    private void ContinueButtonClick()
+    {
+        OnContinueDialogueClicked?.Invoke();
     }
 }

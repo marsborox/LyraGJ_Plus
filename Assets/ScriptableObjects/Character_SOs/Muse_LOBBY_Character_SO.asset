@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99aa4fd30e0ef43a988e4b1141c0bf62, type: 3}
   m_Name: Muse_LOBBY_Character_SO
   m_EditorClassIdentifier: Assembly-CSharp::Character_SO
+  character: 1
   portraits:
   - emotion: 0
     sprite: {fileID: -6960757403637115681, guid: f7657de4659bd4ca3af24b1df50580a7, type: 3}
