@@ -40,7 +40,7 @@ public class Sword : Weapon
 
     IEnumerator AttackHitRoutine()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.01f);
         _myCollider.enabled = false;
 
     }
