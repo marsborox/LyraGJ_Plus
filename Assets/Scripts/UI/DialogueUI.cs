@@ -10,9 +10,24 @@ public class DialogueUI : UI
     [SerializeField] private TextMeshProUGUI textOfDialogue;
     [SerializeField] private Image leftCharacterImage;
     [SerializeField] private Image rightCharacterImage;
-
     [SerializeField] private Button continueButton;
 
+    private Animator leftAnimator;
+    private Animator rightAnimator;
+
+    private void Awake()
+    {
+        if (leftCharacterImage != null) 
+        {
+            leftAnimator = leftCharacterImage.GetComponent<Animator>();
+        }
+        if (rightCharacterImage != null) 
+        {
+            rightAnimator = rightCharacterImage.GetComponent<Animator>();
+        }
+
+        continueButton.onClick.AddListener(ContinueButtonClick);
+    }
     public void Show(Sprite image, string text, bool isOnLeftSide = true)
     {
         textOfDialogue.text = text;
@@ -22,17 +37,23 @@ public class DialogueUI : UI
 
         if (isOnLeftSide)
         {
+            if (leftCharacterImage.sprite == image) return;
+
             leftCharacterImage.sprite = image;
             rightCharacterImage.sprite = null;
+
+            leftAnimator.ResetTrigger("PlayHeadBob");
+            leftAnimator.SetTrigger("PlayHeadBob");
         } else
         {
+            if (rightCharacterImage.sprite == image) return;
+
             leftCharacterImage.sprite = null;
             rightCharacterImage.sprite = image;
+
+            rightAnimator.ResetTrigger("PlayHeadBob");
+            rightAnimator.SetTrigger("PlayHeadBob");
         }
-    }
-    private void Awake()
-    {
-        continueButton.onClick.AddListener(ContinueButtonClick);
     }
     private void ContinueButtonClick()
     {
