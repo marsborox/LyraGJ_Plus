@@ -37,9 +37,9 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
     public void TriggerOnRoomCleared(Room room)
     {
         //triggered in Room EnemyDied part where we register room cleared
-        Debug.Log("room Cleared event triggered w room: " + room.roomID.ToString());
+        //Debug.Log("room Cleared event triggered w room: " + room.roomID.ToString());
         OnRoomCleared?.Invoke(room);
-        Debug.Log("room Cleared event completed w room: "+room.roomID.ToString());
+        //Debug.Log("room Cleared event completed w room: "+room.roomID.ToString());
         
     }
     public void TriggerOnEnemySpawn(Enemy enemy, Room room)
@@ -51,6 +51,6 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
     { 
         //triggered in EnemyCombat Die
         OnEnemyDied?.Invoke(enemy, room);
-        Debug.Log("Enemy died Event in room: "+room.roomID.ToString());
+        //Debug.Log("Enemy died Event in room: "+room.roomID.ToString());
     }
 }

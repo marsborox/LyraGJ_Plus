@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+
+using Unity.VisualScripting;
+
 using UnityEngine;
 
 
@@ -19,6 +22,7 @@ public class EnemyCombat : UnitCombat
 
     public Room roomISpawnedIn;
 
+    [SerializeField] private EnemyShield _shield;
     [Header("combatStats")]
 
     public float range = 0.2f;
@@ -121,37 +125,42 @@ public class EnemyCombat : UnitCombat
     {
         if (isShielded)
         {
-            Debug.Log("is shielded");
+            //Debug.Log("is shielded");
             _isHit = true;
             StartCoroutine(MakeDamageableAgainRoutine());
-            Debug.Log("make damagable shield routine");
+            //Debug.Log("make damagable shield routine");
             return;
         }
         if (_isHit)
         {
-            Debug.Log("Can not take"+damage+" damage");
+            //Debug.Log("Can not take"+damage+" damage");
             return;
         }
         _isHit = true;
-        Debug.Log("Taking "+damage+" Damage");
+        //Debug.Log("Taking "+damage+" Damage");
         StartCoroutine(MakeDamageableAgainRoutine());
         healthCurrent -= damage;
         //Debug.Log("Taking damage in enemyCombat");
         //Debug.Log(damage+" damage taken");
         ResetAttackAnimation();
     }
+    public void DisableShield()
+    {
+        Destroy(_shield.gameObject);
+        isShielded = false;
+    }
     IEnumerator MakeDamageableAgainRoutine()
     {
         yield return new WaitForSeconds(0.1f);
         _isHit = false;
-        Debug.Log("Can be damaged again");
+        //Debug.Log("Can be damaged again");
     }
-    void Die()
+    private void Die()
     {
         //Debug.Log("Enemy died");
         if(GameManager.instance !=null) 
         GameManager.instance.EnemyDied();
-        Debug.Log("enemyDeath processing");
+        //Debug.Log("enemyDeath processing");
         CheckDropHealth();
         GlobalEventManager.instance.TriggerOnEnemyDied(_enemy, roomISpawnedIn);
         Destroy(gameObject);
@@ -167,7 +176,7 @@ public class EnemyCombat : UnitCombat
             healthPickup.transform.position = transform.position;
         }
     }
-    void BehaviorTest()//for simplifying behavior switch
+    private void BehaviorTest()//for simplifying behavior switch
     {
         if (!CheckIfInRange())
         {
@@ -183,7 +192,7 @@ public class EnemyCombat : UnitCombat
             CooldownTimer();
         }
     }
-    void BehaviorSwitch()
+    private void BehaviorSwitch()
     {
         switch (_currentAttackPhase)
         { 
@@ -225,7 +234,7 @@ public class EnemyCombat : UnitCombat
         }
     }
     
-    void AttackAnimationTimer()
+    private void AttackAnimationTimer()
     {
         if (!(attackAnimationTimer < 0))
         {

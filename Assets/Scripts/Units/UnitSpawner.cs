@@ -94,6 +94,14 @@ public class UnitSpawner : Singleton<UnitSpawner>
         room.enemiesInRoomCount++;
         GameManager.instance.enemiesInField++;
     }
+    public Enemy SpawnAndReturnEnemy(Room room, Enemy_SO enemySO)
+    {
+        Enemy spawnedEnemy = Instantiate(enemyPrefab, room.transform.position, Quaternion.identity);
+        spawnedEnemy.SetProperties(enemySO, player, room);
+        room.enemiesInRoomCount++;
+        GameManager.instance.enemiesInField++;
+        return spawnedEnemy;
+    }
     public void SpawnRandomEnemy(float x,float y,Room room)
     {
         //Debug.Log("spawning random test enemy");
@@ -104,6 +112,11 @@ public class UnitSpawner : Singleton<UnitSpawner>
         spawnedEnemy.SetProperties(usedTemplate,player,room);
         GlobalEventManager.instance.TriggerOnEnemySpawn(spawnedEnemy,room);
         GameManager.instance.enemiesInField++;
+        int randomRoll = Random.Range(0,100);
+        if (randomRoll > usedTemplate.chanceForShield)
+        { 
+            spawnedEnemy.DisableShield();
+        }
     }
     public void TestSpawnMelee()
     {

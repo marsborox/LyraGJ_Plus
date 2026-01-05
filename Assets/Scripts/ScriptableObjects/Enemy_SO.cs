@@ -18,4 +18,8 @@ public class Enemy_SO : ScriptableObject
 
     public EnemyBehavior_SO behavior;
 
+    public bool forceShield;
+    public bool randomShield;
+    [Tooltip("Set this in percentage")]
+    public int chanceForShield;
 }

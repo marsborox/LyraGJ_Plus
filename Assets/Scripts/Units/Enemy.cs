@@ -105,4 +105,8 @@ public class Enemy : Unit
         
         _enemShield.SetShieldType(enemyType, color);
     }
+    public void DisableShield()
+    {
+        ((EnemyCombat)unitCombat).DisableShield();
+    }
 }
