@@ -10,6 +10,7 @@ public class EnemyCombat : UnitCombat
     public EnemyBehavior_SO behaviorTemplate;
     public EnemyMovement enemyMovement;
     public bool isShielded = true;
+    private bool _isHit = false;
 
     [Tooltip("MUST BE IN %")]
     [SerializeField] private int _chanceForHealthPickup = 20;
@@ -34,7 +35,6 @@ public class EnemyCombat : UnitCombat
     public bool isAttacking = false;
 
     public bool canMove = true;
-    
     //coefs point of view of enemy
 
     [Header(" type coef")]
@@ -119,12 +119,33 @@ public class EnemyCombat : UnitCombat
     }
     public override void TakeDamage(int damage)
     {
+        if (isShielded)
+        {
+            Debug.Log("is shielded");
+            _isHit = true;
+            StartCoroutine(MakeDamageableAgainRoutine());
+            Debug.Log("make damagable shield routine");
+            return;
+        }
+        if (_isHit)
+        {
+            Debug.Log("Can not take"+damage+" damage");
+            return;
+        }
+        _isHit = true;
+        Debug.Log("Taking "+damage+" Damage");
+        StartCoroutine(MakeDamageableAgainRoutine());
         healthCurrent -= damage;
         //Debug.Log("Taking damage in enemyCombat");
         //Debug.Log(damage+" damage taken");
         ResetAttackAnimation();
     }
-
+    IEnumerator MakeDamageableAgainRoutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _isHit = false;
+        Debug.Log("Can be damaged again");
+    }
     void Die()
     {
         //Debug.Log("Enemy died");
@@ -223,7 +244,6 @@ public class EnemyCombat : UnitCombat
             isAttacking = false;
             attackAnimationTimer = -0.0001f;//basically set to zero
             _currentAttackPhase = AttackPhase.READY;
-
         }
     }
 }

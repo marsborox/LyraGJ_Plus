@@ -20,6 +20,7 @@ public class PlayerCombat : UnitCombat
     float pianoHoldTimer = 0f;
     float saxophoneHoldTimer = 0f;
 
+
     private void Awake()
     {
         emitter = GetComponent<FMODUnity.StudioEventEmitter>();
@@ -153,9 +154,9 @@ public class PlayerCombat : UnitCombat
             }
             yield return null;
         }
-
         saxophoneIntensity = 0f;
     }
+
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);

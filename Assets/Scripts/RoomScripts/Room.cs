@@ -240,6 +240,13 @@ public class Room : MonoBehaviour
     }
     public void LiftBarriers(Room room)
     {
+        if (room != this)
+            {// to trigger only on our room
+             //Debug.Log("notThisRoom ");
+                return;
+            }
+
+
         if (_barriers == null)
         {
             Debug.Log("barriers NULL");
