@@ -9,9 +9,9 @@ public class SpawnTrigger : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             //_roomImIn.SpawnEnemies();
-            Debug.Log("spawn trigger activated in room: "+_roomImIn.roomID);
+            //Debug.Log("spawn trigger activated in room: "+_roomImIn.roomID);
             GlobalEventManager.instance.TriggerOnPlayerEnterRoom(_roomImIn);
-            Debug.Log("spawn trigger postActivation in room: " + _roomImIn.roomID);
+            //Debug.Log("spawn trigger postActivation in room: " + _roomImIn.roomID);
         }
     }
 }
