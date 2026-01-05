@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System.Collections;
 
 public class DialogueUI : UI
 {
@@ -12,51 +13,83 @@ public class DialogueUI : UI
     [SerializeField] private Image rightCharacterImage;
     [SerializeField] private Button continueButton;
 
-    private Animator leftAnimator;
-    private Animator rightAnimator;
+    private Animator _leftAnimator;
+    private Animator _rightAnimator;
 
+    // typing properties
+    private float _delayTyping = 0.02f;
+    private string _messageToType = "";
     private void Awake()
     {
         if (leftCharacterImage != null) 
         {
-            leftAnimator = leftCharacterImage.GetComponent<Animator>();
+            _leftAnimator = leftCharacterImage.GetComponent<Animator>();
         }
         if (rightCharacterImage != null) 
         {
-            rightAnimator = rightCharacterImage.GetComponent<Animator>();
+            _rightAnimator = rightCharacterImage.GetComponent<Animator>();
         }
 
         continueButton.onClick.AddListener(ContinueButtonClick);
     }
     public void Show(Sprite image, string text, bool isOnLeftSide = true)
     {
-        textOfDialogue.text = text;
+        _messageToType = text;
+        textOfDialogue.text = "";
 
         leftCharacterImage.gameObject.SetActive(isOnLeftSide);
         rightCharacterImage.gameObject.SetActive(!isOnLeftSide);
 
         if (isOnLeftSide)
         {
-            if (leftCharacterImage.sprite == image) return;
-
-            leftCharacterImage.sprite = image;
             rightCharacterImage.sprite = null;
 
-            leftAnimator.ResetTrigger("PlayHeadBob");
-            leftAnimator.SetTrigger("PlayHeadBob");
+            if (leftCharacterImage.sprite != image)
+            {
+                leftCharacterImage.sprite = image;
+                
+                if (_leftAnimator != null)
+                {
+                    _leftAnimator.ResetTrigger("PlayHeadBob");
+                    _leftAnimator.SetTrigger("PlayHeadBob");
+                }
+            }
         } else
         {
-            if (rightCharacterImage.sprite == image) return;
-
             leftCharacterImage.sprite = null;
-            rightCharacterImage.sprite = image;
 
-            rightAnimator.ResetTrigger("PlayHeadBob");
-            rightAnimator.SetTrigger("PlayHeadBob");
+            if (rightCharacterImage.sprite != image)
+            {
+                rightCharacterImage.sprite = image;
+
+                if (_rightAnimator != null)
+                {
+                    _rightAnimator.ResetTrigger("PlayHeadBob");
+                    _rightAnimator.SetTrigger("PlayHeadBob");
+                }
+            }
+        }
+
+        StopAllCoroutines();
+        StartCoroutine(TypeMessage());
+    }
+    private IEnumerator TypeMessage()
+    {
+        for (int i = 0; i < _messageToType.Length; i++)
+        {
+            textOfDialogue.text += _messageToType[i];
+            yield return new WaitForSecondsRealtime(_delayTyping);
         }
     }
     private void ContinueButtonClick()
     {
-        OnContinueDialogueClicked?.Invoke();
+        if (textOfDialogue.text.Length < _messageToType.Length)
+        {
+            StopAllCoroutines();
+            textOfDialogue.text = _messageToType;
+        } else 
+        {
+            OnContinueDialogueClicked?.Invoke();
+        }
     }
 }
