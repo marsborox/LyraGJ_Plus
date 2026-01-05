@@ -23,9 +23,17 @@ public class CutscenesManager : MonoBehaviour
     public Level_SO level;
     [SerializeField] private CharacterPortrait_SO[] characterPortraits;
     [SerializeField] private DialogueUI dialogueUI;
+    [SerializeField] private GameObject[] hideWhileTalking;
     private Dialogue_SO _currentDialogue;
     private int _currentPartIndex = 0;
 
+    public void ContinueDialogue()
+    {
+        if (_currentDialogue == null) return;
+        _currentPartIndex++;
+
+        SetupDialogue();
+    }
     public void SpawnDialogue(int indexOfClearedRoom)
     {
         _currentDialogue = null;
@@ -37,6 +45,7 @@ public class CutscenesManager : MonoBehaviour
                 _currentPartIndex = 0;
      
                 Time.timeScale = 0f; // pause
+                HideOtherUI(true);
                 dialogueUI.gameObject.SetActive(true);
 
                 SetupDialogue();
@@ -48,6 +57,7 @@ public class CutscenesManager : MonoBehaviour
     {
         if (_currentDialogue == null || _currentPartIndex > _currentDialogue.parts.Length - 1)
         {
+            HideOtherUI(false);
             dialogueUI.gameObject.SetActive(false);
             Time.timeScale = 1f; // unpause
             return;
@@ -73,11 +83,14 @@ public class CutscenesManager : MonoBehaviour
             }
         }
     }
-    public void ContinueDialogue()
+    private void HideOtherUI(bool hide)
     {
-        if (_currentDialogue == null) return;
-        _currentPartIndex++;
-
-        SetupDialogue();
+        foreach (GameObject uiObject in hideWhileTalking)
+        {
+            if (uiObject != null)
+            {
+                uiObject.SetActive(!hide);
+            }
+        }
     }
 }

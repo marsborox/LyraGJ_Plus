@@ -982,6 +982,10 @@ MonoBehaviour:
   level: {fileID: 0}
   characterPortraits: []
   dialogueUI: {fileID: 2213380607945376703}
+  hideWhileTalking:
+  - {fileID: 159439772315269932}
+  - {fileID: 8436517152348735014}
+  - {fileID: 6533988262142457239}
 --- !u!1 &3662135833739731237
 GameObject:
   m_ObjectHideFlags: 0
