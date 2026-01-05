@@ -189,6 +189,20 @@ public class Room : MonoBehaviour
         UnitSpawner.instance.SpawnEnemy(room,enemySO);
         _barriers.SetActive(true);
     }
+    public void SpawnParticularEnemyNoShield(Room room, Enemy_SO enemySO)
+    {
+        if (room != this || isCleared)
+        {// to trigger only on our room
+            //Debug.Log("notThisRoom ");
+            return;
+        }
+
+        //isCleared = false;
+        Enemy spawnedEnemy = UnitSpawner.instance.SpawnAndReturnEnemy(room, enemySO);
+        spawnedEnemy.DisableShield();
+        _barriers.SetActive(true);
+        
+    }
 
     public void EnemyDied(Enemy enemy, Room room)
     {

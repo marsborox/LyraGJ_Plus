@@ -68,9 +68,12 @@ public class TutorialLevel_SO : Level_SO
                 }
             case 4:
                 {
-                    room.SpawnParticularEnemy(room, _redEnemy);
-                    room.SpawnParticularEnemy(room, _greenEnemy);
-                    room.SpawnParticularEnemy(room, _blueEnemy);
+                    room.SpawnParticularEnemyNoShield(room, _redEnemy);
+                    room.SpawnParticularEnemyNoShield(room, _redEnemy);
+                    room.SpawnParticularEnemyNoShield(room, _greenEnemy);
+                    room.SpawnParticularEnemyNoShield(room, _greenEnemy);
+                    room.SpawnParticularEnemyNoShield(room, _blueEnemy);
+                    room.SpawnParticularEnemyNoShield(room, _blueEnemy);
                     break;
                 }
                 case 5:

@@ -15,7 +15,7 @@ public class EnemyShield : MonoBehaviour
         {
             if (other.GetComponent<WeaponCollider>().weaponIBelongTo.weaponType == shieldType)
             {
-                Debug.Log("Dropping shield");
+                //Debug.Log("Dropping shield");
                 _enemyCombat.TakeDamage(0);
                 _enemyCombat.isShielded = false;
                 Destroy(gameObject);
@@ -27,7 +27,7 @@ public class EnemyShield : MonoBehaviour
             var projectile= other.GetComponent<Projectile>();
             if (projectile.projectileType == shieldType)
             {
-                Debug.Log("Dropping shield");
+                //Debug.Log("Dropping shield");
                 _enemyCombat.TakeDamage(0);
                 _enemyCombat.isShielded = false;
                 Destroy(gameObject);

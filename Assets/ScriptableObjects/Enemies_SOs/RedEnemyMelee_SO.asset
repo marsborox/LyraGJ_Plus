@@ -24,3 +24,6 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4282466750
   behavior: {fileID: 11400000, guid: cc37d312f8cf1714caf72785f99d807e, type: 2}
+  forceShield: 0
+  randomShield: 0
+  chanceForShield: 25
