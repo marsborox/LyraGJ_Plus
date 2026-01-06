@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 using static UnityEngine.GraphicsBuffer;
 
@@ -80,6 +81,11 @@ public class PlayerMovement : UnitMovement
         if (!canMove)
             return;
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float distance = Vector2.Distance(transform.position,mousePosition);
+        Debug.Log("distance between mouse and player is: "+distance);
+        // to avoid jitterying , because camera is following w delay
+        if (distance < 0.8)
+        { return; }
         //Debug.Log(mousePosition);
         //_myRigidbody2D.MovePosition(mousePosition /* * movementSpeed * Time.fixedDeltaTime*/);
         //_myRigidbody2D.MovePosition( (transform.position - mousePosition) * movementSpeed * Time.fixedDeltaTime/* - transform.position*/);
