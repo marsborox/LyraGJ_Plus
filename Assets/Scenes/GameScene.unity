@@ -34813,6 +34813,7 @@ MonoBehaviour:
   isEndOfWave: 1
   isSpawning: 0
   processedDialogue: {fileID: 0}
+  _dialogPart: 0
 --- !u!114 &1413023119 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7427372101679965586, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
@@ -35605,6 +35606,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd450bfa7fa9cc4fbfa6e62164b37f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1644922376 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1867910109181399336, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+  m_PrefabInstance: {fileID: 1991998145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2131dd7d6dc5f248b1a5e4235dfc6b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDied_UI
 --- !u!1 &1658253239
 GameObject:
   m_ObjectHideFlags: 0
@@ -36385,22 +36397,6 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 29055957}
-    - target: {fileID: 204590116717113588, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 204590116717113588, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 204590116717113588, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 204590116717113588, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -30
-      objectReference: {fileID: 0}
     - target: {fileID: 1161555742316996047, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -36481,50 +36477,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2511634003880190401, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511634003880190401, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511634003880190401, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511634003880190401, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -30
-      objectReference: {fileID: 0}
     - target: {fileID: 2827231054900610017, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_Name
       value: GameUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 3106638223668718107, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3106638223668718107, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3106638223668718107, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3106638223668718107, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4530575104130775622, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: playerRythmBonus
       value: 
       objectReference: {fileID: 1148714921}
-    - target: {fileID: 4804070944252759952, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6577356661698749844, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: weaponToTrack
       value: 
@@ -36533,38 +36493,10 @@ PrefabInstance:
       propertyPath: playerCombat
       value: 
       objectReference: {fileID: 1148714918}
-    - target: {fileID: 6850648948309359740, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6850648948309359740, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6850648948309359740, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 240
-      objectReference: {fileID: 0}
-    - target: {fileID: 6850648948309359740, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7034267829748093231, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7034267829748093231, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7034267829748093231, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 727.03015
-      objectReference: {fileID: 0}
-    - target: {fileID: 7034267829748093231, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -29.5856
-      objectReference: {fileID: 0}
+    - target: {fileID: 6669598971931224901, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: playerDied_UI
+      value: 
+      objectReference: {fileID: 1644922376}
     - target: {fileID: 7729429749542279011, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: weaponToTrack
       value: 

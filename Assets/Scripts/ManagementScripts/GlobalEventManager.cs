@@ -6,14 +6,16 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
 
     public delegate void RoomEvent(Room room);
     public delegate void EnemyEvent(Enemy enemy,Room room);
+    public delegate void PlayerEvent();
 
     public static RoomEvent OnPlayerEnterRoom;
     public static RoomEvent OnPlayerLeaveRoom;
     public static RoomEvent OnRoomCleared;
-    
+
     public static EnemyEvent OnEnemySpawned;
     public static EnemyEvent OnEnemyDied;
     
+    public static PlayerEvent OnPlayerDied;
     void Start()
     {
         
@@ -41,6 +43,10 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
         OnRoomCleared?.Invoke(room);
         //Debug.Log("room Cleared event completed w room: "+room.roomID.ToString());
         
+    }
+    public void TriggerOnPlayerDied()
+    {
+        OnPlayerDied?.Invoke();
     }
     public void TriggerOnEnemySpawn(Enemy enemy, Room room)
     {
