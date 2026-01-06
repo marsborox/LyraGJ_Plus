@@ -34832,6 +34832,7 @@ MonoBehaviour:
   isEndOfWave: 1
   isSpawning: 0
   processedDialogue: {fileID: 0}
+  _dialogPart: 0
 --- !u!114 &1413023119 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7427372101679965586, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
@@ -35827,7 +35828,7 @@ PrefabInstance:
       objectReference: {fileID: 1148714917}
     - target: {fileID: 5398758484447006955, guid: 553674528514548459c5007ade46c226, type: 3}
       propertyPath: orthographic size
-      value: 15
+      value: 10.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
