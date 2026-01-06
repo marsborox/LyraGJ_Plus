@@ -7,8 +7,7 @@ public class UnitAnimationController : MonoBehaviour
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private UnitMovement _unitMovement;
-
-    
+        
     public bool isMoving = false;
     private Vector2 _lastMoveDirection = Vector2.down;// will default to down when game starts
     private void Start()
@@ -211,5 +210,9 @@ public class UnitAnimationController : MonoBehaviour
         //_animator.SetFloat("Xinput", vertical);
         //_animator.SetFloat("Yinput", horizontal);
         //animator.SetFloat();
+    }
+    public void HandleEnemyAttackAnimation()
+    {
+        animator.SetTrigger("Attack");
     }
 }

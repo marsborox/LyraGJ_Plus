@@ -82,6 +82,10 @@ public class PlayerController : MonoBehaviour
         //player.playerMovement.MoveByVector(_rawInput);// from HadesControls W,S,A,D
         //player.input = _rawInput;
         //CheckClickHoldAction();
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         CheckClickHoldActions();
     }
     void Update()
