@@ -21,6 +21,12 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         Time.timeScale = 1f;
         //MySoundManager.instance.PlayLobbyMusic();
     }
+    public void OpenDarkLobbyScene()
+    {
+        SceneManager.LoadScene("DarkLobbyScene");
+        Time.timeScale = 1f;
+        //MySoundManager.instance.PlayLobbyMusic();
+    }
     public void OpenGameScene()
     {
         //SceneManager.LoadScene("MarosGameScene");

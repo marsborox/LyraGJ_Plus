@@ -34,7 +34,6 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
     public void TriggerOnPlayerLeaveRoom(Room room,EntryTrigger trigger) 
     {   //triggered in room TriggerActivated  
         OnPlayerLeaveRoom?.Invoke(room);
-        
     }
     public void TriggerOnRoomCleared(Room room)
     {
@@ -42,7 +41,6 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
         //Debug.Log("room Cleared event triggered w room: " + room.roomID.ToString());
         OnRoomCleared?.Invoke(room);
         //Debug.Log("room Cleared event completed w room: "+room.roomID.ToString());
-        
     }
     public void TriggerOnPlayerDied()
     {

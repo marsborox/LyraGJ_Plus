@@ -43,8 +43,8 @@ public class PlayerDied_UI : UI
                 _reloadSceneButton.gameObject.SetActive(true);
             }
             _deathSprite.color = new Color32(255,255,255,(byte)alpha);
-            Debug.Log("alpha is: "+alpha);
-            Debug.Log("alphaIncrement is: "+alphaIncrement);
+            //Debug.Log("alpha is: "+alpha);
+            //Debug.Log("alphaIncrement is: "+alphaIncrement);
         }
     }
     public void ReloadLevel()
