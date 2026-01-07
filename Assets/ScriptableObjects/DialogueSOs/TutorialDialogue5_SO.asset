@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
   m_Name: TutorialDialogue5_SO
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
+  showAgain: 1
   parts:
   - dialogueText: 'A truly natural talent
 
@@ -19,4 +20,6 @@ MonoBehaviour:
       enemies,
 
       try your skills on them, when you are done enter portal'
-    characterImage: {fileID: 21300000, guid: 4db123dc40916e84b84a1868dd764b22, type: 3}
+    character: 1
+    emotion: 0
+  fileName: TutorialDialogue5_SO

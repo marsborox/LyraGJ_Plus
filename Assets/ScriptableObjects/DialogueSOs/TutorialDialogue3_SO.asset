@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
   m_Name: TutorialDialogue3_SO
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
+  showAgain: 1
   parts:
   - dialogueText: 'Youre great
 
@@ -21,4 +22,6 @@ MonoBehaviour:
       on him (3)
 
       do what you must'
-    characterImage: {fileID: 21300000, guid: 4db123dc40916e84b84a1868dd764b22, type: 3}
+    character: 1
+    emotion: 0
+  fileName: TutorialDialogue3_SO

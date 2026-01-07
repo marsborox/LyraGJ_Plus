@@ -69,7 +69,7 @@ public class CutscenesManager : MonoBehaviour
         {
             if (dialogueToIndex.spawnOnRoomCleared == indexOfClearedRoom)
             {
-                if (WasSeenDialogue(dialogueToIndex.dialogue)) return;
+                if (!dialogueToIndex.dialogue.showAgain && WasSeenDialogue(dialogueToIndex.dialogue)) return;
 
                 MarkSeenDialogue(dialogueToIndex.dialogue);
 
