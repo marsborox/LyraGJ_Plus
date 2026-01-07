@@ -18,15 +18,34 @@ public enum CharacterEmotion
     Scared
 }
 
+[System.Serializable]
+public class DialogueTrigger
+{
+    public int dialogueID;
+    public Collider2D collider;
+
+    [HideInInspector] public bool isInside;
+}
+
 public class CutscenesManager : MonoBehaviour
 {
     public Level_SO level;
-    [SerializeField] private CharacterPortrait_SO[] characterPortraits;
     [SerializeField] private DialogueUI dialogueUI;
+    [SerializeField] private CharacterPortrait_SO[] characterPortraits;
+    [SerializeField] private DialogueTrigger[] triggers;
     [SerializeField] private GameObject[] hideWhileTalking;
     private Dialogue_SO _currentDialogue;
     private int _currentPartIndex = 0;
+    private Rigidbody2D _playerRigidbody;
 
+    void Awake()
+    {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (player)
+        {
+            _playerRigidbody = player.GetComponent<Rigidbody2D>();
+        }
+    }
     public void ContinueDialogue()
     {
         if (_currentDialogue == null) return;
@@ -36,6 +55,7 @@ public class CutscenesManager : MonoBehaviour
     }
     public void SpawnDialogue(int indexOfClearedRoom)
     {
+        Debug.Log("Spawning!!!");
         _currentDialogue = null;
         foreach (DialogueToIndex dialogueToIndex in level.dialogueWRoomClearedIndexList)
         {
@@ -53,6 +73,14 @@ public class CutscenesManager : MonoBehaviour
             }
         }
     }
+
+    void FixedUpdate()
+    {
+        CheckTriggers();
+    }
+
+    // UI handling
+
     private void SetupDialogue()
     {
         if (_currentDialogue == null || _currentPartIndex > _currentDialogue.parts.Length - 1)
@@ -85,12 +113,47 @@ public class CutscenesManager : MonoBehaviour
     }
     private void HideOtherUI(bool hide)
     {
-        foreach (GameObject uiObject in hideWhileTalking)
+        foreach (GameObject gameObject in hideWhileTalking)
         {
-            if (uiObject != null)
+            if (gameObject != null)
             {
-                uiObject.SetActive(!hide);
+                gameObject.SetActive(!hide);
             }
         }
+    }
+
+    // triggers handling
+
+    private void CheckTriggers()
+    {
+        if (triggers.Length == 0 || _playerRigidbody == null) return; // nothing to check
+
+        Vector3 playerPosition = _playerRigidbody.position;
+
+        foreach (var trigger in triggers)
+        {
+            bool inside = trigger.collider.bounds.Contains(playerPosition);
+
+            if (inside && !trigger.isInside)
+            {
+                trigger.isInside = true;
+                OnTriggerEntered(trigger);
+            }
+            else if (!inside && trigger.isInside)
+            {
+                trigger.isInside = false;
+                OnTriggerExited(trigger);
+            }
+        }
+    }
+
+    private void OnTriggerEntered(DialogueTrigger trigger)
+    {
+        SpawnDialogue(trigger.dialogueID);
+    }
+
+    private void OnTriggerExited(DialogueTrigger trigger)
+    {
+        // do nothing
     }
 }
