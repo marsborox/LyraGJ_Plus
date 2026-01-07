@@ -53,6 +53,12 @@ public class CutscenesManager : MonoBehaviour
 
         SetupDialogue();
     }
+    public void EndDialogue()
+    {
+        HideOtherUI(false);
+        dialogueUI.gameObject.SetActive(false);
+        Time.timeScale = 1f; // unpause
+    }
     public void SpawnDialogue(int indexOfClearedRoom)
     {
         Debug.Log("Spawning!!!");
@@ -85,9 +91,7 @@ public class CutscenesManager : MonoBehaviour
     {
         if (_currentDialogue == null || _currentPartIndex > _currentDialogue.parts.Length - 1)
         {
-            HideOtherUI(false);
-            dialogueUI.gameObject.SetActive(false);
-            Time.timeScale = 1f; // unpause
+            EndDialogue();
             return;
         }
 
