@@ -47,6 +47,6 @@ public class UnitMovement : MonoBehaviour
     }
     public void StayIdle()
     {
-        animationController.HandleIdleAnimation();
+        animationController.HandleMovementAnimation();
     }
 }

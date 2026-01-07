@@ -127,7 +127,7 @@ public class UnitAnimationController : MonoBehaviour
         //animator.SetFloat();
     }
     
-    public void HandleIdleAnimation()
+    public void HandleMovementAnimation()
     {
         float horizontal = 0;
         float vertical = 0;
@@ -148,10 +148,10 @@ public class UnitAnimationController : MonoBehaviour
     public void HandleMovementAnimationEnemy()
     {
         Vector2 vector = new Vector2(0, 0);
-        HandleAnimation(vector);
+        HandleMovementAnimation(vector);
     }
 
-    public void HandleAnimation/*AutoDIrectionCheck*/(Vector2 inputVector)
+    public void HandleMovementAnimation/*AutoDIrectionCheck*/(Vector2 inputVector)
     {
         //float horizontal = Input.GetAxis("Horizontal");
         //float vertical = Input.GetAxis("Vertical");
@@ -213,6 +213,12 @@ public class UnitAnimationController : MonoBehaviour
     }
     public void HandleEnemyAttackAnimation()
     {
+        Debug.Log("Attacking Animation");
         animator.SetTrigger("Attack");
+    }
+    public void HandleTakeDamageAnimation()
+    {
+        Debug.Log("Taking damage Animation");
+        animator.SetTrigger("TakeDamage");
     }
 }

@@ -1056,7 +1056,6 @@ GameObject:
   - component: {fileID: 6110641428596706858}
   - component: {fileID: 859534956746889397}
   - component: {fileID: 723713826427866658}
-  - component: {fileID: 5617343433286424686}
   - component: {fileID: 7287768026732415858}
   - component: {fileID: 2395246204302797546}
   - component: {fileID: 361598244255013037}
@@ -1249,6 +1248,7 @@ MonoBehaviour:
   stunTimer: 0
   myRigidBody: {fileID: 2395246204302797546}
   thisUnit: {fileID: 6243917595417204822}
+  animationController: {fileID: 361598244255013037}
   weapon1: {fileID: 8881615355800754850}
   weapon2: {fileID: 3626787188444012202}
   weapon3: {fileID: 6684086850587309295}
@@ -1257,18 +1257,6 @@ MonoBehaviour:
   weapon2New: {fileID: 4361122227700079499}
   weapon3New: {fileID: 963801728030566303}
   weapon4New: {fileID: 965469982444938934}
---- !u!114 &5617343433286424686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986896122668706926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19f5991b391fc5648b6a7d2040cb7553, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!61 &7287768026732415858
 BoxCollider2D:
   m_ObjectHideFlags: 0

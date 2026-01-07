@@ -558,6 +558,7 @@ MonoBehaviour:
   stunTimer: 0
   myRigidBody: {fileID: 7886990425334265719}
   thisUnit: {fileID: 4176866416230126860}
+  animationController: {fileID: 1123149760818088287}
   player: {fileID: 0}
   behaviorTemplate: {fileID: 11400000, guid: cc37d312f8cf1714caf72785f99d807e, type: 2}
   enemyMovement: {fileID: 3549913713549301225}
@@ -798,12 +799,12 @@ SpriteRenderer:
   m_SortingLayerID: 1835196397
   m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5375432567833919179, guid: 50c6226e72d164d45ab48c4634f15793, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50c6226e72d164d45ab48c4634f15793, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

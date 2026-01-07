@@ -511,7 +511,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BowAuto
   weaponType: 0
   maxCooldown: 1
-  damage: 1
+  coolDownTimer: 0
+  damageBase: 1
+  damageApplied: 0
+  damageMultiplier: 2
   attackAnimationTime: 0.3
   pushbackForce: 10
   pushBackDuration: 0.1
@@ -1529,7 +1532,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   weaponType: 0
   maxCooldown: 1
-  damage: 1
+  coolDownTimer: 0
+  damageBase: 1
+  damageApplied: 0
+  damageMultiplier: 2
   attackAnimationTime: 0.5
   pushbackForce: 0
   pushBackDuration: 0
@@ -1552,7 +1558,6 @@ GameObject:
   - component: {fileID: 6110641428596706858}
   - component: {fileID: 859534956746889397}
   - component: {fileID: 723713826427866658}
-  - component: {fileID: 5617343433286424686}
   - component: {fileID: 7287768026732415858}
   - component: {fileID: 2395246204302797546}
   m_Layer: 3
@@ -1628,6 +1633,7 @@ MonoBehaviour:
   unitCombat: {fileID: 723713826427866658}
   targetTag: Enemy
   playerMovement: {fileID: 859534956746889397}
+  rythmBonus: {fileID: 0}
 --- !u!114 &8184401127856028204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1640,8 +1646,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844d707d560731848acfa9a4747d9c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mouseFollow: {fileID: 1477771279173098806}
   player: {fileID: 6243917595417204822}
+  playerMovement: {fileID: 0}
+  _mouseFollow: {fileID: 1477771279173098806}
+  _animationController: {fileID: 0}
   holdHreshold: 0.1
 --- !u!114 &6110641428596706858
 MonoBehaviour:
@@ -1697,16 +1705,19 @@ MonoBehaviour:
   goingUp: {fileID: 2353081068572894406}
   goingDown: {fileID: 4880690286573580683}
   goingLeft: {fileID: 8478153812751325787}
+  animationController: {fileID: 0}
   weapons: {fileID: 5158036404265290629}
   movementSpeed: 15
   canMove: 1
   canDash: 1
   _mouseFollow: {fileID: 1477771279173098806}
+  _dashChecker: {fileID: 0}
   _dashSpeed: 0
   _dashCooldownTimer: 0
   _dashCooldownTime: 0.5
   _isDashing: 0
   _isDashReady: 1
+  _isTouchingWall: 0
   _maxDashDistance: 5
   _dashSpeedCoef: 3
   _dashDestination: {x: 0, y: 0, z: 0}
@@ -1736,6 +1747,7 @@ MonoBehaviour:
   stunTimer: 0
   myRigidBody: {fileID: 2395246204302797546}
   thisUnit: {fileID: 6243917595417204822}
+  animationController: {fileID: 0}
   weapon1: {fileID: 8881615355800754850}
   weapon2: {fileID: 3626787188444012202}
   weapon3: {fileID: 6684086850587309295}
@@ -1744,18 +1756,6 @@ MonoBehaviour:
   weapon2New: {fileID: 8044613271016147169}
   weapon3New: {fileID: 4240516522687103533}
   weapon4New: {fileID: 3378089230030055086}
---- !u!114 &5617343433286424686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986896122668706926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19f5991b391fc5648b6a7d2040cb7553, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!61 &7287768026732415858
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2055,7 +2055,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 1
   maxCooldown: 1
-  damage: 2
+  coolDownTimer: 0
+  damageBase: 1
+  damageApplied: 0
+  damageMultiplier: 2
   attackAnimationTime: 0.5
   pushbackForce: 0
   pushBackDuration: 0
@@ -2177,7 +2180,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 2
   maxCooldown: 1
-  damage: 2
+  coolDownTimer: 0
+  damageBase: 1
+  damageApplied: 0
+  damageMultiplier: 2
   attackAnimationTime: 0.5
   pushbackForce: 0
   pushBackDuration: 0
@@ -2238,7 +2244,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 0
   maxCooldown: 1
-  damage: 2
+  coolDownTimer: 0
+  damageBase: 1
+  damageApplied: 0
+  damageMultiplier: 2
   attackAnimationTime: 0.5
   pushbackForce: 0
   pushBackDuration: 0
@@ -3232,7 +3241,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 3
   maxCooldown: 1
-  damage: 2
+  coolDownTimer: 0
+  damageBase: 1
+  damageApplied: 0
+  damageMultiplier: 2
   attackAnimationTime: 0.5
   pushbackForce: 0
   pushBackDuration: 0
@@ -3576,7 +3588,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   weaponType: 0
   maxCooldown: 3
-  damage: 1
+  coolDownTimer: 0
+  damageBase: 1
+  damageApplied: 0
+  damageMultiplier: 2
   attackAnimationTime: 0.2
   pushbackForce: 15
   pushBackDuration: 0.3
@@ -4167,7 +4182,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   weaponType: 0
   maxCooldown: 1
-  damage: 1
+  coolDownTimer: 0
+  damageBase: 1
+  damageApplied: 0
+  damageMultiplier: 2
   attackAnimationTime: 0.4
   pushbackForce: 10
   pushBackDuration: 0.2

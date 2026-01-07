@@ -87,6 +87,7 @@ public class EnemyCombat : UnitCombat
     public void StartAttackAnimation()
     {
         //Debug.Log("Starting AttackAnimaiton");
+        animationController.HandleEnemyAttackAnimation();
         attackAnimationTimer = attackAnimationTime;
         isAttacking = true;
         _currentAttackPhase = AttackPhase.ANIMATION;

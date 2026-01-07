@@ -23,6 +23,7 @@ public class UnitCombat : MonoBehaviour
 
     public Rigidbody2D myRigidBody;
     public Unit thisUnit;
+    public UnitAnimationController animationController;
     void Start()
     {
         healthCurrent = healthMax;
@@ -83,6 +84,7 @@ public class UnitCombat : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         //Debug.Log("taking damage from unitCombat");
+        animationController.HandleTakeDamageAnimation();
         healthCurrent -= damage;
     }
     public virtual void GetHeal(int heal)
