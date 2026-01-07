@@ -83,12 +83,43 @@ public class EnemyCombat : UnitCombat
             return;
         BehaviorSwitch();
     }
+    private void BehaviorSwitch()
+    {
+        switch (_currentAttackPhase)
+        {
+            case AttackPhase.READY:
+                {//SO behav
 
+                    //BehaviorTest();
+                    behaviorTemplate.PerformBehavior(this, player);
+                    return;
+                }
+            case AttackPhase.ANIMATION:
+                {//this will be gone and handled on animator
+                    AttackAnimationTimer();
+                    return;
+                }
+            case AttackPhase.POSTANIMATION:
+                {//this will be gone and initiated on animator
+                    AttackHitPostAnimation();
+                    return;
+                }
+            case AttackPhase.POSTHIT:
+                {
+                    return;
+                }
+            default:
+                {
+                    Debug.Log("AttackPhase not implemented");
+                    return;
+                }
+        }
+    }
     public void StartAttackAnimation()
     {
         //Debug.Log("Starting AttackAnimaiton");
         animationController.HandleEnemyAttackAnimation();
-        attackAnimationTimer = attackAnimationTime;
+        //attackAnimationTimer = attackAnimationTime;
         isAttacking = true;
         _currentAttackPhase = AttackPhase.ANIMATION;
         //play attackAnimation
@@ -193,47 +224,7 @@ public class EnemyCombat : UnitCombat
             CooldownTimer();
         }
     }
-    private void BehaviorSwitch()
-    {
-        switch (_currentAttackPhase)
-        { 
-            case AttackPhase.READY:
-                {//SO behav
-                    /*
-                    if (CheckIfInRange())
-                    {
-                        //start attack animation
-                        StartAttackAnimation();
-                    }
-                    else
-                    {
-                        _enemyMovement.MoveToTarget(player);
-                    }*/
-                    //BehaviorTest();
-                    behaviorTemplate.PerformBehavior(this, player);
-                    return;
-                }
-            case AttackPhase.ANIMATION:
-                {//this will be gone and handled on animator
-                    AttackAnimationTimer();
-                    return;
-                }
-            case AttackPhase.POSTANIMATION:
-                {//this will be gone and initiated on animator
-                    AttackHitPostAnimation();
-                    return;
-                }
-            case AttackPhase.POSTHIT:
-                {
-                    return;
-                }
-            default :
-                {
-                    Debug.Log("AttackPhase not implemented");
-                return;
-                }
-        }
-    }
+
     
     private void AttackAnimationTimer()
     {

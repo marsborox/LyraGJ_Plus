@@ -94,7 +94,7 @@ public class PlayerMovement : UnitMovement
         
         //transform.position = Vector2.MoveTowards(transform.position, movePosition, movementSpeed*Time.fixedDeltaTime);
         _myRigidbody2D.MovePosition(transform.position + movePosition * movementSpeed * Time.fixedDeltaTime);
-        animationController.HandleAnimation();
+        animationController.HandleMovementAnimation();
     }
     public void DashWSAD(Vector2 rawInput)
     {

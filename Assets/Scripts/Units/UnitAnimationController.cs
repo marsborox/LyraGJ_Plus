@@ -67,7 +67,7 @@ public class UnitAnimationController : MonoBehaviour
         }
         //Debug.Log("Should be animating, direction X: "+horizontal.ToString() + " Y: "+vertical.ToString());
     }
-    public void HandleAnimation/*AutoDIrectionCheck*/()
+    public void HandleMovementAnimation/*AutoDIrectionCheck*/()
     {
         //float horizontal = Input.GetAxis("Horizontal");
         //float vertical = Input.GetAxis("Vertical");
@@ -127,7 +127,7 @@ public class UnitAnimationController : MonoBehaviour
         //animator.SetFloat();
     }
     
-    public void HandleMovementAnimation()
+    public void HandleMovementAnimationIdle()
     {
         float horizontal = 0;
         float vertical = 0;
@@ -145,7 +145,7 @@ public class UnitAnimationController : MonoBehaviour
         animator.SetFloat("Yinput", _lastMoveDirection.y);
         animator.SetFloat("Speed", movement.magnitude);
     }
-    public void HandleMovementAnimationEnemy()
+    private void HandleMovementAnimationEnemy()
     {
         Vector2 vector = new Vector2(0, 0);
         HandleMovementAnimation(vector);
