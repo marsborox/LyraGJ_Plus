@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, cast shadow, Water, UI, Unit
 - Active game object:
-  - Name: Button
+  - Name: DialogueUI
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

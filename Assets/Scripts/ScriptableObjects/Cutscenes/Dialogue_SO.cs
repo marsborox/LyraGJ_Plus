@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using System.IO;
 
 [System.Serializable]
 public class DialoguePart
@@ -14,4 +14,18 @@ public class DialoguePart
 public class Dialogue_SO : ScriptableObject
 {
     public DialoguePart[] parts;
+
+    [HideInInspector] public string fileName;
+
+    private void OnValidate()
+    {
+        if (string.IsNullOrEmpty(fileName)) 
+        {
+            string path = UnityEditor.AssetDatabase.GetAssetPath(this);
+            if (!string.IsNullOrEmpty(path))
+            {
+                fileName = Path.GetFileNameWithoutExtension(path);
+            }
+        }
+    }
 }

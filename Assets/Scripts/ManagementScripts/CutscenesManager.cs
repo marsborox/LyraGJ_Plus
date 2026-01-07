@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using static Level_SO;
 
 public enum CharacterID
@@ -29,6 +30,8 @@ public class DialogueTrigger
 
 public class CutscenesManager : MonoBehaviour
 {
+    private static HashSet<string> _seenDialogueKeys = new HashSet<string>(); // TODO: make empty when new game starts
+
     public Level_SO level;
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] private CharacterPortrait_SO[] characterPortraits;
@@ -61,12 +64,15 @@ public class CutscenesManager : MonoBehaviour
     }
     public void SpawnDialogue(int indexOfClearedRoom)
     {
-        Debug.Log("Spawning!!!");
         _currentDialogue = null;
         foreach (DialogueToIndex dialogueToIndex in level.dialogueWRoomClearedIndexList)
         {
             if (dialogueToIndex.spawnOnRoomCleared == indexOfClearedRoom)
             {
+                if (WasSeenDialogue(dialogueToIndex.dialogue)) return;
+
+                MarkSeenDialogue(dialogueToIndex.dialogue);
+
                 _currentDialogue = dialogueToIndex.dialogue;
                 _currentPartIndex = 0;
      
@@ -79,7 +85,6 @@ public class CutscenesManager : MonoBehaviour
             }
         }
     }
-
     void FixedUpdate()
     {
         CheckTriggers();
@@ -150,14 +155,30 @@ public class CutscenesManager : MonoBehaviour
             }
         }
     }
-
     private void OnTriggerEntered(DialogueTrigger trigger)
     {
         SpawnDialogue(trigger.dialogueID);
     }
-
     private void OnTriggerExited(DialogueTrigger trigger)
     {
         // do nothing
+    }
+
+    // dialogues persistence
+
+    private bool WasSeenDialogue(Dialogue_SO dialogue)
+    {
+        string dialogueKey = DialogueKey(dialogue);
+        return _seenDialogueKeys.Contains(dialogueKey);
+    }
+    private void MarkSeenDialogue(Dialogue_SO dialogue)
+    {
+        string dialogueKey = DialogueKey(dialogue);
+        _seenDialogueKeys.Add(dialogueKey);
+    }
+    private string DialogueKey(Dialogue_SO dialogue)
+    {
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        return $"{sceneName}_{dialogue.fileName}";
     }
 }
