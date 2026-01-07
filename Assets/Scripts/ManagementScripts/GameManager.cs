@@ -15,7 +15,15 @@ public class GameManager : Singleton<GameManager>
     public GameStage stage = GameStage.NEWWAVE;
     public Level_SO levelSettings
     {
-        get { return cutscenesManager.level; }
+        get 
+        { 
+            if (cutscenesManager != null && cutscenesManager.level != null)
+            {
+                return cutscenesManager.level; 
+            } else {
+                return ScriptableObject.CreateInstance<Level_SO>(); // empty but no crashing
+            }
+        }
     }    
     public int enemiesPerWave = 10;
     public int spawnedEnemiesThisWave = 0;
@@ -65,15 +73,17 @@ public class GameManager : Singleton<GameManager>
 
                     if (enemiesInField == 0)
                     {
-                        stage = GameStage.DIALOGUE;
+                        // stage = GameStage.DIALOGUE; skipping for now, we need to update dialogues
+                        stage = GameStage.END;
                     }
                     
                     break; 
                 }
             case GameStage.DIALOGUE:
                 {
-                    cutscenesManager.SpawnDialogue(roomsCleared);
-                    stage = GameStage.END;
+                    //DisplayDialogue();skipping dialogue for developement
+                    //erenable on build
+                    stage = GameStage.SPAWNING;
                     break; 
                 }
             case GameStage.NEWWAVE: 
@@ -90,7 +100,10 @@ public class GameManager : Singleton<GameManager>
     }
     public void SpawnDialogue(Room room)
     {
-        cutscenesManager.SpawnDialogue(roomsCleared);
+        if (cutscenesManager != null) 
+        {
+            cutscenesManager.SpawnDialogue(roomsCleared);
+        }
     }
     public void ForceRoomCleared(Room room)
     {
