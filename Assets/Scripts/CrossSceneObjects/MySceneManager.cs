@@ -12,27 +12,38 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     public void OpenMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
         //MySoundManager.instance.PlayMenuMusic();
     }
     public void OpenLobbyScene()
     {
         SceneManager.LoadScene("LobbyScene");
+        Time.timeScale = 1f;
+        //MySoundManager.instance.PlayLobbyMusic();
+    }
+    public void OpenDarkLobbyScene()
+    {
+        SceneManager.LoadScene("DarkLobbyScene");
+        Time.timeScale = 1f;
         //MySoundManager.instance.PlayLobbyMusic();
     }
     public void OpenGameScene()
     {
         //SceneManager.LoadScene("MarosGameScene");
         SceneManager.LoadScene("GameScene");
+        Time.timeScale = 1f;
         //MySoundManager.instance.PlayGameMusic();
     }
     public void OpenTutorialScene()
     {
         SceneManager.LoadScene("TutorialScene");
+        Time.timeScale = 1f;
         //MySoundManager.instance.PlayGameMusic();//mabye change music
     }
     public void OpenDevScene()
     {
         SceneManager.LoadScene("MarosGameScene");
+        Time.timeScale = 1f;
     }
     public void QuitToWindows()
     {

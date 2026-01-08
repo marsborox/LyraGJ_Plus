@@ -172,7 +172,10 @@ public class PlayerCombat : UnitCombat
     }
     private void Die()
     {
-        MySceneManager.instance.OpenLobbyScene();
+        Time.timeScale = 0f;
+        Debug.Log("player died");
+        //MySceneManager.instance.OpenLobbyScene();
+        GlobalEventManager.instance.TriggerOnPlayerDied();
     }
     
 }
