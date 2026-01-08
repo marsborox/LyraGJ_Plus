@@ -18,7 +18,7 @@ public class Sword : Weapon
         if (!CanAttack())
             return;
         coolDownTimer = maxCooldown;
-        Debug.Log("player attacking");
+        //Debug.Log("player attacking");
         _visualCollider.transform.rotation = mouseFollow.ReturnMouseDirection();
         _myCollider.enabled = true;
         _animationVisual.SetActive(true);

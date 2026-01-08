@@ -207,6 +207,52 @@ MonoBehaviour:
       m_SpriteOverride: {fileID: 21300000, guid: 8442d8ceb4274534ab17ad4ee9c7173a, type: 3}
     m_FromMain: 0
     m_EntryOverrideCount: 6
+  - m_Name: Death
+    m_Hash: 646380074
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Death_Animation_0
+      m_Hash: 113283207
+      m_Sprite: {fileID: 21300000, guid: 5ecc87fd00d23894081682e7b8c3282b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 5ecc87fd00d23894081682e7b8c3282b, type: 3}
+    - m_Name: Death_Animation_1
+      m_Hash: 835166225
+      m_Sprite: {fileID: 21300000, guid: 172149168d43b104cb2bf6cbfc6262fb, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 172149168d43b104cb2bf6cbfc6262fb, type: 3}
+    - m_Name: Death_Animation_2
+      m_Hash: 684650923
+      m_Sprite: {fileID: 21300000, guid: 4a014d95991fba643ab1049d40a0ef6b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 4a014d95991fba643ab1049d40a0ef6b, type: 3}
+    - m_Name: Death_Animation_3
+      m_Hash: 533315901
+      m_Sprite: {fileID: 21300000, guid: b30c38b714b6ea34bb5baae93cdf8df7, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: b30c38b714b6ea34bb5baae93cdf8df7, type: 3}
+    - m_Name: Death_Animation_4
+      m_Hash: 28136606
+      m_Sprite: {fileID: 21300000, guid: 37df4a9c24b16724a8b4ecd133c8ee3b, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 37df4a9c24b16724a8b4ecd133c8ee3b, type: 3}
+    - m_Name: Death_Animation_5
+      m_Hash: 917136392
+      m_Sprite: {fileID: 21300000, guid: f0df5b437926c6e408998c991e72eedf, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: f0df5b437926c6e408998c991e72eedf, type: 3}
+    - m_Name: Death_Animation_6
+      m_Hash: 799225266
+      m_Sprite: {fileID: 21300000, guid: 0a131ddb989b2c44b9c9c0973fa0ea19, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 0a131ddb989b2c44b9c9c0973fa0ea19, type: 3}
+    - m_Name: Death_Animation_7
+      m_Hash: 413402404
+      m_Sprite: {fileID: 21300000, guid: 242076bd9289192498dca2bc4634484d, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 21300000, guid: 242076bd9289192498dca2bc4634484d, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 8
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 639034024772696658
+  m_ModificationHash: 639034939913682912
   m_Version: 1

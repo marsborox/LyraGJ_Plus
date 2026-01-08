@@ -213,12 +213,17 @@ public class UnitAnimationController : MonoBehaviour
     }
     public void HandleEnemyAttackAnimation()
     {
-        Debug.Log("Attacking Animation");
+        //Debug.Log("Attacking Animation");
         animator.SetTrigger("Attack");
     }
     public void HandleTakeDamageAnimation()
     {
         Debug.Log("Taking damage Animation");
         animator.SetTrigger("TakeDamage");
+    }
+    public void HandleDeathAnimation()
+    {
+        //Debug.Log("Death Animation");
+        animator.SetTrigger("Death");
     }
 }
