@@ -17,7 +17,7 @@ public class UnitVisual : MonoBehaviour
     }*/
     public void PostTakeDamageAnimationEvent()
     {
-        _unitCombat.Die();
+        _unitCombat.isStunned = false;
     }
     public void PostGetHitAnimationEvent()
     { 

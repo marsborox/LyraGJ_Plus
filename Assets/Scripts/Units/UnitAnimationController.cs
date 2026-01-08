@@ -221,6 +221,7 @@ public class UnitAnimationController : MonoBehaviour
         Debug.Log("Taking damage Animation");
         animator.SetTrigger("TakeDamage");
     }
+
     public void HandleDeathAnimation()
     {
         //Debug.Log("Death Animation");
