@@ -7,20 +7,21 @@ using System.Collections;
 public class DialogueUI : UI
 {
     public UnityEvent OnContinueDialogueClicked;
+    public UnityEvent OnSkipDialogueClicked;
 
     [SerializeField] private TextMeshProUGUI textOfDialogue;
     [SerializeField] private Image leftCharacterImage;
     [SerializeField] private Image rightCharacterImage;
     [SerializeField] private Button continueButton;
+    [SerializeField] private Button skipButton;
 
     private Animator _leftAnimator;
     private Animator _rightAnimator;
 
     // typing properties
-    private bool _isTyping;
+    private bool _isTyping = false;
     private float _delayTyping = 0.02f;
     private string _messageToType = "";
-    private Coroutine _typingRoutine;
 
     void Awake()
     {
@@ -34,10 +35,10 @@ public class DialogueUI : UI
         }
 
         continueButton.onClick.AddListener(ContinueButtonClick);
+        skipButton.onClick.AddListener(SkipButtonClick);
     }
     public void Show(Sprite image, string text, bool isOnLeftSide = true)
     {
-        continueButton.interactable = false;
         _messageToType = text;
         textOfDialogue.text = "";
 
@@ -74,17 +75,8 @@ public class DialogueUI : UI
             }
         }
 
-        if (_typingRoutine != null)
-        {
-            StopCoroutine(_typingRoutine);
-        }
-        _typingRoutine = StartCoroutine(TypeMessage());
-        StartCoroutine(ReenableContinueNextFrame());
-    }
-    private IEnumerator ReenableContinueNextFrame()
-    {
-        yield return null; // wait ONE frame
-        continueButton.interactable = true;
+        StopAllCoroutines();
+        StartCoroutine(TypeMessage());
     }
     private IEnumerator TypeMessage()
     {
@@ -100,15 +92,17 @@ public class DialogueUI : UI
     {
         if (_isTyping)
         {
-            if (_typingRoutine != null)
-            {
-                StopCoroutine(_typingRoutine);
-            }
-            textOfDialogue.text = _messageToType;
             _isTyping = false;
+
+            StopAllCoroutines();
+            textOfDialogue.text = _messageToType;
         } else 
         {
             OnContinueDialogueClicked?.Invoke();
         }
+    }
+    private void SkipButtonClick()
+    {
+        OnSkipDialogueClicked?.Invoke();
     }
 }

@@ -2683,23 +2683,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnContinueDialogueClicked:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6594433032629925652}
-        m_TargetAssemblyTypeName: CutscenesManager, Assembly-CSharp
-        m_MethodName: ContinueDialogue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  OnSkipDialogueClicked:
+    m_PersistentCalls:
+      m_Calls: []
   textOfDialogue: {fileID: 9060055585972877530}
   leftCharacterImage: {fileID: 7920400594392415459}
   rightCharacterImage: {fileID: 473673297058748757}
   continueButton: {fileID: 2630051330496657852}
+  skipButton: {fileID: 9046456749872914475}
 --- !u!1 &6625899163616342482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,19 +3232,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2888495902368891465}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6594433032629925652}
-        m_TargetAssemblyTypeName: CutscenesManager, Assembly-CSharp
-        m_MethodName: EndDialogue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8436517152348735014
 GameObject:
   m_ObjectHideFlags: 0
@@ -3546,19 +3526,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2413039786943796797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6594433032629925652}
-        m_TargetAssemblyTypeName: CutscenesManager, Assembly-CSharp
-        m_MethodName: ContinueDialogue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &4344613789679899192
 PrefabInstance:
   m_ObjectHideFlags: 0

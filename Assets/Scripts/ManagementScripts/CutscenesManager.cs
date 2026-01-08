@@ -48,6 +48,12 @@ public class CutscenesManager : MonoBehaviour
         {
             _playerRigidbody = player.GetComponent<Rigidbody2D>();
         }
+
+        if (dialogueUI != null)
+        {
+            dialogueUI.OnContinueDialogueClicked.AddListener(ContinueDialogue);
+            dialogueUI.OnSkipDialogueClicked.AddListener(EndDialogue);
+        }
     }
     public void ContinueDialogue()
     {
