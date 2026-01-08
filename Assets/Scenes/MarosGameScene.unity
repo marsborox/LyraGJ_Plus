@@ -2428,9 +2428,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 29055957}
+    - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: roomISpawnedIn
+      value: 
+      objectReference: {fileID: 1024998296}
+    - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: animationController
       value: 
       objectReference: {fileID: 1833501287}
+    - target: {fileID: 1094105937661057830, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: _unitCombat
+      value: 
+      objectReference: {fileID: 1833501292}
     - target: {fileID: 3443724269912296941, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2477,7 +2489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5279515869294326761, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5648023735614035241, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_Size.x
@@ -2736,7 +2748,7 @@ MonoBehaviour:
   mageSO: {fileID: 11400000, guid: 4f7296c3a7d049e4984af6ea98cbc074, type: 2}
   enemySOs:
   - {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
-  - {fileID: 11400000, guid: 4f7296c3a7d049e4984af6ea98cbc074, type: 2}
+  - {fileID: 11400000, guid: f86ebb9019a7a9c4b95a0cabd2e390ff, type: 2}
   - {fileID: 11400000, guid: 204a6424375fa2541ad48cb557bffcae, type: 2}
 --- !u!1 &619394800
 GameObject:
@@ -25638,6 +25650,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b3ed9c7c5af6644a2351916800be57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1024998296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7846100771788049390, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
+  m_PrefabInstance: {fileID: 6915627130281284305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 953f193a6f4c7e8469653f74b5e82506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room
 --- !u!1 &1027780658
 GameObject:
   m_ObjectHideFlags: 0
@@ -36023,6 +36046,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a29b38dad57f06468903976df472e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitAnimationController
+--- !u!114 &1833501292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+  m_PrefabInstance: {fileID: 481617604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccd4b383dc94bf4d98620b63d8ce920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyCombat
 --- !u!1001 &1843715802
 PrefabInstance:
   m_ObjectHideFlags: 0

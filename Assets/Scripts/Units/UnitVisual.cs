@@ -1,0 +1,22 @@
+using UnityEngine;
+
+public class UnitVisual : MonoBehaviour
+{
+    [SerializeField] private UnitCombat _unitCombat;
+
+    public void PostAttackAnimationEvent()
+    {
+        //Debug.Log("PostAttackAnimationEventUnit in UnitVisual");
+        _unitCombat.PostAttackAnimationEventUnit();
+    }
+    /*public void PostAttackAnimationEvent(string str)
+    {
+        Debug.Log("PostAttackAnimationEventUnit in UnitVisual");
+        Debug.Log(str);
+        //_unitCombat.PostAttackAnimationEventUnit();
+    }*/
+    public void PostAttackBlahBlahBlah()
+    {
+        Debug.Log("PostAttackAnimationEventUnit Blah Blah Blah");
+    }
+}

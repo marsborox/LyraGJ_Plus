@@ -91,12 +91,12 @@ public class EnemyCombat : UnitCombat
                 {//SO behav
 
                     //BehaviorTest();
-                    behaviorTemplate.PerformBehavior(this, player);
+                    behaviorTemplate.PerformBehavior(this, player);//triggers startAttackAnimation
                     return;
                 }
             case AttackPhase.ANIMATION:
                 {//this will be gone and handled on animator
-                    AttackAnimationTimer();
+                    //AttackAnimationTimer();
                     return;
                 }
             case AttackPhase.POSTANIMATION:
@@ -124,15 +124,21 @@ public class EnemyCombat : UnitCombat
         _currentAttackPhase = AttackPhase.ANIMATION;
         //play attackAnimation
     }
+
     public void AttackHitPostAnimation()
     {
-        //Debug.Log("AttackAnimation ended, switching to posthitCooldown;");
+        isAttacking = false;
+        Debug.Log("AttackAnimation ended, switching to posthitCooldown;");
         //this must exist bcs when well have normal animation we will use this tere
         //will be initiated by animation event
         behaviorTemplate.PostAttackAction(this,player);
         coolDownTimer = attackCooldown;
         isAttackReady = false;
         _currentAttackPhase = AttackPhase.READY;
+    }
+    public void PostAttackAnimationEventEnemy()
+    {
+        Debug.Log("PostAttackAnimationEventUnit in EnemyCombat");
     }
     public bool CheckIfInRange()
     {
@@ -226,18 +232,7 @@ public class EnemyCombat : UnitCombat
     }
 
     
-    private void AttackAnimationTimer()
-    {
-        if (!(attackAnimationTimer < 0))
-        {
-            attackAnimationTimer -= Time.deltaTime;
-            if (attackAnimationTimer < 0)
-            {
-                isAttacking = false;
-                AttackHitPostAnimation();
-            }
-        }
-    }
+
     public void ResetAttackAnimation()
     {
         if (_currentAttackPhase == AttackPhase.ANIMATION)
