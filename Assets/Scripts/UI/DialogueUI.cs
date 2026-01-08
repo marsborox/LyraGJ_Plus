@@ -33,9 +33,28 @@ public class DialogueUI : UI
         {
             _rightAnimator = rightCharacterImage.GetComponent<Animator>();
         }
-
-        continueButton.onClick.AddListener(ContinueButtonClick);
-        skipButton.onClick.AddListener(SkipButtonClick);
+    }
+    void OnEnable()
+    {
+        if (continueButton != null)
+        {
+            continueButton.onClick.AddListener(ContinueButtonClick);
+        }
+        if (skipButton != null)
+        {
+            skipButton.onClick.AddListener(SkipButtonClick);
+        }
+    }
+    void OnDisable()
+    {
+        if (continueButton != null)
+        {
+            continueButton.onClick.RemoveListener(ContinueButtonClick);
+        }
+        if (skipButton != null)
+        {
+            skipButton.onClick.RemoveListener(SkipButtonClick);
+        }
     }
     public void Show(Sprite image, string text, bool isOnLeftSide = true)
     {
