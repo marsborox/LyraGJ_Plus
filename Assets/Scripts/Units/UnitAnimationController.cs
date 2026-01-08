@@ -7,8 +7,7 @@ public class UnitAnimationController : MonoBehaviour
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private UnitMovement _unitMovement;
-
-    
+        
     public bool isMoving = false;
     private Vector2 _lastMoveDirection = Vector2.down;// will default to down when game starts
     private void Start()
@@ -68,7 +67,7 @@ public class UnitAnimationController : MonoBehaviour
         }
         //Debug.Log("Should be animating, direction X: "+horizontal.ToString() + " Y: "+vertical.ToString());
     }
-    public void HandleAnimation/*AutoDIrectionCheck*/()
+    public void HandleMovementAnimation/*AutoDIrectionCheck*/()
     {
         //float horizontal = Input.GetAxis("Horizontal");
         //float vertical = Input.GetAxis("Vertical");
@@ -128,7 +127,7 @@ public class UnitAnimationController : MonoBehaviour
         //animator.SetFloat();
     }
     
-    public void HandleIdleAnimation()
+    public void HandleMovementAnimationIdle()
     {
         float horizontal = 0;
         float vertical = 0;
@@ -146,13 +145,13 @@ public class UnitAnimationController : MonoBehaviour
         animator.SetFloat("Yinput", _lastMoveDirection.y);
         animator.SetFloat("Speed", movement.magnitude);
     }
-    public void HandleMovementAnimationEnemy()
+    private void HandleMovementAnimationEnemy()
     {
         Vector2 vector = new Vector2(0, 0);
-        HandleAnimation(vector);
+        HandleMovementAnimation(vector);
     }
 
-    public void HandleAnimation/*AutoDIrectionCheck*/(Vector2 inputVector)
+    public void HandleMovementAnimation/*AutoDIrectionCheck*/(Vector2 inputVector)
     {
         //float horizontal = Input.GetAxis("Horizontal");
         //float vertical = Input.GetAxis("Vertical");
@@ -211,5 +210,15 @@ public class UnitAnimationController : MonoBehaviour
         //_animator.SetFloat("Xinput", vertical);
         //_animator.SetFloat("Yinput", horizontal);
         //animator.SetFloat();
+    }
+    public void HandleEnemyAttackAnimation()
+    {
+        Debug.Log("Attacking Animation");
+        animator.SetTrigger("Attack");
+    }
+    public void HandleTakeDamageAnimation()
+    {
+        Debug.Log("Taking damage Animation");
+        animator.SetTrigger("TakeDamage");
     }
 }

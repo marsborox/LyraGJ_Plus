@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlueEnemyMage_SO
   m_EditorClassIdentifier: 
   enemyType: 2
-  enemySpriteLibrary: {fileID: 0}
+  enemySpriteLibrary: {fileID: 7108339969198208228, guid: 5b07ce75332f1de428be13c2b2594578, type: 3}
   damage: 1
   health: 10
   range: 8

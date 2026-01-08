@@ -42,7 +42,7 @@ public class Sword : Weapon
     {
         yield return new WaitForSeconds(0.02f);
         _myCollider.enabled = false;
-        Debug.Log("sword collider off");
+        //Debug.Log("sword collider off");
     }
     IEnumerator AttackAnimationRoutine()
     {

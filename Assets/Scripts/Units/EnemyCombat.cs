@@ -83,17 +83,51 @@ public class EnemyCombat : UnitCombat
             return;
         BehaviorSwitch();
     }
+    private void BehaviorSwitch()
+    {
+        switch (_currentAttackPhase)
+        {
+            case AttackPhase.READY:
+                {//SO behav
 
+                    //BehaviorTest();
+                    behaviorTemplate.PerformBehavior(this, player);//triggers startAttackAnimation
+                    return;
+                }
+            case AttackPhase.ANIMATION:
+                {//this will be gone and handled on animator
+                    //AttackAnimationTimer();
+                    return;
+                }
+            case AttackPhase.POSTANIMATION:
+                {//this will be gone and initiated on animator
+                    AttackHitPostAnimation();
+                    return;
+                }
+            case AttackPhase.POSTHIT:
+                {
+                    return;
+                }
+            default:
+                {
+                    Debug.Log("AttackPhase not implemented");
+                    return;
+                }
+        }
+    }
     public void StartAttackAnimation()
     {
         //Debug.Log("Starting AttackAnimaiton");
-        attackAnimationTimer = attackAnimationTime;
+        animationController.HandleEnemyAttackAnimation();
+        //attackAnimationTimer = attackAnimationTime;
         isAttacking = true;
         _currentAttackPhase = AttackPhase.ANIMATION;
         //play attackAnimation
     }
+
     public void AttackHitPostAnimation()
     {
+        isAttacking = false;
         //Debug.Log("AttackAnimation ended, switching to posthitCooldown;");
         //this must exist bcs when well have normal animation we will use this tere
         //will be initiated by animation event
@@ -102,6 +136,7 @@ public class EnemyCombat : UnitCombat
         isAttackReady = false;
         _currentAttackPhase = AttackPhase.READY;
     }
+
     public bool CheckIfInRange()
     {
         //bool isInRrange;
@@ -192,60 +227,9 @@ public class EnemyCombat : UnitCombat
             CooldownTimer();
         }
     }
-    private void BehaviorSwitch()
-    {
-        switch (_currentAttackPhase)
-        { 
-            case AttackPhase.READY:
-                {//SO behav
-                    /*
-                    if (CheckIfInRange())
-                    {
-                        //start attack animation
-                        StartAttackAnimation();
-                    }
-                    else
-                    {
-                        _enemyMovement.MoveToTarget(player);
-                    }*/
-                    //BehaviorTest();
-                    behaviorTemplate.PerformBehavior(this, player);
-                    return;
-                }
-            case AttackPhase.ANIMATION:
-                {//this will be gone and handled on animator
-                    AttackAnimationTimer();
-                    return;
-                }
-            case AttackPhase.POSTANIMATION:
-                {//this will be gone and initiated on animator
-                    AttackHitPostAnimation();
-                    return;
-                }
-            case AttackPhase.POSTHIT:
-                {
-                    return;
-                }
-            default :
-                {
-                    Debug.Log("AttackPhase not implemented");
-                return;
-                }
-        }
-    }
+
     
-    private void AttackAnimationTimer()
-    {
-        if (!(attackAnimationTimer < 0))
-        {
-            attackAnimationTimer -= Time.deltaTime;
-            if (attackAnimationTimer < 0)
-            {
-                isAttacking = false;
-                AttackHitPostAnimation();
-            }
-        }
-    }
+
     public void ResetAttackAnimation()
     {
         if (_currentAttackPhase == AttackPhase.ANIMATION)

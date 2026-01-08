@@ -25,14 +25,13 @@ public class EnemyMovement : UnitMovement
     }
     public void MoveToTarget(Player player)
     {
-
         float horizontalDistance = Mathf.Abs(player.transform.position.x - transform.position.x);
         float verticalDistance = Mathf.Abs(player.transform.position.y - transform.position.y);
 
         //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
         //Debug.Log("TryingToMove");
         _agent.SetDestination(player.transform.position);
-        animationController.HandleAnimation();
+        animationController.HandleMovementAnimation();
         
         //Debug.Log("pre animation");
         //animationController.HandleAnimation();
@@ -42,7 +41,6 @@ public class EnemyMovement : UnitMovement
 
     void DirectionChecker()
     {
-
         float horizontalDistance = Mathf.Abs(_agent.steeringTarget.x - transform.position.x);
         float verticalDistance = Mathf.Abs(_agent.steeringTarget.y - transform.position.y);
 

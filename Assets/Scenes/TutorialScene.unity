@@ -2261,8 +2261,8 @@ MonoBehaviour:
   mageSO: {fileID: 11400000, guid: 4f7296c3a7d049e4984af6ea98cbc074, type: 2}
   enemySOs:
   - {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
-  - {fileID: 11400000, guid: 4f7296c3a7d049e4984af6ea98cbc074, type: 2}
-  - {fileID: 11400000, guid: 0e9d7911df658a9449718d4927dceacf, type: 2}
+  - {fileID: 11400000, guid: f86ebb9019a7a9c4b95a0cabd2e390ff, type: 2}
+  - {fileID: 11400000, guid: 204a6424375fa2541ad48cb557bffcae, type: 2}
 --- !u!1001 &606415667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25073,7 +25073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.18
+      value: -5.26
       objectReference: {fileID: 0}
     - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_LocalPosition.y

@@ -26,5 +26,5 @@ MonoBehaviour:
   minEnemiesPerRoom: 0
   maxEnemiesPerRoom: 0
   _redEnemy: {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
-  _greenEnemy: {fileID: 11400000, guid: 0e9d7911df658a9449718d4927dceacf, type: 2}
-  _blueEnemy: {fileID: 11400000, guid: 4f7296c3a7d049e4984af6ea98cbc074, type: 2}
+  _greenEnemy: {fileID: 11400000, guid: 204a6424375fa2541ad48cb557bffcae, type: 2}
+  _blueEnemy: {fileID: 11400000, guid: f86ebb9019a7a9c4b95a0cabd2e390ff, type: 2}

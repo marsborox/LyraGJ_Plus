@@ -16,7 +16,7 @@ MonoBehaviour:
   enemySpriteLibrary: {fileID: 7108339969198208228, guid: 99b15685d8ae28341978d220fa7d4c8f, type: 3}
   damage: 1
   health: 3
-  range: 1
+  range: 4
   attackCooldown: 1
   movementSpeed: 2
   attackAnimationTime: 3

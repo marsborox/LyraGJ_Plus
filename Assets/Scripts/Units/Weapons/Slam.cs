@@ -12,7 +12,7 @@ public class Slam : Weapon
         if (!CanAttack())
             return;
         coolDownTimer = maxCooldown;
-        Debug.Log("player attacking");
+        //Debug.Log("player attacking");
         //Debug.Log("Sword. attackHit");
         //currentCollider = currentAnimator.gameObject.GetComponent<Collider2D>();
 
@@ -32,7 +32,7 @@ public class Slam : Weapon
     {
         yield return new WaitForSeconds(0.02f);
         _myCollider.enabled = false;
-        Debug.Log("SlamCollider off");
+        //Debug.Log("SlamCollider off");
     }
     IEnumerator AttackAnimationRoutine()
     {
