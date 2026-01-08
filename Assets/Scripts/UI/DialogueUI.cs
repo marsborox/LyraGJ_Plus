@@ -17,9 +17,12 @@ public class DialogueUI : UI
     private Animator _rightAnimator;
 
     // typing properties
+    private bool _isTyping;
     private float _delayTyping = 0.02f;
     private string _messageToType = "";
-    private void Awake()
+    private Coroutine _typingRoutine;
+
+    void Awake()
     {
         if (leftCharacterImage != null) 
         {
@@ -34,6 +37,7 @@ public class DialogueUI : UI
     }
     public void Show(Sprite image, string text, bool isOnLeftSide = true)
     {
+        continueButton.interactable = false;
         _messageToType = text;
         textOfDialogue.text = "";
 
@@ -70,23 +74,38 @@ public class DialogueUI : UI
             }
         }
 
-        StopAllCoroutines();
-        StartCoroutine(TypeMessage());
+        if (_typingRoutine != null)
+        {
+            StopCoroutine(_typingRoutine);
+        }
+        _typingRoutine = StartCoroutine(TypeMessage());
+        StartCoroutine(ReenableContinueNextFrame());
+    }
+    private IEnumerator ReenableContinueNextFrame()
+    {
+        yield return null; // wait ONE frame
+        continueButton.interactable = true;
     }
     private IEnumerator TypeMessage()
     {
+        _isTyping = true;
         for (int i = 0; i < _messageToType.Length; i++)
         {
             textOfDialogue.text += _messageToType[i];
             yield return new WaitForSecondsRealtime(_delayTyping);
         }
+        _isTyping = false;
     }
     private void ContinueButtonClick()
     {
-        if (textOfDialogue.text.Length < _messageToType.Length)
+        if (_isTyping)
         {
-            StopAllCoroutines();
+            if (_typingRoutine != null)
+            {
+                StopCoroutine(_typingRoutine);
+            }
             textOfDialogue.text = _messageToType;
+            _isTyping = false;
         } else 
         {
             OnContinueDialogueClicked?.Invoke();

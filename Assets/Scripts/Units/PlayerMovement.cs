@@ -82,7 +82,7 @@ public class PlayerMovement : UnitMovement
             return;
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float distance = Vector2.Distance(transform.position,mousePosition);
-        Debug.Log("distance between mouse and player is: "+distance);
+        // Debug.Log("distance between mouse and player is: "+distance);
         // to avoid jitterying , because camera is following w delay
         if (distance < 0.8)
         { return; }
