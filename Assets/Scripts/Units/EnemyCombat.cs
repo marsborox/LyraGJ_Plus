@@ -128,7 +128,7 @@ public class EnemyCombat : UnitCombat
     public void AttackHitPostAnimation()
     {
         isAttacking = false;
-        Debug.Log("AttackAnimation ended, switching to posthitCooldown;");
+        //Debug.Log("AttackAnimation ended, switching to posthitCooldown;");
         //this must exist bcs when well have normal animation we will use this tere
         //will be initiated by animation event
         behaviorTemplate.PostAttackAction(this,player);
@@ -136,10 +136,7 @@ public class EnemyCombat : UnitCombat
         isAttackReady = false;
         _currentAttackPhase = AttackPhase.READY;
     }
-    public void PostAttackAnimationEventEnemy()
-    {
-        Debug.Log("PostAttackAnimationEventUnit in EnemyCombat");
-    }
+
     public bool CheckIfInRange()
     {
         //bool isInRrange;

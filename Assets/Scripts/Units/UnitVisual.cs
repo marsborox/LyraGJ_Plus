@@ -15,8 +15,8 @@ public class UnitVisual : MonoBehaviour
         Debug.Log(str);
         //_unitCombat.PostAttackAnimationEventUnit();
     }*/
-    public void PostAttackBlahBlahBlah()
+    public void PostTakeDamageAnimationEvent()
     {
-        Debug.Log("PostAttackAnimationEventUnit Blah Blah Blah");
+        
     }
 }
