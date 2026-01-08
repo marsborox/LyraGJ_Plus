@@ -12,7 +12,10 @@ public class EnemyCombat : UnitCombat
     public Player player;
     public EnemyBehavior_SO behaviorTemplate;
     public EnemyMovement enemyMovement;
+    public Room roomISpawnedIn;
     public bool isShielded = true;
+
+    [SerializeField] private GameObject _healthBarObject;
     private bool _isHit = false;
 
     [Tooltip("MUST BE IN %")]
@@ -20,7 +23,6 @@ public class EnemyCombat : UnitCombat
     [SerializeField] private Enemy _enemy;
     [SerializeField] private HealthPickup _healthPickup;
 
-    public Room roomISpawnedIn;
 
     [SerializeField] private EnemyShield _shield;
     [Header("combatStats")]
@@ -70,7 +72,8 @@ public class EnemyCombat : UnitCombat
         
         if (healthCurrent <= 0)
         {
-            Die();
+            DieAnimation();
+            //Die();
         }
     }
     private void FixedUpdate()
@@ -190,8 +193,16 @@ public class EnemyCombat : UnitCombat
         _isHit = false;
         //Debug.Log("Can be damaged again");
     }
-    private void Die()
+    private void DieAnimation()
     {
+        animationController.HandleDeathAnimation();
+        isStunned = true;
+        stunDuration = 999;
+        _healthBarObject.SetActive(false);
+    }
+    public override void Die()
+    {
+        //triggered by animationEvent
         //Debug.Log("Enemy died");
         if(GameManager.instance !=null) 
         GameManager.instance.EnemyDied();
@@ -211,24 +222,6 @@ public class EnemyCombat : UnitCombat
             healthPickup.transform.position = transform.position;
         }
     }
-    private void BehaviorTest()//for simplifying behavior switch
-    {
-        if (!CheckIfInRange())
-        {
-            enemyMovement.MoveToTarget(player);
-            return;
-        }
-        if (isAttackReady)
-        {
-            StartAttackAnimation();
-        }
-        else 
-        {
-            CooldownTimer();
-        }
-    }
-
-    
 
     public void ResetAttackAnimation()
     {

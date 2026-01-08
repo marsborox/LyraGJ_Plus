@@ -562,11 +562,12 @@ MonoBehaviour:
   player: {fileID: 0}
   behaviorTemplate: {fileID: 11400000, guid: cc37d312f8cf1714caf72785f99d807e, type: 2}
   enemyMovement: {fileID: 3549913713549301225}
+  roomISpawnedIn: {fileID: 0}
   isShielded: 1
+  _healthBarObject: {fileID: 972088653154952118}
   _chanceForHealthPickup: 20
   _enemy: {fileID: 4176866416230126860}
   _healthPickup: {fileID: 7821782152809312273, guid: bebe68fd268b9fd49bfdf05a7387d12e, type: 3}
-  roomISpawnedIn: {fileID: 0}
   _shield: {fileID: 4258614492040384127}
   range: 1
   damage: 1

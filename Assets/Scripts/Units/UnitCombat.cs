@@ -85,6 +85,8 @@ public class UnitCombat : MonoBehaviour
     {
         //Debug.Log("taking damage from unitCombat");
         animationController.HandleTakeDamageAnimation();
+        isStunned = true;
+        stunDuration = 999;//stun is cancelled post get hit animation, timer is arbitrary
         healthCurrent -= damage;
     }
     public virtual void GetHeal(int heal)
@@ -150,5 +152,9 @@ public class UnitCombat : MonoBehaviour
             //Debug.Log("Post-AttackAnimation Event, on Enemy");
             ((EnemyCombat)this).AttackHitPostAnimation();
         }
+    }
+    public virtual void Die()
+    { 
+        
     }
 }
