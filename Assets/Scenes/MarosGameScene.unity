@@ -2428,9 +2428,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: range
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 29055957}
+    - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: healthMax
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: roomISpawnedIn
       value: 
@@ -2502,23 +2510,27 @@ PrefabInstance:
     - target: {fileID: 5648023735614035241, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5ecc87fd00d23894081682e7b8c3282b, type: 3}
+      objectReference: {fileID: 21300000, guid: ddcef801aeaef8d4cb3ebe6b6800495a, type: 3}
     - target: {fileID: 5648023735614035241, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7066643326341800927, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_labelHash
-      value: 7.2434737e-35
+      value: 5.901987e-35
       objectReference: {fileID: 0}
     - target: {fileID: 7066643326341800927, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_SpriteHash
-      value: 216133478
+      value: 33322737
       objectReference: {fileID: 0}
     - target: {fileID: 7066643326341800927, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_CategoryHash
-      value: 9.365925e-16
+      value: 0.009161512
       objectReference: {fileID: 0}
+    - target: {fileID: 9194200120919051774, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: m_SpriteLibraryAsset
+      value: 
+      objectReference: {fileID: 7108339969198208228, guid: 5b07ce75332f1de428be13c2b2594578, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

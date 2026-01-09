@@ -175,7 +175,7 @@ public class EnemyCombat : UnitCombat
             return;
         }
         _isHit = true;
-        Debug.Log("taking damage from unitCombat");
+        //Debug.Log("taking damage from unitCombat");
         animationController.HandleTakeDamageAnimation();
         isStunned = true;
         stunDuration = 999;//stun is cancelled post get hit animation, timer is arbitrary
