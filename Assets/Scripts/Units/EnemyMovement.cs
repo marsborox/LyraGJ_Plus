@@ -38,7 +38,10 @@ public class EnemyMovement : UnitMovement
         //animationController.HandleAnimation();
         //Debug.Log("post animation");
     }
-
+    public void StopMovement()
+    {
+        _agent.SetDestination(transform.position);
+    }
     void DirectionChecker()
     {
         float horizontalDistance = Mathf.Abs(_agent.steeringTarget.x - transform.position.x);

@@ -175,12 +175,18 @@ public class EnemyCombat : UnitCombat
             return;
         }
         _isHit = true;
+        //Debug.Log("taking damage from unitCombat");
+        animationController.HandleTakeDamageAnimation();
+        isStunned = true;
+        stunDuration = 999;//stun is cancelled post get hit animation, timer is arbitrary
+        
         //Debug.Log("Taking "+damage+" Damage");
         StartCoroutine(MakeDamageableAgainRoutine());
+
         healthCurrent -= damage;
         //Debug.Log("Taking damage in enemyCombat");
         //Debug.Log(damage+" damage taken");
-        ResetAttackAnimation();
+        ResetAttackAnimation();//this disables enemies attack on hit
     }
     public void DisableShield()
     {
@@ -195,9 +201,10 @@ public class EnemyCombat : UnitCombat
     }
     private void DieAnimation()
     {
-        animationController.HandleDeathAnimation();
-        isStunned = true;
         stunDuration = 999;
+        isStunned = true;
+        animationController.HandleDeathAnimation();
+        enemyMovement.StopMovement();
         _healthBarObject.SetActive(false);
     }
     public override void Die()
