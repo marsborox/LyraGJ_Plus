@@ -1,6 +1,7 @@
 using UnityEditor;
 
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
@@ -8,6 +9,7 @@ public class Unit : MonoBehaviour
     //[SerializeField] private SpriteRenderer _sprite; 
     public UnitStats unitStats;
     public UnitCombat unitCombat;
+    public SpriteLibrary spriteLibrary;
     public string targetTag;
 
 

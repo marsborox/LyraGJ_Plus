@@ -1146,6 +1146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 6110641428596706858}
   unitCombat: {fileID: 723713826427866658}
+  spriteLibrary: {fileID: 2061790048428880483}
   targetTag: Enemy
   playerMovement: {fileID: 859534956746889397}
   rythmBonus: {fileID: 5730095958024378426}
