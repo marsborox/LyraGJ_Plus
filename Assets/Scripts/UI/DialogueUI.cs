@@ -14,14 +14,18 @@ public class DialogueUI : UI
     [SerializeField] private Image rightCharacterImage;
     [SerializeField] private Button continueButton;
     [SerializeField] private Button skipButton;
+    [SerializeField] private Image continueImage;
+    [SerializeField] private Image mouseClickImage;
 
     private Animator _leftAnimator;
     private Animator _rightAnimator;
-
+    private Coroutine _pressContinueRoutine;
+    
     // typing properties
     private bool _isTyping = false;
     private float _delayTyping = 0.02f;
     private string _messageToType = "";
+    private Coroutine _typingRoutine;
 
     void Awake()
     {
@@ -56,7 +60,7 @@ public class DialogueUI : UI
             skipButton.onClick.RemoveListener(SkipButtonClick);
         }
     }
-    public void Show(Sprite image, string text, bool isOnLeftSide = true)
+    public void Show(Sprite image, string text, bool isOnLeftSide = true, bool isFirstDialogue = false, bool hasMoreDialogues = true)
     {
         _messageToType = text;
         textOfDialogue.text = "";
@@ -94,8 +98,14 @@ public class DialogueUI : UI
             }
         }
 
-        StopAllCoroutines();
-        StartCoroutine(TypeMessage());
+        // mouseClickImage.gameObject.SetActive(isFirstDialogue); // looks a bit silly
+        if (continueImage != null)
+        {
+            continueImage.gameObject.SetActive(hasMoreDialogues);            
+        }
+
+        if (_typingRoutine != null) StopCoroutine(_typingRoutine);
+        _typingRoutine = StartCoroutine(TypeMessage());
     }
     private IEnumerator TypeMessage()
     {
@@ -109,11 +119,13 @@ public class DialogueUI : UI
     }
     private void ContinueButtonClick()
     {
+        ToggleContinueImage();
+
         if (_isTyping)
         {
             _isTyping = false;
 
-            StopAllCoroutines();
+            if (_typingRoutine != null) StopCoroutine(_typingRoutine);
             textOfDialogue.text = _messageToType;
         } else 
         {
@@ -123,5 +135,25 @@ public class DialogueUI : UI
     private void SkipButtonClick()
     {
         OnSkipDialogueClicked?.Invoke();
+    }
+
+    // handle continue image coloring
+
+    private void ToggleContinueImage()
+    {
+        if (_pressContinueRoutine != null) StopCoroutine(_pressContinueRoutine);
+        _pressContinueRoutine = StartCoroutine(PressContinueSequence());
+    }
+    private IEnumerator PressContinueSequence()
+    {
+        PressContinueImage(true);
+        yield return new WaitForSecondsRealtime(0.12f);
+        PressContinueImage(false);
+    }
+    private void PressContinueImage(bool press)
+    {
+        Color c = continueImage.color;
+        c.a = press ? 0.9f : 1f;
+        continueImage.color = c;
     }
 }
