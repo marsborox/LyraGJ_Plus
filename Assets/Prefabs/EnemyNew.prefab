@@ -463,7 +463,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4489072915053502083}
@@ -487,9 +487,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 1474502790447180861}
   unitCombat: {fileID: 471255943450887182}
+  spriteLibrary: {fileID: 9194200120919051774}
   targetTag: Player
   enemyType: 0
-  spriteLibrary: {fileID: 9194200120919051774}
   enemyMovement: {fileID: 3549913713549301225}
   _animationController: {fileID: 1123149760818088287}
   _spriteResolver: {fileID: 7066643326341800927}
@@ -558,14 +558,16 @@ MonoBehaviour:
   stunTimer: 0
   myRigidBody: {fileID: 7886990425334265719}
   thisUnit: {fileID: 4176866416230126860}
+  animationController: {fileID: 1123149760818088287}
   player: {fileID: 0}
   behaviorTemplate: {fileID: 11400000, guid: cc37d312f8cf1714caf72785f99d807e, type: 2}
   enemyMovement: {fileID: 3549913713549301225}
+  roomISpawnedIn: {fileID: 0}
   isShielded: 1
+  _healthBarObject: {fileID: 972088653154952118}
   _chanceForHealthPickup: 20
   _enemy: {fileID: 4176866416230126860}
   _healthPickup: {fileID: 7821782152809312273, guid: bebe68fd268b9fd49bfdf05a7387d12e, type: 3}
-  roomISpawnedIn: {fileID: 0}
   _shield: {fileID: 4258614492040384127}
   range: 1
   damage: 1
@@ -729,6 +731,7 @@ GameObject:
   - component: {fileID: 9194200120919051774}
   - component: {fileID: 7066643326341800927}
   - component: {fileID: 4815074252831520146}
+  - component: {fileID: 1094105937661057830}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -798,12 +801,12 @@ SpriteRenderer:
   m_SortingLayerID: 1835196397
   m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5375432567833919179, guid: 50c6226e72d164d45ab48c4634f15793, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50c6226e72d164d45ab48c4634f15793, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -861,6 +864,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1094105937661057830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535077813506137143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e2aafa3fcc6c419f78cf06d37fdb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _unitCombat: {fileID: 471255943450887182}
 --- !u!1 &6133749775801559226
 GameObject:
   m_ObjectHideFlags: 0

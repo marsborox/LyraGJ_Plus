@@ -18,7 +18,7 @@ public class Sword : Weapon
         if (!CanAttack())
             return;
         coolDownTimer = maxCooldown;
-        Debug.Log("player attacking");
+        //Debug.Log("player attacking");
         _visualCollider.transform.rotation = mouseFollow.ReturnMouseDirection();
         _myCollider.enabled = true;
         _animationVisual.SetActive(true);
@@ -42,7 +42,7 @@ public class Sword : Weapon
     {
         yield return new WaitForSeconds(0.02f);
         _myCollider.enabled = false;
-        Debug.Log("sword collider off");
+        //Debug.Log("sword collider off");
     }
     IEnumerator AttackAnimationRoutine()
     {

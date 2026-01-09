@@ -82,7 +82,7 @@ public class PlayerMovement : UnitMovement
             return;
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float distance = Vector2.Distance(transform.position,mousePosition);
-        // Debug.Log("distance between mouse and player is: "+distance);
+        //Debug.Log("distance between mouse and player is: "+distance);
         // to avoid jitterying , because camera is following w delay
         if (distance < 0.8)
         { return; }
@@ -94,7 +94,7 @@ public class PlayerMovement : UnitMovement
         
         //transform.position = Vector2.MoveTowards(transform.position, movePosition, movementSpeed*Time.fixedDeltaTime);
         _myRigidbody2D.MovePosition(transform.position + movePosition * movementSpeed * Time.fixedDeltaTime);
-        animationController.HandleAnimation();
+        animationController.HandleMovementAnimation();
     }
     public void DashWSAD(Vector2 rawInput)
     {

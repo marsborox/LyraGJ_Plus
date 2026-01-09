@@ -13,7 +13,6 @@ public class RangedBasic_SO : EnemyBehavior_SO
 
         if (!source.CheckIfInRange())
         {
-
             source.enemyMovement.MoveToTarget(source.player);
             //source.enemyMovement.animationController.HandleAnimation();
             source.enemyMovement.animationController.HandleAnimationNoIdle();

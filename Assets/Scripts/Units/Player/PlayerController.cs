@@ -82,6 +82,10 @@ public class PlayerController : MonoBehaviour
         //player.playerMovement.MoveByVector(_rawInput);// from HadesControls W,S,A,D
         //player.input = _rawInput;
         //CheckClickHoldAction();
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         CheckClickHoldActions();
     }
     void Update()
@@ -126,27 +130,27 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("weapon1");
         //player.AttackWeapon1();
         player.AttackWeapon1Click();
-        _animationController.HandleAnimation();
+        _animationController.HandleMovementAnimation();
     }
     void OnWeapon2()
     {
         //Debug.Log("weapon2");
         //player.AttackWeapon2();
         player.AttackWeapon2Click();
-        _animationController.HandleAnimation();
+        _animationController.HandleMovementAnimation();
     }
     void OnWeapon3()
     {
         //Debug.Log("weapon3");
         //player.AttackWeapon3();
         player.AttackWeapon3Click();
-        _animationController.HandleAnimation();
+        _animationController.HandleMovementAnimation();
     }
     void OnWeapon4()
     {
         //Debug.Log("weapon4");
         player.AttackWeapon4Click();
-        _animationController.HandleAnimation();
+        _animationController.HandleMovementAnimation();
     }
     #endregion
     void OnAction1()

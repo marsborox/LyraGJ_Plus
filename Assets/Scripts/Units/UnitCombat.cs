@@ -23,6 +23,7 @@ public class UnitCombat : MonoBehaviour
 
     public Rigidbody2D myRigidBody;
     public Unit thisUnit;
+    public UnitAnimationController animationController;
     void Start()
     {
         healthCurrent = healthMax;
@@ -82,7 +83,11 @@ public class UnitCombat : MonoBehaviour
     }
     public virtual void TakeDamage(int damage)
     {
-        //Debug.Log("taking damage from unitCombat");
+        /*Debug.Log("taking damage from unitCombat");
+        animationController.HandleTakeDamageAnimation();
+        isStunned = true;
+        stunDuration = 999;//stun is cancelled post get hit animation, timer is arbitrary
+        */
         healthCurrent -= damage;
     }
     public virtual void GetHeal(int heal)
@@ -139,5 +144,18 @@ public class UnitCombat : MonoBehaviour
     {
         stunTimer = time;
         isStunned = true;
+    }
+    public void PostAttackAnimationEventUnit()
+    {
+        //Debug.Log("Post-AttackAnimation Event");
+        if (this is EnemyCombat)
+        {
+            //Debug.Log("Post-AttackAnimation Event, on Enemy");
+            ((EnemyCombat)this).AttackHitPostAnimation();
+        }
+    }
+    public virtual void Die()
+    { 
+        
     }
 }

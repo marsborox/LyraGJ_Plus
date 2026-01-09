@@ -12,7 +12,10 @@ public class EnemyCombat : UnitCombat
     public Player player;
     public EnemyBehavior_SO behaviorTemplate;
     public EnemyMovement enemyMovement;
+    public Room roomISpawnedIn;
     public bool isShielded = true;
+
+    [SerializeField] private GameObject _healthBarObject;
     private bool _isHit = false;
 
     [Tooltip("MUST BE IN %")]
@@ -20,7 +23,6 @@ public class EnemyCombat : UnitCombat
     [SerializeField] private Enemy _enemy;
     [SerializeField] private HealthPickup _healthPickup;
 
-    public Room roomISpawnedIn;
 
     [SerializeField] private EnemyShield _shield;
     [Header("combatStats")]
@@ -70,7 +72,8 @@ public class EnemyCombat : UnitCombat
         
         if (healthCurrent <= 0)
         {
-            Die();
+            DieAnimation();
+            //Die();
         }
     }
     private void FixedUpdate()
@@ -83,17 +86,51 @@ public class EnemyCombat : UnitCombat
             return;
         BehaviorSwitch();
     }
+    private void BehaviorSwitch()
+    {
+        switch (_currentAttackPhase)
+        {
+            case AttackPhase.READY:
+                {//SO behav
 
+                    //BehaviorTest();
+                    behaviorTemplate.PerformBehavior(this, player);//triggers startAttackAnimation
+                    return;
+                }
+            case AttackPhase.ANIMATION:
+                {//this will be gone and handled on animator
+                    //AttackAnimationTimer();
+                    return;
+                }
+            case AttackPhase.POSTANIMATION:
+                {//this will be gone and initiated on animator
+                    AttackHitPostAnimation();
+                    return;
+                }
+            case AttackPhase.POSTHIT:
+                {
+                    return;
+                }
+            default:
+                {
+                    Debug.Log("AttackPhase not implemented");
+                    return;
+                }
+        }
+    }
     public void StartAttackAnimation()
     {
         //Debug.Log("Starting AttackAnimaiton");
-        attackAnimationTimer = attackAnimationTime;
+        animationController.HandleEnemyAttackAnimation();
+        //attackAnimationTimer = attackAnimationTime;
         isAttacking = true;
         _currentAttackPhase = AttackPhase.ANIMATION;
         //play attackAnimation
     }
+
     public void AttackHitPostAnimation()
     {
+        isAttacking = false;
         //Debug.Log("AttackAnimation ended, switching to posthitCooldown;");
         //this must exist bcs when well have normal animation we will use this tere
         //will be initiated by animation event
@@ -102,6 +139,7 @@ public class EnemyCombat : UnitCombat
         isAttackReady = false;
         _currentAttackPhase = AttackPhase.READY;
     }
+
     public bool CheckIfInRange()
     {
         //bool isInRrange;
@@ -137,12 +175,18 @@ public class EnemyCombat : UnitCombat
             return;
         }
         _isHit = true;
+        //Debug.Log("taking damage from unitCombat");
+        animationController.HandleTakeDamageAnimation();
+        isStunned = true;
+        stunDuration = 999;//stun is cancelled post get hit animation, timer is arbitrary
+        
         //Debug.Log("Taking "+damage+" Damage");
         StartCoroutine(MakeDamageableAgainRoutine());
+
         healthCurrent -= damage;
         //Debug.Log("Taking damage in enemyCombat");
         //Debug.Log(damage+" damage taken");
-        ResetAttackAnimation();
+        ResetAttackAnimation();//this disables enemies attack on hit
     }
     public void DisableShield()
     {
@@ -155,8 +199,17 @@ public class EnemyCombat : UnitCombat
         _isHit = false;
         //Debug.Log("Can be damaged again");
     }
-    private void Die()
+    private void DieAnimation()
     {
+        stunDuration = 999;
+        isStunned = true;
+        animationController.HandleDeathAnimation();
+        enemyMovement.StopMovement();
+        _healthBarObject.SetActive(false);
+    }
+    public override void Die()
+    {
+        //triggered by animationEvent
         //Debug.Log("Enemy died");
         if(GameManager.instance !=null) 
         GameManager.instance.EnemyDied();
@@ -176,76 +229,7 @@ public class EnemyCombat : UnitCombat
             healthPickup.transform.position = transform.position;
         }
     }
-    private void BehaviorTest()//for simplifying behavior switch
-    {
-        if (!CheckIfInRange())
-        {
-            enemyMovement.MoveToTarget(player);
-            return;
-        }
-        if (isAttackReady)
-        {
-            StartAttackAnimation();
-        }
-        else 
-        {
-            CooldownTimer();
-        }
-    }
-    private void BehaviorSwitch()
-    {
-        switch (_currentAttackPhase)
-        { 
-            case AttackPhase.READY:
-                {//SO behav
-                    /*
-                    if (CheckIfInRange())
-                    {
-                        //start attack animation
-                        StartAttackAnimation();
-                    }
-                    else
-                    {
-                        _enemyMovement.MoveToTarget(player);
-                    }*/
-                    //BehaviorTest();
-                    behaviorTemplate.PerformBehavior(this, player);
-                    return;
-                }
-            case AttackPhase.ANIMATION:
-                {//this will be gone and handled on animator
-                    AttackAnimationTimer();
-                    return;
-                }
-            case AttackPhase.POSTANIMATION:
-                {//this will be gone and initiated on animator
-                    AttackHitPostAnimation();
-                    return;
-                }
-            case AttackPhase.POSTHIT:
-                {
-                    return;
-                }
-            default :
-                {
-                    Debug.Log("AttackPhase not implemented");
-                return;
-                }
-        }
-    }
-    
-    private void AttackAnimationTimer()
-    {
-        if (!(attackAnimationTimer < 0))
-        {
-            attackAnimationTimer -= Time.deltaTime;
-            if (attackAnimationTimer < 0)
-            {
-                isAttacking = false;
-                AttackHitPostAnimation();
-            }
-        }
-    }
+
     public void ResetAttackAnimation()
     {
         if (_currentAttackPhase == AttackPhase.ANIMATION)
