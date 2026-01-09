@@ -13,6 +13,6 @@ public class GrenadeLauncher : Weapon
         grenade.damage = ReturnCalculateDamage();
         grenade.transform.position = transform.position;
         grenade.CalcBalistics(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
+        GlobalEventManager.instance.TriggerOnPlayerAtack();
     }
 }

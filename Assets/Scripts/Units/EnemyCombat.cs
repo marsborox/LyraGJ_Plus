@@ -15,6 +15,9 @@ public class EnemyCombat : UnitCombat
     public Room roomISpawnedIn;
     public bool isShielded = true;
 
+    [Tooltip("Set in %")]
+    public float displayConversationChance = 5;
+
     [SerializeField] private GameObject _healthBarObject;
     private bool _isHit = false;
 
@@ -22,9 +25,10 @@ public class EnemyCombat : UnitCombat
     [SerializeField] private int _chanceForHealthPickup = 20;
     [SerializeField] private Enemy _enemy;
     [SerializeField] private HealthPickup _healthPickup;
-
+    [SerializeField] private EnemyConversation _conversation;
 
     [SerializeField] private EnemyShield _shield;
+    [SerializeField]private AttackPhase _currentAttackPhase = AttackPhase.READY;
     [Header("combatStats")]
 
     public float range = 0.2f;
@@ -48,8 +52,15 @@ public class EnemyCombat : UnitCombat
     public float advantageCoef = 0.5f;
     public float disadvantageCoef = 1.5f;
 
-    [SerializeField]private AttackPhase _currentAttackPhase = AttackPhase.READY;
 
+    private void OnEnable()
+    {
+        GlobalEventManager.OnPlayerAttack += ReactToPlayerAttack;
+    }
+    private void OnDisable()
+    {
+        GlobalEventManager.OnPlayerAttack -= ReactToPlayerAttack;
+    }
     void Update()
     {
         CooldownTimer();
@@ -86,42 +97,11 @@ public class EnemyCombat : UnitCombat
             return;
         BehaviorSwitch();
     }
-    private void BehaviorSwitch()
-    {
-        switch (_currentAttackPhase)
-        {
-            case AttackPhase.READY:
-                {//SO behav
-
-                    //BehaviorTest();
-                    behaviorTemplate.PerformBehavior(this, player);//triggers startAttackAnimation
-                    return;
-                }
-            case AttackPhase.ANIMATION:
-                {//this will be gone and handled on animator
-                    //AttackAnimationTimer();
-                    return;
-                }
-            case AttackPhase.POSTANIMATION:
-                {//this will be gone and initiated on animator
-                    AttackHitPostAnimation();
-                    return;
-                }
-            case AttackPhase.POSTHIT:
-                {
-                    return;
-                }
-            default:
-                {
-                    Debug.Log("AttackPhase not implemented");
-                    return;
-                }
-        }
-    }
     public void StartAttackAnimation()
     {
         //Debug.Log("Starting AttackAnimaiton");
         animationController.HandleEnemyAttackAnimation();
+    
         //attackAnimationTimer = attackAnimationTime;
         isAttacking = true;
         _currentAttackPhase = AttackPhase.ANIMATION;
@@ -193,11 +173,74 @@ public class EnemyCombat : UnitCombat
         Destroy(_shield.gameObject);
         isShielded = false;
     }
+    public override void Die()
+    {
+        //triggered by animationEvent
+        //Debug.Log("Enemy died");
+        if (GameManager.instance != null)
+            GameManager.instance.EnemyDied();
+        //Debug.Log("enemyDeath processing");
+        CheckDropHealth();
+        GlobalEventManager.instance.TriggerOnEnemyDied(_enemy, roomISpawnedIn);
+        Destroy(gameObject);
+
+        //roomISpawnedIn.EnemyDied();
+    }
     IEnumerator MakeDamageableAgainRoutine()
     {
         yield return new WaitForSeconds(0.1f);
         _isHit = false;
         //Debug.Log("Can be damaged again");
+    }
+    private void ReactToPlayerAttack()
+    {
+        int randomRoll = Random.Range(0,100);
+        //Debug.Log("Registering players attack with Random roll: " + randomRoll);
+        
+        if (randomRoll > displayConversationChance)
+        { return; }
+        _conversation.gameObject.SetActive(true);
+    }
+    public void ResetAttackAnimation()
+    {
+        if (_currentAttackPhase == AttackPhase.ANIMATION)
+        {
+            isAttacking = false;
+            attackAnimationTimer = -0.0001f;//basically set to zero
+            _currentAttackPhase = AttackPhase.READY;
+        }
+    }
+    private void BehaviorSwitch()
+    {
+        switch (_currentAttackPhase)
+        {
+            case AttackPhase.READY:
+                {//SO behav
+
+                    //BehaviorTest();
+                    behaviorTemplate.PerformBehavior(this, player);//triggers startAttackAnimation
+                    return;
+                }
+            case AttackPhase.ANIMATION:
+                {//this will be gone and handled on animator
+                    //AttackAnimationTimer();
+                    return;
+                }
+            case AttackPhase.POSTANIMATION:
+                {//this will be gone and initiated on animator
+                    AttackHitPostAnimation();
+                    return;
+                }
+            case AttackPhase.POSTHIT:
+                {
+                    return;
+                }
+            default:
+                {
+                    Debug.Log("AttackPhase not implemented");
+                    return;
+                }
+        }
     }
     private void DieAnimation()
     {
@@ -207,19 +250,7 @@ public class EnemyCombat : UnitCombat
         enemyMovement.StopMovement();
         _healthBarObject.SetActive(false);
     }
-    public override void Die()
-    {
-        //triggered by animationEvent
-        //Debug.Log("Enemy died");
-        if(GameManager.instance !=null) 
-        GameManager.instance.EnemyDied();
-        //Debug.Log("enemyDeath processing");
-        CheckDropHealth();
-        GlobalEventManager.instance.TriggerOnEnemyDied(_enemy, roomISpawnedIn);
-        Destroy(gameObject);
 
-        //roomISpawnedIn.EnemyDied();
-    }
     private void CheckDropHealth()
     {
         int drop = Random.Range(0, 100);
@@ -230,15 +261,7 @@ public class EnemyCombat : UnitCombat
         }
     }
 
-    public void ResetAttackAnimation()
-    {
-        if (_currentAttackPhase == AttackPhase.ANIMATION)
-        {
-            isAttacking = false;
-            attackAnimationTimer = -0.0001f;//basically set to zero
-            _currentAttackPhase = AttackPhase.READY;
-        }
-    }
+
 }
 /*
 void PerformTimers()

@@ -26,7 +26,7 @@ public class Slam : Weapon
         StartCoroutine(AttackHitRoutine());
         StartCoroutine(AttackAnimationRoutine());
         StartCooldown();
-        
+        GlobalEventManager.instance.TriggerOnPlayerAtack();
     }
     IEnumerator AttackHitRoutine()
     {

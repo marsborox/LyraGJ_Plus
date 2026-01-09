@@ -35,6 +35,7 @@ public class BowAuto : Weapon
         projectile.pushBackDuration = pushBackDuration;//not in SO
         projectile.pushBackForce = pushbackForce;//not in SO
         _animationRoutine = StartCoroutine(AnimationRoutine());
+        GlobalEventManager.instance.TriggerOnPlayerAtack();
     }
     IEnumerator AnimationRoutine()
     { //simulates animation

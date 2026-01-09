@@ -26,6 +26,7 @@ public class Sword : Weapon
         StartCoroutine(AttackHitRoutine());
         StartCoroutine(AttackAnimationRoutine());
         //Attack();
+        GlobalEventManager.instance.TriggerOnPlayerAtack();
     }
     public override void DealHit(Unit unit)
     {
