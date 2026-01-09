@@ -31,28 +31,30 @@ MonoBehaviour:
       to visit my small and humble opera at this time of year. Is everything alright?
     character: 1
     emotion: 1
-  - dialogueText: Yes, I am alright. Sorry for disturbing you, I just wanted some
+  - dialogueText: Yes, I am alright. Sorry for disturbing you! I just wanted some
       peace and quiet to think.
     character: 0
-    emotion: 5
+    emotion: 4
   - dialogueText: Wait. You said "My small and humble opera"?
     character: 0
     emotion: 1
-  - dialogueText: Yes, my name is Julius Pedro and I welcome you to my opera house.
-      While it has seen better days, I am glad there still are people that find time
-      to visit this place.
+  - dialogueText: Yes, my name is Julius Pedro and I welcome you to my house.
+    character: 1
+    emotion: 3
+  - dialogueText: While it has seen better days, I'm glad there still are people
+      that find time to visit this place.
     character: 1
     emotion: 3
   - dialogueText: Now, may I ask your name, and what bring such a pretty lady as
-      you to my opera?
+      you here?
     character: 1
     emotion: 1
-  - dialogueText: I'm Lyra. And well, you see... I used to visit this place with
-      my mother when I was little. She loved this opera and the shows here.
+  - dialogueText: I'm Lyra. And well, you see... I used to visit this opera with
+      my mother when I was little. She loved the place and the shows here.
     character: 0
-    emotion: 4
-  - dialogueText: So I promised her that when I grow up, I will sing in this opera
-      to make her happy and proud of me.
+    emotion: 5
+  - dialogueText: So I promised her that when I grow up, I will sing in here to make
+      her happy and proud of me.
     character: 0
     emotion: 4
   - dialogueText: That is a beautiful promise. Now, being the gentleman that I am,
@@ -62,15 +64,15 @@ MonoBehaviour:
   - dialogueText: While I know this place isn't what it used to be, I can offer you
       any help you need to put on a show for your mother.
     character: 1
-    emotion: 3
-  - dialogueText: I appreciate the offer but sadly I don't think you can help me.
-      You see, I can't sing anymore since I have lost my voice.
+    emotion: 2
+  - dialogueText: I appreciate it but sadly I don't think you can help me. You see,
+      I can't sing anymore since I have lost my voice.
     character: 0
     emotion: 5
   - dialogueText: It got badly damaged during training and no medicine has helped
       heal it.
     character: 0
-    emotion: 6
+    emotion: 5
   - dialogueText: Now this is where we disagree, hon. There are other ways for you
       to heal. Here, let me show you the magic of music!
     character: 1
@@ -79,13 +81,16 @@ MonoBehaviour:
     character: 0
     emotion: 1
   - dialogueText: Yes! Follow my instructions, feel the music and you will see the
-      fruits of your hard work. Let's look at jazz first to see what it has to offer.
+      fruits of your hard work.
     character: 1
-    emotion: 2
+    emotion: 0
+  - dialogueText: Shall we try jazz first to see what it has to offer?
+    character: 1
+    emotion: 1
   - dialogueText: Let's start the show!
     character: 1
     emotion: 2
   - dialogueText: 'Woah, okay. '
     character: 0
-    emotion: 2
+    emotion: 1
   fileName: DarkLobbyDialogue_SO
