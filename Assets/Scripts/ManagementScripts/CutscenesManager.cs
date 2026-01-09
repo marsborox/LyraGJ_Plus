@@ -44,10 +44,7 @@ public class CutscenesManager : MonoBehaviour
     void Awake()
     {
         var player = GameObject.FindGameObjectWithTag("Player");
-        if (player)
-        {
-            _playerRigidbody = player.GetComponent<Rigidbody2D>();
-        }
+        if (player) _playerRigidbody = player.GetComponent<Rigidbody2D>();
     }
     void OnEnable()
     {
@@ -140,10 +137,7 @@ public class CutscenesManager : MonoBehaviour
     {
         foreach (GameObject gameObject in hideWhileTalking)
         {
-            if (gameObject != null)
-            {
-                gameObject.SetActive(!hide);
-            }
+            if (gameObject != null) gameObject.SetActive(!hide);
         }
     }
 

@@ -28,36 +28,18 @@ public class DialogueUI : UI
 
     void Awake()
     {
-        if (leftCharacterImage != null) 
-        {
-            _leftAnimator = leftCharacterImage.GetComponent<Animator>();
-        }
-        if (rightCharacterImage != null) 
-        {
-            _rightAnimator = rightCharacterImage.GetComponent<Animator>();
-        }
+        if (leftCharacterImage != null) _leftAnimator = leftCharacterImage.GetComponent<Animator>();
+        if (rightCharacterImage != null) _rightAnimator = rightCharacterImage.GetComponent<Animator>();
     }
     void OnEnable()
     {
-        if (continueButton != null)
-        {
-            continueButton.onClick.AddListener(ContinueButtonClick);
-        }
-        if (skipButton != null)
-        {
-            skipButton.onClick.AddListener(SkipButtonClick);
-        }
+        if (continueButton != null) continueButton.onClick.AddListener(ContinueButtonClick);
+        if (skipButton != null) skipButton.onClick.AddListener(SkipButtonClick);
     }
     void OnDisable()
     {
-        if (continueButton != null)
-        {
-            continueButton.onClick.RemoveListener(ContinueButtonClick);
-        }
-        if (skipButton != null)
-        {
-            skipButton.onClick.RemoveListener(SkipButtonClick);
-        }
+        if (continueButton != null) continueButton.onClick.RemoveListener(ContinueButtonClick);
+        if (skipButton != null) skipButton.onClick.RemoveListener(SkipButtonClick);
     }
     public void Show(Sprite image, string text, bool isOnLeftSide = true, bool hasMoreDialogues = true)
     {
@@ -97,13 +79,11 @@ public class DialogueUI : UI
             }
         }
 
-        if (continueImage != null)
-        {
-            continueImage.gameObject.SetActive(hasMoreDialogues);            
-        }
+        if (continueImage != null) continueImage.gameObject.SetActive(hasMoreDialogues);
 
-        if (_typingRoutine != null) StopCoroutine(_typingRoutine);
-        _typingRoutine = StartCoroutine(TypeMessage());
+        textOfDialogue.text = text; // comment out to enable typing
+        // if (_typingRoutine != null) StopCoroutine(_typingRoutine);
+        // _typingRoutine = StartCoroutine(TypeMessage());
     }
     private IEnumerator TypeMessage()
     {
