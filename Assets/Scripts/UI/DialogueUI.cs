@@ -15,7 +15,6 @@ public class DialogueUI : UI
     [SerializeField] private Button continueButton;
     [SerializeField] private Button skipButton;
     [SerializeField] private Image continueImage;
-    [SerializeField] private Image mouseClickImage;
 
     private Animator _leftAnimator;
     private Animator _rightAnimator;
@@ -60,7 +59,7 @@ public class DialogueUI : UI
             skipButton.onClick.RemoveListener(SkipButtonClick);
         }
     }
-    public void Show(Sprite image, string text, bool isOnLeftSide = true, bool isFirstDialogue = false, bool hasMoreDialogues = true)
+    public void Show(Sprite image, string text, bool isOnLeftSide = true, bool hasMoreDialogues = true)
     {
         _messageToType = text;
         textOfDialogue.text = "";
@@ -98,7 +97,6 @@ public class DialogueUI : UI
             }
         }
 
-        // mouseClickImage.gameObject.SetActive(isFirstDialogue); // looks a bit silly
         if (continueImage != null)
         {
             continueImage.gameObject.SetActive(hasMoreDialogues);            

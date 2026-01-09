@@ -126,7 +126,7 @@ public class CutscenesManager : MonoBehaviour
                 {
                     if (emotionPair.emotion == part.emotion)
                     {
-                        dialogueUI.Show(emotionPair.sprite, part.dialogueText, part.character == CharacterID.Lyra, _currentPartIndex == 0, _currentPartIndex < _currentDialogue.parts.Length - 1);              
+                        dialogueUI.Show(emotionPair.sprite, part.dialogueText, part.character == CharacterID.Lyra, _currentPartIndex < _currentDialogue.parts.Length - 1);              
                         stop = true;
                         break;
                     }
