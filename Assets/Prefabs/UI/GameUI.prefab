@@ -1390,8 +1390,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6781828787850955358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.05, y: 0.05}
-  m_AnchorMax: {x: 0.95, y: 0.85}
+  m_AnchorMin: {x: 0.07, y: 0.02}
+  m_AnchorMax: {x: 0.93, y: 0.85}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1423,7 +1423,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Sweet moves, Lyra. \nThe jazz is singin\u2019 your name tonight."
+  m_text: Yes, my name is Julius Pedro and I welcome you to my opera house. While
+    it has seen better days, I am glad there still are people that find time to visit
+    this place.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4396adb4de3bee340a756fd3b12fffa3, type: 2}
   m_sharedMaterial: {fileID: 1229135787370241006, guid: 4396adb4de3bee340a756fd3b12fffa3, type: 2}
@@ -2429,8 +2431,8 @@ RectTransform:
   - {fileID: 994109237943527258}
   m_Father: {fileID: 7562931887640719203}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3, y: 0.025}
-  m_AnchorMax: {x: 0.7, y: 0.2}
+  m_AnchorMin: {x: 0.275, y: 0.025}
+  m_AnchorMax: {x: 0.75, y: 0.295}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
