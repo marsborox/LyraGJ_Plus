@@ -1,9 +1,15 @@
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 public class UnitVisual : MonoBehaviour
 {
     [SerializeField] private UnitCombat _unitCombat;
-
+    
+    private void Start()
+    {
+        
+    }
+    
     public void PostAttackAnimationEvent()
     {
         //Debug.Log("PostAttackAnimationEventUnit in UnitVisual");
@@ -25,4 +31,5 @@ public class UnitVisual : MonoBehaviour
     {
         _unitCombat.Die();
     }
+
 }

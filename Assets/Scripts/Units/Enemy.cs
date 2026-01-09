@@ -7,7 +7,7 @@ public enum Type { RED, GREEN, BLUE, WHITE }
 public class Enemy : Unit
 {
     public Type enemyType;
-    public SpriteLibrary spriteLibrary;
+    //public SpriteLibrary spriteLibrary;
     public EnemyMovement enemyMovement;
     //public Enemy_SO enemyTemplate;
 

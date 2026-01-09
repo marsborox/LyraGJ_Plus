@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: f8cf48520929bd64588a1438c969610e
+guid: 32a045a3194e6d542b46495ce781cc8b
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -2626193612760485427
-    second: Walk_Left_0_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,10 +45,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk_Left_0_0
+      name: building03_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 16
-        width: 43
-        height: 65
+        x: 0
+        y: 0
+        width: 256
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +138,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc1f208c2d2ed8bd0800000000000000
-      internalID: -2626193612760485427
+      spriteID: 33f278fd9d9aa9db0800000000000000
+      internalID: -4784324900904554701
       vertices: []
       indices: 
       edges: []
@@ -161,7 +158,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Walk_Left_0_0: -2626193612760485427
+      building03_0: -4784324900904554701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

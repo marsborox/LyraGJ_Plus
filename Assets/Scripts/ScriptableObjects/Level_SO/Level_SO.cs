@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 //[CreateAssetMenu(fileName = "Level_SO", menuName = "Scriptable Objects/Level_SO")]
 public class Level_SO : ScriptableObject
@@ -15,6 +16,7 @@ public class Level_SO : ScriptableObject
 
     public int minEnemiesPerRoom;
     public int maxEnemiesPerRoom;
+    public SpriteLibraryAsset lyraVisual;
     public virtual void SubscribeToEventsSingletons(Room room)
     { }
     public virtual void StartRoomSetup(Room room)

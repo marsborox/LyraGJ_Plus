@@ -12,6 +12,10 @@ public class Player : Unit
 
         //_myRigidbody2D = GetComponent<Rigidbody2D>();
     }
+    private void Start()
+    {
+        spriteLibrary.spriteLibraryAsset = GameManager.instance.levelSettings.lyraVisual;
+    }
     private void Update()
     {
         base.Update();
