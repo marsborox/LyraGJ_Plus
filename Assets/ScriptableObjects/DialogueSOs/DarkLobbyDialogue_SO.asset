@@ -35,7 +35,7 @@ MonoBehaviour:
       peace and quiet to think.
     character: 0
     emotion: 4
-  - dialogueText: Wait. You said "My small and humble opera"?
+  - dialogueText: Wait. You said "my small and humble opera"?
     character: 0
     emotion: 1
   - dialogueText: Yes, my name is Julius Pedro and I welcome you to my house.
@@ -61,16 +61,19 @@ MonoBehaviour:
       I feel obliged to help you.
     character: 1
     emotion: 2
-  - dialogueText: While I know this place isn't what it used to be, I can offer you
-      any help you need to put on a show for your mother.
+  - dialogueText: I know this place isn't what it used to be but it never lost its
+      soul. Even now, you could put on a show for your mother.
     character: 1
     emotion: 2
   - dialogueText: I appreciate it but sadly I don't think you can help me. You see,
-      I can't sing anymore since I have lost my voice.
+      I can't sing anymore.
     character: 0
     emotion: 5
-  - dialogueText: It got badly damaged during training and no medicine has helped
-      heal it.
+  - dialogueText: I have lost my voice.
+    character: 0
+    emotion: 6
+  - dialogueText: It got badly damaged during training and there's no cure. I tried
+      it all.
     character: 0
     emotion: 5
   - dialogueText: Now this is where we disagree, hon. There are other ways for you
@@ -84,7 +87,7 @@ MonoBehaviour:
       fruits of your hard work.
     character: 1
     emotion: 0
-  - dialogueText: Shall we try jazz first to see what it has to offer?
+  - dialogueText: Shall we try jazz to see what it has to offer?
     character: 1
     emotion: 1
   - dialogueText: Let's start the show!

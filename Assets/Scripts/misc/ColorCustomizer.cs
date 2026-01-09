@@ -10,12 +10,14 @@ public class HueSatApplier : MonoBehaviour
     [Range(0, 1)] public float hue = 0f;
     [Range(0, 2)] public float saturation = 1f;
 
+    [Range(0, 2)] public float lightness = 1f;
+
     MaterialPropertyBlock _mpb;
 
     private void OnEnable() => Apply();
     private void OnValidate() => Apply();  // live editor updates
 
-    void Apply()
+    public void Apply()
     {
         if (_mpb == null)
             _mpb = new MaterialPropertyBlock();
@@ -27,6 +29,7 @@ public class HueSatApplier : MonoBehaviour
             sr.GetPropertyBlock(_mpb);
             _mpb.SetFloat("_Hue", hue);
             _mpb.SetFloat("_Saturation", saturation);
+            _mpb.SetFloat("_Lightness", lightness);
             sr.SetPropertyBlock(_mpb);
         }
 
@@ -37,6 +40,7 @@ public class HueSatApplier : MonoBehaviour
             tr.GetPropertyBlock(_mpb);
             _mpb.SetFloat("_Hue", hue);
             _mpb.SetFloat("_Saturation", saturation);
+            _mpb.SetFloat("_Lightness", lightness);
             tr.SetPropertyBlock(_mpb);
         }
     }

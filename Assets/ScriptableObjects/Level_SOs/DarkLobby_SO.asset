@@ -15,5 +15,8 @@ MonoBehaviour:
   dialogueWRoomClearedIndexList:
   - spawnOnRoomCleared: 0
     dialogue: {fileID: 11400000, guid: da40a26a3d4e54c88a85a9edb43e75f3, type: 2}
+  - spawnOnRoomCleared: 1
+    dialogue: {fileID: 11400000, guid: 5c35a2bf258e644c1994d1674b2331ce, type: 2}
   minEnemiesPerRoom: 0
   maxEnemiesPerRoom: 0
+  lyraVisual: {fileID: 0}
