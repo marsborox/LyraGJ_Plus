@@ -14,17 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TutorialLevel_SO
   dialogueWRoomClearedIndexList:
   - spawnOnRoomCleared: 0
-    dialogue: {fileID: 11400000, guid: e402b6681701dda4fba5a2b2dd9c9db9, type: 2}
+    dialogue: {fileID: 11400000, guid: 067ab1325a7f44965bbeffa6f76a1ddd, type: 2}
   - spawnOnRoomCleared: 2
-    dialogue: {fileID: 11400000, guid: 7375d3fc525a4a3499deb65a33630867, type: 2}
+    dialogue: {fileID: 11400000, guid: e402b6681701dda4fba5a2b2dd9c9db9, type: 2}
   - spawnOnRoomCleared: 3
-    dialogue: {fileID: 11400000, guid: 53737143305224445a6ae09df1a62909, type: 2}
+    dialogue: {fileID: 11400000, guid: 7375d3fc525a4a3499deb65a33630867, type: 2}
   - spawnOnRoomCleared: 4
-    dialogue: {fileID: 11400000, guid: 16758b43cec16094aa68ca4ab6ed175b, type: 2}
+    dialogue: {fileID: 11400000, guid: 53737143305224445a6ae09df1a62909, type: 2}
   - spawnOnRoomCleared: 5
-    dialogue: {fileID: 11400000, guid: a90c2e2b22bc3464dbf0eb96bb77af8e, type: 2}
+    dialogue: {fileID: 11400000, guid: 16758b43cec16094aa68ca4ab6ed175b, type: 2}
   minEnemiesPerRoom: 0
   maxEnemiesPerRoom: 0
+  lyraVisual: {fileID: 7108339969198208228, guid: 1be619c6e5e447f4abf3abd6685a7fd0, type: 3}
   _redEnemy: {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
   _greenEnemy: {fileID: 11400000, guid: 204a6424375fa2541ad48cb557bffcae, type: 2}
   _blueEnemy: {fileID: 11400000, guid: f86ebb9019a7a9c4b95a0cabd2e390ff, type: 2}

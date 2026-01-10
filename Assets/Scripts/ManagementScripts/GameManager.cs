@@ -9,14 +9,22 @@ public class GameManager : Singleton<GameManager>
 {
     public static new GameManager instance => Singleton<GameManager>.instance;
 
+    [SerializeField] private GameObject portal;
+    [SerializeField] private CutscenesManager cutscenesManager;
+
     public GameStage stage = GameStage.NEWWAVE;
-
-    public GameObject portal;
-    public DialogueUI dialogueUI;
-
-    public Level_SO levelSettings;
-
-    
+    public Level_SO levelSettings
+    {
+        get 
+        { 
+            if (cutscenesManager != null && cutscenesManager.level != null)
+            {
+                return cutscenesManager.level; 
+            } else {
+                return ScriptableObject.CreateInstance<Level_SO>(); // empty but no crashing
+            }
+        }
+    }    
     public int enemiesPerWave = 10;
     public int spawnedEnemiesThisWave = 0;
     public int enemiesInField = 0;
@@ -27,11 +35,6 @@ public class GameManager : Singleton<GameManager>
     public bool isEndOfWave=false;
     public bool isSpawning=false;
 
-    //public List<Dialogue_SO> dialogueSOs = new List<Dialogue_SO>();
-
-    [SerializeField] public Dialogue_SO processedDialogue;
-    private int _dialogueStage = 0;
-    [SerializeField] private int _dialogPart = 0;
     void Start()
     {
         //we wait 1s til leverything really loads
@@ -67,7 +70,7 @@ public class GameManager : Singleton<GameManager>
                     isEndOfWave = true;
                     isSpawning = false;
                     spawnedEnemiesThisWave = 0;
-                    //display conversation
+
                     if (enemiesInField == 0)
                     {
                         // stage = GameStage.DIALOGUE; skipping for now, we need to update dialogues
@@ -97,120 +100,11 @@ public class GameManager : Singleton<GameManager>
     }
     public void SpawnDialogue(Room room)
     {
-        if (dialogueUI == null)
+        if (cutscenesManager != null) 
         {
-            Debug.Log("Missing DialogueUI");
-        }
-        SpawnDialogue(roomsCleared);
-    }
-    #region NewDialogueLogic
-    public void SpawnDialogue(int indexOfClearedRoom)
-    {
-        processedDialogue = null;
-        Debug.Log("spawning dialogue");
-        Debug.Log("dialogue list count: "+ levelSettings.dialogueWRoomClearedIndexList.Count.ToString());
-        foreach (DialogueToIndex dialogueToIndex in levelSettings.dialogueWRoomClearedIndexList)
-        {
-            if (dialogueToIndex.spawnOnRoomCleared == indexOfClearedRoom)
-            {
-                processedDialogue = dialogueToIndex.dialogue;
-                ProcessDialogue(processedDialogue);
-            }
+            cutscenesManager.SpawnDialogue(roomsCleared);
         }
     }
-
-    private void ProcessDialogue(Dialogue_SO dialogue)
-    {
-        Debug.Log("processingDialogue");
-        Time.timeScale = 0f;//pause
-        if (dialogueUI == null)
-        { Debug.Log("dialogueUI null"); }
-        dialogueUI.gameObject.SetActive(true);
-        dialogueUI.characterImage.SetNativeSize();
-        PrepareDialogue(dialogue);
-    }
-    private void PrepareDialogue(Dialogue_SO dialogue)
-    {
-        //dialogue = dialogueSOs[_dialogueStage];
-        if (_dialogPart < dialogue.parts.Length)
-        {
-            DialoguePart part = dialogue.parts[_dialogPart];
-            dialogueUI.textOfDialogue.text = part.dialogueText;
-            dialogueUI.characterImage.sprite = part.characterImage;
-            //Debug.Log(_dialogPart);
-        }
-    }
-    public void ContinueDialogue()
-    {
-        _dialogPart++;
-
-        Dialogue_SO dialogue = processedDialogue;
-        if (_dialogPart < dialogue.parts.Length)
-        {
-            //Debug.Log("Let's continue dialog!");
-            PrepareDialogue(dialogue);
-        }
-        else
-        {
-            //Debug.Log("NO more talking!");
-            dialogueUI.gameObject.SetActive(false);
-            Time.timeScale = 1f;//unpause
-
-            _dialogPart = 0;
-        }
-    }
-
-    #endregion
-    #region originalDialogueLogic
-    //DISCONTINUED
-    /*
-    public void DisplayDialogue()
-    {
-        Time.timeScale = 0f;//pause
-
-        dialogueUI.gameObject.SetActive(true);
-        dialogueUI.characterImage.SetNativeSize();
-
-        PrepareDialog();
-    }
-    public void ContinueDialog()
-    {
-        _dialogPart++;
-
-        Dialogue_SO dialogue = dialogueSOs[_dialogueStage];
-        if (_dialogPart < dialogue.parts.Length)
-        {
-            Debug.Log("Let's continue dialog!");
-            PrepareDialog();
-        }
-        else
-        {
-            Debug.Log("NO more talking!");
-            dialogueUI.gameObject.SetActive(false);
-
-            stage = GameStage.SPAWNING;
-            _dialogueStage++;
-            Time.timeScale = 1f;
-            if (_dialogueStage > (dialogueSOs.Count - 1))//bcs count is max index+1
-            {
-                _dialogueStage = 0;
-            }
-            _dialogPart = 0;
-        }
-    }
-    private void PrepareDialog()
-    {
-        Dialogue_SO dialogue = dialogueSOs[_dialogueStage];
-        if (_dialogPart < dialogue.parts.Length)
-        {
-            DialoguePart part = dialogue.parts[_dialogPart];
-            dialogueUI.textOfDialogue.text = part.dialogueText;
-            dialogueUI.characterImage.sprite = part.characterImage;
-            Debug.Log(_dialogPart);
-        }
-    }*/
-    #endregion
-
     public void ForceRoomCleared(Room room)
     {
         roomsCleared++;

@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
+  m_Name: TutorialDialogue0_SO
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
+  showAgain: 1
+  parts:
+  - dialogueText: Well, here we are. Can you feel it in the air? The sweet rhythm
+      of the bass? The melody of the trumpet? C'mon Lyra, show me what you got!
+    character: 1
+    emotion: 3
+  - dialogueText: Ehm, what I'm supposed to do?
+    character: 0
+    emotion: 4
+  - dialogueText: Silly me! Here I am talking all about the magic of music and I
+      don't help you at all. How ungentlemanly of me.
+    character: 1
+    emotion: 0
+  - dialogueText: Here darling, take my guitar and feel it.
+    character: 1
+    emotion: 2
+  - dialogueText: It's so beautiful. I'm worried I will break it.
+    character: 0
+    emotion: 4
+  - dialogueText: Oh don't worry about that. This little baby can take a beating.
+      Now, go ahead and give it a swing and chase those negative emotions away.
+    character: 1
+    emotion: 2
+  - dialogueText: Remember, some of them have a shield that has to be destroyed with
+      a correct weapon.
+    character: 1
+    emotion: 0
+  - dialogueText: Go to the next room and play your beautiful guitar to destroy a
+      red shield.
+    character: 1
+    emotion: 0
+  - dialogueText: Okay, here it goes.
+    character: 0
+    emotion: 2
+  fileName: TutorialDialogue0_SO

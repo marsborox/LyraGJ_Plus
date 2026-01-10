@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
+  m_Name: DarkLobbyDialogue_SO
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
+  showAgain: 0
+  parts:
+  - dialogueText: ....
+    character: 0
+    emotion: 5
+  - dialogueText: I'm sorry, mother, looks like I won't be able to keep my promise
+      to you.
+    character: 0
+    emotion: 5
+  - dialogueText: Well, what have we here?
+    character: 1
+    emotion: 1
+  - dialogueText: Aaah!
+    character: 0
+    emotion: 6
+  - dialogueText: Sorry darling, didn't mean to scare you. I didn't expect anyone
+      to visit my small and humble opera at this time of year. Is everything alright?
+    character: 1
+    emotion: 1
+  - dialogueText: Yes, I am alright. Sorry for disturbing you! I just wanted some
+      peace and quiet to think.
+    character: 0
+    emotion: 4
+  - dialogueText: Wait. You said "my small and humble opera"?
+    character: 0
+    emotion: 1
+  - dialogueText: Yes, my name is Julius Pedro and I welcome you to my house.
+    character: 1
+    emotion: 3
+  - dialogueText: While it has seen better days, I'm glad there still are people
+      that find time to visit this place.
+    character: 1
+    emotion: 3
+  - dialogueText: Now, may I ask your name, and what bring such a pretty lady as
+      you here?
+    character: 1
+    emotion: 1
+  - dialogueText: I'm Lyra. And well, you see... I used to visit this opera with
+      my mother when I was little. She loved the place and the shows here.
+    character: 0
+    emotion: 5
+  - dialogueText: So I promised her that when I grow up, I will sing in here to make
+      her happy and proud of me.
+    character: 0
+    emotion: 4
+  - dialogueText: That is a beautiful promise. Now, being the gentleman that I am,
+      I feel obliged to help you.
+    character: 1
+    emotion: 2
+  - dialogueText: I know this place isn't what it used to be but it never lost its
+      soul. Even now, you could put on a show for your mother.
+    character: 1
+    emotion: 2
+  - dialogueText: I appreciate it but sadly I don't think you can help me. You see,
+      I can't sing anymore.
+    character: 0
+    emotion: 5
+  - dialogueText: I have lost my voice.
+    character: 0
+    emotion: 6
+  - dialogueText: It got badly damaged during training and there's no cure. I tried
+      it all.
+    character: 0
+    emotion: 5
+  - dialogueText: Now this is where we disagree, hon. There are other ways for you
+      to heal. Here, let me show you the magic of music!
+    character: 1
+    emotion: 3
+  - dialogueText: Magic of music?
+    character: 0
+    emotion: 1
+  - dialogueText: Yes! Follow my instructions, feel the music and you will see the
+      fruits of your hard work.
+    character: 1
+    emotion: 0
+  - dialogueText: Shall we try jazz to see what it has to offer?
+    character: 1
+    emotion: 1
+  - dialogueText: Let's start the show!
+    character: 1
+    emotion: 2
+  - dialogueText: 'Woah, okay. '
+    character: 0
+    emotion: 1
+  fileName: DarkLobbyDialogue_SO

@@ -12,13 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
   m_Name: TutorialDialogue3_SO
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
+  showAgain: 1
   parts:
-  - dialogueText: 'Youre great
+  - dialogueText: Have you noticed already?
+    character: 1
+    emotion: 0
+  - dialogueText: The healing power of music?
+    character: 0
+    emotion: 4
+  - dialogueText: Yes! Even if you don't believe it yet.
+    character: 1
+    emotion: 2
+  - dialogueText: 'Once conquered, your enemies might drop a little heart.
 
-      In next room is blue enemy
-
-      use saxophone
-      on him (3)
-
-      do what you must'
-    characterImage: {fileID: 21300000, guid: 4db123dc40916e84b84a1868dd764b22, type: 3}
+      Take
+      it and heal yourself, darling.'
+    character: 1
+    emotion: 0
+  - dialogueText: Ookay. Will do!
+    character: 0
+    emotion: 2
+  fileName: TutorialDialogue3_SO
