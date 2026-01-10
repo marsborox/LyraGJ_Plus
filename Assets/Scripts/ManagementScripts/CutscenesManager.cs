@@ -38,8 +38,8 @@ public class CutscenesManager : MonoBehaviour
     [SerializeField] private DialogueTrigger[] triggers;
     [SerializeField] private GameObject[] hideWhileTalking;
     private Dialogue_SO _currentDialogue;
-    private int _currentPartIndex = 0;
     private Rigidbody2D _playerRigidbody;
+    private int _currentPartIndex = 0;
 
     void Awake()
     {
