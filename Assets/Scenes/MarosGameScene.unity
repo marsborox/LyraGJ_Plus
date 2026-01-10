@@ -2419,17 +2419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4eb8e492d7e9a84290ea7ca9a580032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BowAuto
---- !u!114 &292029578 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1180320919176976896, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-  m_PrefabInstance: {fileID: 481617604}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!1001 &481617604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2446,22 +2435,6 @@ PrefabInstance:
       propertyPath: roomISpawnedIn
       value: 
       objectReference: {fileID: 1024998296}
-    - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: displayConversationChance
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 779221714776969284, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1180320919176976896, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_fontSize
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1180320919176976896, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3443724269912296941, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2502,32 +2475,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3564544270099851066, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5069450801954647526, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5279515869294326761, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_Name
       value: EnemyNew (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6595618953611798850, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: enemyConversations
-      value: 
-      objectReference: {fileID: 11400000, guid: 3c02a2a26ea483740b396187583c64aa, type: 2}
-    - target: {fileID: 6595618953611798850, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: conversationTextField
-      value: 
-      objectReference: {fileID: 292029578}
-    - target: {fileID: 8426683854643999165, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_SortingLayer
+    - target: {fileID: 8094599160273278098, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8426683854643999165, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_SortingLayerID
+    - target: {fileID: 9223273800978914947, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -25867,6 +25824,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2118335213}
+    - target: {fileID: 3841113141587024366, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3986896122668706926, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_Name
       value: Player

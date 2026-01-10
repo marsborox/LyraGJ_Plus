@@ -179,6 +179,7 @@ public class PlayerCombat : UnitCombat
         Debug.Log("player died");
         //MySceneManager.instance.OpenLobbyScene();
         GlobalEventManager.instance.TriggerOnPlayerDied();
+        animationController.animator.updateMode = AnimatorUpdateMode.UnscaledTime;
     }
     
 }
