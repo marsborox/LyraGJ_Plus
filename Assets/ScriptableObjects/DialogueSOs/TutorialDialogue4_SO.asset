@@ -12,7 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
   m_Name: TutorialDialogue4_SO
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
+  showAgain: 1
   parts:
-  - dialogueText: "when enemies loose shield any weapon\n can hurt them\nthere is
-      <grenade> (4)\ntry it out"
-    characterImage: {fileID: 21300000, guid: 4db123dc40916e84b84a1868dd764b22, type: 3}
+  - dialogueText: You got it!
+    character: 1
+    emotion: 3
+  - dialogueText: Now, follow your heart and use these instruments to play some groovy
+      jazz and let the healing rhythm dance within your soul.
+    character: 1
+    emotion: 0
+  - dialogueText: But... what if I fail?
+    character: 0
+    emotion: 6
+  - dialogueText: You try again, my dear.
+    character: 1
+    emotion: 2
+  - dialogueText: Then go through the portal and meet me on the other side.
+    character: 1
+    emotion: 3
+  fileName: TutorialDialogue4_SO

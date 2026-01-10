@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
-  m_Name: TutorialDialogue5_SO
-  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
+  m_Name: JazzDialogue0_SO
+  m_EditorClassIdentifier: 
+  showAgain: 0
   parts:
-  - dialogueText: 'A truly natural talent
-
-      In final room there is multiple
-      enemies,
-
-      try your skills on them, when you are done enter portal'
-    characterImage: {fileID: 21300000, guid: 4db123dc40916e84b84a1868dd764b22, type: 3}
+  - dialogueText: You really think I can play all this?
+    character: 0
+    emotion: 6
+  - dialogueText: "You already can, doll.\nYou just don\u2019t trust your own rhythm
+      yet."
+    character: 1
+    emotion: 2
+  fileName: JazzDialogue0_SO

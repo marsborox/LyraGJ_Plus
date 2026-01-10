@@ -14,7 +14,10 @@ public class Player : Unit
     }
     private void Start()
     {
-        spriteLibrary.spriteLibraryAsset = GameManager.instance.levelSettings.lyraVisual;
+        if (GameManager.instance != null)
+        {
+            spriteLibrary.spriteLibraryAsset = GameManager.instance.levelSettings.lyraVisual;
+        }
     }
     private void Update()
     {

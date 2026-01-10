@@ -1,4 +1,4 @@
-Shader "Custom/HueSatSpriteLit"
+Shader "Custom/HueSatLightSpriteLit"
 {
     Properties
     {
@@ -7,6 +7,7 @@ Shader "Custom/HueSatSpriteLit"
 
         _Hue ("Hue", Range(0,1)) = 0
         _Saturation ("Saturation", Range(0,2)) = 1
+        _Lightness ("Lightness", Range(0,2)) = 1
     }
 
     SubShader
@@ -37,6 +38,7 @@ Shader "Custom/HueSatSpriteLit"
 
             float _Hue;
             float _Saturation;
+            float _Lightness;
 
             struct appdata_t
             {
@@ -63,7 +65,7 @@ Shader "Custom/HueSatSpriteLit"
 
             float3 HueShift(float3 col, float hue)
             {
-                float angle = hue * 6.28318530718;  // 2*PI
+                float angle = hue * 6.28318530718;
                 float s = sin(angle);
                 float c = cos(angle);
 
@@ -82,16 +84,29 @@ Shader "Custom/HueSatSpriteLit"
                 return lerp(grey.xxx, col, sat);
             }
 
+            float3 AdjustLightness(float3 col, float light)
+            {
+                return col * light;
+            }
+
             fixed4 frag (v2f IN) : SV_Target
             {
                 float4 c = tex2D(_MainTex, IN.uv) * IN.color;
 
-                float3 rgb = c.rgb;
+                // PREMULTIPLY RGB BY ALPHA
+                float alpha = c.a;
+                float3 rgb = c.rgb * alpha;
 
+                // Apply color operations in premultiplied space
                 rgb = HueShift(rgb, _Hue);
                 rgb = AdjustSaturation(rgb, _Saturation);
+                rgb = AdjustLightness(rgb, _Lightness);
 
-                return float4(rgb, c.a);
+                // UNPREMULTIPLY (avoid divide by zero)
+                if (alpha > 0.0001)
+                    rgb /= alpha;
+
+                return float4(rgb, alpha);
             }
             ENDCG
         }

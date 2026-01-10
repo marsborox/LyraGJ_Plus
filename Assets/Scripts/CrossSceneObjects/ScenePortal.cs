@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public enum GameScene {LOBBY, JAZZ,TUTORIAL,TESTCOMBAT,DEV}
+public enum GameScene {LOBBY, DARKLOBBY, JAZZ, TUTORIAL, TESTCOMBAT, DEV}
 public class ScenePortal : MonoBehaviour
 {
     public GameScene gameScene;
@@ -13,7 +14,14 @@ public class ScenePortal : MonoBehaviour
             {
                 case GameScene.LOBBY:
                     {
-                        MySceneManager.instance.OpenLobbyScene();
+                        if (SceneManager.GetActiveScene().name == "TutorialScene" && MySceneManager.PreviousScene == "DarkLobbyScene")
+                        {
+                            MySceneManager.instance.OpenDarkLobbyScene();
+                        }
+                        else
+                        {
+                            MySceneManager.instance.OpenLobbyScene();
+                        }
                         break;
                     }
                 case GameScene.JAZZ:

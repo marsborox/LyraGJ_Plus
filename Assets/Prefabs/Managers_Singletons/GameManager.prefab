@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4101312837376580614}
-  - component: {fileID: 1592202640683675663}
   - component: {fileID: 5095136722633969574}
+  - component: {fileID: 1783625682560518767}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -33,30 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1592202640683675663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7545743468549897413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5526ae234501c1b47983d18cb5f6a4b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stage: 2
-  portal: {fileID: 0}
-  dialogueUI: {fileID: 0}
-  levelSettings: {fileID: 11400000, guid: 528e746bce986a347aecf571832401db, type: 2}
-  enemiesPerWave: 10
-  spawnedEnemiesThisWave: 0
-  enemiesInField: 0
-  totalEnemyKilled: 0
-  roomsCleared: 0
-  isEndOfWave: 1
-  isSpawning: 0
-  processedDialogue: {fileID: 0}
 --- !u!114 &5095136722633969574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,3 +45,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787f3d0e3e154ed4c825e0c59acbafc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GlobalEventManager
+--- !u!114 &1783625682560518767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545743468549897413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5526ae234501c1b47983d18cb5f6a4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  portal: {fileID: 0}
+  cutscenesManager: {fileID: 0}
+  stage: 2
+  levelSettings: {fileID: 11400000, guid: 528e746bce986a347aecf571832401db, type: 2}
+  enemiesPerWave: 10
+  spawnedEnemiesThisWave: 0
+  enemiesInField: 0
+  totalEnemyKilled: 0
+  roomsCleared: 0
+  isEndOfWave: 1
+  isSpawning: 0

@@ -33,7 +33,10 @@ public class Room : MonoBehaviour
     public int enemiesInRoomCount = 0;
     private void Start()
     {
-        
+        if (isCleared) 
+        {
+            GlobalEventManager.instance.TriggerOnRoomCleared(this);
+        }
     }
     public void TriggerActivated(EntryTrigger trigger)
     {
