@@ -49,7 +49,17 @@ public class PlayerDied_UI : UI
     }
     public void ReloadLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1f;
+        if (MySceneManager.PreviousScene == "DarkLobbyScene")
+        {
+            MySceneManager.instance.OpenDarkLobbyScene();
+        }
+        else
+        {
+            MySceneManager.instance.OpenLobbyScene();
+        }
+
+        // replace with the following code for infinite level restarts
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Time.timeScale = 1f;
     }
 }
