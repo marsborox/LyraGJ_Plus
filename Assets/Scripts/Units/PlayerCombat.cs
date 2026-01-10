@@ -64,6 +64,7 @@ public class PlayerCombat : UnitCombat
         if (weapon1.CanAttack())
         {
             MySoundManager.instance.PlayGuitar();
+            //GlobalEventManager.instance.TriggerOnPlayerAtack();
             weapon1.Attack();
         }
     }
@@ -72,6 +73,7 @@ public class PlayerCombat : UnitCombat
         if (weapon2.CanAttack())
         {
             MySoundManager.instance.PlayPiano();
+            //GlobalEventManager.instance.TriggerOnPlayerAtack();
             weapon2.Attack();
         }
     }
@@ -80,6 +82,7 @@ public class PlayerCombat : UnitCombat
         if (weapon3.CanAttack())
         {
             MySoundManager.instance.PlaySaxofone();
+            //GlobalEventManager.instance.TriggerOnPlayerAtack();
             weapon3.Attack();
         }
     }
@@ -135,9 +138,9 @@ public class PlayerCombat : UnitCombat
         if (saxophoneDecayRoutine != null)
             StopCoroutine(saxophoneDecayRoutine);
 
-        saxophoneDecayRoutine = StartCoroutine(SaxophoneDecay());
+        saxophoneDecayRoutine = StartCoroutine(SaxophoneDecayRoutine());
     }
-    IEnumerator SaxophoneDecay()
+    IEnumerator SaxophoneDecayRoutine()
     {
         while (saxophoneIntensity > 0f)
         {

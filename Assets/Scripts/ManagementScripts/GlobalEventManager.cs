@@ -14,7 +14,8 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
 
     public static EnemyEvent OnEnemySpawned;
     public static EnemyEvent OnEnemyDied;
-    
+
+    public static PlayerEvent OnPlayerAttack;
     public static PlayerEvent OnPlayerDied;
     void Start()
     {
@@ -56,5 +57,9 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
         //triggered in EnemyCombat Die
         OnEnemyDied?.Invoke(enemy, room);
         //Debug.Log("Enemy died Event in room: "+room.roomID.ToString());
+    }
+    public void TriggerOnPlayerAtack()
+    {
+        OnPlayerAttack?.Invoke();
     }
 }

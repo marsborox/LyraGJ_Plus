@@ -2419,6 +2419,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4eb8e492d7e9a84290ea7ca9a580032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BowAuto
+--- !u!114 &292029578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1180320919176976896, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+  m_PrefabInstance: {fileID: 481617604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!1001 &481617604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2428,29 +2439,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: range
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 29055957}
-    - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: healthMax
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: roomISpawnedIn
       value: 
       objectReference: {fileID: 1024998296}
     - target: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: animationController
-      value: 
-      objectReference: {fileID: 1833501287}
-    - target: {fileID: 1094105937661057830, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: _unitCombat
-      value: 
-      objectReference: {fileID: 1833501292}
+      propertyPath: displayConversationChance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 779221714776969284, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180320919176976896, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: m_fontSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180320919176976896, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3443724269912296941, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2491,46 +2502,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3564544270099851066, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069450801954647526, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5279515869294326761, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
       propertyPath: m_Name
       value: EnemyNew (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5279515869294326761, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5648023735614035241, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_Size.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5648023735614035241, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_Size.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5648023735614035241, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_Sprite
+    - target: {fileID: 6595618953611798850, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: enemyConversations
       value: 
-      objectReference: {fileID: 21300000, guid: ddcef801aeaef8d4cb3ebe6b6800495a, type: 3}
-    - target: {fileID: 5648023735614035241, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7066643326341800927, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_labelHash
-      value: 5.901987e-35
-      objectReference: {fileID: 0}
-    - target: {fileID: 7066643326341800927, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_SpriteHash
-      value: 33322737
-      objectReference: {fileID: 0}
-    - target: {fileID: 7066643326341800927, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_CategoryHash
-      value: 0.009161512
-      objectReference: {fileID: 0}
-    - target: {fileID: 9194200120919051774, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-      propertyPath: m_SpriteLibraryAsset
+      objectReference: {fileID: 11400000, guid: 3c02a2a26ea483740b396187583c64aa, type: 2}
+    - target: {fileID: 6595618953611798850, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: conversationTextField
       value: 
-      objectReference: {fileID: 7108339969198208228, guid: 5b07ce75332f1de428be13c2b2594578, type: 3}
+      objectReference: {fileID: 292029578}
+    - target: {fileID: 8426683854643999165, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8426683854643999165, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35946,17 +35945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a9aae82d5a2e744ab4aad40b1fc3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1771045938 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1867910109181399336, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-  m_PrefabInstance: {fileID: 4183265036190321683}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2131dd7d6dc5f248b1a5e4235dfc6b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerDied_UI
 --- !u!1 &1772519304
 GameObject:
   m_ObjectHideFlags: 0
@@ -36047,28 +36035,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2141534351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1833501287 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1123149760818088287, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-  m_PrefabInstance: {fileID: 481617604}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a29b38dad57f06468903976df472e54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UnitAnimationController
---- !u!114 &1833501292 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 471255943450887182, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
-  m_PrefabInstance: {fileID: 481617604}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dccd4b383dc94bf4d98620b63d8ce920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyCombat
 --- !u!1001 &1843715802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37689,7 +37655,7 @@ PrefabInstance:
     - target: {fileID: 6669598971931224901, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: playerDied_UI
       value: 
-      objectReference: {fileID: 1771045938}
+      objectReference: {fileID: 0}
     - target: {fileID: 7729429749542279011, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: weaponToTrack
       value: 

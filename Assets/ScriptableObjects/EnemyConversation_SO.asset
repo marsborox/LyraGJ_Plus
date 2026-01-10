@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d69f43dc743074b828982b251efcab, type: 3}
+  m_Name: EnemyConversation_SO
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyConversation_SO
+  conversationList:
+  - dialogueText: STFU
+  - dialogueText: "Stop playing \nthe devils music"
+  - dialogueText: "What you do \nis blasphemous"
+  - dialogueText: Die heretic
+  - dialogueText: "Tragedy of \nDarth Plagueis\nThe Wise"
+  - dialogueText: Definition of Insanity
