@@ -28,7 +28,7 @@ public class DialogueTrigger
     [HideInInspector] public bool isInside;
 }
 
-public class CutscenesManager : MonoBehaviour
+public class CutscenesPlayer : MonoBehaviour
 {
     private static HashSet<string> _seenDialogueKeys = new HashSet<string>(); // TODO: make empty when new game starts
 

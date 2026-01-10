@@ -613,6 +613,26 @@ PrefabInstance:
       propertyPath: weaponToTrack
       value: 
       objectReference: {fileID: 1279992551}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 11400000, guid: 8709d45637f36409399d0e097e477ac9, type: 2}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: hideWhileTalking.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: characterPortraits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: 'characterPortraits.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 486b0b17f76814881be1544c2f128e28, type: 2}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: 'characterPortraits.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3391376918eea4789ae62d22d132348b, type: 2}
     - target: {fileID: 8436517152348735014, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5739,7 +5759,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 96525f0152462405f9661e313df9f619, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6109,8 +6129,8 @@ MonoBehaviour:
   - {fileID: 2129354231}
   - {fileID: 2044669477}
   tilemapRenderers: []
-  hue: 0.5
-  saturation: 1
+  hue: 0
+  saturation: 0
   lightness: 1
 --- !u!212 &2129354231 stripped
 SpriteRenderer:

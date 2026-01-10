@@ -10,21 +10,10 @@ public class GameManager : Singleton<GameManager>
     public static new GameManager instance => Singleton<GameManager>.instance;
 
     [SerializeField] private GameObject portal;
-    [SerializeField] private CutscenesManager cutscenesManager;
+    [SerializeField] private CutscenesPlayer cutscenesPlayer;
 
     public GameStage stage = GameStage.NEWWAVE;
-    public Level_SO levelSettings
-    {
-        get 
-        { 
-            if (cutscenesManager != null && cutscenesManager.level != null)
-            {
-                return cutscenesManager.level; 
-            } else {
-                return ScriptableObject.CreateInstance<Level_SO>(); // empty but no crashing
-            }
-        }
-    }    
+    public Level_SO levelSettings;
     public int enemiesPerWave = 10;
     public int spawnedEnemiesThisWave = 0;
     public int enemiesInField = 0;
@@ -100,10 +89,7 @@ public class GameManager : Singleton<GameManager>
     }
     public void SpawnDialogue(Room room)
     {
-        if (cutscenesManager != null) 
-        {
-            cutscenesManager.SpawnDialogue(roomsCleared);
-        }
+        if (cutscenesPlayer != null) cutscenesPlayer.SpawnDialogue(roomsCleared);
     }
     public void ForceRoomCleared(Room room)
     {

@@ -37452,6 +37452,14 @@ PrefabInstance:
       propertyPath: levelSettings
       value: 
       objectReference: {fileID: 11400000, guid: a23c81b48be4d804db75901e5e4053e2, type: 2}
+    - target: {fileID: 1783625682560518767, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: levelSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: a23c81b48be4d804db75901e5e4053e2, type: 2}
+    - target: {fileID: 1783625682560518767, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: cutscenesPlayer
+      value: 
+      objectReference: {fileID: 4183265036190321684}
     - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.64492
@@ -37621,6 +37629,22 @@ PrefabInstance:
       propertyPath: weaponToTrack
       value: 
       objectReference: {fileID: 1876291322}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 11400000, guid: a23c81b48be4d804db75901e5e4053e2, type: 2}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: characterPortraits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: 'characterPortraits.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 52c2e676ea06d40f5afed89abe81d316, type: 2}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: 'characterPortraits.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8046dc0e4728c4834a7fac874fa08418, type: 2}
     - target: {fileID: 8604138096941243547, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: weaponToTrack
       value: 
@@ -37630,6 +37654,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+--- !u!114 &4183265036190321684 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+  m_PrefabInstance: {fileID: 4183265036190321683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552b676f23486444f8cb5634d01c3fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutscenesPlayer
 --- !u!1001 &6915627130281284305
 PrefabInstance:
   m_ObjectHideFlags: 0

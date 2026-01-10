@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 8444590749498551919}
   - component: {fileID: 8950179413353747222}
   - component: {fileID: 6669598971931224901}
-  - component: {fileID: 6594433032629925652}
+  - component: {fileID: 8129490106304078614}
   m_Layer: 0
   m_Name: GameUI
   m_TagString: Untagged
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   playerCombat: {fileID: 0}
   playerDied_UI: {fileID: 3654970790932177249}
---- !u!114 &6594433032629925652
+--- !u!114 &8129490106304078614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1042,17 +1042,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2827231054900610017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea1c6dd08d5a4401b75c40b00a1aece, type: 3}
+  m_Script: {fileID: 11500000, guid: 552b676f23486444f8cb5634d01c3fb5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CutscenesManager
+  m_EditorClassIdentifier: Assembly-CSharp::CutscenesPlayer
   level: {fileID: 0}
   dialogueUI: {fileID: 2213380607945376703}
   characterPortraits: []
   triggers: []
   hideWhileTalking:
-  - {fileID: 159439772315269932}
   - {fileID: 8436517152348735014}
   - {fileID: 6533988262142457239}
+  - {fileID: 159439772315269932}
 --- !u!1 &3660411920221528992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1918,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6594433032629925652}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CutscenesManager, Assembly-CSharp
         m_MethodName: ContinueDialogue
         m_Mode: 1
@@ -2679,7 +2679,6 @@ MonoBehaviour:
   continueButton: {fileID: 3192984464466687164}
   skipButton: {fileID: 9046456749872914475}
   continueImage: {fileID: 3720170613740414575}
-  mouseClickImage: {fileID: 0}
 --- !u!1 &6625899163616342482
 GameObject:
   m_ObjectHideFlags: 0
