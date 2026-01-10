@@ -1520,6 +1520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalMarosDev
       objectReference: {fileID: 0}
+    - target: {fileID: 5462686301572751191, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5688874235654620695, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1542,7 +1546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6932467533595296489, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
       propertyPath: gameScene
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8912029462421136783, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
       propertyPath: m_LocalScale.x
@@ -5990,7 +5994,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 96525f0152462405f9661e313df9f619, type: 2}
     - target: {fileID: 6932467533595296489, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
       propertyPath: gameScene
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8912029462421136783, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
       propertyPath: m_LocalScale.x
@@ -6105,8 +6109,9 @@ MonoBehaviour:
   - {fileID: 2129354231}
   - {fileID: 2044669477}
   tilemapRenderers: []
-  hue: 0
-  saturation: 0
+  hue: 0.5
+  saturation: 1
+  lightness: 1
 --- !u!212 &2129354231 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5688874235654620695, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
@@ -6348,7 +6353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6932467533595296489, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
       propertyPath: gameScene
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8912029462421136783, guid: 0ca38816a456543ff9b5c47785039698, type: 3}
       propertyPath: m_LocalScale.x

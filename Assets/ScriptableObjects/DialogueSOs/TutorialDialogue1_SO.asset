@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
   showAgain: 1
   parts:
-  - dialogueText: 'Welcome to game tutorial lol
-
-      Lets learn basics'
-    character: 0
-    emotion: 0
-  - dialogueText: 'Some enemies have shield that has to be destroyed with
-
-      particular
-      weapon and then the enemy can take damage
-
-      In next room awaits enemy
-      with red shield, hit it with guitar (1)
-
-      and destroy him afterwards'
+  - dialogueText: Nicely played, honey! Onto the next instrument?
     character: 1
-    emotion: 0
+    emotion: 3
+  - dialogueText: Here's my old piano. Give it a try and let its sweet-sweet melody
+      wash over you.
+    character: 1
+    emotion: 3
+  - dialogueText: 'Let me guess: play it to break a shield of a different color?'
+    character: 0
+    emotion: 1
+  - dialogueText: You are a natural!
+    character: 1
+    emotion: 6
+  - dialogueText: On it!
+    character: 0
+    emotion: 3
   fileName: TutorialDialogue1_SO

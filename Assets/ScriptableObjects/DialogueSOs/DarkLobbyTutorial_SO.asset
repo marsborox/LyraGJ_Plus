@@ -21,12 +21,14 @@ MonoBehaviour:
   - dialogueText: Huh? Portal? Green?
     character: 0
     emotion: 4
-  - dialogueText: 'A portal is the gateway to the world of music.
-
-      The blue
-      one is full of jazz, the real magic! And green? Well, green is about learning.'
+  - dialogueText: A portal is the gateway to the world of music. Usually, there's
+      only one but I opened another just for you.
     character: 1
     emotion: 0
+  - dialogueText: The blue portal is full of jazz, the real magic! And green? Well,
+      green is about learning.
+    character: 1
+    emotion: 2
   - dialogueText: So, if blue proves too difficult.. Go green?
     character: 0
     emotion: 0

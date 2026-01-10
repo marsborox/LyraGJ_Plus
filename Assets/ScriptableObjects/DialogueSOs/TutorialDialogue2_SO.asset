@@ -14,9 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
   showAgain: 1
   parts:
-  - dialogueText: 'Good job!
-
-      in next room is green enemy, use keyboard (2|'
+  - dialogueText: Starting to sound like a pro!
     character: 1
+    emotion: 3
+  - dialogueText: Now, last but not least, let's finish with the good ol' saxophone
+      - experience the magic of sax!
+    character: 1
+    emotion: 2
+  - dialogueText: Destroy the blue shield with it.
+    character: 1
+    emotion: 0
+  - dialogueText: Understood.
+    character: 0
     emotion: 0
   fileName: TutorialDialogue2_SO
