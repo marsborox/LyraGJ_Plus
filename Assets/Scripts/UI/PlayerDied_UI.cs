@@ -49,7 +49,8 @@ public class PlayerDied_UI : UI
     }
     public void ReloadLevel()
     {
-        if (MySceneManager.PreviousScene == "DarkLobbyScene")
+        // TODO: rework in Level_SO, e.g. "Death Scene Name"
+        if (MySceneManager.PreviousScene == "DarkLobbyScene" || MySceneManager.PreviousScene == "TutorialScene")
         {
             MySceneManager.instance.OpenDarkLobbyScene();
         }
