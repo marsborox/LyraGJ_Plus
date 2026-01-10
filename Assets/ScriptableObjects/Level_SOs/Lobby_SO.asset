@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37babba98b8a06042bb6ebefb715abed, type: 3}
   m_Name: Lobby_SO
   m_EditorClassIdentifier: Assembly-CSharp::ClearXAmountRooms_SO
-  dialogueWRoomClearedIndexList: []
+  dialogueWRoomClearedIndexList:
+  - spawnOnRoomCleared: 0
+    dialogue: {fileID: 11400000, guid: 629d148e6cddc4273aab36c674b22262, type: 2}
   minEnemiesPerRoom: 0
   maxEnemiesPerRoom: 0
   lyraVisual: {fileID: 0}
