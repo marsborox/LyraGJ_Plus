@@ -83,7 +83,7 @@ MeshRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1180320919176976896
 MonoBehaviour:
@@ -132,8 +132,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.72
-  m_fontSizeBase: 6.72
+  m_fontSize: 3
+  m_fontSizeBase: 3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -541,8 +541,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1835196397
-  m_SortingLayer: -3
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ed64f9ab56d4746da856cb27c4ebce44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -744,7 +744,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9302cc9afe597d43af37e642177e958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  conversationTextField: {fileID: 0}
+  conversationTextField: {fileID: 1180320919176976896}
+  enemyConversations: {fileID: 11400000, guid: 3c02a2a26ea483740b396187583c64aa, type: 2}
 --- !u!1 &5279515869294326761
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +882,7 @@ MonoBehaviour:
   enemyMovement: {fileID: 3549913713549301225}
   roomISpawnedIn: {fileID: 0}
   isShielded: 1
-  displayConversationChance: 5
+  displayConversationChance: 8
   _healthBarObject: {fileID: 972088653154952118}
   _chanceForHealthPickup: 20
   _enemy: {fileID: 4176866416230126860}

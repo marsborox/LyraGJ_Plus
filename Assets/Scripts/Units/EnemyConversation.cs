@@ -8,6 +8,7 @@ public class EnemyConversation : MonoBehaviour
 {
     float closingTime = 1f;
     public TextMeshPro conversationTextField;
+    public EnemyConversation_SO enemyConversations;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,6 +16,7 @@ public class EnemyConversation : MonoBehaviour
     }
     private void OnEnable()
     {
+        DisplayRandomText();
         StartCoroutine(CloseConversationRoutine());
     }
     private void OnDisable()
@@ -24,6 +26,12 @@ public class EnemyConversation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private void DisplayRandomText()
+    {
+        int randomIndex = Random.Range(0,enemyConversations.conversationList.Count-1);
+        conversationTextField.text = enemyConversations.conversationList[randomIndex].dialogueText;
         
     }
     IEnumerator CloseConversationRoutine()
