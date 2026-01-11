@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public enum GameScene {LOBBY, DARKLOBBY, JAZZ, TUTORIAL, TESTCOMBAT, DEV}
 public class ScenePortal : MonoBehaviour
 {
+    private static bool didPlayerSurviveTutorial = false;
     public GameScene gameScene;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,9 +15,11 @@ public class ScenePortal : MonoBehaviour
             {
                 case GameScene.LOBBY:
                     {
+                        // TODO: rework this conditions by moving it to Level_SO, e.g. "Portal Scene Name"
                         if (SceneManager.GetActiveScene().name == "TutorialScene" && MySceneManager.PreviousScene == "DarkLobbyScene")
                         {
-                            MySceneManager.instance.OpenDarkLobbyScene();
+                            didPlayerSurviveTutorial = true;
+                            MySceneManager.instance.OpenGameScene();
                         }
                         else
                         {
@@ -36,7 +39,14 @@ public class ScenePortal : MonoBehaviour
                     }
                 case GameScene.TUTORIAL:
                     {
-                        MySceneManager.instance.OpenTutorialScene();
+                        if (MySceneManager.PreviousScene == "LobbyScene" || !didPlayerSurviveTutorial)
+                        {
+                            MySceneManager.instance.OpenTutorialScene();                       
+                        }
+                        else
+                        {
+                            MySceneManager.instance.OpenGameScene();
+                        }
                         break;
                     }
                 case GameScene.DEV:

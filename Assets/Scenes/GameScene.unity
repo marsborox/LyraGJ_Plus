@@ -23978,9 +23978,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1991998146}
     - target: {fileID: 1783625682560518767, guid: 3156fcab12795674ea94e8594f060663, type: 3}
-      propertyPath: cutscenesManager
+      propertyPath: cutscenesPlayer
       value: 
       objectReference: {fileID: 1991998147}
+    - target: {fileID: 1783625682560518767, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: cutscenesManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4101312837376580614, guid: 3156fcab12795674ea94e8594f060663, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.03479
@@ -34812,8 +34816,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portal: {fileID: 0}
-  cutscenesManager: {fileID: 0}
+  cutscenesPlayer: {fileID: 0}
   stage: 2
+  levelSettings: {fileID: 0}
   enemiesPerWave: 10
   spawnedEnemiesThisWave: 0
   enemiesInField: 0
@@ -36577,6 +36582,22 @@ PrefabInstance:
       propertyPath: weaponToTrack
       value: 
       objectReference: {fileID: 1154679116}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 11400000, guid: 528e746bce986a347aecf571832401db, type: 2}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: characterPortraits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: 'characterPortraits.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 52c2e676ea06d40f5afed89abe81d316, type: 2}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: 'characterPortraits.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8046dc0e4728c4834a7fac874fa08418, type: 2}
     - target: {fileID: 8604138096941243547, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: weaponToTrack
       value: 
@@ -36599,15 +36620,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &1991998147 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6594433032629925652, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
   m_PrefabInstance: {fileID: 1991998145}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea1c6dd08d5a4401b75c40b00a1aece, type: 3}
+  m_Script: {fileID: 11500000, guid: 552b676f23486444f8cb5634d01c3fb5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CutscenesManager
+  m_EditorClassIdentifier: Assembly-CSharp::CutscenesPlayer
 --- !u!1 &1995380297
 GameObject:
   m_ObjectHideFlags: 0
