@@ -22,11 +22,7 @@ public class Dialogue_SO : ScriptableObject
     {
         if (string.IsNullOrEmpty(fileName))
         {
-            string path = UnityEditor.AssetDatabase.GetAssetPath(this);
-            if (!string.IsNullOrEmpty(path))
-            {
-                fileName = Path.GetFileNameWithoutExtension(path);
-            }
+            fileName = name;
         }
     }
 }
