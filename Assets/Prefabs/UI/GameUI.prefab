@@ -1449,8 +1449,8 @@ MonoBehaviour:
     it has seen better days, I am glad there still are people that find time to visit
     this place.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: efd5861257b5def4dbcd51f017eaa882, type: 2}
-  m_sharedMaterial: {fileID: -8796193688946897052, guid: efd5861257b5def4dbcd51f017eaa882, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9d1d5582b07c24b9bb9780e39a18fc9d, type: 2}
+  m_sharedMaterial: {fileID: 5465187731624024029, guid: 9d1d5582b07c24b9bb9780e39a18fc9d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1474,13 +1474,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
