@@ -59,41 +59,6 @@ public class PlayerCombat : UnitCombat
     {
         weapon4New.ClickAttack();
     }
-    public void AttackWeapon1()
-    {
-        if (weapon1.CanAttack())
-        {
-            MySoundManager.instance.PlayGuitar();
-            //GlobalEventManager.instance.TriggerOnPlayerAtack();
-            weapon1.Attack();
-        }
-    }
-    public void AttackWeapon2()
-    {
-        if (weapon2.CanAttack())
-        {
-            MySoundManager.instance.PlayPiano();
-            //GlobalEventManager.instance.TriggerOnPlayerAtack();
-            weapon2.Attack();
-        }
-    }
-    public void AttackWeapon3()
-    {
-        if (weapon3.CanAttack())
-        {
-            MySoundManager.instance.PlaySaxofone();
-            //GlobalEventManager.instance.TriggerOnPlayerAtack();
-            weapon3.Attack();
-        }
-    }
-    public void AttackWeapon4()
-    {
-        /*if (weapon4.CanAttack())
-        {
-            //MySoundManager.instance.PlaySaxofone();
-            weapon4.Attack();
-        }*/
-    }
     public void PlayPianoAccent()
     {
         pianoHoldTimer = 0.5f;

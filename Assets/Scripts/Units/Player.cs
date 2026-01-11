@@ -24,33 +24,6 @@ public class Player : Unit
         base.Update();
         //FaceCorrectDirection();
     }
-
-    public void AttackWeapon1()
-    {
-        if (unitCombat == null) return;
-
-        ((PlayerCombat)unitCombat).AttackWeapon1();
-    }
-    public void AttackWeapon2()
-    {
-        if (unitCombat == null) return;
-
-        ((PlayerCombat)unitCombat).AttackWeapon2();
-    }
-    public void AttackWeapon3()
-    {
-        if (unitCombat == null) return;
-
-        ((PlayerCombat)unitCombat).AttackWeapon3();
-    }
-    public void AttackWeapon4()
-    {
-        /*if (weapon4.CanAttack())
-        {
-            //MySoundManager.instance.PlaySaxofone();
-            weapon4.Attack();
-        }*/
-    }
     public void AttackWeapon1Click()
     {
         if (unitCombat == null) return;
