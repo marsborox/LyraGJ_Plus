@@ -20,7 +20,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     public static new MySoundManager instance => SingletonPersistent<MySoundManager>.instance;
 
     [Header("Volume")]
-    [Range(0f, 1f)] public float musicVolume = 0.2f;
+    [Range(0f, 1f)] public float musicVolume = 1f;
     [Range(0f, 1f)] public float soundEffectsVolume = 1f;
 
     [Header("Instruments Fade Settings")]
@@ -83,7 +83,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     }
     public void PlayFootsteps()
     {
-        if (footstepClips.Length == 0) return;
+        if (footstepClips.Length == 0 || footstepsSource.isPlaying) return;
 
         int index = Random.Range(0, footstepClips.Length);
 
@@ -94,7 +94,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
         _lastFootstepsIndex = index;
         footstepsSource.pitch = Random.Range(0.95f, 1.05f);
-        footstepsSource.PlayOneShot(footstepClips[index], soundEffectsVolume);
+        footstepsSource.PlayOneShot(footstepClips[index], soundEffectsVolume * 0.2f);
     }
     public void PlayEnemyHit()
     {
