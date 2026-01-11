@@ -23,14 +23,14 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         PreviousScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("LobbyScene");
         Time.timeScale = 1f;
-        //MySoundManager.instance.PlayLobbyMusic();
+        MySoundManager.instance.PlayLobbyMusic();
     }
     public void OpenDarkLobbyScene()
     {
         PreviousScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("DarkLobbyScene");
         Time.timeScale = 1f;
-        //MySoundManager.instance.PlayLobbyMusic();
+        MySoundManager.instance.PlayLobbyMusic();
     }
     public void OpenGameScene()
     {
@@ -38,20 +38,21 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
        //SceneManager.LoadScene("MarosGameScene");
         SceneManager.LoadScene("GameScene");
         Time.timeScale = 1f;
-        //MySoundManager.instance.PlayGameMusic();
+        MySoundManager.instance.PlayJazzMusic();
     }
     public void OpenTutorialScene()
     {
         PreviousScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("TutorialScene");
         Time.timeScale = 1f;
-        //MySoundManager.instance.PlayGameMusic();//mabye change music
+        MySoundManager.instance.PlayJazzMusic();
     }
     public void OpenDevScene()
     {
         PreviousScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("MarosGameScene");
         Time.timeScale = 1f;
+        MySoundManager.instance.PlayJazzMusic();
     }
     public void QuitToWindows()
     {
@@ -61,5 +62,6 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     {
         // SceneManager.LoadScene("MarosGameScene");
         //SceneManager.LoadScene("MarosGameScene");
+        // MySoundManager.instance.PlayJazzMusic();
     }
 }
