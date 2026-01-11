@@ -49,6 +49,9 @@ public class PlayerCombat : UnitCombat
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
+
+        MySoundManager.instance.PlayEnemyHit();
+
         if (healthCurrent <= 0)
         {
             Die();
