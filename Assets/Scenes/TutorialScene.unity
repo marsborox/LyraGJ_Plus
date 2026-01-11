@@ -37013,7 +37013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826756540126611993, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3909222093709216720, guid: dedce78e06dde45e798dd31b767c2a40, type: 3}
       propertyPath: _gameMusic

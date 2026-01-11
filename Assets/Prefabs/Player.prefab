@@ -1074,7 +1074,6 @@ GameObject:
   - component: {fileID: 2395246204302797546}
   - component: {fileID: 361598244255013037}
   - component: {fileID: 5730095958024378426}
-  - component: {fileID: 4997513507974104024}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1378,37 +1377,6 @@ MonoBehaviour:
   beatPeriod: 4
   period: 0
   accuracyTolerance: 0.1
---- !u!114 &4997513507974104024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986896122668706926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 503432647
-      Data2: 1180924521
-      Data3: -1824378445
-      Data4: 1060321124
-    Path: event:/Main_hudba_jazz
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &3996855304987699569
 GameObject:
   m_ObjectHideFlags: 0
