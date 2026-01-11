@@ -24,8 +24,9 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     [Range(0f, 1f)] public float soundEffectsVolume = 1f;
 
     [Header("Instruments Fade Settings")]
-    public float fadeInTime = 0.1f;
-    public float fadeOutTime = 0.5f;
+    public float fadeInTime = 0.05f;
+    public float fadeOutTime = 1f;
+    public float instrumentPlayDuration = 0.6f;
 
     [Header("Sounds")]
     [SerializeField] private AudioClip buttonClickClip;
@@ -110,16 +111,9 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         PlayClip(enemyHitClips[index], soundEffectsVolume);
     }
 
-    public void HandleInstrument(Instrument instrument, bool isKeyDown)
+    public void HandleInstrument(Instrument instrument)
     {
-        if (isKeyDown)
-        {
-            FadeInstrument(instrument, musicVolume, fadeInTime);
-        }
-        else
-        {
-            FadeInstrument(instrument, 0f, fadeOutTime);
-        }
+        FadeInstrument(instrument, musicVolume * 1.5f); // a bit more, so it's noticeable
     }
 
     // Music
@@ -183,37 +177,58 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
     // Mixing background music & instruments
 
-    private void FadeInstrument(Instrument instrument, float targetVolume, float duration)
+    private void FadeInstrument(Instrument instrument, float targetVolume)
     {
         if (instrument == Instrument.Guitar)
         {
             if (_guitarRoutine != null) StopCoroutine(_guitarRoutine);
-            _guitarRoutine = StartCoroutine(FadeRoutine(guitarSource, targetVolume, duration));
+            _guitarRoutine = StartCoroutine(FadeRoutine(guitarSource, targetVolume));
         }
         else if (instrument == Instrument.Piano)
         {
             if (_pianoRoutine != null) StopCoroutine(_pianoRoutine);
-            _pianoRoutine = StartCoroutine(FadeRoutine(pianoSource, targetVolume, duration));
+            _pianoRoutine = StartCoroutine(FadeRoutine(pianoSource, targetVolume));
         }
         else if (instrument == Instrument.Saxophone)
         {
             if (_saxophoneRoutine != null) StopCoroutine(_saxophoneRoutine);
-            _saxophoneRoutine = StartCoroutine(FadeRoutine(saxophoneSource, targetVolume, duration));
+            _saxophoneRoutine = StartCoroutine(FadeRoutine(saxophoneSource, targetVolume));
         }
     }
 
-    IEnumerator FadeRoutine(AudioSource source, float targetVolume, float duration)
+    IEnumerator FadeRoutine(AudioSource source, float targetVolume)
     {
         float startVolume = source.volume;
-        float time = 0f;
 
-        while (time < duration)
+        // ATTACK — go to max quickly
+        float attackDuration = Mathf.Lerp(
+            fadeInTime * 0.2f, // faster if already loud
+            fadeInTime,
+            1f - startVolume / targetVolume
+        );
+
+        float t = 0f;
+        while (t < attackDuration)
         {
-            time += Time.unscaledDeltaTime;
-            source.volume = Mathf.Lerp(startVolume, targetVolume, time / duration);
+            t += Time.unscaledDeltaTime;
+            source.volume = Mathf.Lerp(startVolume, targetVolume, t / attackDuration);
             yield return null;
         }
 
         source.volume = targetVolume;
+
+        // HOLD (stay at max volume)
+        yield return new WaitForSeconds(instrumentPlayDuration);
+
+        // RELEASE — fade out slowly
+        t = 0f;
+        while (t < fadeOutTime)
+        {
+            t += Time.unscaledDeltaTime;
+            source.volume = Mathf.Lerp(targetVolume, 0f, t / fadeOutTime);
+            yield return null;
+        }
+
+        source.volume = 0f;
     }
 }
