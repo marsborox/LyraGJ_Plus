@@ -94,7 +94,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
         _lastFootstepsIndex = index;
         footstepsSource.pitch = Random.Range(0.95f, 1.05f);
-        footstepsSource.PlayOneShot(footstepClips[index], soundEffectsVolume * 0.2f);
+        footstepsSource.PlayOneShot(footstepClips[index], soundEffectsVolume * 0.1f);
     }
     public void PlayEnemyHit()
     {
@@ -108,7 +108,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         }
 
         _lastEnemyHitsIndex = index;
-        PlayClip(enemyHitClips[index], soundEffectsVolume);
+        PlayClip(enemyHitClips[index], soundEffectsVolume * 0.1f);
     }
 
     public void HandleInstrument(Instrument instrument)
