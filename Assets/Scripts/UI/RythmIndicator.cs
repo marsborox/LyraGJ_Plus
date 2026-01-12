@@ -6,6 +6,9 @@ public class RythmIndicator : MonoBehaviour
     public RythmBonus playerRythmBonus;
     [SerializeField] private GameObject rythmBubble;
     [SerializeField] private Image rythmBubbleImage;
+    [SerializeField] Color emphasisColor;
+    [SerializeField] Color otherColor;
+
     private void Update()
     {
         CheckBubblePosition();
@@ -21,11 +24,11 @@ public class RythmIndicator : MonoBehaviour
     {
         if (playerRythmBonus.CheckIfInRythm())
         { 
-            rythmBubbleImage.color = Color.green;
+            rythmBubbleImage.color = emphasisColor;
         }
         else
         {
-            rythmBubbleImage.color = Color.white;
+            rythmBubbleImage.color = otherColor;
         }
     }
 }
