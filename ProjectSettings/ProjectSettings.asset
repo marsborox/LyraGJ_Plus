@@ -304,6 +304,9 @@ PlayerSettings:
   - m_BuildTarget: WebGL
     m_StaticBatching: 0
     m_DynamicBatching: 0
+  - m_BuildTarget: Windows Store Apps
+    m_StaticBatching: 1
+    m_DynamicBatching: 0
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs: []
   m_BuildTargetGraphicsJobMode: []
@@ -613,11 +616,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: LyraGJ
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: BeFourSix
+  metroCertificateIssuer: BeFourSix
+  metroCertificateNotAfter: 8042edaae1a2dd01
   metroApplicationDescription: LyraGJ+
   wsaImages: {}
   metroTileShortName: LyraGJ+
