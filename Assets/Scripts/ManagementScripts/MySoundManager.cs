@@ -118,6 +118,13 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
     // Music
 
+    public void StopMusic()
+    {
+        if (backgroundSource == null) return;
+
+        backgroundSource.Stop();
+    }
+
     public void PlayLobbyMusic()
     {
         if (backgroundSource == null) return;
