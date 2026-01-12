@@ -2280,7 +2280,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.10258689, g: 0.10956495, b: 0.24528301, a: 1}
+  m_Color: {r: 0.11764706, g: 0.1254902, b: 0.4509804, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
@@ -35813,7 +35813,7 @@ PrefabInstance:
       objectReference: {fileID: 1148714917}
     - target: {fileID: 5398758484447006955, guid: 553674528514548459c5007ade46c226, type: 3}
       propertyPath: orthographic size
-      value: 15
+      value: 8.68
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
