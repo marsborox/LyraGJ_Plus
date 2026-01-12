@@ -923,8 +923,7 @@ MonoBehaviour:
   backgroundOverlay: {fileID: 3068733493684208244}
   playerImage: {fileID: 3377492721319564564}
   deathAnimation: {fileID: 3270513381382574154}
-  playerCharacter: {fileID: -8016777359758802688, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
-  dialogueUI: {fileID: 2213380607945376703}
+  cutscenesPlayer: {fileID: 8129490106304078614}
   reloadSceneButton: {fileID: 3192984464466687164}
   fadeTime: 1
 --- !u!1 &2827231054900610017
@@ -1070,7 +1069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552b676f23486444f8cb5634d01c3fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutscenesPlayer
-  level: {fileID: 0}
   dialogueUI: {fileID: 2213380607945376703}
   characterPortraits: []
   triggers: []

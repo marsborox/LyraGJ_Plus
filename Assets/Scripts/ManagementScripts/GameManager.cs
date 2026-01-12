@@ -89,7 +89,7 @@ public class GameManager : Singleton<GameManager>
     }
     public void SpawnDialogue(Room room)
     {
-        if (cutscenesPlayer != null) cutscenesPlayer.SpawnDialogue(roomsCleared);
+        if (cutscenesPlayer != null) cutscenesPlayer.SpawnDialogue(roomsCleared, levelSettings);
     }
     public void ForceRoomCleared(Room room)
     {

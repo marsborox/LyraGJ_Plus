@@ -22,7 +22,14 @@ public class Dialogue_SO : ScriptableObject
     {
         if (string.IsNullOrEmpty(fileName))
         {
-            fileName = name;
+            if (name != null)
+            {
+                fileName = name;
+            }
+            else
+            {
+                fileName = "UNKNOWN";
+            }
         }
     }
 }

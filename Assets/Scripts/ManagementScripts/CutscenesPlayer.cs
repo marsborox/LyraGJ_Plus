@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using static Level_SO;
+using static Dialogue_SO;
+using System.Linq;
 
 public enum CharacterID
 {
@@ -37,6 +39,8 @@ public class CutscenesPlayer : MonoBehaviour
     [SerializeField] private CharacterPortrait_SO[] characterPortraits;
     [SerializeField] private DialogueTrigger[] triggers;
     [SerializeField] private GameObject[] hideWhileTalking;
+    
+    private Level_SO _currentLevel;
     private Dialogue_SO _currentDialogue;
     private Rigidbody2D _playerRigidbody;
     private int _currentPartIndex = 0;
@@ -75,8 +79,9 @@ public class CutscenesPlayer : MonoBehaviour
         dialogueUI.gameObject.SetActive(false);
         Time.timeScale = 1f; // unpause
     }
-    public void SpawnDialogue(int indexOfClearedRoom)
+    public void SpawnDialogue(int indexOfClearedRoom, Level_SO level)
     {
+        _currentLevel = level;
         _currentDialogue = null;
         foreach (DialogueToIndex dialogueToIndex in level.dialogueWRoomClearedIndexList)
         {
@@ -97,6 +102,26 @@ public class CutscenesPlayer : MonoBehaviour
                 break;
             }
         }
+    }
+    public void SpawnDialogue(CharacterID character, CharacterEmotion emotion, string text)
+    {
+        Debug.Log("SPASWN Sad Lyra: " + text);
+        DialoguePart dialoguePart = new DialoguePart();
+        dialoguePart.character = character;
+        dialoguePart.emotion = emotion;
+        dialoguePart.dialogueText = text;
+
+        Dialogue_SO dialogue = ScriptableObject.CreateInstance<Dialogue_SO>();
+        dialogue.showAgain = true;
+        dialogue.parts = new DialoguePart[1];
+        dialogue.parts[0] = dialoguePart;
+        
+        Level_SO level = new Level_SO();
+        DialogueToIndex dialogueToIndex = new DialogueToIndex();
+        dialogueToIndex.dialogue = dialogue;
+        level.dialogueWRoomClearedIndexList.Add(dialogueToIndex);
+
+        SpawnDialogue(0, level);
     }
     void FixedUpdate()
     {
@@ -167,7 +192,9 @@ public class CutscenesPlayer : MonoBehaviour
     }
     private void OnTriggerEntered(DialogueTrigger trigger)
     {
-        SpawnDialogue(trigger.dialogueID);
+        if (level == null) return;
+
+        SpawnDialogue(trigger.dialogueID, level);
     }
     private void OnTriggerExited(DialogueTrigger trigger)
     {

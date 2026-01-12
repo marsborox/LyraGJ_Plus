@@ -1,14 +1,13 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerDied_UI : UI
 {
     [SerializeField] private Image backgroundOverlay;
     [SerializeField] private Image playerImage;
     [SerializeField] private Animator deathAnimation;
-    [SerializeField] private Sprite playerCharacter;
-    [SerializeField] private DialogueUI dialogueUI;
+    [SerializeField] private CutscenesPlayer cutscenesPlayer;
     [SerializeField] private Button reloadSceneButton;
     [SerializeField] private float fadeTime = 1f;
     
@@ -50,13 +49,10 @@ public class PlayerDied_UI : UI
         { 
             _alpha = 255;
             _isFading = false;
-            playerImage.gameObject.SetActive(false);
-            reloadSceneButton.gameObject.SetActive(true);
-            deathAnimation.gameObject.SetActive(true);
-            deathAnimation.Play("Death");
 
-            dialogueUI.Show(playerCharacter, "Oh... Let's try again?", true, false);
-            dialogueUI.gameObject.SetActive(true);
+            cutscenesPlayer.SpawnDialogue(CharacterID.Lyra, CharacterEmotion.Sad, "Oh... Let's try again?");
+
+            StartCoroutine(PlayAfterDelay(2f));
         }
 
         UpdateAlpha();
@@ -79,7 +75,14 @@ public class PlayerDied_UI : UI
         // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // Time.timeScale = 1f;
     }
+    IEnumerator PlayAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
+        playerImage.gameObject.SetActive(false);
+        deathAnimation.gameObject.SetActive(true);
+        deathAnimation.Play("Death");
+    }
     private void UpdateAlpha()
     {
         Color c = backgroundOverlay.color;
