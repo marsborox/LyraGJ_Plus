@@ -215,7 +215,7 @@ public class EnemyCombat : UnitCombat
         switch (_currentAttackPhase)
         {
             case AttackPhase.READY:
-                {//SO behav
+                {//SO behavior
 
                     //BehaviorTest();
                     behaviorTemplate.PerformBehavior(this, player);//triggers startAttackAnimation
