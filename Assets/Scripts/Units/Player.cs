@@ -68,6 +68,10 @@ public class Player : Unit
     { 
     
     }
+    public void ReleaseMLB()
+    {
+        playerMovement.StopMovement();
+    }
     /*public void StopMakeIdle()
     { 
         playerMovement.
