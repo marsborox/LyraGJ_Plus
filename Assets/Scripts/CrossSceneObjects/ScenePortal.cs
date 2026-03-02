@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameScene {LOBBY, DARKLOBBY, JAZZ, TUTORIAL, TESTCOMBAT, DEV}
 public class ScenePortal : MonoBehaviour
 {
     private static bool didPlayerSurviveTutorial = false;
@@ -19,39 +18,39 @@ public class ScenePortal : MonoBehaviour
                         if (SceneManager.GetActiveScene().name == "TutorialScene" && MySceneManager.PreviousScene == "DarkLobbyScene")
                         {
                             didPlayerSurviveTutorial = true;
-                            MySceneManager.instance.OpenGameScene();
+                            MySceneManager.instance.OpenScene(GameScene.JAZZ);
                         }
                         else
                         {
-                            MySceneManager.instance.OpenLobbyScene();
+                            MySceneManager.instance.OpenScene(GameScene.LOBBY);
                         }
                         break;
                     }
                 case GameScene.JAZZ:
                     {
-                        MySceneManager.instance.OpenGameScene();
+                        MySceneManager.instance.OpenScene(GameScene.JAZZ);
                         break;
                     }
                 case GameScene.TESTCOMBAT:
                     {
-                        MySceneManager.instance.OpenMarosTestScene();
+                        MySceneManager.instance.OpenScene(GameScene.TESTCOMBAT);
                         break;
                     }
                 case GameScene.TUTORIAL:
                     {
                         if (MySceneManager.PreviousScene == "LobbyScene" || !didPlayerSurviveTutorial)
                         {
-                            MySceneManager.instance.OpenTutorialScene();                       
+                            MySceneManager.instance.OpenScene(GameScene.TUTORIAL);
                         }
                         else
                         {
-                            MySceneManager.instance.OpenGameScene();
+                            MySceneManager.instance.OpenScene(GameScene.JAZZ);
                         }
                         break;
                     }
                 case GameScene.DEV:
                     {
-                        MySceneManager.instance.OpenDevScene();
+                        MySceneManager.instance.OpenScene(GameScene.DEV);
                         break;
                     }
             }

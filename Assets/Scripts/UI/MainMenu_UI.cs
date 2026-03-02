@@ -13,7 +13,7 @@ public class MainMenu_UI : UI
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InitiateButton(_newGameButton, MySceneManager.instance.OpenGameScene);
+        // InitiateButton(_newGameButton, );
         InitiateButton(_quitButton, QuitToWindows);
         //InitiateButton(creditsButton, ButtonGUIMethod, credits.gameObject);
         //InitiateButton(optionsButton, ButtonGUIMethod, optionsUI.gameObject);
