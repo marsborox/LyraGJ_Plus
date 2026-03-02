@@ -1,18 +1,25 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerCombat : UnitCombat
 {
-    public Weapon weapon1;
+    /*public Weapon weapon1;
     public Weapon weapon2;
     public Weapon weapon3;
-    public Weapon weapon4;
+    public Weapon weapon4;*/
 
     public Weapon weapon1New;
     public Weapon weapon2New;
     public Weapon weapon3New;
     public Weapon weapon4New;
 
+    public List<Weapon> weaponList = new List<Weapon>();
+    private void Start()
+    {
+        base.Start();
+        
+    }
     public void Weapon1_OnClick()
     {
         // Debug.Log("playerCombat.wpn1 attack");
@@ -38,7 +45,6 @@ public class PlayerCombat : UnitCombat
     public void Weapon3_OnClick()
     { 
         MySoundManager.instance.HandleInstrument(MySoundManager.Instrument.Saxophone);
-
         weapon3New.ClickAttack();
     }
     public void Weapon4_OnClick()
@@ -51,16 +57,14 @@ public class PlayerCombat : UnitCombat
         base.TakeDamage(damage);
 
         MySoundManager.instance.PlayEnemyHit();
-
         if (healthCurrent <= 0)
         {
             Die();
         }
     }
-    
     public override void SetHealthBar()
     { 
-    
+        
     }
     private void Die()
     {
@@ -70,5 +74,8 @@ public class PlayerCombat : UnitCombat
         GlobalEventManager.instance.TriggerOnPlayerDied();
         animationController.animator.updateMode = AnimatorUpdateMode.UnscaledTime;
     }
-    
+    void ChangeWeaponType(Weapon weapon, Type type)
+    { 
+        weapon.weaponType = type;
+    }
 }

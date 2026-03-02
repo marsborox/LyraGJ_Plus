@@ -33,9 +33,7 @@ public class Level_SO : ScriptableObject
     public virtual void UnSubscribeOnSpawnRoom(Room room)
     { }
     public virtual void PlayerDied()
-    { 
-    
-    }
+    { }
     //public static RoomEvent OnPlayerEnterRoom;
     //public static RoomEvent OnPlayerLeaveRoom;
     //public static RoomEvent OnRoomCleared;

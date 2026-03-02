@@ -65,7 +65,6 @@ public class GameManager : Singleton<GameManager>
                         // stage = GameStage.DIALOGUE; skipping for now, we need to update dialogues
                         stage = GameStage.END;
                     }
-                    
                     break; 
                 }
             case GameStage.DIALOGUE:
@@ -101,7 +100,6 @@ public class GameManager : Singleton<GameManager>
         {
             stage = GameStage.POSTWAVE;
         }
-        
     }
     public void PostConversation()
     {

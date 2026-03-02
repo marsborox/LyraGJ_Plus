@@ -31,5 +31,4 @@ public class UnitVisual : MonoBehaviour
     {
         _unitCombat.Die();
     }
-
 }
