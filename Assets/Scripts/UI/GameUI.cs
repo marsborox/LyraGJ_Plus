@@ -1,11 +1,17 @@
 using UnityEngine;
 
-public class GameUI : MonoBehaviour/*SingletonPersistent<GameUI>*/
+public class GameUI : Singleton<GameUI>
 {
-    //public static new UnitSpawner instance => Singleton<UnitSpawner>.instance;
+    public static new GameUI instance => Singleton<GameUI>.instance;
     public PlayerCombat playerCombat;
     public PlayerDied_UI playerDied_UI;
 
+    [SerializeField] private WeaponSetup_UI _weaponSetup_UI;
+
+    private void Awake()
+    {
+        base.Awake();
+    }
     private void Start()
     {
         
@@ -22,4 +28,16 @@ public class GameUI : MonoBehaviour/*SingletonPersistent<GameUI>*/
     { 
         playerDied_UI.gameObject.SetActive(true);
     }
+    public void OpenCloseWeaponsUI()
+    {
+        if (_weaponSetup_UI.gameObject.activeSelf)
+        {
+            _weaponSetup_UI.gameObject.SetActive(false);
+        }
+        else if (!_weaponSetup_UI.gameObject.activeSelf)
+        { 
+            _weaponSetup_UI.gameObject.SetActive(true);
+        }
+    }
+
 }

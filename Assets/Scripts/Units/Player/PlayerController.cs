@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         _LMBClicker.name = "action1";
         _RMBClicker.action = _playerInput.actions["Action2"];
         _RMBClicker.name = "action2";
+
     }
     void Start()
     {
@@ -169,6 +170,11 @@ public class PlayerController : MonoBehaviour
     void OnAction4()
     {//e
         player.AttackWeapon4Click();
+    }
+    void OnWeaponsMenu()
+    {
+        Debug.Log("Opening weapons menu");
+        GameUI.instance.OpenCloseWeaponsUI();
     }
     void CheckClickHoldActions()
     {

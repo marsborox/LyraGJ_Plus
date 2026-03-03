@@ -28,14 +28,12 @@ public class TutorialLevel_SO : Level_SO
         GlobalEventManager.OnEnemyDied += room.EnemyDied;//something here prob count dead units track in level mngr
         GlobalEventManager.OnRoomCleared += room.LiftBarriers;
         //GlobalEventManager.OnRoomCleared += GameManager.instance.CountClearedRooms;
-        
     }
     public void SingleUnSubscribe(Room room)
     {
         GlobalEventManager.OnPlayerLeaveRoom -= GameManager.instance.ForceRoomCleared;
         GlobalEventManager.OnPlayerEnterRoom -= GameManager.instance.SpawnDialogue;
     }
-
     public void SpawnTutorialRoom(Room room)
     {
         //int roomID = GameManager.instance.roomsCleared;
@@ -47,10 +45,8 @@ public class TutorialLevel_SO : Level_SO
         { 
             case 0: 
                 {
-                    
                     break; 
                 }
-
             case 1: 
                 {
                     room.SpawnParticularEnemy(room, _redEnemy);
@@ -88,5 +84,4 @@ public class TutorialLevel_SO : Level_SO
                 }
         }
     }
-
 }
