@@ -4,7 +4,7 @@ public class Slam : Weapon
 {
     [SerializeField] private Collider2D _myCollider;
     [SerializeField] private GameObject _animationVisual1;
-    [SerializeField] private GameObject _animationVisual2;
+    
     
 
     public override void ClickAttack()
@@ -49,5 +49,20 @@ public class Slam : Weapon
         }
         unit.GetPushedBack(this.transform.position,pushbackForce,pushBackDuration);
         unit.TakeDamage(ReturnCalculateDamage());
+    }
+    public override void SetWeaponRed()
+    {
+        weaponType = Type.RED;
+        _animationVisual1.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+    }
+    public override void SetWeaponGreen()
+    {
+        weaponType = Type.GREEN;
+        _animationVisual1.GetComponentInChildren<SpriteRenderer>().color = Color.green;
+    }
+    public override void SetWeaponBlue()
+    {
+        weaponType = Type.BLUE;
+        _animationVisual1.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
     }
 }

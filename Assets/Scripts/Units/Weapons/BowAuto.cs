@@ -6,6 +6,7 @@ public class BowAuto : Weapon
 {
     public Projectile projectilePrefab;
     private Coroutine _animationRoutine;
+    [SerializeField] private Color _projectileColor;    
     
     public override void ClickAttack()
     {
@@ -34,6 +35,9 @@ public class BowAuto : Weapon
         projectile.damage = ReturnCalculateDamage();//same w SO
         projectile.pushBackDuration = pushBackDuration;//not in SO
         projectile.pushBackForce = pushbackForce;//not in SO
+        projectile.projectileType = weaponType;
+        projectile.projectileSpriteRenderer.color = _projectileColor;
+
         _animationRoutine = StartCoroutine(AnimationRoutine());
         GlobalEventManager.instance.TriggerOnPlayerAtack();
     }
@@ -43,5 +47,20 @@ public class BowAuto : Weapon
         yield return new WaitForSeconds(attackAnimationTime);
         player.playerMovement.CanMove();
         _animationRoutine = null;
+    }
+    public override void SetWeaponRed()
+    {
+        weaponType = Type.RED;
+        _projectileColor = Color.red;
+    }
+    public override void SetWeaponGreen()
+    {
+        weaponType = Type.GREEN;
+        _projectileColor = Color.green;
+    }
+    public override void SetWeaponBlue()
+    {
+        weaponType = Type.BLUE;
+        _projectileColor = Color.blue;
     }
 }

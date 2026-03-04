@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     public float pushBackForce;
     public float pushBackDuration;
     public float miniStunDuration;
-
+    public SpriteRenderer projectileSpriteRenderer;
     //we will hardcode that if player with anything hits projectile it gets destroyed
     
     

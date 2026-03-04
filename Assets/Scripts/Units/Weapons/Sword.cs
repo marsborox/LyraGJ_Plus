@@ -6,7 +6,7 @@ public class Sword : Weapon
     [SerializeField] private Collider2D _myCollider;
     [SerializeField] private GameObject _animationVisual;
     [SerializeField] private GameObject _visualCollider;
-    
+    [SerializeField] private SpriteRenderer _swordAttackSprite;
 
     public override void ClickAttack()
     {
@@ -36,7 +36,21 @@ public class Sword : Weapon
         }
         unit.GetPushedBack(this.transform.position,pushbackForce,pushBackDuration);
         unit.TakeDamage(ReturnCalculateDamage());
-
+    }
+    public override void SetWeaponRed()
+    {
+        weaponType = Type.RED;
+        _swordAttackSprite.color = Color.red;
+    }
+    public override void SetWeaponGreen()
+    {
+        weaponType = Type.GREEN;
+        _swordAttackSprite.color = Color.green;
+    }
+    public override void SetWeaponBlue() 
+    {
+        weaponType = Type.BLUE;
+        _swordAttackSprite.color = Color.blue;
     }
 
     IEnumerator AttackHitRoutine()
