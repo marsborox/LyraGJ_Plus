@@ -6,7 +6,7 @@ public class BowAuto : Weapon
 {
     public Projectile projectilePrefab;
     private Coroutine _animationRoutine;
-    [SerializeField] private Color _projectileColor;    
+    [SerializeField] private Color _projectileColor = Color.green;    
     
     public override void ClickAttack()
     {
