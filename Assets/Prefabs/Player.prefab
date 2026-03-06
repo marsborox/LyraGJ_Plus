@@ -1267,7 +1267,7 @@ MonoBehaviour:
   weapon2New: {fileID: 4361122227700079499}
   weapon3New: {fileID: 963801728030566303}
   weapon4New: {fileID: 965469982444938934}
-  weaponList: []
+  hitEffectPrefab: {fileID: 9152435506617492344, guid: 9e1e907dc4b6148788e77a5e34b22acc, type: 3}
 --- !u!61 &7287768026732415858
 BoxCollider2D:
   m_ObjectHideFlags: 0

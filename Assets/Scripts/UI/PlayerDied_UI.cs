@@ -68,11 +68,11 @@ public class PlayerDied_UI : UI
         // TODO: rework in Level_SO, e.g. "Death Scene Name"
         if (MySceneManager.PreviousScene == "DarkLobbyScene" || MySceneManager.PreviousScene == "TutorialScene")
         {
-            MySceneManager.instance.OpenDarkLobbyScene();
+            MySceneManager.instance.OpenScene(GameScene.DARKLOBBY);
         }
         else
         {
-            MySceneManager.instance.OpenLobbyScene();
+            MySceneManager.instance.OpenScene(GameScene.LOBBY);
         }
 
         // replace with the following code for infinite level restarts

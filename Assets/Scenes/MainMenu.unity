@@ -2544,7 +2544,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 505803584}
         m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
-        m_MethodName: OpenDarkLobbyScene
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
