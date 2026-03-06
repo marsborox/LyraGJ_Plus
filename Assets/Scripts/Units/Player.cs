@@ -64,6 +64,10 @@ public class Player : Unit
     {
         playerMovement.MoveByMouse();
     }
+    public void OpenWeaponMenu()
+    { 
+    
+    }
     /*public void StopMakeIdle()
     { 
         playerMovement.

@@ -23,7 +23,7 @@ public class UnitVisual : MonoBehaviour
     }*/
     public void PostTakeDamageAnimationEvent()
     {
-        Debug.Log("post takeDamage post animation");
+        //Debug.Log("post takeDamage post animation");
         _unitCombat.isStunned = false;
     }
 
@@ -31,5 +31,4 @@ public class UnitVisual : MonoBehaviour
     {
         _unitCombat.Die();
     }
-
 }

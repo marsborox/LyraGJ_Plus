@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerCombat : UnitCombat
 {
-    public Weapon weapon1;
+    /*public Weapon weapon1;
     public Weapon weapon2;
     public Weapon weapon3;
-    public Weapon weapon4;
+    public Weapon weapon4;*/
 
     public Weapon weapon1New;
     public Weapon weapon2New;
@@ -14,6 +15,12 @@ public class PlayerCombat : UnitCombat
     public Weapon weapon4New;
     public GameObject hitEffectPrefab;
 
+    public List<Weapon> weaponList = new List<Weapon>();
+    private void Start()
+    {
+        base.Start();
+        
+    }
     public void Weapon1_OnClick()
     {
         // Debug.Log("playerCombat.wpn1 attack");
@@ -45,6 +52,7 @@ public class PlayerCombat : UnitCombat
         MySoundManager.instance.HandleInstrument(MySoundManager.Instrument.Saxophone);
 
         SpawnMusicalNotes(new Color(0, 0, 1));
+
         weapon3New.ClickAttack();
     }
     public void Weapon4_OnClick()
@@ -58,16 +66,14 @@ public class PlayerCombat : UnitCombat
         base.TakeDamage(damage);
 
         MySoundManager.instance.PlayEnemyHit();
-
         if (healthCurrent <= 0)
         {
             Die();
         }
     }
-    
     public override void SetHealthBar()
     { 
-    
+        
     }
     private void Die()
     {

@@ -158,6 +158,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "WeaponsMenu",
+                    "type": "Button",
+                    "id": "80911851-2ec8-446e-8f1b-3c624d5bb726",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -631,6 +640,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Action4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "295dac1b-300c-4983-9f11-bfa63fae2d76",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WeaponsMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

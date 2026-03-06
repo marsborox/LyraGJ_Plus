@@ -24,7 +24,7 @@ public class UnitCombat : MonoBehaviour
     public Rigidbody2D myRigidBody;
     public Unit thisUnit;
     public UnitAnimationController animationController;
-    void Start()
+    public void Start()
     {
         healthCurrent = healthMax;
     }

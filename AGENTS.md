@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, cast shadow, Water, UI, Unit
 - Active game object:
-  - Name: Player
-  - Tag: Player
+  - Name: Bow
+  - Tag: PlayerWeapon
   - Layer: cast shadow
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

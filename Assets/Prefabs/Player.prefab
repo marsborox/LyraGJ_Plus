@@ -1263,10 +1263,6 @@ MonoBehaviour:
   myRigidBody: {fileID: 2395246204302797546}
   thisUnit: {fileID: 6243917595417204822}
   animationController: {fileID: 361598244255013037}
-  weapon1: {fileID: 8881615355800754850}
-  weapon2: {fileID: 3626787188444012202}
-  weapon3: {fileID: 6684086850587309295}
-  weapon4: {fileID: 0}
   weapon1New: {fileID: 2248609410062747645}
   weapon2New: {fileID: 4361122227700079499}
   weapon3New: {fileID: 963801728030566303}
@@ -3531,6 +3527,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6243917595417204822}
     - target: {fileID: 2340119675553180260, guid: 49bc3b5dc51b26b42b04287b49834f94, type: 3}
+      propertyPath: weaponType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2340119675553180260, guid: 49bc3b5dc51b26b42b04287b49834f94, type: 3}
       propertyPath: mouseFollow
       value: 
       objectReference: {fileID: 1477771279173098806}
@@ -3651,6 +3651,10 @@ PrefabInstance:
       propertyPath: mouseFollow
       value: 
       objectReference: {fileID: 1477771279173098806}
+    - target: {fileID: 6660183504305069722, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
+      propertyPath: _swordAttackSprite
+      value: 
+      objectReference: {fileID: 8583239249738056323}
     - target: {fileID: 6890670192740917019, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3716,6 +3720,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95783c9bba18e449b36764bac8e5ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!212 &8583239249738056323 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3766374174507064292, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
+  m_PrefabInstance: {fileID: 4852931807821240679}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5815964031246458485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3772,6 +3781,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 6243917595417204822}
+    - target: {fileID: 7796757862482134526, guid: 408d510004bd2284ab8f6dd622e41802, type: 3}
+      propertyPath: weaponType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7796757862482134526, guid: 408d510004bd2284ab8f6dd622e41802, type: 3}
       propertyPath: mouseFollow
       value: 

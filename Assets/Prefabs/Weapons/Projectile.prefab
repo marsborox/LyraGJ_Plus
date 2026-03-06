@@ -55,6 +55,7 @@ MonoBehaviour:
   pushBackForce: 10
   pushBackDuration: 0.2
   miniStunDuration: 0.2
+  projectileSpriteRenderer: {fileID: 3715428837753970769}
 --- !u!212 &3715428837753970769
 SpriteRenderer:
   m_ObjectHideFlags: 0
