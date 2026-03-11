@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 1660438111212732072}
   - component: {fileID: 4258614492040384127}
   - component: {fileID: 493936837405729099}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 7886990425334265719}
   - component: {fileID: 2287612007222378992}
   - component: {fileID: 1123149760818088287}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyNew
   m_TagString: Enemy
   m_Icon: {fileID: 0}
