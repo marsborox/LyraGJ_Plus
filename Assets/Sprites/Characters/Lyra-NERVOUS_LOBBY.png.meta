@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: c851e81cfbdcae747b06ed2db1d2e598
+guid: 815557c2ce59d4d54bef5f7f6312b8a7
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 1070808964735896586
-    second: Lyra_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -24,7 +21,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -126,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lyra_0
+      name: building03_0
       rect:
         serializedVersion: 2
-        x: 444
-        y: 535
-        width: 2406
-        height: 3441
+        x: 0
+        y: 0
+        width: 256
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +138,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0c036d74174cde00800000000000000
-      internalID: 1070808964735896586
+      spriteID: 33f278fd9d9aa9db0800000000000000
+      internalID: -4784324900904554701
       vertices: []
       indices: 
       edges: []
@@ -161,7 +158,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lyra_0: 1070808964735896586
+      building03_0: -4784324900904554701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
