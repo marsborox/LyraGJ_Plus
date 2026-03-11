@@ -15,16 +15,16 @@ MonoBehaviour:
   character: 0
   portraits:
   - emotion: 0
-    sprite: {fileID: -8016777359758802688, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
+    sprite: {fileID: 21300000, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
   - emotion: 1
-    sprite: {fileID: -8016777359758802688, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
+    sprite: {fileID: 21300000, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
   - emotion: 2
-    sprite: {fileID: -8016777359758802688, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
+    sprite: {fileID: 21300000, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
   - emotion: 3
-    sprite: {fileID: -8016777359758802688, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
+    sprite: {fileID: 21300000, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
   - emotion: 4
-    sprite: {fileID: -8016777359758802688, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
+    sprite: {fileID: 21300000, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
   - emotion: 5
-    sprite: {fileID: -8016777359758802688, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
+    sprite: {fileID: 21300000, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
   - emotion: 6
-    sprite: {fileID: -8016777359758802688, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
+    sprite: {fileID: 21300000, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
