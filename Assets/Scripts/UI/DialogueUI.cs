@@ -46,36 +46,30 @@ public class DialogueUI : UI
         _messageToType = text;
         textOfDialogue.text = "";
 
+        bool isChangedSpeaker = (isOnLeftSide && leftCharacterImage.sprite == null) || (!isOnLeftSide && leftCharacterImage.sprite != null);
+
         leftCharacterImage.gameObject.SetActive(isOnLeftSide);
         rightCharacterImage.gameObject.SetActive(!isOnLeftSide);
 
         if (isOnLeftSide)
         {
             rightCharacterImage.sprite = null;
-
-            if (leftCharacterImage.sprite != image)
+            leftCharacterImage.sprite = image;
+            
+            if (isChangedSpeaker && _leftAnimator != null)
             {
-                leftCharacterImage.sprite = image;
-                
-                if (_leftAnimator != null)
-                {
-                    _leftAnimator.ResetTrigger("PlayHeadBob");
-                    _leftAnimator.SetTrigger("PlayHeadBob");
-                }
+                _leftAnimator.ResetTrigger("PlayHeadBob");
+                _leftAnimator.SetTrigger("PlayHeadBob");
             }
         } else
         {
             leftCharacterImage.sprite = null;
+            rightCharacterImage.sprite = image;
 
-            if (rightCharacterImage.sprite != image)
+            if (isChangedSpeaker && _rightAnimator != null)
             {
-                rightCharacterImage.sprite = image;
-
-                if (_rightAnimator != null)
-                {
-                    _rightAnimator.ResetTrigger("PlayHeadBob");
-                    _rightAnimator.SetTrigger("PlayHeadBob");
-                }
+                _rightAnimator.ResetTrigger("PlayHeadBob");
+                _rightAnimator.SetTrigger("PlayHeadBob");
             }
         }
 
