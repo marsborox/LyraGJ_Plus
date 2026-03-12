@@ -211,6 +211,11 @@ public class UnitAnimationController : MonoBehaviour
         //_animator.SetFloat("Yinput", horizontal);
         //animator.SetFloat();
     }
+    public void HandleMeeleeAttackAnimation()
+    {
+        //Debug.Log("Meelee Attacking Animation");
+        animator.SetTrigger("MeeleeAttack");        
+    }
     public void HandleEnemyAttackAnimation()
     {
         //Debug.Log("Attacking Animation");

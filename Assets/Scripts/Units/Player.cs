@@ -34,7 +34,7 @@ public class Player : Unit
     {
         if (unitCombat == null) return;
 
-        ((PlayerCombat)unitCombat).Weapon1_OnHold();
+        // ((PlayerCombat)unitCombat).Weapon1_OnHold();
     }
     public void AttackWeapon2Click()
     {
@@ -46,7 +46,7 @@ public class Player : Unit
     {
         if (unitCombat == null) return;
 
-        ((PlayerCombat)unitCombat).Weapon2_OnHold();
+        // ((PlayerCombat)unitCombat).Weapon2_OnHold();
     }
     public void AttackWeapon3Click()
     {

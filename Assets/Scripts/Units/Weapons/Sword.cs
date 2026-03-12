@@ -21,7 +21,7 @@ public class Sword : Weapon
         //Debug.Log("player attacking");
         _visualCollider.transform.rotation = mouseFollow.ReturnMouseDirection();
         _myCollider.enabled = true;
-        _animationVisual.SetActive(true);
+        // _animationVisual.SetActive(true); HIDE COLLIDER ANIMATION FOR NOW
         player.playerMovement.CanNotMove();
         StartCoroutine(AttackHitRoutine());
         StartCoroutine(AttackAnimationRoutine());

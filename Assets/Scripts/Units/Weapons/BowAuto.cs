@@ -12,10 +12,6 @@ public class BowAuto : Weapon
     {
         ShootProjectile();
     }
-    public override void HoldAttack()
-    {
-        ShootProjectile();
-    }
 
     public void ShootProjectile()
     {
