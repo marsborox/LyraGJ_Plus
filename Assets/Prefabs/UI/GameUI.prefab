@@ -1001,7 +1001,7 @@ MonoBehaviour:
   backgroundOverlay: {fileID: 3068733493684208244}
   playerImage: {fileID: 3377492721319564564}
   deathAnimation: {fileID: 3270513381382574154}
-  playerCharacter: {fileID: -8016777359758802688, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
+  playerCharacter: {fileID: 21300000, guid: bbb225f8c19884be5b14bad8e5a800fb, type: 3}
   dialogueUI: {fileID: 2213380607945376703}
   reloadSceneButton: {fileID: 3192984464466687164}
   fadeTime: 1
