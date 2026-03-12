@@ -38,6 +38,7 @@ public class PlayerCombat : UnitCombat
         SpawnMusicalNotes(new Color(0, 1, 0));
         animationController.HandleRangedAttackAnimation();
         weapon2New.ClickAttack();
+        Debug.Log("doing ranged attack");
     }
     public void Weapon3_OnClick()
     { 

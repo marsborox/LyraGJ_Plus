@@ -99,6 +99,7 @@ public class EnemyCombat : UnitCombat
     }
     public void StartAttackAnimation()
     {
+        enemyMovement.StopMovement();
         //Debug.Log("Starting AttackAnimaiton");
         animationController.HandleEnemyAttackAnimation();
     
@@ -106,6 +107,7 @@ public class EnemyCombat : UnitCombat
         isAttacking = true;
         _currentAttackPhase = AttackPhase.ANIMATION;
         //play attackAnimation
+        
     }
 
     public void AttackHitPostAnimation()
