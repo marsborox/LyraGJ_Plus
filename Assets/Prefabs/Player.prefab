@@ -351,7 +351,7 @@ SpriteRenderer:
   m_SortingLayerID: 1835196397
   m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a05742f9c4763478dbe57f745d9a109b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73dff781cbb1d4ce59b1c82bce7e45e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -388,10 +388,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteResolver
-  m_CategoryHash: 1.8625731e-11
-  m_labelHash: 1.21706786e-23
+  m_CategoryHash: 0.009161512
+  m_labelHash: 5.901987e-35
   m_SpriteKey: 0
-  m_SpriteHash: 298811503
+  m_SpriteHash: 33322737
 --- !u!95 &2572192969637178638
 Animator:
   serializedVersion: 7
@@ -1268,6 +1268,7 @@ MonoBehaviour:
   weapon3New: {fileID: 963801728030566303}
   weapon4New: {fileID: 965469982444938934}
   hitEffectPrefab: {fileID: 9152435506617492344, guid: 9e1e907dc4b6148788e77a5e34b22acc, type: 3}
+  weaponList: []
 --- !u!61 &7287768026732415858
 BoxCollider2D:
   m_ObjectHideFlags: 0

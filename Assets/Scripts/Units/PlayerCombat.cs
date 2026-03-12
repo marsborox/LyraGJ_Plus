@@ -27,12 +27,8 @@ public class PlayerCombat : UnitCombat
         MySoundManager.instance.HandleInstrument(MySoundManager.Instrument.Guitar);
 
         SpawnMusicalNotes(new Color(1, 0, 0));
+        animationController.HandleMeeleeAttackAnimation();
         weapon1New.ClickAttack();
-    }
-    public void Weapon1_OnHold()
-    {
-        SpawnMusicalNotes(new Color(1, 0, 0));
-        weapon1New.HoldAttack();
     }
     public void Weapon2_OnClick() 
     {
@@ -40,19 +36,15 @@ public class PlayerCombat : UnitCombat
         MySoundManager.instance.HandleInstrument(MySoundManager.Instrument.Piano);
 
         SpawnMusicalNotes(new Color(0, 1, 0));
+        animationController.HandleRangedAttackAnimation();
         weapon2New.ClickAttack();
-    }
-    public void Weapon2_OnHold()
-    {
-        SpawnMusicalNotes(new Color(0, 1, 0));
-        weapon2New.HoldAttack();
     }
     public void Weapon3_OnClick()
     { 
         MySoundManager.instance.HandleInstrument(MySoundManager.Instrument.Saxophone);
 
         SpawnMusicalNotes(new Color(0, 0, 1));
-
+        animationController.HandleAoEAttackAnimation();
         weapon3New.ClickAttack();
     }
     public void Weapon4_OnClick()

@@ -20,7 +20,7 @@ public class Slam : Weapon
         //_visualCollider.transform.rotation = rotation;
         //_visualCollider.transform.rotation = mouseFollow.ReturnMouseDirection();
         _myCollider.enabled = true;
-        _animationVisual1.SetActive(true);
+        // _animationVisual1.SetActive(true); DISABLE COLLIDER VISUALS FOR NOW
         //_animationVisual2.SetActive(true);
         player.playerMovement.CanNotMove();
         StartCoroutine(AttackHitRoutine());
