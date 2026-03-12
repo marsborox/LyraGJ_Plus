@@ -216,6 +216,16 @@ public class UnitAnimationController : MonoBehaviour
         //Debug.Log("Meelee Attacking Animation");
         animator.SetTrigger("MeeleeAttack");        
     }
+    public void HandleRangedAttackAnimation()
+    {
+        //Debug.Log("Ranged Attacking Animation");
+        animator.SetTrigger("RangedAttack");        
+    }
+    public void HandleAoEAttackAnimation()
+    {
+        //Debug.Log("AoE Attacking Animation");
+        animator.SetTrigger("AoEAttack");        
+    }
     public void HandleEnemyAttackAnimation()
     {
         //Debug.Log("Attacking Animation");
