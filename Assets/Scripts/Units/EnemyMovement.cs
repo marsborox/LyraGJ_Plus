@@ -41,6 +41,7 @@ public class EnemyMovement : UnitMovement
     public void StopMovement()
     {
         _agent.SetDestination(transform.position);
+        /*_agent.speed=0;*/
     }
     void DirectionChecker()
     {
