@@ -1094,6 +1094,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1501775445694952016}
   - {fileID: 8940438230138441948}
   - {fileID: 307126562153214656}
   - {fileID: 1264080661905099204}
@@ -1606,6 +1607,118 @@ MonoBehaviour:
   leftAttackAnimator: {fileID: 2449107558230112822}
   playerMovement: {fileID: 859534956746889397}
   _mouseFollow: {fileID: 1477771279173098806}
+--- !u!1 &4329568753661803058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1501775445694952016}
+  - component: {fileID: 8125318231161890152}
+  - component: {fileID: 110551577040779909}
+  m_Layer: 7
+  m_Name: Battle Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1501775445694952016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329568753661803058}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7700510036712623375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &8125318231161890152
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329568753661803058}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.12, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.675, y: 2.35}
+  m_EdgeRadius: 0
+--- !u!114 &110551577040779909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329568753661803058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1a4cdbb5a76d949aa8953da8d96b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  healthMax: 50
+  healthCurrent: 0
+  healthFraction: 0
+  healthBar: {fileID: 0}
+  tagThatHitsUs: EnemyWeapon
+  projectileTagThatHitsUs: EnemyProjectile
+  projectileTagWeShot: PlayerProjectile
+  isPushedBack: 0
+  pushBackTime: 0.2
+  isStunned: 0
+  stunDuration: 0
+  stunTimer: 0
+  myRigidBody: {fileID: 2395246204302797546}
+  thisUnit: {fileID: 6243917595417204822}
+  animationController: {fileID: 361598244255013037}
+  weapon1New: {fileID: 2248609410062747645}
+  weapon2New: {fileID: 4361122227700079499}
+  weapon3New: {fileID: 963801728030566303}
+  weapon4New: {fileID: 965469982444938934}
+  hitEffectPrefab: {fileID: 9152435506617492344, guid: 9e1e907dc4b6148788e77a5e34b22acc, type: 3}
+  weaponList: []
 --- !u!1 &4344508299851619222
 GameObject:
   m_ObjectHideFlags: 0
