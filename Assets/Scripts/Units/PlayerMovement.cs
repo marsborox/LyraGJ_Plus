@@ -77,26 +77,27 @@ public class PlayerMovement : UnitMovement
     }
     public void MoveByMouse()
     {
-        //Debug.Log("mouseMovement");
-        if (!canMove)
-            return;
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float distance = Vector2.Distance(transform.position,mousePosition);
-        //Debug.Log("distance between mouse and player is: "+distance);
-        // to avoid jitterying , because camera is following w delay
-        if (distance < 0.8)
-        { return; }
-        //Debug.Log(mousePosition);
-        //_myRigidbody2D.MovePosition(mousePosition /* * movementSpeed * Time.fixedDeltaTime*/);
-        //_myRigidbody2D.MovePosition( (transform.position - mousePosition) * movementSpeed * Time.fixedDeltaTime/* - transform.position*/);
+        if (!canMove) return;
 
-        Vector3 movePosition = (mousePosition - (Vector2)this.transform.position).normalized;
-        
-        //transform.position = Vector2.MoveTowards(transform.position, movePosition, movementSpeed*Time.fixedDeltaTime);
-        _myRigidbody2D.MovePosition(transform.position + movePosition * movementSpeed * Time.fixedDeltaTime);
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float distance = Vector2.Distance(_myRigidbody2D.position, mousePosition);
+
+        // to avoid jitterying , because camera is following w delay
+        if (distance < 0.08f) {
+            _myRigidbody2D.linearVelocity = Vector2.Lerp(_myRigidbody2D.linearVelocity, Vector2.zero, 0.3f);
+            return;
+        }
+
+        Vector2 direction = (mousePosition - _myRigidbody2D.position).normalized;
+        _myRigidbody2D.linearVelocity = Vector2.Lerp(_myRigidbody2D.linearVelocity, direction * movementSpeed, 0.2f);
+
         animationController.HandleMovementAnimation();
 
         MySoundManager.instance.PlayFootsteps();
+    }
+    public void StopMovement()
+    {
+        _myRigidbody2D.linearVelocity = Vector2.zero;
     }
     public void DashWSAD(Vector2 rawInput)
     {

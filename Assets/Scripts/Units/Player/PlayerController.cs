@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
         //CheckClickHoldAction(ref _LMBClicker, player.AttackWeapon1Hold);
         //CheckClickHoldAction(ref _LMB2Clicker, player.AttackWeapon2Hold);
 
-        CheckClickHoldAction(ref _LMBClicker, player.MoveLMB);
+        CheckClickHoldAction(ref _LMBClicker, player.MoveLMB, player.ReleaseMLB);
 
         //CheckClickHoldAction(ref _LMB2Clicker, player.AttackWeapon2Hold);
     }
@@ -237,19 +237,7 @@ public class PlayerController : MonoBehaviour
             clicker.actionTimer = 0;
         }
     }
-    void CheckClickHoldAction(ref Clicker clicker)
-    {
-        if (clicker.isPressed)
-        {
-            //clicker.isPressed = true;
-            clicker.actionTimer += Time.deltaTime;
-            if (clicker.actionTimer > holdHreshold)
-            {
-                clicker.isHeld = true;
-            }
-        }
-    }
-    void CheckClickHoldAction(ref Clicker clicker, Action onHold)
+    void CheckClickHoldAction(ref Clicker clicker, Action onHold, Action onRelease)
     {
         if (clicker.isPressed)
         {
@@ -261,6 +249,8 @@ public class PlayerController : MonoBehaviour
                 onHold();
                 clicker.isHeld = true;
             }
+        } else {
+            onRelease();
         }
     }
     void CheckClickHoldReleaseAction(ref Clicker clicker, Action onHold,Action onRelease)
