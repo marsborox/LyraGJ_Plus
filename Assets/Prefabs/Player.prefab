@@ -1584,7 +1584,6 @@ GameObject:
   - component: {fileID: 1501775445694952016}
   - component: {fileID: 8125318231161890152}
   - component: {fileID: 110551577040779909}
-  - component: {fileID: 5373950436187701957}
   m_Layer: 7
   m_Name: Battle Hitbox
   m_TagString: Untagged
@@ -1686,44 +1685,6 @@ MonoBehaviour:
   weapon4New: {fileID: 965469982444938934}
   hitEffectPrefab: {fileID: 9152435506617492344, guid: 9e1e907dc4b6148788e77a5e34b22acc, type: 3}
   weaponList: []
-  emitter: {fileID: 5373950436187701957}
---- !u!114 &5373950436187701957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4329568753661803058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 503432647
-      Data2: 1180924521
-      Data3: -1824378445
-      Data4: 1060321124
-    Path: event:/main_hudba_jazz
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params:
-  - Name: Guitar_attack
-    Value: 0
-  - Name: Piano_attack
-    Value: 0
-  - Name: Saxophone_attack
-    Value: 0
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &4344508299851619222
 GameObject:
   m_ObjectHideFlags: 0

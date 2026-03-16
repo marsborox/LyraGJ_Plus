@@ -4,21 +4,12 @@ using System.Collections.Generic;
 
 public class PlayerCombat : UnitCombat
 {
-    /*public Weapon weapon1;
-    public Weapon weapon2;
-    public Weapon weapon3;
-    public Weapon weapon4;*/
-
     public Weapon weapon1New;
     public Weapon weapon2New;
     public Weapon weapon3New;
     public Weapon weapon4New;
     public GameObject hitEffectPrefab;
     public List<Weapon> weaponList = new List<Weapon>();
-
-    public FMODUnity.StudioEventEmitter emitter;
-   
-    private float _instrumentIntensity = 1.0f;
 
     private void Start()
     {
@@ -27,10 +18,7 @@ public class PlayerCombat : UnitCombat
     public void Weapon1_OnClick()
     {
         // Debug.Log("playerCombat.wpn1 attack");
-        // MySoundManager.instance.HandleInstrument(MySoundManager.Instrument.Guitar);
-
-        StopAllInstrumentSounds();
-        if (emitter != null) emitter.SetParameter("Guitar_attack", _instrumentIntensity);
+        MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Guitar);
 
         SpawnMusicalNotes(new Color(1, 0, 0));
         animationController.HandleMeeleeAttackAnimation();
@@ -39,10 +27,7 @@ public class PlayerCombat : UnitCombat
     public void Weapon2_OnClick() 
     {
         // Debug.Log("playerCombat.wpn2 attack");
-        // MySoundManager.instance.HandleInstrument(MySoundManager.Instrument.Piano);
-
-        StopAllInstrumentSounds();
-        if (emitter != null) emitter.SetParameter("Piano_attack", _instrumentIntensity);
+        MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Piano);
 
         SpawnMusicalNotes(new Color(0, 1, 0));
         animationController.HandleRangedAttackAnimation();
@@ -51,10 +36,7 @@ public class PlayerCombat : UnitCombat
     }
     public void Weapon3_OnClick()
     { 
-        // MySoundManager.instance.HandleInstrument(MySoundManager.Instrument.Saxophone);
-
-        StopAllInstrumentSounds();
-        if (emitter != null) emitter.SetParameter("Saxophone_attack", _instrumentIntensity);
+        MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Saxophone);
 
         SpawnMusicalNotes(new Color(0, 0, 1));
         animationController.HandleAoEAttackAnimation();
@@ -104,15 +86,6 @@ public class PlayerCombat : UnitCombat
 
             ps.Play();
             Object.Destroy(fx, ps.main.duration + ps.main.startLifetime.constantMax);
-        }
-    }
-    private void StopAllInstrumentSounds()
-    {
-        if (emitter != null) {
-            Debug.Log("Stopping all sound!");
-            emitter.SetParameter("Guitar_attack", 0);
-            emitter.SetParameter("Piano_attack", 0);
-            emitter.SetParameter("Saxophone_attack", 0);
         }
     }
 }
