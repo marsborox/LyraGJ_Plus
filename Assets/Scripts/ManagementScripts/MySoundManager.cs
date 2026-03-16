@@ -8,6 +8,8 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
+using FMODUnity;
+
 public class MySoundManager : SingletonPersistent<MySoundManager>
 {
     public enum Instrument
@@ -23,35 +25,52 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     [Range(0f, 1f)] public float musicVolume = 1f;
     [Range(0f, 1f)] public float soundEffectsVolume = 1f;
 
-    [Header("Instruments Fade Settings")]
-    public float fadeInTime = 0.05f;
-    public float fadeOutTime = 1f;
-    public float instrumentPlayDuration = 0.6f;
+    private FMOD.Studio.EventInstance _enemyHitInstance;
+    private FMOD.Studio.EventInstance _guitarHitInstance;
+    private FMOD.Studio.EventInstance _pianoHitInstance;
+    private FMOD.Studio.EventInstance _saxophoneHitInstance;
+    private FMOD.Studio.EventInstance _footstepsEnemyInstance;
+    private FMOD.Studio.EventInstance _footstepsLyraInstance;
+    private FMOD.Studio.EventInstance _jazzMusicInstance;
+    private FMOD.Studio.EventInstance _lobbyMusicInstance;
 
-    [Header("Sounds")]
-    [SerializeField] private AudioClip buttonClickClip;
-    [SerializeField] private AudioClip[] footstepClips;
-    [SerializeField] private AudioClip[] enemyHitClips;
+    private Instrument _lastPlayedInstrument;
 
-    [Header("Music")]
-    [SerializeField] private AudioClip jazzMusic;
-    [SerializeField] private AudioClip lobbyMusic;
+    void Start()
+    {
+        _enemyHitInstance = FMODUnity.RuntimeManager.CreateInstance("event:/enemy_hit");
+        _guitarHitInstance = FMODUnity.RuntimeManager.CreateInstance("event:/guitar_hit");
+        _pianoHitInstance = FMODUnity.RuntimeManager.CreateInstance("event:/piano_hit");
+        _saxophoneHitInstance = FMODUnity.RuntimeManager.CreateInstance("event:/sax_hit");
 
+        _footstepsEnemyInstance = FMODUnity.RuntimeManager.CreateInstance("event:/footsteps_enemy");
+        _footstepsLyraInstance = FMODUnity.RuntimeManager.CreateInstance("event:/footsteps_Lyra");
 
-    [Header("Audio Sources")]
-    [SerializeField] private AudioSource backgroundSource;
-    [SerializeField] private AudioSource guitarSource;
-    [SerializeField] private AudioSource pianoSource;
-    [SerializeField] private AudioSource saxophoneSource;
-    [SerializeField] private AudioSource footstepsSource;
-    
-    private int _lastFootstepsIndex = -1;
-    private int _lastEnemyHitsIndex = -1;
+        _jazzMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/main_hudba_jazz");
+        _lobbyMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/divadlo_hudba");
+    }
 
-    private double _startDspTime;
-    private Coroutine _guitarRoutine;
-    private Coroutine _pianoRoutine;
-    private Coroutine _saxophoneRoutine;
+    void OnDestroy()
+    {
+        _enemyHitInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _enemyHitInstance.release();
+        _guitarHitInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _guitarHitInstance.release();
+        _pianoHitInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _pianoHitInstance.release();
+        _saxophoneHitInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _saxophoneHitInstance.release();
+
+        _footstepsEnemyInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _footstepsEnemyInstance.release();
+        _footstepsLyraInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _footstepsLyraInstance.release();
+
+        _jazzMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _jazzMusicInstance.release();
+        _lobbyMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _lobbyMusicInstance.release();
+    }
 
     // General settings
 
@@ -60,6 +79,14 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         if (soundEffectsVolume != volume)
         {
             soundEffectsVolume = volume;
+
+            _enemyHitInstance.setVolume(soundEffectsVolume);
+            _guitarHitInstance.setVolume(soundEffectsVolume);
+            _pianoHitInstance.setVolume(soundEffectsVolume);
+            _saxophoneHitInstance.setVolume(soundEffectsVolume);
+
+            _footstepsEnemyInstance.setVolume(soundEffectsVolume);
+            _footstepsLyraInstance.setVolume(soundEffectsVolume);
         }
     }
     public void ChangeMusicVolume([UnityEngine.Internal.DefaultValue("1.0F")] float volume)
@@ -68,7 +95,8 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         {
             musicVolume = volume;
 
-            if (backgroundSource != null) backgroundSource.volume = volume;
+            _jazzMusicInstance.setVolume(musicVolume);
+            _lobbyMusicInstance.setVolume(musicVolume);
         }
     }
 
@@ -76,166 +104,110 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
     public void ButtonClick()
     {
-        if (buttonClickClip != null) 
+        // TODO
+    }
+    public void PlayEnemyFootsteps()
+    {
+        FMOD.Studio.PLAYBACK_STATE state;
+        _footstepsEnemyInstance.getPlaybackState(out state);
+        
+        if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
         {
-            PlayClip(buttonClickClip, soundEffectsVolume);
+            _footstepsEnemyInstance.start();
         }
     }
-    public void PlayFootsteps()
+    public void PlayLyraFootsteps()
     {
-        if (footstepClips.Length == 0 || footstepsSource.isPlaying) return;
-
-        int index = Random.Range(0, footstepClips.Length);
-
-        if (index == _lastFootstepsIndex)
+        FMOD.Studio.PLAYBACK_STATE state;
+        _footstepsLyraInstance.getPlaybackState(out state);
+        
+        if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
         {
-            index = (index + 1) % footstepClips.Length;
+            _footstepsLyraInstance.start();
         }
-
-        _lastFootstepsIndex = index;
-        footstepsSource.pitch = Random.Range(0.95f, 1.05f);
-        footstepsSource.PlayOneShot(footstepClips[index], soundEffectsVolume * 0.1f);
     }
     public void PlayEnemyHit()
     {
-        if (enemyHitClips.Length == 0) return;
-
-        int index = Random.Range(0, enemyHitClips.Length);
-
-        if (index == _lastEnemyHitsIndex)
-        {
-            index = (index + 1) % enemyHitClips.Length;
-        }
-
-        _lastEnemyHitsIndex = index;
-        PlayClip(enemyHitClips[index], soundEffectsVolume * 0.1f);
+        _enemyHitInstance.start();
     }
-
-    public void HandleInstrument(Instrument instrument)
+    public void PlayLyraHit()
     {
-        FadeInstrument(instrument, musicVolume * 1.5f); // a bit more, so it's noticeable
+        switch (_lastPlayedInstrument)
+        {
+            case Instrument.Guitar: {
+                _guitarHitInstance.start();
+                break;
+            }
+            case Instrument.Piano: {
+                _pianoHitInstance.start();
+                break;
+            }
+            case Instrument.Saxophone: {
+                _saxophoneHitInstance.start();
+                break;
+            }
+        }
+    }
+    public void PlayInstrument(Instrument instrument)
+    {
+        _lastPlayedInstrument = instrument;
+
+        StopAllInstrumentSounds();
+
+        switch (instrument)
+        {
+            case Instrument.Guitar: {
+                _jazzMusicInstance.setParameterByName("Guitar_attack", 1);
+                break;
+            }
+            case Instrument.Piano: {
+                _jazzMusicInstance.setParameterByName("Piano_attack", 1);
+                break;
+            }
+            case Instrument.Saxophone: {
+                _jazzMusicInstance.setParameterByName("Saxophone_attack", 1);
+                break;
+            }
+        }
     }
 
     // Music
 
     public void StopMusic()
     {
-        if (backgroundSource == null) return;
+        FMOD.Studio.PLAYBACK_STATE state;
 
-        backgroundSource.Stop();
+        _jazzMusicInstance.getPlaybackState(out state);
+        if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            _jazzMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
+
+        _lobbyMusicInstance.getPlaybackState(out state);
+        if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            _lobbyMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
     }
 
     public void PlayLobbyMusic()
     {
-        if (backgroundSource == null) return;
-
-        if (lobbyMusic != null)
-        {
-            backgroundSource.clip = lobbyMusic;
-        }
-
-        backgroundSource.volume = musicVolume;
-        backgroundSource.Play();
+        StopMusic();
+        _lobbyMusicInstance.start();
     }
 
     public void PlayJazzMusic()
     {
-        if (backgroundSource == null) return;
-
-        if (jazzMusic != null)
-        {
-            backgroundSource.clip = jazzMusic;
-        }
-
-        _startDspTime = AudioSettings.dspTime + 0.1f;
-
-        if (backgroundSource != null)
-        {
-            backgroundSource.volume = musicVolume;
-            backgroundSource.PlayScheduled(_startDspTime);
-        }
-        if (guitarSource != null)
-        {
-            guitarSource.volume = 0;
-            guitarSource.PlayScheduled(_startDspTime);
-        }
-        if (pianoSource != null)
-        {
-            pianoSource.volume = 0;
-            pianoSource.PlayScheduled(_startDspTime);
-        }
-        if (saxophoneSource != null)
-        {
-            saxophoneSource.volume = 0;
-            saxophoneSource.PlayScheduled(_startDspTime);
-        }
+        StopMusic();
+        _jazzMusicInstance.start();
     }
 
     // Helpers
 
-    private void PlayClip(AudioClip clip, float volume)
+    private void StopAllInstrumentSounds()
     {
-        if (clip != null)
-        {
-            Vector3 cameraPos = Camera.main.transform.position;
-            AudioSource.PlayClipAtPoint(clip, cameraPos, volume);
-        }
-    }
-
-    // Mixing background music & instruments
-
-    private void FadeInstrument(Instrument instrument, float targetVolume)
-    {
-        if (instrument == Instrument.Guitar)
-        {
-            if (_guitarRoutine != null) StopCoroutine(_guitarRoutine);
-            _guitarRoutine = StartCoroutine(FadeRoutine(guitarSource, targetVolume));
-        }
-        else if (instrument == Instrument.Piano)
-        {
-            if (_pianoRoutine != null) StopCoroutine(_pianoRoutine);
-            _pianoRoutine = StartCoroutine(FadeRoutine(pianoSource, targetVolume));
-        }
-        else if (instrument == Instrument.Saxophone)
-        {
-            if (_saxophoneRoutine != null) StopCoroutine(_saxophoneRoutine);
-            _saxophoneRoutine = StartCoroutine(FadeRoutine(saxophoneSource, targetVolume));
-        }
-    }
-
-    IEnumerator FadeRoutine(AudioSource source, float targetVolume)
-    {
-        float startVolume = source.volume;
-
-        // ATTACK — go to max quickly
-        float attackDuration = Mathf.Lerp(
-            fadeInTime * 0.2f, // faster if already loud
-            fadeInTime,
-            1f - startVolume / targetVolume
-        );
-
-        float t = 0f;
-        while (t < attackDuration)
-        {
-            t += Time.unscaledDeltaTime;
-            source.volume = Mathf.Lerp(startVolume, targetVolume, t / attackDuration);
-            yield return null;
-        }
-
-        source.volume = targetVolume;
-
-        // HOLD (stay at max volume)
-        yield return new WaitForSeconds(instrumentPlayDuration);
-
-        // RELEASE — fade out slowly
-        t = 0f;
-        while (t < fadeOutTime)
-        {
-            t += Time.unscaledDeltaTime;
-            source.volume = Mathf.Lerp(targetVolume, 0f, t / fadeOutTime);
-            yield return null;
-        }
-
-        source.volume = 0f;
+        _jazzMusicInstance.setParameterByName("Guitar_attack", 0);
+        _jazzMusicInstance.setParameterByName("Piano_attack", 0);
+        _jazzMusicInstance.setParameterByName("Saxophone_attack", 0);
     }
 }

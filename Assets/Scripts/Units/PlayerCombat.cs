@@ -4,27 +4,21 @@ using System.Collections.Generic;
 
 public class PlayerCombat : UnitCombat
 {
-    /*public Weapon weapon1;
-    public Weapon weapon2;
-    public Weapon weapon3;
-    public Weapon weapon4;*/
-
     public Weapon weapon1New;
     public Weapon weapon2New;
     public Weapon weapon3New;
     public Weapon weapon4New;
     public GameObject hitEffectPrefab;
-
     public List<Weapon> weaponList = new List<Weapon>();
+
     private void Start()
     {
-        base.Start();
-        
+        base.Start();   
     }
     public void Weapon1_OnClick()
     {
         // Debug.Log("playerCombat.wpn1 attack");
-        MySoundManager.instance.HandleInstrument(MySoundManager.Instrument.Guitar);
+        MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Guitar);
 
         SpawnMusicalNotes(new Color(1, 0, 0));
         animationController.HandleMeeleeAttackAnimation();
@@ -33,7 +27,7 @@ public class PlayerCombat : UnitCombat
     public void Weapon2_OnClick() 
     {
         // Debug.Log("playerCombat.wpn2 attack");
-        MySoundManager.instance.HandleInstrument(MySoundManager.Instrument.Piano);
+        MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Piano);
 
         SpawnMusicalNotes(new Color(0, 1, 0));
         animationController.HandleRangedAttackAnimation();
@@ -42,7 +36,7 @@ public class PlayerCombat : UnitCombat
     }
     public void Weapon3_OnClick()
     { 
-        MySoundManager.instance.HandleInstrument(MySoundManager.Instrument.Saxophone);
+        MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Saxophone);
 
         SpawnMusicalNotes(new Color(0, 0, 1));
         animationController.HandleAoEAttackAnimation();

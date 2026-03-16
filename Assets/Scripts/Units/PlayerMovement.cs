@@ -93,7 +93,7 @@ public class PlayerMovement : UnitMovement
 
         animationController.HandleMovementAnimation();
 
-        MySoundManager.instance.PlayFootsteps();
+        MySoundManager.instance.PlayLyraFootsteps();
     }
     public void StopMovement()
     {
