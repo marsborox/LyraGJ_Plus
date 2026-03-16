@@ -145,14 +145,9 @@ public class UnitCombat : MonoBehaviour
         stunTimer = time;
         isStunned = true;
     }
-    public void PostAttackAnimationEventUnit()
+    public virtual void PostAttackAnimationEventUnit()
     {
         //Debug.Log("Post-AttackAnimation Event");
-        if (this is EnemyCombat)
-        {
-            //Debug.Log("Post-AttackAnimation Event, on Enemy");
-            ((EnemyCombat)this).AttackHitPostAnimation();
-        }
     }
     public virtual void Die()
     { 

@@ -11,12 +11,17 @@ public class PlayerCombat : UnitCombat
     public GameObject hitEffectPrefab;
     public List<Weapon> weaponList = new List<Weapon>();
 
+    private bool isAttacking = false;
+
     private void Start()
     {
         base.Start();   
     }
     public void Weapon1_OnClick()
     {
+        if (isAttacking) return;
+        isAttacking = true;
+
         // Debug.Log("playerCombat.wpn1 attack");
         MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Guitar);
 
@@ -26,6 +31,9 @@ public class PlayerCombat : UnitCombat
     }
     public void Weapon2_OnClick() 
     {
+        if (isAttacking) return;
+        isAttacking = true;
+
         // Debug.Log("playerCombat.wpn2 attack");
         MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Piano);
 
@@ -36,6 +44,9 @@ public class PlayerCombat : UnitCombat
     }
     public void Weapon3_OnClick()
     { 
+        if (isAttacking) return;
+        isAttacking = true;
+
         MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Saxophone);
 
         SpawnMusicalNotes(new Color(0, 0, 1));
@@ -44,6 +55,9 @@ public class PlayerCombat : UnitCombat
     }
     public void Weapon4_OnClick()
     {
+        if (isAttacking) return;
+        isAttacking = true;
+
         SpawnMusicalNotes(new Color(1, 1, 1));
         weapon4New.ClickAttack();
     }
@@ -57,6 +71,11 @@ public class PlayerCombat : UnitCombat
         {
             Die();
         }
+    }
+    public override void PostAttackAnimationEventUnit()
+    {
+        if (!isAttacking) return;
+        isAttacking = false;
     }
     public override void SetHealthBar()
     { 

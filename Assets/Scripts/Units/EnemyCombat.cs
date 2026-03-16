@@ -109,8 +109,7 @@ public class EnemyCombat : UnitCombat
         //play attackAnimation
         
     }
-
-    public void AttackHitPostAnimation()
+    public override void PostAttackAnimationEventUnit()
     {
         isAttacking = false;
         //Debug.Log("AttackAnimation ended, switching to posthitCooldown;");
@@ -121,7 +120,6 @@ public class EnemyCombat : UnitCombat
         isAttackReady = false;
         _currentAttackPhase = AttackPhase.READY;
     }
-
     public bool CheckIfInRange()
     {
         //bool isInRrange;
@@ -232,7 +230,7 @@ public class EnemyCombat : UnitCombat
                 }
             case AttackPhase.POSTANIMATION:
                 {//this will be gone and initiated on animator
-                    AttackHitPostAnimation();
+                    PostAttackAnimationEventUnit();
                     return;
                 }
             case AttackPhase.POSTHIT:
