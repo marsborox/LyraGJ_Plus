@@ -55,8 +55,8 @@ public class PlayerCombat : UnitCombat
     }
     public void Weapon4_OnClick()
     {
-        if (isAttacking) return;
-        isAttacking = true;
+        /*if (isAttacking) return;
+        isAttacking = true;*/
 
         SpawnMusicalNotes(new Color(1, 1, 1));
         weapon4New.ClickAttack();

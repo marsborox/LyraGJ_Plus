@@ -174,7 +174,8 @@ public class PlayerController : MonoBehaviour
     void OnWeaponsMenu()
     {
         Debug.Log("Opening weapons menu");
-        GameUI.instance.OpenCloseWeaponsUI();
+        //GameUI.instance.OpenCloseWeaponsUI();
+        //weapon customisation customiser here
     }
     void CheckClickHoldActions()
     {
