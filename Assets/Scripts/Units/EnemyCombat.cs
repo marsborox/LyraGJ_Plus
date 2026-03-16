@@ -143,6 +143,8 @@ public class EnemyCombat : UnitCombat
     }
     public override void TakeDamage(int damage)
     {
+        MySoundManager.instance.PlayLyraHit();
+
         if (isShielded)
         {
             //Debug.Log("is shielded");

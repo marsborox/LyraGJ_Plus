@@ -33,6 +33,9 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     private FMOD.Studio.EventInstance _footstepsLyraInstance;
     private FMOD.Studio.EventInstance _jazzMusicInstance;
     private FMOD.Studio.EventInstance _lobbyMusicInstance;
+
+    private Instrument _lastPlayedInstrument;
+
     void Start()
     {
         _enemyHitInstance = FMODUnity.RuntimeManager.CreateInstance("event:/enemy_hit");
@@ -127,9 +130,28 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     {
         _enemyHitInstance.start();
     }
-
+    public void PlayLyraHit()
+    {
+        switch (_lastPlayedInstrument)
+        {
+            case Instrument.Guitar: {
+                _guitarHitInstance.start();
+                break;
+            }
+            case Instrument.Piano: {
+                _pianoHitInstance.start();
+                break;
+            }
+            case Instrument.Saxophone: {
+                _saxophoneHitInstance.start();
+                break;
+            }
+        }
+    }
     public void PlayInstrument(Instrument instrument)
     {
+        _lastPlayedInstrument = instrument;
+
         StopAllInstrumentSounds();
 
         switch (instrument)
@@ -144,27 +166,6 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
             }
             case Instrument.Saxophone: {
                 _jazzMusicInstance.setParameterByName("Saxophone_attack", 1);
-                break;
-            }
-        }
-    }
-
-    public void HitWithInstrument(Instrument instrument)
-    {
-        StopAllInstrumentSounds();
-
-        switch (instrument)
-        {
-            case Instrument.Guitar: {
-                _guitarHitInstance.start();
-                break;
-            }
-            case Instrument.Piano: {
-                _pianoHitInstance.start();
-                break;
-            }
-            case Instrument.Saxophone: {
-                _saxophoneHitInstance.start();
                 break;
             }
         }
