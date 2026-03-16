@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692e2aafa3fcc6c419f78cf06d37fdb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitVisual
-  _unitCombat: {fileID: 723713826427866658}
+  _unitCombat: {fileID: 0}
 --- !u!1 &871338527384969577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,7 +1069,6 @@ GameObject:
   - component: {fileID: 8184401127856028204}
   - component: {fileID: 6110641428596706858}
   - component: {fileID: 859534956746889397}
-  - component: {fileID: 723713826427866658}
   - component: {fileID: 2395246204302797546}
   - component: {fileID: 7841690024089435277}
   - component: {fileID: 361598244255013037}
@@ -1145,7 +1144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 6110641428596706858}
-  unitCombat: {fileID: 723713826427866658}
+  unitCombat: {fileID: 110551577040779909}
   spriteLibrary: {fileID: 2061790048428880483}
   targetTag: Enemy
   playerMovement: {fileID: 859534956746889397}
@@ -1237,39 +1236,6 @@ MonoBehaviour:
   _maxDashDistance: 5
   _dashSpeedCoef: 3
   _dashDestination: {x: 0, y: 0, z: 0}
---- !u!114 &723713826427866658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986896122668706926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb1a4cdbb5a76d949aa8953da8d96b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
-  healthMax: 50
-  healthCurrent: 0
-  healthFraction: 0
-  healthBar: {fileID: 0}
-  tagThatHitsUs: EnemyWeapon
-  projectileTagThatHitsUs: EnemyProjectile
-  projectileTagWeShot: PlayerProjectile
-  isPushedBack: 0
-  pushBackTime: 0.2
-  isStunned: 0
-  stunDuration: 0
-  stunTimer: 0
-  myRigidBody: {fileID: 2395246204302797546}
-  thisUnit: {fileID: 6243917595417204822}
-  animationController: {fileID: 361598244255013037}
-  weapon1New: {fileID: 2248609410062747645}
-  weapon2New: {fileID: 4361122227700079499}
-  weapon3New: {fileID: 963801728030566303}
-  weapon4New: {fileID: 965469982444938934}
-  hitEffectPrefab: {fileID: 9152435506617492344, guid: 9e1e907dc4b6148788e77a5e34b22acc, type: 3}
-  weaponList: []
 --- !u!50 &2395246204302797546
 Rigidbody2D:
   serializedVersion: 5
@@ -1618,6 +1584,7 @@ GameObject:
   - component: {fileID: 1501775445694952016}
   - component: {fileID: 8125318231161890152}
   - component: {fileID: 110551577040779909}
+  - component: {fileID: 5373950436187701957}
   m_Layer: 7
   m_Name: Battle Hitbox
   m_TagString: Untagged
@@ -1719,6 +1686,44 @@ MonoBehaviour:
   weapon4New: {fileID: 965469982444938934}
   hitEffectPrefab: {fileID: 9152435506617492344, guid: 9e1e907dc4b6148788e77a5e34b22acc, type: 3}
   weaponList: []
+  emitter: {fileID: 5373950436187701957}
+--- !u!114 &5373950436187701957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329568753661803058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 503432647
+      Data2: 1180924521
+      Data3: -1824378445
+      Data4: 1060321124
+    Path: event:/main_hudba_jazz
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: Guitar_attack
+    Value: 0
+  - Name: Piano_attack
+    Value: 0
+  - Name: Saxophone_attack
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4344508299851619222
 GameObject:
   m_ObjectHideFlags: 0
