@@ -902,6 +902,9 @@ MonoBehaviour:
   normalCoef: 1
   advantageCoef: 0.5
   disadvantageCoef: 1.5
+  damageNumberPrefab: {fileID: 6366268655203487983, guid: a703b9b9bd07944a186ee12a59be58cc, type: 3}
+  normalColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  critColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &3549913713549301225
 MonoBehaviour:
   m_ObjectHideFlags: 0
