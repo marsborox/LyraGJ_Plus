@@ -169,12 +169,13 @@ public class EnemyCombat : UnitCombat
         //Debug.Log("Taking "+damage+" Damage");
         StartCoroutine(MakeDamageableAgainRoutine());
 
+        ShowDamage(damage, false);
+
         healthCurrent -= damage;
         //Debug.Log("Taking damage in enemyCombat");
         //Debug.Log(damage+" damage taken");
         ResetAttackAnimation();//this disables enemies attack on hit
 
-        ShowDamage(damage, false);
     }
     public void DisableShield()
     {
@@ -271,8 +272,10 @@ public class EnemyCombat : UnitCombat
 
     private void ShowDamage(float amount, bool isCrit = false)
     {
-        Vector3 offset = new Vector3(0, 1.5f, 0);
-        var gameObject = Instantiate(damageNumberPrefab, transform.position + offset, Quaternion.identity, transform);
+        if (healthCurrent <= 0) return;
+
+        Vector3 offset = new Vector3(0, 1.5f, 0); // to start just above enemy
+        var gameObject = Instantiate(damageNumberPrefab, transform.position + offset, Quaternion.identity);
         var damageNumber = gameObject.GetComponent<DamageNumber>();
         damageNumber.Show(amount, isCrit ? critColor : normalColor);
     }

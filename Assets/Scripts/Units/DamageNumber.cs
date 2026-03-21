@@ -18,17 +18,6 @@ public class DamageNumber : MonoBehaviour
         _startColor = _text.color;
     }
 
-    void LateUpdate()
-    {
-        // Keep text readable regardless of parent flip
-        Vector3 parentScale = transform.parent.localScale;
-        transform.localScale = new Vector3(
-            Mathf.Sign(parentScale.x),  // counter the flip
-            1f,
-            1f
-        );
-    }
-
     public void Show(float damage, Color color = default)
     {
         if (color != default) _text.color = color;
@@ -41,7 +30,7 @@ public class DamageNumber : MonoBehaviour
     private IEnumerator Animate()
     {
         float elapsed = 0f;
-        Vector3 startPos = transform.localPosition;
+        Vector3 startPos = transform.position;
         Vector3 endPos = startPos + new Vector3(Random.Range(-0.3f, 0.3f), floatHeight, 0);
 
         while (elapsed < fadeDuration)
@@ -50,7 +39,7 @@ public class DamageNumber : MonoBehaviour
             float t = elapsed / fadeDuration;
 
             // Float upward with easing
-            transform.localPosition = Vector3.Lerp(startPos, endPos, Mathf.SmoothStep(0, 1, t));
+            transform.position = Vector3.Lerp(startPos, endPos, Mathf.SmoothStep(0, 1, t));
 
             // Fade out in the second half
             float alpha = t < 0.5f ? 1f : 1f - ((t - 0.5f) / 0.5f);
