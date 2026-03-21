@@ -271,7 +271,8 @@ public class EnemyCombat : UnitCombat
 
     private void ShowDamage(float amount, bool isCrit = false)
     {
-        var gameObject = Instantiate(damageNumberPrefab, transform.position, Quaternion.identity);
+        Vector3 offset = new Vector3(0, 1.5f, 0);
+        var gameObject = Instantiate(damageNumberPrefab, transform.position + offset, Quaternion.identity, transform);
         var damageNumber = gameObject.GetComponent<DamageNumber>();
         damageNumber.Show(amount, isCrit ? critColor : normalColor);
     }
