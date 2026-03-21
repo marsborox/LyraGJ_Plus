@@ -64,6 +64,8 @@ public class PlayerCombat : UnitCombat
 
     public override void TakeDamage(int damage)
     {
+        isAttacking = false;
+
         base.TakeDamage(damage);
 
         MySoundManager.instance.PlayEnemyHit();
