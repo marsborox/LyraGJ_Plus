@@ -57,8 +57,10 @@ MonoBehaviour:
       her happy and proud of me.
     character: 0
     emotion: 4
-  - dialogueText: That is a beautiful promise. Now, being the gentleman that I am,
-      I feel obliged to help you.
+  - dialogueText: That is a beautiful promise.
+    character: 1
+    emotion: 5
+  - dialogueText: Now, being the gentleman that I am, I feel obliged to help you.
     character: 1
     emotion: 2
   - dialogueText: I know this place isn't what it used to be but it never lost its
