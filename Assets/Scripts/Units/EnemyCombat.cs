@@ -29,8 +29,8 @@ public class EnemyCombat : UnitCombat
 
     [SerializeField] private EnemyShield _shield;
     [SerializeField]private AttackPhase _currentAttackPhase = AttackPhase.READY;
-    [Header("combatStats")]
 
+    [Header("combatStats")]
     public float range = 0.2f;
     //bool isPlayerInRange = false;
 
@@ -52,6 +52,9 @@ public class EnemyCombat : UnitCombat
     public float advantageCoef = 0.5f;
     public float disadvantageCoef = 1.5f;
 
+    [Header("Damage Number")]
+    [SerializeField] private GameObject damageNumberPrefab;
+    [SerializeField] private Color damageNumberColor = Color.white;
 
     private void OnEnable()
     {
@@ -165,10 +168,13 @@ public class EnemyCombat : UnitCombat
         //Debug.Log("Taking "+damage+" Damage");
         StartCoroutine(MakeDamageableAgainRoutine());
 
+        ShowDamage(damage);
+
         healthCurrent -= damage;
         //Debug.Log("Taking damage in enemyCombat");
         //Debug.Log(damage+" damage taken");
         ResetAttackAnimation();//this disables enemies attack on hit
+
     }
     public void DisableShield()
     {
@@ -263,7 +269,15 @@ public class EnemyCombat : UnitCombat
         }
     }
 
+    private void ShowDamage(float amount)
+    {
+        if (healthCurrent <= 0) return;
 
+        Vector3 offset = new Vector3(0, 1.5f, 0); // to start just above enemy
+        var gameObject = Instantiate(damageNumberPrefab, transform.position + offset, Quaternion.identity);
+        var damageNumber = gameObject.GetComponent<DamageNumber>();
+        damageNumber.Show(amount, damageNumberColor);
+    }
 }
 /*
 void PerformTimers()
