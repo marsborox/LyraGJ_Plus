@@ -54,8 +54,7 @@ public class EnemyCombat : UnitCombat
 
     [Header("Damage Number")]
     [SerializeField] private GameObject damageNumberPrefab;
-    [SerializeField] private Color normalColor = Color.white;
-    [SerializeField] private Color critColor = Color.yellow;
+    [SerializeField] private Color damageNumberColor = Color.white;
 
     private void OnEnable()
     {
@@ -169,7 +168,7 @@ public class EnemyCombat : UnitCombat
         //Debug.Log("Taking "+damage+" Damage");
         StartCoroutine(MakeDamageableAgainRoutine());
 
-        ShowDamage(damage, false);
+        ShowDamage(damage);
 
         healthCurrent -= damage;
         //Debug.Log("Taking damage in enemyCombat");
@@ -270,14 +269,14 @@ public class EnemyCombat : UnitCombat
         }
     }
 
-    private void ShowDamage(float amount, bool isCrit = false)
+    private void ShowDamage(float amount)
     {
         if (healthCurrent <= 0) return;
 
         Vector3 offset = new Vector3(0, 1.5f, 0); // to start just above enemy
         var gameObject = Instantiate(damageNumberPrefab, transform.position + offset, Quaternion.identity);
         var damageNumber = gameObject.GetComponent<DamageNumber>();
-        damageNumber.Show(amount, isCrit ? critColor : normalColor);
+        damageNumber.Show(amount, damageNumberColor);
     }
 }
 /*
