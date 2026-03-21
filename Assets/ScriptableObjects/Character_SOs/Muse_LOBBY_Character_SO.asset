@@ -17,14 +17,14 @@ MonoBehaviour:
   - emotion: 0
     sprite: {fileID: 21300000, guid: f7657de4659bd4ca3af24b1df50580a7, type: 3}
   - emotion: 1
-    sprite: {fileID: 21300000, guid: f7657de4659bd4ca3af24b1df50580a7, type: 3}
+    sprite: {fileID: 21300000, guid: 62e3c5ab5ee0a4431836496c2c1946d8, type: 3}
   - emotion: 2
     sprite: {fileID: 21300000, guid: f7657de4659bd4ca3af24b1df50580a7, type: 3}
   - emotion: 3
-    sprite: {fileID: 21300000, guid: f7657de4659bd4ca3af24b1df50580a7, type: 3}
+    sprite: {fileID: 21300000, guid: 2f2df3d894db24ae5bdc67c34d2118a7, type: 3}
   - emotion: 4
     sprite: {fileID: 21300000, guid: f7657de4659bd4ca3af24b1df50580a7, type: 3}
   - emotion: 5
-    sprite: {fileID: 21300000, guid: f7657de4659bd4ca3af24b1df50580a7, type: 3}
+    sprite: {fileID: 21300000, guid: 31a46a97f45424eea955c8d480012a6a, type: 3}
   - emotion: 6
     sprite: {fileID: 21300000, guid: f7657de4659bd4ca3af24b1df50580a7, type: 3}
