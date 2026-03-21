@@ -30,7 +30,7 @@ MonoBehaviour:
   - dialogueText: Sorry darling, didn't mean to scare you. I didn't expect anyone
       to visit my small and humble opera at this time of year. Is everything alright?
     character: 1
-    emotion: 1
+    emotion: 0
   - dialogueText: Yes, I am alright. Sorry for disturbing you! I just wanted some
       peace and quiet to think.
     character: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   - dialogueText: While it has seen better days, I'm glad there still are people
       that find time to visit this place.
     character: 1
-    emotion: 3
+    emotion: 2
   - dialogueText: Now, may I ask your name, and what bring such a pretty lady as
       you here?
     character: 1
