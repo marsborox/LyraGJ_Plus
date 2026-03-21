@@ -64,6 +64,8 @@ public class PlayerCombat : UnitCombat
 
     public override void TakeDamage(int damage)
     {
+        isAttacking = false;
+
         base.TakeDamage(damage);
 
         MySoundManager.instance.PlayEnemyHit();
@@ -93,7 +95,7 @@ public class PlayerCombat : UnitCombat
     {
         if (hitEffectPrefab == null) return;
 
-        GameObject fx = Object.Instantiate(hitEffectPrefab, transform.localPosition, Quaternion.identity);
+        GameObject fx = Object.Instantiate(hitEffectPrefab, myRigidBody.transform.localPosition, Quaternion.identity);
         fx.transform.position +=  new Vector3(0f, 1.2f, 0f);
 
         ParticleSystem ps = fx.GetComponent<ParticleSystem>();
