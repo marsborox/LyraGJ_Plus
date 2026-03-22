@@ -197,6 +197,10 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
     public void PlayLobbyMusic()
     {
+        FMOD.Studio.PLAYBACK_STATE state;
+        _lobbyMusicInstance.getPlaybackState(out state);
+        if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING) return;
+
         StopMusic();
         _lobbyMusicInstance.start();
     }

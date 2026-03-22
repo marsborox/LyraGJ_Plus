@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public enum GameScene {LOBBY, DARKLOBBY, JAZZ, TUTORIAL, TESTCOMBAT, DEV, MAIN_MENU}
+public enum GameScene {LOBBY, DARKLOBBY, JAZZ, TUTORIAL, TESTCOMBAT, DEV, MAIN_MENU, DRESSING_ROOM}
 
 public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
 {
@@ -148,6 +148,12 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         //SceneManager.LoadScene("MarosGameScene");
         // MySoundManager.instance.PlayJazzMusic();
     }
+    private void OpenDressingRoomScene()
+    {
+        PreviousScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("DressingRoomScene");
+        Time.timeScale = 1f;
+    }
 
     // Fading
 
@@ -180,6 +186,9 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
                 break;
             case GameScene.MAIN_MENU:
                 OpenMainMenu();
+                break;
+            case GameScene.DRESSING_ROOM:
+                OpenDressingRoomScene();
                 break;
         }
     }
