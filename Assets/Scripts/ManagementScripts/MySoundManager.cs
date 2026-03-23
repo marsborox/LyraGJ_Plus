@@ -38,6 +38,9 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
     void Start()
     {
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        soundEffectsVolume = PlayerPrefs.GetFloat("SoundEffectsVolume", 1f);
+
         _enemyHitInstance = FMODUnity.RuntimeManager.CreateInstance("event:/enemy_hit");
         _guitarHitInstance = FMODUnity.RuntimeManager.CreateInstance("event:/guitar_hit");
         _pianoHitInstance = FMODUnity.RuntimeManager.CreateInstance("event:/piano_hit");
@@ -79,6 +82,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         if (soundEffectsVolume != volume)
         {
             soundEffectsVolume = volume;
+            PlayerPrefs.SetFloat("MusicVolume", volume);
 
             _enemyHitInstance.setVolume(soundEffectsVolume);
             _guitarHitInstance.setVolume(soundEffectsVolume);
@@ -94,6 +98,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         if (musicVolume != volume)
         {
             musicVolume = volume;
+            PlayerPrefs.SetFloat("SoundEffectsVolume", volume);
 
             _jazzMusicInstance.setVolume(musicVolume);
             _lobbyMusicInstance.setVolume(musicVolume);
