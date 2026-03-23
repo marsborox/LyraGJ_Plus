@@ -10,6 +10,10 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     public static new MySceneManager instance => Singleton/*Persistent*/<MySceneManager>.instance;
     public static string PreviousScene { get; private set; }
 
+    [Header("Dialog References")]
+    [SerializeField] private GameObject optionsUI;
+
+    [Header("Fade Scene Settings")]
     [SerializeField] private float fadeDuration = 1f;
     [SerializeField] private Color fadeColor = Color.black;
 
@@ -40,6 +44,15 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     public void OpenScene(GameScene scene)
     {
         StartCoroutine(FadeAndLoad(scene));
+    }
+
+    public void OpenOptions()
+    {
+        if (optionsUI == null) return;
+
+        Time.timeScale = 0;
+
+        optionsUI.SetActive(true);
     }
 
     // Scenes code
