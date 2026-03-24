@@ -38,9 +38,6 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
     void Start()
     {
-        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        soundEffectsVolume = PlayerPrefs.GetFloat("SoundEffectsVolume", 1f);
-
         _enemyHitInstance = FMODUnity.RuntimeManager.CreateInstance("event:/enemy_hit");
         _guitarHitInstance = FMODUnity.RuntimeManager.CreateInstance("event:/guitar_hit");
         _pianoHitInstance = FMODUnity.RuntimeManager.CreateInstance("event:/piano_hit");
@@ -51,6 +48,9 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
         _jazzMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/main_hudba_jazz");
         _lobbyMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/divadlo_hudba");
+
+        ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 1f));
+        ChangeSoundEffectsVolume(PlayerPrefs.GetFloat("SoundEffectsVolume", 1f));
     }
 
     void OnDestroy()
@@ -81,27 +81,31 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     {
         if (soundEffectsVolume != volume)
         {
+            Debug.Log("Setting sounds to " + volume);
+
             soundEffectsVolume = volume;
-            PlayerPrefs.SetFloat("MusicVolume", volume);
+            PlayerPrefs.SetFloat("SoundEffectsVolume", volume);
 
-            _enemyHitInstance.setVolume(soundEffectsVolume);
-            _guitarHitInstance.setVolume(soundEffectsVolume);
-            _pianoHitInstance.setVolume(soundEffectsVolume);
-            _saxophoneHitInstance.setVolume(soundEffectsVolume);
+            _enemyHitInstance.setVolume(volume);
+            _guitarHitInstance.setVolume(volume);
+            _pianoHitInstance.setVolume(volume);
+            _saxophoneHitInstance.setVolume(volume);
 
-            _footstepsEnemyInstance.setVolume(soundEffectsVolume);
-            _footstepsLyraInstance.setVolume(soundEffectsVolume);
+            _footstepsEnemyInstance.setVolume(volume);
+            _footstepsLyraInstance.setVolume(volume);
         }
     }
     public void ChangeMusicVolume([UnityEngine.Internal.DefaultValue("1.0F")] float volume)
     {
         if (musicVolume != volume)
         {
-            musicVolume = volume;
-            PlayerPrefs.SetFloat("SoundEffectsVolume", volume);
+            Debug.Log("Setting music to " + volume);
 
-            _jazzMusicInstance.setVolume(musicVolume);
-            _lobbyMusicInstance.setVolume(musicVolume);
+            musicVolume = volume;
+            PlayerPrefs.SetFloat("MusicVolume", volume);
+
+            _jazzMusicInstance.setVolume(volume);
+            _lobbyMusicInstance.setVolume(volume);
         }
     }
 

@@ -25137,17 +25137,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
   m_PrefabInstance: {fileID: 1148714916}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1148714918 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 723713826427866658, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
-  m_PrefabInstance: {fileID: 1148714916}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb1a4cdbb5a76d949aa8953da8d96b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
 --- !u!114 &1148714921 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5730095958024378426, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
@@ -35691,6 +35680,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1923456302434264764, guid: 82a09835cbd2b4be1abeccc88b566657, type: 3}
+      propertyPath: pauseUI
+      value: 
+      objectReference: {fileID: 1991998148}
+    - target: {fileID: 1923456302434264764, guid: 82a09835cbd2b4be1abeccc88b566657, type: 3}
+      propertyPath: optionsUI
+      value: 
+      objectReference: {fileID: 1991998147}
     - target: {fileID: 5677945436129784938, guid: 82a09835cbd2b4be1abeccc88b566657, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -36451,6 +36448,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 389223435084794097, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 892121471738799023, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1004067372460307492, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -36599,9 +36604,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -30
       objectReference: {fileID: 0}
+    - target: {fileID: 2705950109733923840, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2827231054900610017, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_Name
       value: GameUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970671947904783440, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3105237352402929131, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMax.y
@@ -36739,6 +36752,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5091899243352060740, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680122415053468173, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5716548447456358430, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -36794,7 +36815,7 @@ PrefabInstance:
     - target: {fileID: 6669598971931224901, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: playerCombat
       value: 
-      objectReference: {fileID: 1148714918}
+      objectReference: {fileID: 0}
     - target: {fileID: 6838718965117671333, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -36947,6 +36968,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552b676f23486444f8cb5634d01c3fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutscenesPlayer
+--- !u!114 &1991998147 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 385882721806291194, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+  m_PrefabInstance: {fileID: 1991998145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2b75a5bf6fb47c5822175dbceb0267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionsUI
+--- !u!114 &1991998148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 828409922916934303, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+  m_PrefabInstance: {fileID: 1991998145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7d24e915b17433688b58eac2ca2d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseUI
 --- !u!1 &1995380297
 GameObject:
   m_ObjectHideFlags: 0

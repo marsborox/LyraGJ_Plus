@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class OptionsUI : MonoBehaviour
+public class OptionsUI : MenuUI
 {
     [SerializeField] private TextMeshProUGUI musicValue;
     [SerializeField] private Slider musicSlider;
@@ -57,9 +57,7 @@ public class OptionsUI : MonoBehaviour
     }
     private void OnCloseButtonClick()
     {
-        gameObject.SetActive(false);
-
-        Time.timeScale = 1f;
+        CloseMenu();
     }
     private void CalculateValues()
     {

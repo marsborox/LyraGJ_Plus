@@ -11,7 +11,8 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     public static string PreviousScene { get; private set; }
 
     [Header("Dialog References")]
-    [SerializeField] private GameObject optionsUI;
+    [SerializeField] private MenuUI pauseUI;
+    [SerializeField] private MenuUI optionsUI;
 
     [Header("Fade Scene Settings")]
     [SerializeField] private float fadeDuration = 1f;
@@ -46,13 +47,38 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         StartCoroutine(FadeAndLoad(scene));
     }
 
+    public void OpenPauseMenu()
+    {
+        if (optionsUI != null && optionsUI.IsMenuOpen()) {
+            // ESC is closing opened options
+            optionsUI.CloseMenu();
+            return;
+        }
+
+        if (pauseUI == null || SceneManager.GetActiveScene().name == "MainMenu") return;
+
+        if (pauseUI.IsMenuOpen())
+        {
+            pauseUI.CloseMenu();            
+        } else
+        {
+            pauseUI.OpenMenu();
+        }
+    }
+
     public void OpenOptions()
     {
+        if (pauseUI != null) pauseUI.CloseMenu();
+
         if (optionsUI == null) return;
 
-        Time.timeScale = 0;
-
-        optionsUI.SetActive(true);
+        if (optionsUI.IsMenuOpen())
+        {
+            optionsUI.CloseMenu();            
+        } else
+        {
+            optionsUI.OpenMenu();
+        }
     }
 
     // Scenes code
@@ -65,12 +91,23 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     {
         Application.Quit();
     }
+    public void OpenLobby()
+    {
+        if (PreviousScene == "DarkLobbyScene")
+        {
+            OpenScene(GameScene.DARKLOBBY);
+        } else
+        {
+            OpenScene(GameScene.LOBBY);
+        }
+    }
+
     private void OpenMainMenu()
     {
         PreviousScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
-        //MySoundManager.instance.PlayMenuMusic();
+        MySoundManager.instance.StopMusic();
     }
     private void OpenLobbyScene()
     {
