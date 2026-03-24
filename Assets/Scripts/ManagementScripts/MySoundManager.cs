@@ -81,8 +81,6 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     {
         if (soundEffectsVolume != volume)
         {
-            Debug.Log("Setting sounds to " + volume);
-
             soundEffectsVolume = volume;
             PlayerPrefs.SetFloat("SoundEffectsVolume", volume);
 
@@ -99,8 +97,6 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     {
         if (musicVolume != volume)
         {
-            Debug.Log("Setting music to " + volume);
-
             musicVolume = volume;
             PlayerPrefs.SetFloat("MusicVolume", volume);
 
