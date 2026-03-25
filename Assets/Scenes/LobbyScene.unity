@@ -893,6 +893,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+--- !u!114 &163994525 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 828409922916934303, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+  m_PrefabInstance: {fileID: 163994524}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7d24e915b17433688b58eac2ca2d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseUI
 --- !u!1 &229642068
 GameObject:
   m_ObjectHideFlags: 0
@@ -5328,6 +5339,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1923456302434264764, guid: 82a09835cbd2b4be1abeccc88b566657, type: 3}
+      propertyPath: pauseUI
+      value: 
+      objectReference: {fileID: 163994525}
     - target: {fileID: 5677945436129784938, guid: 82a09835cbd2b4be1abeccc88b566657, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
