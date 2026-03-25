@@ -10,8 +10,14 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     public static new MySceneManager instance => Singleton/*Persistent*/<MySceneManager>.instance;
     public static string PreviousScene { get; private set; }
 
+    [Header("Dialog References")]
+    [SerializeField] private PauseUI pauseUI;
+
+    [Header("Fade Scene Settings")]
     [SerializeField] private float fadeDuration = 1f;
     [SerializeField] private Color fadeColor = Color.black;
+
+    public bool isFadingInProgress { get { return _fadeCanvasGroup.alpha > 0f; } }
 
     private CanvasGroup _fadeCanvasGroup;
     private static bool _isFirstLoad = true;
@@ -42,6 +48,21 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         StartCoroutine(FadeAndLoad(scene));
     }
 
+    public void OpenPauseMenu()
+    {
+        if (isFadingInProgress) return;
+
+        pauseUI.ToggleMenu();
+    }
+
+    public void OpenOptions()
+    {
+        if (isFadingInProgress) return;
+
+        pauseUI.OpenMenu();
+        pauseUI.ShowOptions();
+    }
+
     // Scenes code
 
     public void StartGame()
@@ -52,12 +73,23 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     {
         Application.Quit();
     }
+    public void OpenLobby()
+    {
+        if (PreviousScene == "DarkLobbyScene")
+        {
+            OpenScene(GameScene.DARKLOBBY);
+        } else
+        {
+            OpenScene(GameScene.LOBBY);
+        }
+    }
+
     private void OpenMainMenu()
     {
-        PreviousScene = SceneManager.GetActiveScene().name;
+        PreviousScene = null; // nothing to go back to
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
-        //MySoundManager.instance.PlayMenuMusic();
+        MySoundManager.instance.StopMusic();
     }
     private void OpenLobbyScene()
     {

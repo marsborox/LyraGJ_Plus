@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     private PlayerInput _playerInput;
     private InputAction _LMB1;
     private InputAction _RMB2;
+
+    private InputAction _pauseAction;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour
         _RMBClicker.action = _playerInput.actions["Action2"];
         _RMBClicker.name = "action2";
 
+        _pauseAction = _playerInput.actions["Pause"];
     }
     void Start()
     {
@@ -176,6 +179,10 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Opening weapons menu");
         //GameUI.instance.OpenCloseWeaponsUI();
         //weapon customisation customiser here
+    }
+    void OnPause()
+    {
+        MySceneManager.instance.OpenPauseMenu();
     }
     void CheckClickHoldActions()
     {
