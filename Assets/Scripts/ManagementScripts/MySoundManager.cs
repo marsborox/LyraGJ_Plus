@@ -22,7 +22,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     public static new MySoundManager instance => SingletonPersistent<MySoundManager>.instance;
 
     [Header("Volume")]
-    [Range(0f, 1f)] public float musicVolume = 1f;
+    [Range(0f, 1f)] public float musicVolume = 0.5f;
     [Range(0f, 1f)] public float soundEffectsVolume = 1f;
 
     private FMOD.Studio.EventInstance _enemyHitInstance;
@@ -49,7 +49,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         _jazzMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/main_hudba_jazz");
         _lobbyMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/divadlo_hudba");
 
-        ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 1f));
+        ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.5f));
         ChangeSoundEffectsVolume(PlayerPrefs.GetFloat("SoundEffectsVolume", 1f));
     }
 
