@@ -11,12 +11,13 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     public static string PreviousScene { get; private set; }
 
     [Header("Dialog References")]
-    [SerializeField] private MenuUI pauseUI;
-    [SerializeField] private MenuUI optionsUI;
+    [SerializeField] private PauseUI pauseUI;
 
     [Header("Fade Scene Settings")]
     [SerializeField] private float fadeDuration = 1f;
     [SerializeField] private Color fadeColor = Color.black;
+
+    public bool isFadingInProgress { get { return _fadeCanvasGroup.alpha > 0f; } }
 
     private CanvasGroup _fadeCanvasGroup;
     private static bool _isFirstLoad = true;
@@ -49,36 +50,17 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
 
     public void OpenPauseMenu()
     {
-        if (optionsUI != null && optionsUI.IsMenuOpen()) {
-            // ESC is closing opened options
-            optionsUI.CloseMenu();
-            return;
-        }
+        if (isFadingInProgress) return;
 
-        if (pauseUI == null || SceneManager.GetActiveScene().name == "MainMenu") return;
-
-        if (pauseUI.IsMenuOpen())
-        {
-            pauseUI.CloseMenu();            
-        } else
-        {
-            pauseUI.OpenMenu();
-        }
+        pauseUI.ToggleMenu();
     }
 
     public void OpenOptions()
     {
-        if (pauseUI != null) pauseUI.CloseMenu();
+        if (isFadingInProgress) return;
 
-        if (optionsUI == null) return;
-
-        if (optionsUI.IsMenuOpen())
-        {
-            optionsUI.CloseMenu();            
-        } else
-        {
-            optionsUI.OpenMenu();
-        }
+        pauseUI.OpenMenu();
+        pauseUI.ShowOptions();
     }
 
     // Scenes code
@@ -104,7 +86,7 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
 
     private void OpenMainMenu()
     {
-        PreviousScene = SceneManager.GetActiveScene().name;
+        PreviousScene = null; // nothing to go back to
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
         MySoundManager.instance.StopMusic();
