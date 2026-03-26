@@ -10,6 +10,8 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     public static new MySceneManager instance => Singleton/*Persistent*/<MySceneManager>.instance;
     public static string PreviousScene { get; private set; }
 
+    private static bool didPlayerSurviveTutorial = false;
+
     [Header("Dialog References")]
     [SerializeField] private PauseUI pauseUI;
 
@@ -84,6 +86,17 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         }
     }
 
+    public void OpenElevator()
+    {
+        if (didPlayerSurviveTutorial)
+        {
+            OpenScene(GameScene.JAZZ);
+        } else
+        {
+            OpenScene(GameScene.TUTORIAL);
+        }
+    }
+
     private void OpenMainMenu()
     {
         PreviousScene = null; // nothing to go back to
@@ -107,6 +120,8 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     }
     private void OpenGameScene()
     {
+        didPlayerSurviveTutorial = true; // must have, right?
+
         PreviousScene = SceneManager.GetActiveScene().name;
        //SceneManager.LoadScene("MarosGameScene");
         SceneManager.LoadScene("GameScene");
