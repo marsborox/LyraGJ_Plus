@@ -3,12 +3,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public enum GameScene {LOBBY, DARKLOBBY, JAZZ, TUTORIAL, TESTCOMBAT, DEV, MAIN_MENU}
+public enum GameScene {LOBBY, DARKLOBBY, JAZZ, TUTORIAL, TESTCOMBAT, DEV, MAIN_MENU, DRESSING_ROOM}
 
 public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
 {
     public static new MySceneManager instance => Singleton/*Persistent*/<MySceneManager>.instance;
     public static string PreviousScene { get; private set; }
+
+    private static bool didPlayerSurviveTutorial = false;
 
     [Header("Dialog References")]
     [SerializeField] private PauseUI pauseUI;
@@ -84,6 +86,17 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         }
     }
 
+    public void OpenElevator()
+    {
+        if (didPlayerSurviveTutorial)
+        {
+            OpenScene(GameScene.JAZZ);
+        } else
+        {
+            OpenScene(GameScene.TUTORIAL);
+        }
+    }
+
     private void OpenMainMenu()
     {
         PreviousScene = null; // nothing to go back to
@@ -107,6 +120,8 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     }
     private void OpenGameScene()
     {
+        didPlayerSurviveTutorial = true; // must have, right?
+
         PreviousScene = SceneManager.GetActiveScene().name;
        //SceneManager.LoadScene("MarosGameScene");
         SceneManager.LoadScene("GameScene");
@@ -132,6 +147,12 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         // SceneManager.LoadScene("MarosGameScene");
         //SceneManager.LoadScene("MarosGameScene");
         // MySoundManager.instance.PlayJazzMusic();
+    }
+    private void OpenDressingRoomScene()
+    {
+        PreviousScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("DressingRoomScene");
+        Time.timeScale = 1f;
     }
 
     // Fading
@@ -165,6 +186,9 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
                 break;
             case GameScene.MAIN_MENU:
                 OpenMainMenu();
+                break;
+            case GameScene.DRESSING_ROOM:
+                OpenDressingRoomScene();
                 break;
         }
     }
