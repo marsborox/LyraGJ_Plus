@@ -65,13 +65,13 @@ public class PlayerCombat : UnitCombat
     public override void TakeDamage(int damage)
     {
         isAttacking = false;
-
         base.TakeDamage(damage);
 
         MySoundManager.instance.PlayEnemyHit();
         if (healthCurrent <= 0)
         {
             Die();
+            //Debug.Log("player died");
         }
     }
     public override void PostAttackAnimationEventUnit()
