@@ -7,7 +7,8 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
     public List<Enemy_SO> enemy_SOs = new List<Enemy_SO>();
     public GameObject spawnPointsInScene;
-
+    public EnemySpawnChecker enemySpawnCheckerPrefab;
+    public EnemySpawnChecker enemySpawnChecker;
     public Enemy enemyPrefab;
     public Player player;
 
@@ -23,9 +24,16 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public Enemy_SO mageSO;
 
     public List<Enemy_SO>enemySOs = new List<Enemy_SO>();
+
+    [Header("testing randomSpawnPoint position")]
+    public Room roomWeTestIn;
+
+
     private void Start()
     {
-
+        
+        EnemySpawnChecker spawnChecker =Instantiate(enemySpawnCheckerPrefab,transform.position,transform.rotation);
+        enemySpawnChecker = spawnChecker;
     }
     private void Update()
     {
@@ -103,7 +111,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
         return spawnedEnemy;
     }
     public void SpawnRandomEnemy(float x,float y,Room room)
-    {
+    {   // this is used !!!!
         //Debug.Log("spawning random test enemy");
         Vector2 spawnPosition = new Vector2(x, y);
         int randomTemplateIndex = Random.Range(0,enemySOs.Count);//may say out of bounds?
@@ -129,6 +137,17 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public void TestSpawnMage()
     {
         SpawnEnemy(mageSO);
+    }
+    public void TestSpawnPosition()
+    {
+        Vector2 position;
+        
+        float x,y;
+        roomWeTestIn.ReturnSpawnPoint(out x,out y);
+        position = new Vector2(x,y);
+        Debug.Log("testing spawnPoint on position X: "+x+"Y: "+y);
+        bool isValid = enemySpawnChecker.IsSpawnPosValid(position);
+        Debug.Log("spawn point valid is: "+isValid);
     }
 
 }
