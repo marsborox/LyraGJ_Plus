@@ -17,6 +17,7 @@ public class GlobalEventManager : Singleton<GlobalEventManager>
 
     public static PlayerEvent OnPlayerAttack;
     public static PlayerEvent OnPlayerDied;
+    public static PlayerEvent OnPlayerAttacked;
     void Start()
     {
         
