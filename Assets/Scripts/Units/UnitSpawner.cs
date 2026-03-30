@@ -32,8 +32,8 @@ public class UnitSpawner : Singleton<UnitSpawner>
     private void Start()
     {
         
-        EnemySpawnChecker spawnChecker =Instantiate(enemySpawnCheckerPrefab,transform.position,transform.rotation);
-        enemySpawnChecker = spawnChecker;
+        /*EnemySpawnChecker spawnChecker =Instantiate(enemySpawnCheckerPrefab,transform.position,transform.rotation);
+        enemySpawnChecker = spawnChecker;*/
     }
     private void Update()
     {
