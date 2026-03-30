@@ -231,7 +231,7 @@ public class Room : MonoBehaviour
                 //ClearRoom(room);
                 //do something
                 //Debug.Log("__________________________________________");
-                Debug.Log("Room Clear");
+                //Debug.Log("Room Clear");
                 LiftBarriers(room);//should work without this but here we are
                                    //scheduling it for event does not work
                 isCleared = true;
