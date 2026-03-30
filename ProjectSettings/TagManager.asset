@@ -12,6 +12,7 @@ TagManager:
   - EnemyWeapon
   - PlayerProjectile
   - EnemyProjectile
+  - SpawnChecker
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Unit
   - Hitbox
   - Weapon
-  - 
+  - SpawnChecker
   - 
   - 
   - 

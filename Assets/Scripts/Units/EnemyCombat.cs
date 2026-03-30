@@ -29,6 +29,7 @@ public class EnemyCombat : UnitCombat
 
     [SerializeField] private EnemyShield _shield;
     [SerializeField]private AttackPhase _currentAttackPhase = AttackPhase.READY;
+    public bool isTriggered =false;
 
     [Header("combatStats")]
     public float range = 0.2f;
@@ -56,6 +57,11 @@ public class EnemyCombat : UnitCombat
     [SerializeField] private GameObject damageNumberPrefab;
     [SerializeField] private Color damageNumberColor = Color.white;
 
+    void Start()
+    {
+        base.Start();
+        enemyMovement.StopMovement();
+    }
     private void OnEnable()
     {
         GlobalEventManager.OnPlayerAttack += ReactToPlayerAttack;
@@ -66,6 +72,7 @@ public class EnemyCombat : UnitCombat
     }
     void Update()
     {
+        
         CooldownTimer();
         base.Update();
         if (isStunned)
@@ -93,12 +100,17 @@ public class EnemyCombat : UnitCombat
     private void FixedUpdate()
     {
         //PerformEnemyBehavior();
+        if(!isTriggered) return;
 
         if (isStunned)
             return;
         if (isPushedBack)
             return;
         BehaviorSwitch();
+    }
+    public void TriggerEnemy()
+    {
+        isTriggered = true;
     }
     public void StartAttackAnimation()
     {
@@ -202,6 +214,7 @@ public class EnemyCombat : UnitCombat
     }
     private void ReactToPlayerAttack()
     {
+        TriggerEnemy();
         int randomRoll = Random.Range(0,100);
         //Debug.Log("Registering players attack with Random roll: " + randomRoll);
         

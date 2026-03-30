@@ -28,6 +28,7 @@ public class PlayerCombat : UnitCombat
         SpawnMusicalNotes(new Color(1, 0, 0));
         animationController.HandleMeeleeAttackAnimation();
         weapon1New.ClickAttack();
+        
     }
     public void Weapon2_OnClick() 
     {
@@ -65,13 +66,13 @@ public class PlayerCombat : UnitCombat
     public override void TakeDamage(int damage)
     {
         isAttacking = false;
-
         base.TakeDamage(damage);
 
         MySoundManager.instance.PlayEnemyHit();
         if (healthCurrent <= 0)
         {
             Die();
+            //Debug.Log("player died");
         }
     }
     public override void PostAttackAnimationEventUnit()

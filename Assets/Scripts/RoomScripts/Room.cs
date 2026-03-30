@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -106,7 +106,7 @@ public class Room : MonoBehaviour
         return bottomDoor;
     }
     public void SpawnEnemies(Room room)
-    {
+    {//this is really used !!!!!!
         if (room != this || isCleared)
         {// to trigger only on our room
             //Debug.Log("notThisRoom ");
@@ -121,21 +121,32 @@ public class Room : MonoBehaviour
     }
     public void SpawnEnemiesFromLevelSO()
     {
+        //this is used
         int randomMin = GameManager.instance.levelSettings.minEnemiesPerRoom;
         int randomMax = GameManager.instance.levelSettings.maxEnemiesPerRoom;
         
-        int spawnAmount = Random.Range(randomMin, randomMax);
+        int spawnAmount = UnityEngine.Random.Range(randomMin, randomMax);
         //Debug.Log("we know how many enemies: " + spawnAmount.ToString());
         for (int i = 0; i <= spawnAmount; i++)
         {
             //Debug.Log("spawning enemy");
-            float spawnPosX = Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
-            float spawnPosY = Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
+            float spawnPosX, spawnPosY;
+            ReturnSpawnPoint(out spawnPosX, out spawnPosY);
 
             UnitSpawner.instance.SpawnRandomEnemy(spawnPosX, spawnPosY, this);
             enemiesInRoomCount++;
         }
     }
+
+    public void ReturnSpawnPoint(out float spawnPosX, out float spawnPosY)
+    {// implement where needed
+        spawnPosX = UnityEngine.Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
+        spawnPosY = UnityEngine.Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
+
+        //Vector2 spawnPosition = new Vector2(spawnPosX,spawnPosY);
+        
+    }
+
     public void SpawnSomeEnemiesRandomly(Room room)
     { //some random for testing
 
@@ -146,13 +157,13 @@ public class Room : MonoBehaviour
         }
         int randomMin = 3;
         int randomMax = 5;
-        int spawnAmount = Random.Range(randomMin, randomMax);
+        int spawnAmount = UnityEngine.Random.Range(randomMin, randomMax);
         //Debug.Log("we know how many enemies: " + spawnAmount.ToString());
         for (int i = 0; i<=spawnAmount; i++)
         {
             //Debug.Log("spawning enemy");
-            float spawnPosX = Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
-            float spawnPosY = Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
+            float spawnPosX = UnityEngine.Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
+            float spawnPosY = UnityEngine.Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
 
             UnitSpawner.instance.SpawnRandomEnemy(spawnPosX, spawnPosY,this);
             enemiesInRoomCount++;
@@ -169,8 +180,8 @@ public class Room : MonoBehaviour
         for (int i = 0; i <= spawnAmount; i++)
         {
             //Debug.Log("spawning enemy");
-            float spawnPosX = Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
-            float spawnPosY = Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
+            float spawnPosX = UnityEngine.Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
+            float spawnPosY = UnityEngine.Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
 
             UnitSpawner.instance.SpawnRandomEnemy(spawnPosX, spawnPosY, this);
             enemiesInRoomCount++;

@@ -2235,6 +2235,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 204a6424375fa2541ad48cb557bffcae, type: 2}
   - {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
   spawnPointsInScene: {fileID: 651039158}
+  enemySpawnChecker: {fileID: -2100482780989667714, guid: 740f3b178f2909d4882999415ddb8a36, type: 3}
   enemyPrefab: {fileID: 4176866416230126860, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
   player: {fileID: 29055957}
   minSpawnTime: 0.5
@@ -35667,7 +35668,7 @@ PrefabInstance:
     - target: {fileID: 1923456302434264764, guid: 82a09835cbd2b4be1abeccc88b566657, type: 3}
       propertyPath: optionsUI
       value: 
-      objectReference: {fileID: 1991998148}
+      objectReference: {fileID: 0}
     - target: {fileID: 5677945436129784938, guid: 82a09835cbd2b4be1abeccc88b566657, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -36855,17 +36856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552b676f23486444f8cb5634d01c3fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutscenesPlayer
---- !u!114 &1991998148 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 385882721806291194, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
-  m_PrefabInstance: {fileID: 1991998145}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b2b75a5bf6fb47c5822175dbceb0267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OptionsUI
 --- !u!114 &1991998149 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 828409922916934303, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
