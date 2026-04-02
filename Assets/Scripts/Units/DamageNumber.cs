@@ -11,6 +11,7 @@ public class DamageNumber : MonoBehaviour
 
     private TextMeshProUGUI _text;
     private Color _startColor;
+    
 
     void Awake()
     {

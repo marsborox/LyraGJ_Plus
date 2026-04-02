@@ -35,7 +35,8 @@ public class Sword : Weapon
             return;
         }
         unit.GetPushedBack(this.transform.position,pushbackForce,pushBackDuration);
-        unit.TakeDamage(ReturnCalculateDamage());
+        bool isCrit;
+        unit.TakeDamage(ReturnCalculateDamage(out isCrit),isCrit);
     }
     public override void SetWeaponRed()
     {

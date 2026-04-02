@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     public string targetTag;
     public float movementSpeed = 8f;
     public int damage;
+    public bool isCrit=false;
     public float pushBackForce;
     public float pushBackDuration;
     public float miniStunDuration;
@@ -47,7 +48,7 @@ public class Projectile : MonoBehaviour
             }
         }
         unit.GetStunned(miniStunDuration);
-        unit.TakeDamage(damage);
+        unit.TakeDamage(damage, isCrit);
     }
     //if our target tag is player and this is jsut a proejctile and other tag is weapon or projectile of player destroy this
 

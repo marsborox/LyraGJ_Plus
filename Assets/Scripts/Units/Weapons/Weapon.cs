@@ -83,9 +83,10 @@ public class Weapon : MonoBehaviour
     { 
     
     }
-    public void CalculateDamage()
+    public void CalculateDamage(ref bool isCrit)
     {
-        if (player.rythmBonus.CheckIfInRythm())
+        isCrit = player.rythmBonus.CheckIfInRythm();
+        if (isCrit)
         {
             damageApplied = damageBase * damageMultiplier;
         }
@@ -94,10 +95,11 @@ public class Weapon : MonoBehaviour
         damageApplied = damageBase;
         }
     }
-    public int ReturnCalculateDamage()
+    public int ReturnCalculateDamage(out bool isCrit)
     {
         int appliedDamage;
-        if (player.rythmBonus.CheckIfInRythm())
+        isCrit = player.rythmBonus.CheckIfInRythm();
+        if (isCrit)
         {
             appliedDamage = damageBase * damageMultiplier;
             //Debug.Log("doing crit damage: "+appliedDamage);
