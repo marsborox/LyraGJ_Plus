@@ -67,6 +67,12 @@ public class Unit : MonoBehaviour
         unitCombat.TakeDamage(damageAmount);
 
     }
+        public void TakeDamage(int damageAmount, bool isCrit)
+    {
+        //Debug.Log("unit TakingDamage: "+damageAmount);
+        unitCombat.TakeDamage(damageAmount, isCrit);
+
+    }
     public void GetHeal(int healAmount)
     {
         unitCombat.GetHeal(healAmount);
