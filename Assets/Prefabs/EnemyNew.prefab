@@ -890,6 +890,7 @@ MonoBehaviour:
   _conversation: {fileID: 6595618953611798850}
   _shield: {fileID: 4258614492040384127}
   _currentAttackPhase: 0
+  isTriggered: 0
   range: 0
   damage: 1
   attackCooldown: 5
@@ -902,8 +903,9 @@ MonoBehaviour:
   normalCoef: 1
   advantageCoef: 0.5
   disadvantageCoef: 1.5
-  damageNumberPrefab: {fileID: 6366268655203487983, guid: a703b9b9bd07944a186ee12a59be58cc, type: 3}
-  damageNumberColor: {r: 0.9882353, g: 0.43984145, b: 0.007843107, a: 1}
+  damageNumberPrefab: {fileID: 7515068516089152647, guid: a703b9b9bd07944a186ee12a59be58cc, type: 3}
+  damageNumberColorNoCrit: {r: 0.9882353, g: 0.4392157, b: 0.007843138, a: 1}
+  damageNumberColorCrit: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3549913713549301225
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -54,8 +54,8 @@ public class EnemyCombat : UnitCombat
     public float disadvantageCoef = 1.5f;
 
     [Header("Damage Number")]
-    [SerializeField] private GameObject damageNumberPrefab;
-    [SerializeField] private Color damageNumberColorNoCrit = Color.white;
+    [SerializeField] private DamageNumber damageNumberPrefab;
+    [SerializeField] private Color damageNumberColorNoCrit = new Color32(252,112,2,255);
     [SerializeField] private Color damageNumberColorCrit = Color.green;
 
     void Start()
@@ -297,8 +297,10 @@ public class EnemyCombat : UnitCombat
         if (healthCurrent <= 0) return;
         
         Vector3 offset = new Vector3(0, 1.5f, 0); // to start just above enemy
-        var gameObject = Instantiate(damageNumberPrefab, transform.position + offset, Quaternion.identity);
+        /*var gameObject = Instantiate(damageNumberPrefab, transform.position + offset, Quaternion.identity);
         var damageNumber = gameObject.GetComponent<DamageNumber>();
+        */
+        DamageNumber damageNumber = Instantiate(damageNumberPrefab, transform.position + offset, Quaternion.identity);
 
         if(isCrit)
         {

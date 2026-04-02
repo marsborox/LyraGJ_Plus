@@ -2,13 +2,13 @@
 - Project name: LyraGJ_Plus
 - Unity version: Unity 6000.2.9f1
 - Active scene:
-  - Name: EnemyNew
+  - Name: Bow
   - Tags:
     - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, Enemy, PlayerWeapon, Wall, Projectile, Explosion, EnemyWeapon, PlayerProjectile, EnemyProjectile, SpawnChecker
   - Layers:
     - Default, TransparentFX, Ignore Raycast, cast shadow, Water, UI, Unit, Hitbox, Weapon, SpawnChecker
 - Active game object:
-  - Name: EnemyNew
-  - Tag: Enemy
-  - Layer: Hitbox
+  - Name: Bow
+  - Tag: PlayerWeapon
+  - Layer: cast shadow
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
