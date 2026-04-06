@@ -7,6 +7,7 @@ public class SpotlightFollowing : MonoBehaviour
 {
     public GameObject lightCone;
     public GameObject lightSpot;
+    public Color lightColor = new Color(1, 0, 0);
     public Transform targetToFollow;
     public Vector2 offscreenOrigin = new Vector2(0, 0);
 
@@ -62,9 +63,9 @@ public class SpotlightFollowing : MonoBehaviour
             lightSpot.transform.localScale = new Vector2(targetWidth / spotRenderer.sprite.bounds.size.x, targetWidth / spotRenderer.sprite.bounds.size.y);
 
             // to not call it each Update pass
-            if (light.color != lastColor)
+            if (lightColor != lastColor)
             {
-                lastColor = light.color;
+                lastColor = lightColor;
                 UpdateColors();
             }
         }
@@ -78,13 +79,13 @@ public class SpotlightFollowing : MonoBehaviour
         if (light != null)
         {
             // match the colors
-            Color lightColor = light.color;
-            lightColor.a = 0.1f;
-            coneRenderer.color = lightColor;
-            spotRenderer.color = lightColor;
+            Color color = lightColor;
+            color.a = 0.1f;
+            coneRenderer.color = color;
+            spotRenderer.color = color;
 
             // modify even shader colors
-            propertyBlock.SetColor("_Color", lightColor);
+            propertyBlock.SetColor("_Color", color);
             coneRenderer.SetPropertyBlock(propertyBlock);
             spotRenderer.SetPropertyBlock(propertyBlock);
         }
