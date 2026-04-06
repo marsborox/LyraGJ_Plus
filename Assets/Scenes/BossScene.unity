@@ -12911,7 +12911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3849044699074791071, guid: 9ef5510c28587457092e438f9adfda23, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5450629887058586991, guid: 9ef5510c28587457092e438f9adfda23, type: 3}
       propertyPath: m_LocalScale.y
@@ -12988,8 +12988,46 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3849044699074791071, guid: 9ef5510c28587457092e438f9adfda23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1854833010}
   m_SourcePrefab: {fileID: 100100000, guid: 9ef5510c28587457092e438f9adfda23, type: 3}
+--- !u!1 &1854833008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3849044699074791071, guid: 9ef5510c28587457092e438f9adfda23, type: 3}
+  m_PrefabInstance: {fileID: 1854833007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1854833009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3061986133975572842, guid: 9ef5510c28587457092e438f9adfda23, type: 3}
+  m_PrefabInstance: {fileID: 1854833007}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854833008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3377af8fef0e947749028a71200da308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpotlightFollowing
+--- !u!114 &1854833010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854833008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e4b16855795420198431095eb3b280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpotlightChangingColors
+  spotlight: {fileID: 1854833009}
+  colors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  colorDuration: 3
+  currentColorIndex: 0
 --- !u!1 &1899391290
 GameObject:
   m_ObjectHideFlags: 0
