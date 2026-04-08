@@ -6,9 +6,8 @@ using System.Linq;
 public class SpotlightChangingColors : MonoBehaviour
 {
     [SerializeField] private SpotlightFollowing spotlight;
-    [SerializeField] List<Color> colors = new List<Color> { Color.red, Color.blue, Color.green };
-    [SerializeField] float colorDuration = 5.0f;
-
+    [SerializeField] private float colorDuration = 5.0f;
+    [SerializeField] private List<Color> colors = new List<Color> { Color.red, Color.green, Color.blue };
     public bool isChangingColors
     {
         get
@@ -27,16 +26,20 @@ public class SpotlightChangingColors : MonoBehaviour
             }
         }
     }
-    public int currentColorIndex;
-
+    private int _currentColorIndex;
     private Coroutine _routine;
 
     void Start()
     {
-        currentColorIndex = 0;
-        spotlight.lightColor = colors[currentColorIndex];
+        _currentColorIndex = 0;
+        spotlight.lightColor = colors[_currentColorIndex];
 
         isChangingColors = true;
+    }
+
+    public Type CurrentColorType()
+    {
+        return (Type)_currentColorIndex;
     }
 
     private IEnumerator ChangeColor()
@@ -45,8 +48,8 @@ public class SpotlightChangingColors : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(colorDuration);
-            currentColorIndex = currentColorIndex >= lastColorIndex ? 0 : currentColorIndex + 1;
-            spotlight.lightColor = colors[currentColorIndex];
+            _currentColorIndex = _currentColorIndex >= lastColorIndex ? 0 : _currentColorIndex + 1;
+            spotlight.lightColor = colors[_currentColorIndex];
         }
     }
 }

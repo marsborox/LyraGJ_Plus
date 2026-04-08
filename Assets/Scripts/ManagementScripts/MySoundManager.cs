@@ -211,6 +211,19 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         _jazzMusicInstance.start();
     }
 
+    public void PlayBadJazzBossMusic()
+    {
+        // TODO: replace with actual music later
+        _pianoHitInstance.start();
+    }
+
+    public void PlayFinalJazzBossSong()
+    {
+        // TODO: replace with actual music later
+        PlayJazzMusic();
+        PlayInstrument(Instrument.Piano); // because boss plays on a piano
+    }
+
     // Helpers
 
     private void StopAllInstrumentSounds()

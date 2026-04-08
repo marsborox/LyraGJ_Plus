@@ -126,6 +126,13 @@ public class UnitSpawner : Singleton<UnitSpawner>
             spawnedEnemy.DisableShield();
         }
     }
+
+    public void SpawnEnemies(int min, int max)
+    {        
+        int spawnAmount = UnityEngine.Random.Range(min, max);
+        for (int i = 0; i <= spawnAmount; i++) SpawnEnemy();
+    }
+
     public void TestSpawnMelee()
     {
         SpawnEnemy(meleeSO);
