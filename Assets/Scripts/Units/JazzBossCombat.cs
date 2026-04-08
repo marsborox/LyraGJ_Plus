@@ -42,12 +42,12 @@ public class JazzBossCombat : MonoBehaviour
 
     void Start()
     {
-        currentState = State.WAITING;
         GlobalEventManager.OnEnemyDied += OnEnemyDied;
 
         RefreshJazzMeter();
-
         StartCoroutine(DecreaseJazzMeter());
+
+        currentState = State.SPAWN_ENEMIES;
     }
 
     void OnDestroy()
