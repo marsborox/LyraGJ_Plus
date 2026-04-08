@@ -2235,6 +2235,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 204a6424375fa2541ad48cb557bffcae, type: 2}
   - {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
   spawnPointsInScene: {fileID: 651039158}
+  enemySpawnCheckerPrefab: {fileID: 0}
   enemySpawnChecker: {fileID: -2100482780989667714, guid: 740f3b178f2909d4882999415ddb8a36, type: 3}
   enemyPrefab: {fileID: 4176866416230126860, guid: 93dfd00e44fbffa428b9ba260092d6e5, type: 3}
   player: {fileID: 29055957}
@@ -2248,6 +2249,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3c601b5adf4864d40ae550a2802e287f, type: 2}
   - {fileID: 11400000, guid: f86ebb9019a7a9c4b95a0cabd2e390ff, type: 2}
   - {fileID: 11400000, guid: 204a6424375fa2541ad48cb557bffcae, type: 2}
+  roomWeTestIn: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -25052,6 +25054,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2043811585}
+    - target: {fileID: 859534956746889397, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: movementSpeed
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1126789431434391287, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_Enabled
       value: 1
