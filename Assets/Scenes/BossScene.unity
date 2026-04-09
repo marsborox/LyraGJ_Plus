@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 199913495}
   - component: {fileID: 199913497}
   - component: {fileID: 199913498}
-  - component: {fileID: 199913499}
+  - component: {fileID: 199913500}
   m_Layer: 0
   m_Name: Walls 2
   m_TagString: Wall
@@ -2015,7 +2015,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &199913499
+--- !u!114 &199913500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2024,16 +2024,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 199913493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
   m_OverrideArea: 1
   m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
   m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
 --- !u!114 &217954735 stripped
 MonoBehaviour:
@@ -10959,7 +10955,7 @@ GameObject:
   - component: {fileID: 1289156472}
   - component: {fileID: 1289156474}
   - component: {fileID: 1289156475}
-  - component: {fileID: 1289156476}
+  - component: {fileID: 1289156477}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Wall
@@ -12546,7 +12542,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1289156476
+--- !u!114 &1289156477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12555,16 +12551,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1289156470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
   m_OverrideArea: 1
   m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
   m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
 --- !u!1 &1383636730
 GameObject:
@@ -13081,7 +13073,7 @@ GameObject:
   - component: {fileID: 1899391291}
   - component: {fileID: 1899391293}
   - component: {fileID: 1899391292}
-  - component: {fileID: 1899391294}
+  - component: {fileID: 1899391295}
   m_Layer: 0
   m_Name: Tables
   m_TagString: Untagged
@@ -13505,7 +13497,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1899391294
+--- !u!114 &1899391295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13514,16 +13506,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1899391290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
-  m_SerializedVersion: 0
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
   m_OverrideArea: 1
   m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
   m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
 --- !u!1 &1971577287
 GameObject:
@@ -13579,6 +13567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1978286132}
   - component: {fileID: 1978286133}
+  - component: {fileID: 1978286134}
   m_Layer: 0
   m_Name: Nav Mesh Surface
   m_TagString: Untagged
@@ -13594,7 +13583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978286131}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13633,6 +13622,22 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 97239bc1cd7514bd4bafee3328564615, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &1978286134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978286131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70bd44a44cd62c64fbfc1eea95b24880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Extensions.CollectSources2d
+  m_OverrideByGrid: 0
+  m_UseMeshPrefab: {fileID: 0}
+  m_CompressBounds: 0
+  m_OverrideVector: {x: 1, y: 1, z: 1}
 --- !u!1 &1988222791
 GameObject:
   m_ObjectHideFlags: 0

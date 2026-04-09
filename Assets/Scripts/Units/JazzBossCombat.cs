@@ -57,6 +57,8 @@ public class JazzBossCombat : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Boss colliding with " + collision.gameObject.tag);
+
         if (collision.gameObject == _note)
         {
             OnCollideWithJazzNote();
@@ -65,7 +67,7 @@ public class JazzBossCombat : MonoBehaviour
 
     private void OnChangeState()
     {
-        if (currentState != State.SPAWN_ENEMIES)
+        if (currentState != State.SPAWN_ENEMIES && _enemiesCheckRoutine != null)
         {
             StopCoroutine(_enemiesCheckRoutine);
         }
