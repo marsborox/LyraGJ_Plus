@@ -211,10 +211,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.2D.Animation.Runtime::UnityEngine.U2D.Animation.SpriteResolver
-  m_CategoryHash: 6.486452e-22
-  m_labelHash: 1.2342003e-24
+  m_CategoryHash: 0.009161512
+  m_labelHash: 0.0000000056952576
   m_SpriteKey: 0
-  m_SpriteHash: 637886778
+  m_SpriteHash: 935136823
 --- !u!212 &248681594432035143
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -259,10 +259,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1835196397
+  m_SortingLayer: -3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 264b4d206c30b4af0a35c5fcd724112d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c36bdf634de0b4c9294f4cb152983e7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -442,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4079455206422685404}
   - component: {fileID: 1426923238232583983}
-  - component: {fileID: 5891253477899302129}
+  - component: {fileID: 3193458945344143712}
   - component: {fileID: 6328919073512237215}
   m_Layer: 7
   m_Name: JazzBoss
@@ -460,8 +460,8 @@ Transform:
   m_GameObject: {fileID: 7205771505846008364}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.96, y: 3.67696, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4874467510333795940}
@@ -495,8 +495,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &5891253477899302129
-BoxCollider2D:
+--- !u!70 &3193458945344143712
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -529,18 +529,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.07028389, y: -0.12522137}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.4528008, y: 1.2504427}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.03, y: -0.03}
+  m_Size: {x: 0.5, y: 1.5}
+  m_Direction: 0
 --- !u!114 &6328919073512237215
 MonoBehaviour:
   m_ObjectHideFlags: 0
