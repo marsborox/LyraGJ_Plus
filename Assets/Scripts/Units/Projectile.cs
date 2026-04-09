@@ -49,6 +49,7 @@ public class Projectile : MonoBehaviour
         }
         unit.GetStunned(miniStunDuration);
         unit.TakeDamage(damage, isCrit);
+        Destroy(gameObject);
     }
     //if our target tag is player and this is jsut a proejctile and other tag is weapon or projectile of player destroy this
 
