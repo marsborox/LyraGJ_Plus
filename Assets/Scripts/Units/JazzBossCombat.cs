@@ -8,12 +8,15 @@ public class JazzBossCombat : MonoBehaviour
 
     [Header("Boss")]
     [SerializeField] private Animator animator;
-    [SerializeField] private Image jazzMeter;
     [SerializeField] private float jazz = 0f;
     [SerializeField] private float maxJazz = 10f;
     [SerializeField] private float dropJazzInterval = 5f;
     [SerializeField] private float dropJazzValue = 0.3f;
     [SerializeField] private SpotlightChangingColors spotlight;
+
+    [Header("Jazz")]
+    [SerializeField] private GameObject jazzMeter;
+    [SerializeField] private Image jazzValue;
 
     [Header("Enemies")]
     [SerializeField] private UnitSpawner unitSpawner;
@@ -22,7 +25,6 @@ public class JazzBossCombat : MonoBehaviour
 
     [Header("Note")]
     [SerializeField] private GameObject notePrefab;
-    [SerializeField] private Vector2 noteSpawnPosition;
 
     public State currentState
     {
@@ -38,13 +40,15 @@ public class JazzBossCombat : MonoBehaviour
 
     private State _currentState;
     private JazzNote _note;
+    private Vector2 _noteSpawnPosition;
+    private Coroutine _dropJazzRoutine;
 
     void Start()
     {
         GlobalEventManager.OnEnemyDied += OnEnemyDied;
 
         RefreshJazzMeter();
-        StartCoroutine(DropJazzMeter());
+        _dropJazzRoutine = StartCoroutine(DropJazzMeter());
 
         currentState = State.SPAWN_ENEMIES;
     }
@@ -76,7 +80,7 @@ public class JazzBossCombat : MonoBehaviour
             }
             case State.SPAWN_NOTE:
             {
-                _note = Instantiate(notePrefab, noteSpawnPosition, Quaternion.identity).GetComponent<JazzNote>();
+                _note = Instantiate(notePrefab, _noteSpawnPosition, Quaternion.identity).GetComponent<JazzNote>();
                 _note.spotlight = spotlight;
                 _note.target = transform;
                 break;
@@ -88,15 +92,23 @@ public class JazzBossCombat : MonoBehaviour
                     break;            
                 }
             case State.FINAL_SONG:
+            {
                 animator.Play("BossJazzPlaying");
+
+                StopCoroutine(_dropJazzRoutine);
+                jazzMeter.SetActive(false);
+
+                spotlight.isChangingColors = false;
+                
                 MySoundManager.instance.PlayFinalJazzBossSong();
                 break;
+            }
         }
     }
 
     private void OnEnemyDied(Enemy enemy,Room room)
     {
-        noteSpawnPosition = enemy.gameObject.transform.position;
+        _noteSpawnPosition = enemy.gameObject.transform.position;
 
         if (currentState != State.SPAWN_ENEMIES)
         {
@@ -129,7 +141,7 @@ public class JazzBossCombat : MonoBehaviour
     private void RefreshJazzMeter()
     {
         float jazzLevel = jazz / maxJazz;
-        jazzMeter.fillAmount = jazzLevel;
+        jazzValue.fillAmount = jazzLevel;
     }
 
     private IEnumerator DropJazzMeter()

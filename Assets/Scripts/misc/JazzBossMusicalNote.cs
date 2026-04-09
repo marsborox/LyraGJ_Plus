@@ -40,13 +40,11 @@ public class JazzNote : MonoBehaviour
             {
                 float damage = weapon.ReturnCalculateDamage(out isCrit);
                 jazzBoost = weaponNeeded == weapon.weaponType ? damage : 0;
-                Debug.Log("Weapon possible damage? " + damage);
             }
         }
         else if (projectile != null)
         {
             jazzBoost = weaponNeeded == projectile.projectileType ? projectile.damage : 0;
-            Debug.Log("Projectile possible damage? " + projectile.damage);
         }
         else
         {

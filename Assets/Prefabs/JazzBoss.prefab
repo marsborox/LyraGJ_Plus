@@ -545,11 +545,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JazzBossCombat
   animator: {fileID: 3447938201622852478}
-  jazzMeter: {fileID: 6434730258113151962}
   jazz: 0
   maxJazz: 100
-  decreaseJazzInterval: 10
+  dropJazzInterval: 5
+  dropJazzValue: 0.3
   spotlight: {fileID: 0}
+  jazzMeter: {fileID: 6567913228921587402}
+  jazzValue: {fileID: 6434730258113151962}
   unitSpawner: {fileID: 0}
   minSpawnOfEnemies: 3
   maxSpawnOfEnemies: 5
