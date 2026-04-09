@@ -10832,11 +10832,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.2
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.5
+      value: 8.36
       objectReference: {fileID: 0}
     - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14351,6 +14351,14 @@ PrefabInstance:
       propertyPath: unitSpawner
       value: 
       objectReference: {fileID: 577819191}
+    - target: {fileID: 6328919073512237215, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
+      propertyPath: noteSpawnPosition.x
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328919073512237215, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
+      propertyPath: noteSpawnPosition.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7205771505846008364, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
       propertyPath: m_Name
       value: JazzBoss

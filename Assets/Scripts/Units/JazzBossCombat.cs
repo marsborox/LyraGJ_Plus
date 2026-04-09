@@ -12,8 +12,6 @@ public class JazzBossCombat : MonoBehaviour
     [SerializeField] private float jazz = 0f;
     [SerializeField] private float maxJazz = 100f;
     [SerializeField] private float decreaseJazzInterval = 10f;
-
-    [Header("Spotlight")]
     [SerializeField] private SpotlightChangingColors spotlight;
 
     [Header("Enemies")]
@@ -23,6 +21,7 @@ public class JazzBossCombat : MonoBehaviour
 
     [Header("Note")]
     [SerializeField] private GameObject notePrefab;
+    [SerializeField] private Vector2 noteSpawnPosition;
 
     public State currentState
     {
@@ -37,11 +36,12 @@ public class JazzBossCombat : MonoBehaviour
     }
 
     private State _currentState;
-    private Vector2 _lastEnemyPosition;
     private JazzNote _note;
+    private Coroutine _enemiesCheckRoutine;
 
     void Start()
     {
+        Debug.Log("Start Enemies: " + GameManager.instance.enemiesInField);
         GlobalEventManager.OnEnemyDied += OnEnemyDied;
 
         RefreshJazzMeter();
@@ -65,15 +65,23 @@ public class JazzBossCombat : MonoBehaviour
 
     private void OnChangeState()
     {
+        if (currentState != State.SPAWN_ENEMIES)
+        {
+            StopCoroutine(_enemiesCheckRoutine);
+        }
+
         switch (currentState) {
             case State.WAITING:
                 break;
-            case State.SPAWN_ENEMIES:
+            case State.SPAWN_ENEMIES: 
+            {
                 unitSpawner.SpawnEnemies(minSpawnOfEnemies, maxSpawnOfEnemies);
+                _enemiesCheckRoutine = StartCoroutine(CheckEnemiesCount());
                 break;
+            }
             case State.SPAWN_NOTE:
             {
-                _note = Instantiate(notePrefab, _lastEnemyPosition, Quaternion.identity).GetComponent<JazzNote>();
+                _note = Instantiate(notePrefab, noteSpawnPosition, Quaternion.identity).GetComponent<JazzNote>();
                 _note.spotlight = spotlight;
                 _note.target = transform;
                 break;
@@ -89,7 +97,7 @@ public class JazzBossCombat : MonoBehaviour
 
     private void OnEnemyDied(Enemy enemy,Room room)
     {
-        _lastEnemyPosition = enemy.gameObject.transform.position;
+        noteSpawnPosition = enemy.gameObject.transform.position;
 
         if (currentState != State.SPAWN_ENEMIES)
         {
@@ -142,6 +150,29 @@ public class JazzBossCombat : MonoBehaviour
                 jazz -= 1f;
                 RefreshJazzMeter();
             }
+        }
+    }
+
+    // TEMPORARY CODE
+
+    IEnumerator CheckEnemiesCount()
+    {
+        while (true) // Loop indefinitely
+        {
+            if (currentState == State.SPAWN_ENEMIES)
+            {
+                if (GameManager.instance.enemiesInField == 0)
+                {
+                    Debug.Log("No more ENEMIES");
+                    currentState = State.SPAWN_NOTE;                                        
+                }
+                else
+                {
+                    Debug.Log("Enemies: " + GameManager.instance.enemiesInField);
+                }
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }
