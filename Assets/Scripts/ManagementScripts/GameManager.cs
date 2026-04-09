@@ -125,4 +125,8 @@ public class GameManager : Singleton<GameManager>
         //Remove This
         //roomsCleared++;
     }
+    public void PostLevelClear()
+    {
+        levelSettings.PostLevelClear();
+    }
 }
