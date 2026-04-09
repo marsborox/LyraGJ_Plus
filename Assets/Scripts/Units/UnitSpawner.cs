@@ -129,7 +129,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public void SpawnEnemies(int min, int max)
     {        
         int spawnAmount = UnityEngine.Random.Range(min, max);
-        Debug.Log("How many enemies? " + spawnAmount);
+        // Debug.Log("How many enemies? " + spawnAmount);
         for (int i = 0; i <= spawnAmount; i++) SpawnEnemy();
     }
 

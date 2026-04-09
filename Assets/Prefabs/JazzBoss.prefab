@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 0.5
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 6328919073512237215}
   m_Layer: 7
   m_Name: JazzBoss
-  m_TagString: Untagged
+  m_TagString: JazzBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,3 +554,4 @@ MonoBehaviour:
   minSpawnOfEnemies: 3
   maxSpawnOfEnemies: 5
   notePrefab: {fileID: 6614621823352680147, guid: 108854309d46a4b06a6dafe19c9c74b8, type: 3}
+  noteSpawnPosition: {x: 0, y: 0}

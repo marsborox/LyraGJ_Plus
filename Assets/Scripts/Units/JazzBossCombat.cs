@@ -10,14 +10,14 @@ public class JazzBossCombat : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Image jazzMeter;
     [SerializeField] private float jazz = 0f;
-    [SerializeField] private float maxJazz = 100f;
+    [SerializeField] private float maxJazz = 30f;
     [SerializeField] private float decreaseJazzInterval = 10f;
     [SerializeField] private SpotlightChangingColors spotlight;
 
     [Header("Enemies")]
     [SerializeField] private UnitSpawner unitSpawner;
-    [SerializeField] private int minSpawnOfEnemies;
-    [SerializeField] private int maxSpawnOfEnemies;
+    [SerializeField] private int minSpawnOfEnemies = 2;
+    [SerializeField] private int maxSpawnOfEnemies = 7;
 
     [Header("Note")]
     [SerializeField] private GameObject notePrefab;
@@ -37,11 +37,9 @@ public class JazzBossCombat : MonoBehaviour
 
     private State _currentState;
     private JazzNote _note;
-    private Coroutine _enemiesCheckRoutine;
 
     void Start()
     {
-        Debug.Log("Start Enemies: " + GameManager.instance.enemiesInField);
         GlobalEventManager.OnEnemyDied += OnEnemyDied;
 
         RefreshJazzMeter();
@@ -55,11 +53,9 @@ public class JazzBossCombat : MonoBehaviour
         GlobalEventManager.OnEnemyDied -= OnEnemyDied;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Boss colliding with " + collision.gameObject.tag);
-
-        if (collision.gameObject == _note)
+        if (collision.gameObject.tag == "JazzNote")
         {
             OnCollideWithJazzNote();
         }
@@ -67,18 +63,12 @@ public class JazzBossCombat : MonoBehaviour
 
     private void OnChangeState()
     {
-        if (currentState != State.SPAWN_ENEMIES && _enemiesCheckRoutine != null)
-        {
-            StopCoroutine(_enemiesCheckRoutine);
-        }
-
         switch (currentState) {
             case State.WAITING:
                 break;
             case State.SPAWN_ENEMIES: 
             {
                 unitSpawner.SpawnEnemies(minSpawnOfEnemies, maxSpawnOfEnemies);
-                _enemiesCheckRoutine = StartCoroutine(CheckEnemiesCount());
                 break;
             }
             case State.SPAWN_NOTE:
@@ -132,7 +122,7 @@ public class JazzBossCombat : MonoBehaviour
             }
         }
 
-        Destroy(_note);
+        Destroy(_note.gameObject);
     }
 
     private void RefreshJazzMeter()
@@ -152,29 +142,6 @@ public class JazzBossCombat : MonoBehaviour
                 jazz -= 1f;
                 RefreshJazzMeter();
             }
-        }
-    }
-
-    // TEMPORARY CODE
-
-    IEnumerator CheckEnemiesCount()
-    {
-        while (true) // Loop indefinitely
-        {
-            if (currentState == State.SPAWN_ENEMIES)
-            {
-                if (GameManager.instance.enemiesInField == 0)
-                {
-                    Debug.Log("No more ENEMIES");
-                    currentState = State.SPAWN_NOTE;                                        
-                }
-                else
-                {
-                    Debug.Log("Enemies: " + GameManager.instance.enemiesInField);
-                }
-            }
-
-            yield return new WaitForSeconds(0.5f);
         }
     }
 }
