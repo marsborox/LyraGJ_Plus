@@ -34,6 +34,8 @@ public class Level_SO : ScriptableObject
     { }
     public virtual void PlayerDied()
     { }
+    public virtual void PostLevelClear()
+    {}
     //public static RoomEvent OnPlayerEnterRoom;
     //public static RoomEvent OnPlayerLeaveRoom;
     //public static RoomEvent OnRoomCleared;

@@ -84,4 +84,9 @@ public class TutorialLevel_SO : Level_SO
                 }
         }
     }
+    public override void PostLevelClear()
+    {
+        GlobalEventManager.OnRoomCleared -= GameManager.instance.SpawnDialogue;
+        GlobalEventManager.OnPlayerEnterRoom -= SpawnTutorialRoom;
+    }
 }

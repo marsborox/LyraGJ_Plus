@@ -21,7 +21,7 @@ public class HealthIndicator_UI : MonoBehaviour
         float relativeFraction = (float)_player.ReturnHealthCurrent() / (float)_player.ReturnHealthMax();
         //add min value
         float realFraction = _minHealthImageFill + (relativeFraction*realRange);
-        Debug.Log("range= "+realRange+" fraction= "+realFraction);
+        //Debug.Log("range= "+realRange+" fraction= "+realFraction);
         _healthBar.fillAmount = realFraction;
     }
     void HealthBarFill()
