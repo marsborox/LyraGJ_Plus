@@ -10,8 +10,9 @@ public class JazzBossCombat : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Image jazzMeter;
     [SerializeField] private float jazz = 0f;
-    [SerializeField] private float maxJazz = 30f;
-    [SerializeField] private float decreaseJazzInterval = 10f;
+    [SerializeField] private float maxJazz = 10f;
+    [SerializeField] private float dropJazzInterval = 5f;
+    [SerializeField] private float dropJazzValue = 0.3f;
     [SerializeField] private SpotlightChangingColors spotlight;
 
     [Header("Enemies")]
@@ -43,7 +44,7 @@ public class JazzBossCombat : MonoBehaviour
         GlobalEventManager.OnEnemyDied += OnEnemyDied;
 
         RefreshJazzMeter();
-        StartCoroutine(DecreaseJazzMeter());
+        StartCoroutine(DropJazzMeter());
 
         currentState = State.SPAWN_ENEMIES;
     }
@@ -63,6 +64,8 @@ public class JazzBossCombat : MonoBehaviour
 
     private void OnChangeState()
     {
+        animator.Play("BossJazzIdle");
+
         switch (currentState) {
             case State.WAITING:
                 break;
@@ -79,9 +82,13 @@ public class JazzBossCombat : MonoBehaviour
                 break;
             }
             case State.BAD_JAZZ:
-                MySoundManager.instance.PlayBadJazzBossMusic();
-                break;
+                {
+                    animator.Play("BossJazzDancing");
+                    StartCoroutine(PlayBaddJazz(3));
+                    break;            
+                }
             case State.FINAL_SONG:
+                animator.Play("BossJazzPlaying");
                 MySoundManager.instance.PlayFinalJazzBossSong();
                 break;
         }
@@ -108,18 +115,12 @@ public class JazzBossCombat : MonoBehaviour
         jazz += _note.jazzBoost;
         RefreshJazzMeter();
 
-        if (_note.jazzBoost == 0)
+        if (jazz < maxJazz)
         {
-            currentState = State.SPAWN_ENEMIES;
+            currentState = State.BAD_JAZZ;
         } else
         {
-            if (jazz < maxJazz)
-            {
-                currentState = State.BAD_JAZZ;
-            } else
-            {
-                currentState = State.FINAL_SONG;
-            }
+            currentState = State.FINAL_SONG;
         }
 
         Destroy(_note.gameObject);
@@ -131,17 +132,31 @@ public class JazzBossCombat : MonoBehaviour
         jazzMeter.fillAmount = jazzLevel;
     }
 
-    private IEnumerator DecreaseJazzMeter()
+    private IEnumerator DropJazzMeter()
     {
         while (true)
         {
-            yield return new WaitForSeconds(decreaseJazzInterval);
+            yield return new WaitForSeconds(dropJazzInterval);
 
             if (jazz > 0)
             {
-                jazz -= 1f;
+                jazz -= dropJazzValue;
                 RefreshJazzMeter();
             }
         }
+    }
+
+    private IEnumerator PlayBaddJazz(int howManyTimes)
+    {
+        int counter = 0;
+        float interval = 0.7f;
+        while (counter < howManyTimes)
+        {
+            MySoundManager.instance.PlayBadJazzBossMusic();
+            yield return new WaitForSeconds(interval);
+            counter++;
+        }
+
+        currentState = State.SPAWN_ENEMIES;
     }
 }

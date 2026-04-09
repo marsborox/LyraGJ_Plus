@@ -130,7 +130,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
     {        
         int spawnAmount = UnityEngine.Random.Range(min, max);
         // Debug.Log("How many enemies? " + spawnAmount);
-        for (int i = 0; i <= spawnAmount; i++) SpawnEnemy();
+        for (int i = 0; i < spawnAmount; i++) SpawnEnemy();
     }
 
     public void TestSpawnMelee()
