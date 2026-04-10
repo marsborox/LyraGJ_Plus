@@ -290,7 +290,7 @@ public class EnemyCombat : UnitCombat
     IEnumerator WaitingRoutine()
     {
         _notTriggeredPhase = NotTriggeredPhase.WAITING;
-        float randomTime = (float)Random.Range(0.4f,3f);//numero magico
+        float randomTime = (float)Random.Range(0.4f,3f);//magic number
         yield return new WaitForSeconds(randomTime);
         _notTriggeredPhase = NotTriggeredPhase.DECIDING;
     }
