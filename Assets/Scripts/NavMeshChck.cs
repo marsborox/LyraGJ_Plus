@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NavMesh : MonoBehaviour
+public class NavMeshChck : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

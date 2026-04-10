@@ -890,6 +890,7 @@ MonoBehaviour:
   _conversation: {fileID: 6595618953611798850}
   _shield: {fileID: 4258614492040384127}
   _currentAttackPhase: 0
+  _notTriggeredPhase: 2
   isTriggered: 0
   range: 0
   damage: 1

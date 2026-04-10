@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class EnemyMovement : UnitMovement
 {
     
-    public Enemy thisEnemy;
+    //public Enemy thisEnemy;
 
     [SerializeField] private EnemyCombat enemyCombat;
     [SerializeField] private NavMeshAgent _agent;
@@ -37,6 +37,11 @@ public class EnemyMovement : UnitMovement
         //animationController.HandleAnimation();
         //animationController.HandleAnimation();
         //Debug.Log("post animation");
+    }
+    public void MoveToTarget(Vector2 destination)
+    {
+        _agent.SetDestination(destination);
+        animationController.HandleMovementAnimation();
     }
     public void StopMovement()
     {
