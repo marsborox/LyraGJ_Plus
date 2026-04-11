@@ -30,6 +30,6 @@ public class CameraFollowing : MonoBehaviour
         if (targetToFollow == null) return;
 
         Vector3 desiredPosition = targetToFollow.position + new Vector3(offset.x, offset.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, speed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, speed * Time.unscaledDeltaTime);
     }
 }

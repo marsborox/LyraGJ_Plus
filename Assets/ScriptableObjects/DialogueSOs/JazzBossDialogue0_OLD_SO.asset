@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
+  m_Name: JazzBossDialogue0_OLD_SO
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
+  showAgain: 1
+  parts:
+  - dialogueText: Hello, who is there?
+    character: 2
+    emotion: 6
+  - dialogueText: Charlie, is that you?
+    character: 1
+    emotion: 1
+  - dialogueText: My good friend, fancy meeting you here!
+    character: 1
+    emotion: 3
+  - dialogueText: Ah, I can recognize that charming voice everywhere! Julius, how
+      are you doing, my friend?
+    character: 2
+    emotion: 3
+  - dialogueText: Still kickin'.
+    character: 1
+    emotion: 3
+  - dialogueText: But enough about me. Let me introduce you to my lovely companion.
+    character: 1
+    emotion: 0
+  - dialogueText: Lyra, this is my good friend - Charles Ray.
+    character: 1
+    emotion: 3
+  - dialogueText: Ummm, hello. I am Lyra. Nice to meet you.
+    character: 0
+    emotion: 4
+  - dialogueText: And I am pleased to meet you! Now, what can I do for you?
+    character: 2
+    emotion: 1
+  - dialogueText: Well my good friend, I'm showing Lyra the beauty of music. Maybe
+      you can show her what you know?
+    character: 1
+    emotion: 0
+  - dialogueText: Oh, hahaha. That I can do!
+    character: 1
+    emotion: 3
+  - dialogueText: So, Lyra, can you try follow my lead?
+    character: 1
+    emotion: 0
+  - dialogueText: Wait, what? I'm not sure I am good enough.
+    character: 0
+    emotion: 6
+  - dialogueText: Don't worry. It's nothing complitated, I'm sure you will do great.
+    character: 2
+    emotion: 2
+  fileName: JazzBossDialogue0_SO

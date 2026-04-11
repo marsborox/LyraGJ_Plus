@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class JazzBossCombat : MonoBehaviour
 {
-    public enum State { WAITING, SPAWN_ENEMIES, SPAWN_NOTE, BAD_JAZZ, FINAL_SONG}
+    public enum State { INTRO, WAITING, SPAWN_ENEMIES, SPAWN_NOTE, BAD_JAZZ, OUTRO}
 
     [Header("Boss")]
     [SerializeField] private Animator animator;
@@ -25,6 +25,14 @@ public class JazzBossCombat : MonoBehaviour
 
     [Header("Note")]
     [SerializeField] private GameObject notePrefab;
+
+    [Header("Cutscene Dialogues")]
+    [SerializeField] private CutscenesPlayer cutscenesPlayer;
+    [SerializeField] private Dialogue_SO intro;
+    [SerializeField] private Dialogue_SO afterHittingBoss;
+    [SerializeField] private Dialogue_SO afterMissingNote1;
+    [SerializeField] private Dialogue_SO afterMissingNote2;
+    [SerializeField] private Dialogue_SO outro;
 
     public State currentState
     {
@@ -50,7 +58,8 @@ public class JazzBossCombat : MonoBehaviour
         RefreshJazzMeter();
         _dropJazzRoutine = StartCoroutine(DropJazzMeter());
 
-        currentState = State.SPAWN_ENEMIES;
+        currentState = State.INTRO;
+        OnChangeState();
     }
 
     void OnDestroy()
@@ -60,17 +69,27 @@ public class JazzBossCombat : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("collision with " + collision.gameObject.tag);
         if (collision.gameObject.tag == "JazzNote")
         {
             OnCollideWithJazzNote();
+        }
+        else if (collision.gameObject.tag == "PlayerWeapon" || collision.gameObject.tag == "PlayerProjectile")
+        {
+            // TODO: move boss to podium, disable collisions with him from here
+            cutscenesPlayer.SpawnDialogue(afterHittingBoss, () => currentState = State.SPAWN_ENEMIES);
         }
     }
 
     private void OnChangeState()
     {
+        Debug.Log("Changing state");
         animator.Play("BossJazzIdle");
 
         switch (currentState) {
+            case State.INTRO:
+                cutscenesPlayer.SpawnDialogue(intro, () => currentState = State.WAITING);
+                break;
             case State.WAITING:
                 break;
             case State.SPAWN_ENEMIES: 
@@ -91,7 +110,7 @@ public class JazzBossCombat : MonoBehaviour
                     StartCoroutine(PlayBaddJazz(3));
                     break;            
                 }
-            case State.FINAL_SONG:
+            case State.OUTRO:
             {
                 animator.Play("BossJazzPlaying");
 
@@ -132,7 +151,7 @@ public class JazzBossCombat : MonoBehaviour
             currentState = State.BAD_JAZZ;
         } else
         {
-            currentState = State.FINAL_SONG;
+            currentState = State.OUTRO;
         }
 
         Destroy(_note.gameObject);
