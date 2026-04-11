@@ -207,4 +207,5 @@ MonoBehaviour:
   flySpeed: 20
   flyDuration: 0.3
   target: {fileID: 0}
+  noteRenderer: {fileID: 6281841195159972783}
   spotlight: {fileID: 0}

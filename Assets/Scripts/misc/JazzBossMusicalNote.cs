@@ -15,14 +15,20 @@ public class JazzNote : MonoBehaviour
     public Transform target;
 
     [Header("Spotlight")]
+    [SerializeField] private SpriteRenderer noteRenderer;
     public SpotlightChangingColors spotlight; // to calculate jazz boost
 
     private Coroutine _danceRoutine;
 
     void Start() {
         _danceRoutine = StartCoroutine(DanceRoutine(bpm, intensity));
-    }
 
+        spotlight.colorHasChanged += ChangeColor;
+    }
+    void OnDestroy()
+    {
+        spotlight.colorHasChanged -= ChangeColor;
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (_danceRoutine == null) return; // was already sent to boss
@@ -56,6 +62,10 @@ public class JazzNote : MonoBehaviour
         StartCoroutine(FlyToTarget(target, flySpeed));
     }
 
+    private void ChangeColor()
+    {
+        noteRenderer.color = spotlight.currentColor;
+    }
     private IEnumerator DanceRoutine(float bpm, float intensity)
     {
         float beatDuration = 60f / bpm;
