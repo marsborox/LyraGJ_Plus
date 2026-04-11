@@ -12,6 +12,7 @@ public class JazzBossCombat : MonoBehaviour
     [SerializeField] private float maxJazz = 10f;
     [SerializeField] private float dropJazzInterval = 5f;
     [SerializeField] private float dropJazzValue = 0.3f;
+    [SerializeField] private Vector2 podiumPosition;
     [SerializeField] private SpotlightChangingColors spotlight;
 
     [Header("Jazz")]
@@ -50,6 +51,7 @@ public class JazzBossCombat : MonoBehaviour
     private JazzNote _note;
     private Vector2 _noteSpawnPosition;
     private Coroutine _dropJazzRoutine;
+    private int _missedNote;
 
     void Start()
     {
@@ -59,7 +61,7 @@ public class JazzBossCombat : MonoBehaviour
         _dropJazzRoutine = StartCoroutine(DropJazzMeter());
 
         currentState = State.INTRO;
-        OnChangeState();
+        OnChangeState(); // force update
     }
 
     void OnDestroy()
@@ -76,8 +78,7 @@ public class JazzBossCombat : MonoBehaviour
         }
         else if (collision.gameObject.tag == "PlayerWeapon" || collision.gameObject.tag == "PlayerProjectile")
         {
-            // TODO: move boss to podium, disable collisions with him from here
-            cutscenesPlayer.SpawnDialogue(afterHittingBoss, () => currentState = State.SPAWN_ENEMIES);
+            StartCoroutine(FlyBossToPosition(podiumPosition, 0.09f));
         }
     }
 
@@ -87,9 +88,12 @@ public class JazzBossCombat : MonoBehaviour
         animator.Play("BossJazzIdle");
 
         switch (currentState) {
-            case State.INTRO:
+            case State.INTRO: 
+            {
+                _missedNote = 0;
                 cutscenesPlayer.SpawnDialogue(intro, () => currentState = State.WAITING);
                 break;
+            }
             case State.WAITING:
                 break;
             case State.SPAWN_ENEMIES: 
@@ -107,23 +111,21 @@ public class JazzBossCombat : MonoBehaviour
             case State.BAD_JAZZ:
                 {
                     animator.Play("BossJazzDancing");
-                    StartCoroutine(PlayBaddJazz(3));
+                    StartCoroutine(PlayBadJazz(3));
                     break;            
                 }
             case State.OUTRO:
             {
-                animator.Play("BossJazzPlaying");
-
                 StopCoroutine(_dropJazzRoutine);
-                jazzMeter.SetActive(false);
 
-                spotlight.isChangingColors = false;
-                
-                MySoundManager.instance.PlayFinalJazzBossSong();
+                animator.Play("BossJazzPlaying");
+                StartCoroutine(PlayGoodJazz(2.5f));
                 break;
             }
         }
     }
+
+    // Events
 
     private void OnEnemyDied(Enemy enemy,Room room)
     {
@@ -140,7 +142,6 @@ public class JazzBossCombat : MonoBehaviour
             currentState = State.SPAWN_NOTE;
         }
     }
-
     private void OnCollideWithJazzNote()
     {
         jazz += _note.jazzBoost;
@@ -154,15 +155,28 @@ public class JazzBossCombat : MonoBehaviour
             currentState = State.OUTRO;
         }
 
+        if (_note.jazzBoost == 0)
+        {
+            _missedNote++;
+            if (_missedNote == 1)
+            {
+                cutscenesPlayer.SpawnDialogue(afterMissingNote1, null);
+            }
+            else if (_missedNote == 2)
+            {
+                cutscenesPlayer.SpawnDialogue(afterMissingNote2, null);                
+            }
+        }
+
         Destroy(_note.gameObject);
     }
 
+    // UI
     private void RefreshJazzMeter()
     {
         float jazzLevel = jazz / maxJazz;
         jazzValue.fillAmount = jazzLevel;
     }
-
     private IEnumerator DropJazzMeter()
     {
         while (true)
@@ -177,7 +191,25 @@ public class JazzBossCombat : MonoBehaviour
         }
     }
 
-    private IEnumerator PlayBaddJazz(int howManyTimes)
+    // Helpers
+
+    private IEnumerator FlyBossToPosition(Vector2 position, float duration)
+    {
+        float elapsed = 0;
+        Vector3 startPos = transform.position;
+
+        while (elapsed < duration)
+        {
+            Debug.Log("Elapsed: " + elapsed);
+            transform.position = Vector2.Lerp(startPos, position, elapsed / duration);
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        transform.position = position;
+        cutscenesPlayer.SpawnDialogue(afterHittingBoss, () => currentState = State.SPAWN_ENEMIES);
+    }
+    private IEnumerator PlayBadJazz(int howManyTimes)
     {
         int counter = 0;
         float interval = 0.7f;
@@ -189,5 +221,16 @@ public class JazzBossCombat : MonoBehaviour
         }
 
         currentState = State.SPAWN_ENEMIES;
+    }
+    private IEnumerator PlayGoodJazz(float seconds)
+    {
+        jazzMeter.SetActive(false);
+        spotlight.isChangingColors = false;
+
+        MySoundManager.instance.PlayFinalJazzBossSong();
+
+        yield return new WaitForSeconds(seconds);
+
+        cutscenesPlayer.SpawnDialogue(outro, () => MySceneManager.instance.OpenLobby());
     }
 }

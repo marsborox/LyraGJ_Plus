@@ -94,6 +94,6 @@ public class SpotlightFollowing : MonoBehaviour
     {
         if (targetToFollow == null) return;
 
-        transform.position = Vector3.Lerp(transform.position, targetToFollow.position, 30f * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetToFollow.position, 30f * Time.unscaledDeltaTime);
     }
 }

@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
   m_Name: JazzBossDialogueAfterHittingCharles_SO
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
-  showAgain: 1
+  showAgain: 0
   parts:
-  - dialogueText: ...
-    character: 1
-    emotion: 5
-  - dialogueText: It doesn't work!
+  - dialogueText: It didn't work!
     character: 0
     emotion: 6
-  - dialogueText: This is going to be more difficult.
+  - dialogueText: I was afraid of that.
     character: 1
+    emotion: 4
+  - dialogueText: This is going to be difficult, right?
+    character: 0
     emotion: 4
   fileName: JazzBossDialogueAfterHittingCharles_SO

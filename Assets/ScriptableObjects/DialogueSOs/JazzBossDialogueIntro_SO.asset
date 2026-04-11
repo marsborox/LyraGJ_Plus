@@ -42,9 +42,6 @@ MonoBehaviour:
       and his voice is angelic.
     character: 1
     emotion: 3
-  - dialogueText: ...
-    character: 2
-    emotion: 0
   - dialogueText: Or used to be.
     character: 1
     emotion: 5

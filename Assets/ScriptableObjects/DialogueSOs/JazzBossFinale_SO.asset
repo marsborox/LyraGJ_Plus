@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
   showAgain: 1
   parts:
-  - dialogueText: That was... amazing.
+  - dialogueText: What a sound!
     character: 0
     emotion: 3
   - dialogueText: Hahaha, I see you haven't lost your touch Charlie. That were some
@@ -25,22 +25,28 @@ MonoBehaviour:
       hear.
     character: 2
     emotion: 3
-  - dialogueText: So, Lyra what do you think?
+  - dialogueText: So, Lyra, is it? You have a way with music!
     character: 2
     emotion: 1
-  - dialogueText: That was something else! It was like you were one with your piano.
+  - dialogueText: You're too kind, I was just trying to help.
     character: 0
     emotion: 3
-  - dialogueText: I'm not sure I can ever play that good.
-    character: 0
-    emotion: 4
-  - dialogueText: That's what I said to myself after I lost my vision.
+  - dialogueText: No, girl, you did much more than that.
+    character: 2
+    emotion: 2
+  - dialogueText: You played jazz!
+    character: 2
+    emotion: 3
+  - dialogueText: Oh, I got lucky. I don't think I'll ever play real jazz.
+    character: 1
+    emotion: 3
+  - dialogueText: That's what I thought after I lost my vision.
     character: 2
     emotion: 0
   - dialogueText: Lost... your vision?
     character: 0
     emotion: 6
-  - dialogueText: Yes, I'm blind from my childhood. But that didn't stopped me from
+  - dialogueText: Yes, I'm blind since my childhood. But that didn't stop me from
       achieving my dreams.
     character: 2
     emotion: 0
@@ -48,20 +54,17 @@ MonoBehaviour:
     character: 2
     emotion: 3
   - dialogueText: So, don't worry Lyra. I'm sure whatever is troubling you, you will
-      find a way and achieve your dreams.
+      find a way to achieve your dreams.
     character: 2
     emotion: 2
-  - dialogueText: Wow, thank you!
-    character: 0
-    emotion: 2
-  - dialogueText: You taught me so much.
+  - dialogueText: Wow, thank you! It means a lot coming from a legend like you.
     character: 0
     emotion: 3
-  - dialogueText: Thank you for your time, Charlie. We must continue now. Have a
-      great one!
+  - dialogueText: Couldn't agree more, Lyra! Thank you, Charlie. We must continue
+      now. Have a great one!
     character: 1
-    emotion: 0
-  - dialogueText: Glad to be a service. Take care you two.
-    character: 1
+    emotion: 3
+  - dialogueText: Glad to be of a service. Take care you two.
+    character: 2
     emotion: 3
   fileName: JazzBossFinale_SO

@@ -74,7 +74,6 @@ public class CutscenesPlayer : MonoBehaviour
     }
     public void EndDialogue()
     {
-        Debug.Log("Ending dialogue");
         HideOtherUI(false);
         dialogueUI.gameObject.SetActive(false);
         Time.timeScale = 1f; // unpause
@@ -96,17 +95,16 @@ public class CutscenesPlayer : MonoBehaviour
     }
     public void SpawnDialogue(Dialogue_SO dialogue, Action onComplete)
     {
-        Debug.Log("Spawning dialogue");
         _onComplete = onComplete;
 
         if (!dialogue.showAgain && WasSeenDialogue(dialogue))
         {
             _onComplete?.Invoke();
             _onComplete = null;
+            return;
         }
 
         MarkSeenDialogue(dialogue);
-        Debug.Log("Marked as seen");
 
         _currentDialogue = dialogue;
         _currentPartIndex = 0;
