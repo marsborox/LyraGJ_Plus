@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DressingRoomScene.unity
     guid: e6bded0fb89d84a749dc4079cac7f1b0
+  - enabled: 1
+    path: Assets/Scenes/BossScene.unity
+    guid: 4509da5ae269c43f581b33e630ad7f8f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
