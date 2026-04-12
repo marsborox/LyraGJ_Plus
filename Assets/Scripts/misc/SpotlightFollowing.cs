@@ -57,7 +57,7 @@ public class SpotlightFollowing : MonoBehaviour
         if (light != null)
         {
             // calculate correct width for cone and spot
-            float targetWidth = light.pointLightOuterRadius * 2f; // diameter
+            float targetWidth = light.pointLightOuterRadius * 2.2f; // diameter
             scale.x = targetWidth / originalWidth;
 
             lightSpot.transform.localScale = new Vector2(targetWidth / spotRenderer.sprite.bounds.size.x, targetWidth / spotRenderer.sprite.bounds.size.y);
@@ -94,6 +94,7 @@ public class SpotlightFollowing : MonoBehaviour
     {
         if (targetToFollow == null) return;
 
-        transform.position = Vector3.Lerp(transform.position, targetToFollow.position, 30f * Time.unscaledDeltaTime);
+        Vector3 spriteOffset = new Vector3(0, 0.6f, 0);
+        transform.position = Vector3.Lerp(transform.position, targetToFollow.position - spriteOffset, 30f * Time.unscaledDeltaTime);
     }
 }
