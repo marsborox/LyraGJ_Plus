@@ -207,5 +207,8 @@ MonoBehaviour:
   flySpeed: 20
   flyDuration: 0.3
   target: {fileID: 0}
+  damageNumberPrefab: {fileID: 7515068516089152647, guid: a703b9b9bd07944a186ee12a59be58cc, type: 3}
+  damageNumberColorNoCrit: {r: 0.9882353, g: 0.4392157, b: 0.007843138, a: 1}
+  damageNumberColorCrit: {r: 0, g: 1, b: 0, a: 1}
   noteRenderer: {fileID: 6281841195159972783}
   spotlight: {fileID: 0}

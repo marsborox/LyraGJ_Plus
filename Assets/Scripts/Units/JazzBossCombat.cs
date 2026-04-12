@@ -71,7 +71,6 @@ public class JazzBossCombat : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision with " + collision.gameObject.tag);
         if (collision.gameObject.tag == "JazzNote")
         {
             OnCollideWithJazzNote();
@@ -84,7 +83,6 @@ public class JazzBossCombat : MonoBehaviour
 
     private void OnChangeState()
     {
-        Debug.Log("Changing state");
         animator.Play("BossJazzIdle");
 
         switch (currentState) {
@@ -200,7 +198,6 @@ public class JazzBossCombat : MonoBehaviour
 
         while (elapsed < duration)
         {
-            Debug.Log("Elapsed: " + elapsed);
             transform.position = Vector2.Lerp(startPos, position, elapsed / duration);
             elapsed += Time.unscaledDeltaTime;
             yield return null;

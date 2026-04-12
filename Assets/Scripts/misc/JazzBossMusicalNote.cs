@@ -14,6 +14,11 @@ public class JazzNote : MonoBehaviour
     [SerializeField] private float flyDuration = 1.3f;
     public Transform target;
 
+    [Header("Damage Number")]
+    [SerializeField] private DamageNumber damageNumberPrefab;
+    [SerializeField] private Color damageNumberColorNoCrit = new Color32(252,112,2,255);
+    [SerializeField] private Color damageNumberColorCrit = Color.green;
+
     [Header("Spotlight")]
     [SerializeField] private SpriteRenderer noteRenderer;
     public SpotlightChangingColors spotlight; // to calculate jazz boost
@@ -24,6 +29,7 @@ public class JazzNote : MonoBehaviour
         _danceRoutine = StartCoroutine(DanceRoutine(bpm, intensity));
 
         spotlight.colorHasChanged += ChangeColor;
+        ChangeColor();
     }
     void OnDestroy()
     {
@@ -33,7 +39,7 @@ public class JazzNote : MonoBehaviour
     {
         if (_danceRoutine == null) return; // was already sent to boss
 
-        bool isCrit; // not needed?
+        bool isCrit = false;
         Type weaponNeeded = spotlight.CurrentColorType();
 
         WeaponCollider weaponCollider = collision.gameObject.GetComponent<WeaponCollider>();
@@ -50,6 +56,7 @@ public class JazzNote : MonoBehaviour
         }
         else if (projectile != null)
         {
+            isCrit = projectile.isCrit;
             jazzBoost = weaponNeeded == projectile.projectileType ? projectile.damage : 0;
         }
         else
@@ -57,14 +64,22 @@ public class JazzNote : MonoBehaviour
             return; // something else interracted with note
         }
 
-        Debug.Log("Real damage: " + jazzBoost);
         StopCoroutine(_danceRoutine);
+        _danceRoutine = null;
+
+        ShowDamage(jazzBoost, isCrit);
         StartCoroutine(FlyToTarget(target, flySpeed));
     }
 
     private void ChangeColor()
     {
         noteRenderer.color = spotlight.currentColor;
+    }
+    private void ShowDamage(float amount, bool isCrit)
+    {
+        Vector3 offset = new Vector3(0, 1f, 0); // to start just above note
+        DamageNumber damageNumber = Instantiate(damageNumberPrefab, transform.position + offset, Quaternion.identity);
+        damageNumber.Show(amount, isCrit ? damageNumberColorCrit : damageNumberColorNoCrit);
     }
     private IEnumerator DanceRoutine(float bpm, float intensity)
     {
