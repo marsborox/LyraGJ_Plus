@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.Tilemaps;
 public class CameraFollowing : MonoBehaviour
 {
     [Header("Follow Settings")]
@@ -11,12 +11,25 @@ public class CameraFollowing : MonoBehaviour
     [Header("Bounds")]
     public Vector2 minBounds;
     public Vector2 maxBounds;
+    public RoomManager roomManager; // to automatically calculate camera's bounds
 
     void Start()
     {
         Camera.main.orthographicSize *= zoom;
+        if (roomManager != null)
+        {
+            roomManager.roomWasSpawned += FindRoomBounds;
+            FindRoomBounds(); // it might have subscribed too late
+        }
 
         MoveCamera();
+    }
+    void OnDestroy()
+    {
+        if (roomManager != null)
+        {
+            roomManager.roomWasSpawned -= FindRoomBounds;
+        }        
     }
     void LateUpdate()
     {
@@ -64,5 +77,34 @@ public class CameraFollowing : MonoBehaviour
         float clampedY = Mathf.Clamp(smoothed.y, minBounds.y + camHalfHeight, maxBounds.y - camHalfHeight);
 
         transform.position = new Vector3(clampedX, clampedY, transform.position.z);
+    }
+    private void FindRoomBounds()
+    {
+        Tilemap[] tilemaps = FindObjectsByType<Tilemap>(FindObjectsSortMode.None);
+        
+        if (tilemaps.Length == 0) return;
+
+        Bounds combined = new Bounds();
+        bool initialized = false;
+
+        foreach (Tilemap tm in tilemaps)
+        {
+            tm.CompressBounds();
+            Bounds worldBounds = tm.localBounds;
+            worldBounds.center = tm.transform.TransformPoint(worldBounds.center);
+
+            if (!initialized)
+            {
+                combined = worldBounds;
+                initialized = true;
+            }
+            else
+            {
+                combined.Encapsulate(worldBounds);
+            }
+        }
+
+        minBounds = combined.min;
+        maxBounds = combined.max;
     }
 }

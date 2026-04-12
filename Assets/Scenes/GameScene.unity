@@ -35797,6 +35797,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5091316365207362509, guid: 553674528514548459c5007ade46c226, type: 3}
+      propertyPath: roomManager
+      value: 
+      objectReference: {fileID: 6915627130281284307}
+    - target: {fileID: 5091316365207362509, guid: 553674528514548459c5007ade46c226, type: 3}
       propertyPath: targetToFollow
       value: 
       objectReference: {fileID: 1148714917}
@@ -37405,6 +37409,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1534851401952515477, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
   m_PrefabInstance: {fileID: 6915627130281284305}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6915627130281284307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2116813870915767902, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
+  m_PrefabInstance: {fileID: 6915627130281284305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52db34055d3c7f94395b52bb53746fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

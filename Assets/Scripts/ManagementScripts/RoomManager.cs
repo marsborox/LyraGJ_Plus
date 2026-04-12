@@ -22,7 +22,7 @@ public class RoomManager : Singleton<RoomManager>
     public int roomGridSize=200;
     public int spawnedRoomCount;
     public int maxSpawnedRoomCount;
-
+    public Action roomWasSpawned;
     
     [SerializeField] private RoomSpawner _roomSpawner;
     [SerializeField] private RoomObjectSpawner _roomObjectSpawner;
@@ -55,6 +55,8 @@ public class RoomManager : Singleton<RoomManager>
         startTile.xPosInArray = centreCoord;
         startTile.yPosInArray = centreCoord;
         _spawnedRoomCounter++;
+
+        roomWasSpawned?.Invoke();
     }
 
     public void SpawnRoom(Room inputRoom, Direction direction)
@@ -74,6 +76,8 @@ public class RoomManager : Singleton<RoomManager>
             GameManager.instance.levelSettings.SubscribeToEventsRoom(spawnedRoom);
             surface.BuildNavMesh();
         }
+
+        roomWasSpawned?.Invoke();
     }
     
     public void TestArrayContent()
