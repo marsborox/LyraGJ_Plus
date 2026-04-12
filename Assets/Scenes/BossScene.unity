@@ -2558,11 +2558,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 43445428056e14f7e827865435aef280, type: 2}
     - target: {fileID: 6328919073512237215, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
       propertyPath: maxSpawnOfEnemies
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6328919073512237215, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
       propertyPath: minSpawnOfEnemies
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6328919073512237215, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
       propertyPath: noteSpawnPosition.x
