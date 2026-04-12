@@ -5167,6 +5167,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5091316365207362509, guid: 553674528514548459c5007ade46c226, type: 3}
+      propertyPath: maxBounds.x
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091316365207362509, guid: 553674528514548459c5007ade46c226, type: 3}
+      propertyPath: maxBounds.y
+      value: 4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091316365207362509, guid: 553674528514548459c5007ade46c226, type: 3}
+      propertyPath: minBounds.x
+      value: -18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091316365207362509, guid: 553674528514548459c5007ade46c226, type: 3}
+      propertyPath: minBounds.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091316365207362509, guid: 553674528514548459c5007ade46c226, type: 3}
       propertyPath: targetToFollow
       value: 
       objectReference: {fileID: 340436388}
