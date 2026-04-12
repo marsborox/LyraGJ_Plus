@@ -76,6 +76,9 @@ TagManager:
   - name: Player
     uniqueID: 3947125755
     locked: 0
+  - name: InFrontOfPlayer
+    uniqueID: 2035561955
+    locked: 0
   - name: Cast shadow
     uniqueID: 3505486227
     locked: 0

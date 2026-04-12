@@ -139,7 +139,7 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     private void OpenTutorialScene()
     {
         PreviousScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("TutorialScene");
+        SceneManager.LoadScene("NewTutorialScene");
         Time.timeScale = 1f;
         MySoundManager.instance.PlayJazzMusic();
     }

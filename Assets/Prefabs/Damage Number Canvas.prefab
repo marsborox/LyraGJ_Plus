@@ -254,3 +254,5 @@ MonoBehaviour:
   floatSpeed: 1.5
   fadeDuration: 0.8
   floatHeight: 1.2
+  damageCanvas: {fileID: 6728550636998816396}
+  damageText: {fileID: 1490887777917817320}

@@ -9,22 +9,27 @@ public class DamageNumber : MonoBehaviour
     public float fadeDuration = 0.8f;
     public float floatHeight = 1.2f;
 
-    private TextMeshProUGUI _text;
+    [Header("Structure")]
+    [SerializeField] private Canvas damageCanvas;
+    [SerializeField] private TextMeshProUGUI damageText;
+
     private Color _startColor;
-    
 
     void Awake()
     {
-        _text = GetComponentInChildren<TextMeshProUGUI>();
-        _startColor = _text.color;
+        _startColor = damageText.color;
+
+        damageCanvas.overrideSorting = true;
+        damageCanvas.sortingLayerID = SortingLayer.NameToID("InFrontOfPlayer");
+        damageCanvas.sortingOrder = 10;
     }
 
     public void Show(float damage, Color color = default)
     {
-        if (color != default) _text.color = color;
+        if (color != default) damageText.color = color;
 
-        _startColor = _text.color;
-        _text.text = Mathf.RoundToInt(damage).ToString();
+        _startColor = damageText.color;
+        damageText.text = Mathf.RoundToInt(damage).ToString();
         StartCoroutine(Animate());
     }
 
@@ -44,7 +49,7 @@ public class DamageNumber : MonoBehaviour
 
             // Fade out in the second half
             float alpha = t < 0.5f ? 1f : 1f - ((t - 0.5f) / 0.5f);
-            _text.color = new Color(_startColor.r, _startColor.g, _startColor.b, alpha);
+            damageText.color = new Color(_startColor.r, _startColor.g, _startColor.b, alpha);
 
             yield return null;
         }
