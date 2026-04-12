@@ -25,6 +25,7 @@ public class DialogueUI : UI
     private float _delayTyping = 0.02f;
     private string _messageToType = "";
     private Coroutine _typingRoutine;
+    private Sprite _previousSprite;
 
     void Awake()
     {
@@ -46,10 +47,10 @@ public class DialogueUI : UI
         _messageToType = text;
         textOfDialogue.text = "";
 
-        bool isChangedSpeaker = (isOnLeftSide && leftCharacterImage.sprite == null) || (!isOnLeftSide && leftCharacterImage.sprite != null);
-
         leftCharacterImage.gameObject.SetActive(isOnLeftSide);
         rightCharacterImage.gameObject.SetActive(!isOnLeftSide);
+
+        bool isChangedSpeaker = image != _previousSprite;
 
         if (isOnLeftSide)
         {
@@ -59,9 +60,11 @@ public class DialogueUI : UI
             if (isChangedSpeaker && _leftAnimator != null)
             {
                 _leftAnimator.ResetTrigger("PlayHeadBob");
+                _leftAnimator.Play("Idle", 0, 0f);
                 _leftAnimator.SetTrigger("PlayHeadBob");
             }
-        } else
+        } 
+        else
         {
             leftCharacterImage.sprite = null;
             rightCharacterImage.sprite = image;
@@ -69,6 +72,7 @@ public class DialogueUI : UI
             if (isChangedSpeaker && _rightAnimator != null)
             {
                 _rightAnimator.ResetTrigger("PlayHeadBob");
+                _rightAnimator.Play("Idle", 0, 0f);
                 _rightAnimator.SetTrigger("PlayHeadBob");
             }
         }
@@ -76,6 +80,8 @@ public class DialogueUI : UI
         if (continueImage != null) continueImage.gameObject.SetActive(hasMoreDialogues);
 
         textOfDialogue.text = text; // comment out to enable typing
+        _previousSprite = image;
+
         // if (_typingRoutine != null) StopCoroutine(_typingRoutine);
         // _typingRoutine = StartCoroutine(TypeMessage());
     }

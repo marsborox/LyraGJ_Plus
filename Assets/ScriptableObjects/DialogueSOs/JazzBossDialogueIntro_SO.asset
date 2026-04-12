@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
+  m_Name: JazzBossDialogueIntro_SO
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
+  showAgain: 1
+  parts:
+  - dialogueText: Umm, hello?
+    character: 0
+    emotion: 6
+  - dialogueText: ...
+    character: 2
+    emotion: 0
+  - dialogueText: Charlie, is that you?
+    character: 1
+    emotion: 1
+  - dialogueText: My good friend, fancy meeting you here!
+    character: 1
+    emotion: 3
+  - dialogueText: ...
+    character: 2
+    emotion: 0
+  - dialogueText: Something is wrong.
+    character: 1
+    emotion: 6
+  - dialogueText: What..?
+    character: 0
+    emotion: 6
+  - dialogueText: This is my good friend, Charles Ray.
+    character: 1
+    emotion: 0
+  - dialogueText: We played together from time to time. His piano skills are magical
+      and his voice is angelic.
+    character: 1
+    emotion: 3
+  - dialogueText: Or used to be.
+    character: 1
+    emotion: 5
+  - dialogueText: What happened to him? His music is...
+    character: 0
+    emotion: 5
+  - dialogueText: Yes, Lyra. He lost his connection to music. He needs your help.
+    character: 1
+    emotion: 5
+  - dialogueText: I'm not sure what to do. I'm not ready to heal others.
+    character: 0
+    emotion: 6
+  - dialogueText: You must try. Charlie deserves to be heard again.
+    character: 1
+    emotion: 2
+  fileName: JazzBossDialogue0_SO

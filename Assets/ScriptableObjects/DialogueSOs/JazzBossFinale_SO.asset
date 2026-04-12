@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
+  m_Name: JazzBossFinale_SO
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
+  showAgain: 1
+  parts:
+  - dialogueText: What a sound!
+    character: 0
+    emotion: 3
+  - dialogueText: Hahaha, I see you haven't lost your touch Charlie. That were some
+      killer tunes!
+    character: 1
+    emotion: 3
+  - dialogueText: Thank you, thank you. A compliment from you is alway pleasure to
+      hear.
+    character: 2
+    emotion: 3
+  - dialogueText: So, Lyra, is it? You have a way with music!
+    character: 2
+    emotion: 1
+  - dialogueText: You're too kind, I was just trying to help.
+    character: 0
+    emotion: 3
+  - dialogueText: No, girl, you did much more than that.
+    character: 2
+    emotion: 2
+  - dialogueText: You played jazz!
+    character: 2
+    emotion: 3
+  - dialogueText: Oh, I got lucky. I don't think I'll ever play real jazz.
+    character: 1
+    emotion: 3
+  - dialogueText: That's what I thought after I lost my vision.
+    character: 2
+    emotion: 0
+  - dialogueText: Lost... your vision?
+    character: 0
+    emotion: 6
+  - dialogueText: Yes, I'm blind since my childhood. But that didn't stop me from
+      achieving my dreams.
+    character: 2
+    emotion: 0
+  - dialogueText: And now look where I am!
+    character: 2
+    emotion: 3
+  - dialogueText: So, don't worry Lyra. I'm sure whatever is troubling you, you will
+      find a way to achieve your dreams.
+    character: 2
+    emotion: 2
+  - dialogueText: Wow, thank you! It means a lot coming from a legend like you.
+    character: 0
+    emotion: 3
+  - dialogueText: Couldn't agree more, Lyra! Thank you, Charlie. We must continue
+      now. Have a great one!
+    character: 1
+    emotion: 3
+  - dialogueText: Glad to be of a service. Take care you two.
+    character: 2
+    emotion: 3
+  fileName: JazzBossFinale_SO

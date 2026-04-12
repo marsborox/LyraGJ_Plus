@@ -9,6 +9,6 @@ public class RoomObjectSpawner : MonoBehaviour
         ScenePortal portal = Instantiate(portalPrefab);
         portal.transform.SetParent(room.transform);
         portal.transform.position = room.transform.position;
-        portal.gameScene = GameScene.LOBBY;
+        portal.gameScene = GameScene.JAZZ_BOSS;
     }
 }
