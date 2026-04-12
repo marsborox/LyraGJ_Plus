@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public enum GameScene {LOBBY, DARKLOBBY, JAZZ, TUTORIAL, TESTCOMBAT, DEV, MAIN_MENU, DRESSING_ROOM}
+public enum GameScene {LOBBY, DARKLOBBY, JAZZ, JAZZ_BOSS, TUTORIAL, TESTCOMBAT, DEV, MAIN_MENU, DRESSING_ROOM}
 
 public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
 {
@@ -128,6 +128,14 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         Time.timeScale = 1f;
         MySoundManager.instance.PlayJazzMusic();
     }
+    private void OpenJazzBossScene()
+    {
+        PreviousScene = SceneManager.GetActiveScene().name;
+
+        SceneManager.LoadScene("BossScene");
+        Time.timeScale = 1f;
+        MySoundManager.instance.PlayJazzMusic();
+    }
     private void OpenTutorialScene()
     {
         PreviousScene = SceneManager.GetActiveScene().name;
@@ -174,6 +182,9 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
                 break;
             case GameScene.JAZZ:
                 OpenGameScene();
+                break;
+            case GameScene.JAZZ_BOSS:
+                OpenJazzBossScene();
                 break;
             case GameScene.TUTORIAL:
                 OpenTutorialScene();
