@@ -8,7 +8,7 @@ public class ScenePortal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameManager.instance.PostLevelClear();
+            if (GameManager.instance != null) GameManager.instance.PostLevelClear();
             MySceneManager.instance.OpenScene(gameScene);
         }
     }

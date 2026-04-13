@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
+  m_Name: NewTutorialDialogueSax_SO
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
+  showAgain: 1
+  parts:
+  - dialogueText: Starting to sound like a pro!
+    character: 1
+    emotion: 3
+  - dialogueText: Now, last but not least, let's finish with the good ol' saxophone
+      - experience the magic of sax!
+    character: 1
+    emotion: 2
+  - dialogueText: Destroy the blue cardboard monster with it.
+    character: 1
+    emotion: 0
+  - dialogueText: Understood.
+    character: 0
+    emotion: 2
+  fileName: TutorialDialogue2_SO
