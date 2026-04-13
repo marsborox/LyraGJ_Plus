@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 using NavMeshPlus.Components;
@@ -31,6 +31,7 @@ public class RoomManager : Singleton<RoomManager>
     public NavMeshSurface surface;
     private void Awake()
     {
+        
         base.Awake();
     }
     private void Start()
@@ -91,6 +92,7 @@ public class RoomManager : Singleton<RoomManager>
         GameManager.instance.levelSettings.SubscribeToEventsRoom(spawnedRoom);
         surface.BuildNavMesh();
         _roomObjectSpawner.SpawnPortal(spawnedRoom);
+
     }
 
 }

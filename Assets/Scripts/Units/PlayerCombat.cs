@@ -27,6 +27,7 @@ public class PlayerCombat : UnitCombat
 
         SpawnMusicalNotes(new Color(1, 0, 0));
         animationController.HandleMeeleeAttackAnimation();
+        
         weapon1New.ClickAttack();
         
     }

@@ -4,16 +4,20 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 
 public class EnemyCombat : UnitCombat
 {
     public enum AttackPhase { READY, ANIMATION, POSTANIMATION,POSTHIT}
+    public enum NotTriggeredPhase {MOVING, WAITING,DECIDING}
     public Player player;
     public EnemyBehavior_SO behaviorTemplate;
     public EnemyMovement enemyMovement;
     public Room roomISpawnedIn;
     public bool isShielded = true;
+    [SerializeField] private Vector2 nonCombatDestination;
 
     [Tooltip("Set in %")]
     public float displayConversationChance = 5;
@@ -29,6 +33,7 @@ public class EnemyCombat : UnitCombat
 
     [SerializeField] private EnemyShield _shield;
     [SerializeField]private AttackPhase _currentAttackPhase = AttackPhase.READY;
+    [SerializeField]private NotTriggeredPhase _notTriggeredPhase = NotTriggeredPhase.DECIDING;
     public bool isTriggered =false;
 
     [Header("combatStats")]
@@ -57,7 +62,10 @@ public class EnemyCombat : UnitCombat
     [SerializeField] private DamageNumber damageNumberPrefab;
     [SerializeField] private Color damageNumberColorNoCrit = new Color32(252,112,2,255);
     [SerializeField] private Color damageNumberColorCrit = Color.green;
-
+    [Header("Non Combat")]
+    [SerializeField] float _minWaitTime = 0.2f;
+    [SerializeField] float _maxWatiTime = 0.5f;
+    [SerializeField] float _walkChance = 0.7f;
     void Start()
     {
         base.Start();
@@ -73,9 +81,17 @@ public class EnemyCombat : UnitCombat
     }
     void Update()
     {
+        if(!isTriggered) NotActivatedSwitch();
         
+        //DecideNextBehavior();// we will remove this
         CooldownTimer();
         base.Update();
+        if (healthCurrent <= 0)
+        {
+            DieAnimation();
+            //Die();
+        }
+        
         if (isStunned)
         {
             return;
@@ -92,11 +108,6 @@ public class EnemyCombat : UnitCombat
         
         //checkDirection
         
-        if (healthCurrent <= 0)
-        {
-            DieAnimation();
-            //Die();
-        }
     }
     private void FixedUpdate()
     {
@@ -107,7 +118,7 @@ public class EnemyCombat : UnitCombat
             return;
         if (isPushedBack)
             return;
-        BehaviorSwitch();
+        AttackPhaseSwitch();
     }
     public void TriggerEnemy()
     {
@@ -232,7 +243,112 @@ public class EnemyCombat : UnitCombat
             _currentAttackPhase = AttackPhase.READY;
         }
     }
-    private void BehaviorSwitch()
+    private void NotActivatedSwitch()
+    {//Debug.Log("doing not activated ");
+    
+        switch(_notTriggeredPhase)
+        {
+            case NotTriggeredPhase.DECIDING:
+                {
+                    //Debug.Log("deciding");
+                    // decide what to do next - move or wait
+                    DecideNextBehavior();
+                    return;
+                }
+            case NotTriggeredPhase.WAITING:
+                {
+                    //Debug.Log("waiting");
+                    //jsut waiting, perhaps coroutine, when its done do deciding
+                    return;
+                }
+            case NotTriggeredPhase.MOVING:
+                {
+                    //Debug.Log("moving");
+
+                    if(Vector2.Distance(transform.position, nonCombatDestination)<2)//magic number
+                        {
+                        _notTriggeredPhase = NotTriggeredPhase.DECIDING;
+                        enemyMovement.StopMovement();
+                        }
+                    animationController.HandleAnimationNoIdle();
+                    return;
+                }
+            default: {return;}
+        }
+    }
+    void DecideNextBehavior()
+    {
+        // some randomising
+        //if moving run moveToTarget method in movement
+        //if waiting, coroutine on its end run this again
+  
+        bool willMove = (float)Random.Range(0f,1f) <= _walkChance;
+        Debug.Log("willMove: "+willMove);
+        if(willMove)
+        {StartCoroutine(WaitingRoutine());}
+        else
+        {
+            MoveRandomly();
+        }
+    }
+    IEnumerator WaitingRoutine()
+    {
+        _notTriggeredPhase = NotTriggeredPhase.WAITING;
+        float randomTime = (float)Random.Range(_minWaitTime,_maxWatiTime);
+        yield return new WaitForSeconds(randomTime);
+        _notTriggeredPhase = NotTriggeredPhase.DECIDING;
+    }
+    void MoveRandomly()
+    {
+        _notTriggeredPhase = NotTriggeredPhase.MOVING;
+        Vector2 destination = GetRandomDestination();
+        
+        Debug.Log("destination = " + destination.ToString());
+        nonCombatDestination = destination;    
+        enemyMovement.MoveToTarget(destination);
+
+    }
+    Vector2 GetRandomDestination()
+    {
+        bool isDestinaitonValid = false;
+
+        Vector2 realDestination = new Vector2(0,0);
+        
+        while (isDestinaitonValid==false)
+
+        {
+            float xCoord;
+            float yCoord;
+
+            //get random position in room
+            roomISpawnedIn.ReturnRandomPointRelative(out xCoord, out yCoord);
+            Vector2 destination = new Vector2(xCoord,yCoord);
+
+            destination += (Vector2)transform.position;
+            NavMeshHit hit;
+            realDestination = Vector2.zero;
+
+            Debug.Log("destination chosen randomly: "+destination);
+            //get closest walkable point to random position
+            if(NavMesh.SamplePosition(destination, out hit, Mathf.Infinity,1))
+            {
+                realDestination = hit.position;
+            } 
+            // check if the closest is in this room
+
+                /*Debug.Log("destination = " + realDestination.ToString());
+                nonCombatDestination = realDestination;    
+                enemyMovement.MoveToTarget(realDestination);*/
+                isDestinaitonValid = roomISpawnedIn.IsWithinBounds(realDestination);
+                Debug.Log("isDestinaionValid: "+isDestinaitonValid);
+                if(!isDestinaitonValid)
+                {Debug.LogError("destiantionNotValid Recalculating");}
+        }    
+
+        return realDestination;
+    }
+
+    private void AttackPhaseSwitch()
     {
         switch (_currentAttackPhase)
         {
@@ -282,7 +398,8 @@ public class EnemyCombat : UnitCombat
             healthPickup.transform.position = transform.position;
         }
     }
-    private void ShowDamage(float amount, bool isCrit)
+        private void ShowDamage(float amount, bool isCrit)
+
     {
         if (healthCurrent <= 0) return;
         

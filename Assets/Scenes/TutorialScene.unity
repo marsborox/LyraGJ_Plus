@@ -37432,9 +37432,13 @@ PrefabInstance:
       value: NavMesh
       objectReference: {fileID: 0}
     - target: {fileID: 7427372101679965586, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
+      propertyPath: m_VoxelSize
+      value: 0.23333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 7427372101679965586, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 99d13df839c49154b8aa07d0a546eb09, type: 2}
+      objectReference: {fileID: 23800000, guid: 86e3457e99ef0fc4aa4606de42ea920f, type: 2}
     - target: {fileID: 8803382701963967928, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

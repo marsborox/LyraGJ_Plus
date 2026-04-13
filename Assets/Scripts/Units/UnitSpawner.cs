@@ -150,7 +150,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
         Vector2 position;
         
         float x,y;
-        roomWeTestIn.ReturnSpawnPoint(out x,out y);
+        roomWeTestIn.ReturnRandomPoint(out x,out y);
         position = new Vector2(x,y);
         Debug.Log("testing spawnPoint on position X: "+x+"Y: "+y);
         bool isValid = enemySpawnChecker.IsSpawnPosValid(position);

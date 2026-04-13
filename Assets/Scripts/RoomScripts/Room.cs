@@ -131,22 +131,44 @@ public class Room : MonoBehaviour
         {
             //Debug.Log("spawning enemy");
             float spawnPosX, spawnPosY;
-            ReturnSpawnPoint(out spawnPosX, out spawnPosY);
+            ReturnRandomPoint(out spawnPosX, out spawnPosY);
 
             UnitSpawner.instance.SpawnRandomEnemy(spawnPosX, spawnPosY, this);
             enemiesInRoomCount++;
         }
     }
 
-    public void ReturnSpawnPoint(out float spawnPosX, out float spawnPosY)
+    public void ReturnRandomPoint(out float spawnPosX, out float spawnPosY)
     {// implement where needed
         spawnPosX = UnityEngine.Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
         spawnPosY = UnityEngine.Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
 
         //Vector2 spawnPosition = new Vector2(spawnPosX,spawnPosY);
-        
     }
+    public void ReturnRandomPointRelative(out float spawnPosX, out float spawnPosY)
+    {// implement where needed
+        spawnPosX = UnityEngine.Random.Range(_spawnAreaRB.transform.localPosition.x, _spawnAreaLT.transform.localPosition.x);
+        spawnPosY = UnityEngine.Random.Range(_spawnAreaRB.transform.localPosition.y, _spawnAreaLT.transform.localPosition.y);
 
+        //Vector2 spawnPosition = new Vector2(spawnPosX,spawnPosY);
+    }
+    public bool IsWithinBounds(Vector2 position)
+    {
+        bool isInBounds=true;
+        /*if(position.y >_spawnAreaLT.transform.localPosition.y || 
+        position.y <_spawnAreaRB.transform.localPosition.y||
+        position.x >_spawnAreaRB.transform.localPosition.x||
+        position.x < _spawnAreaLT.transform.localPosition.x)*/
+        if(position.y >_spawnAreaLT.transform.position.y || 
+        position.y <_spawnAreaRB.transform.position.y||
+        position.x >_spawnAreaRB.transform.position.x||
+        position.x < _spawnAreaLT.transform.position.x)
+        {isInBounds = false;}
+        else{isInBounds = true;}
+        Debug.Log("isInBounds: "+isInBounds);
+
+        return isInBounds;
+    }
     public void SpawnSomeEnemiesRandomly(Room room)
     { //some random for testing
 
