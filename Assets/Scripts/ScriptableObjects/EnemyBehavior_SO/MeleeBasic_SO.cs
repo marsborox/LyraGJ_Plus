@@ -9,7 +9,7 @@ public class MeleeBasic_SO : EnemyBehavior_SO
         if (!source.CheckIfInRange())
         {
             source.enemyMovement.MoveToTarget(source.player);
-;
+
         }
         if (source.isAttackReady && source.CheckIfInRange())
         {

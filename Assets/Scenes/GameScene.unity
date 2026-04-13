@@ -34825,6 +34825,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6915627130281284306}
     m_Modifications:
+    - target: {fileID: 172658188167467795, guid: 78796c10bec19b9478fdf66861bb5b69, type: 3}
+      propertyPath: m_Area
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 172658188167467795, guid: 78796c10bec19b9478fdf66861bb5b69, type: 3}
+      propertyPath: m_OverrideArea
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4093011383472799015, guid: 78796c10bec19b9478fdf66861bb5b69, type: 3}
       propertyPath: isCleared
       value: 1
@@ -37172,7 +37180,7 @@ PrefabInstance:
     - target: {fileID: 7427372101679965586, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: bdd102b73d6646d4c9edff1592734c57, type: 2}
+      objectReference: {fileID: 23800000, guid: 73843577d27b1e4459a946d982a55197, type: 2}
     - target: {fileID: 8803382701963967928, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

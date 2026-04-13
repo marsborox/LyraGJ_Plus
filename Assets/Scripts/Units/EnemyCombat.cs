@@ -34,7 +34,7 @@ public class EnemyCombat : UnitCombat
     [SerializeField] private EnemyShield _shield;
     [SerializeField]private AttackPhase _currentAttackPhase = AttackPhase.READY;
     [SerializeField]private NotTriggeredPhase _notTriggeredPhase = NotTriggeredPhase.DECIDING;
-    public bool isTriggered =false;
+    public bool isTriggered;
 
     [Header("combatStats")]
     public float range = 0.2f;

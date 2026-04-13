@@ -22,6 +22,7 @@ public class EnemyMovement : UnitMovement
     {
         base.Update();
         DirectionChecker();
+        
     }
     public void MoveToTarget(Player player)
     {

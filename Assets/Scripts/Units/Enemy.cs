@@ -66,6 +66,9 @@ public class Enemy : Unit
         combat.attackAnimationTime = enemyTemplate.attackAnimationTime;
         combat.roomISpawnedIn = room;
         spriteLibrary.spriteLibraryAsset = enemyTemplate.enemySpriteLibrary;
+
+        //combat.isTriggered = enemyTemplate.isStartTriggered;//doesnt work was attempt to control if enemy fight on spawn
+        Debug.Log("enemy spawned isTriggered: "+combat.isTriggered);
         //_spriteResolver.ResolveSpriteToSpriteRenderer();
         spriteLibrary.RefreshSpriteResolvers();//1
         _animationController.animator.Rebind();//2
@@ -78,6 +81,7 @@ public class Enemy : Unit
         {
             combat.behaviorTemplate = enemyTemplate.behavior;
         }
+
     }
     public void SetEnemyType(Type newEnemyType)
     {

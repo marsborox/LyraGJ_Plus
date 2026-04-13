@@ -7,7 +7,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
     public List<Enemy_SO> enemy_SOs = new List<Enemy_SO>();
     public GameObject spawnPointsInScene;
-    public EnemySpawnChecker enemySpawnCheckerPrefab;
+    //public EnemySpawnChecker enemySpawnCheckerPrefab;
     public EnemySpawnChecker enemySpawnChecker;
     public Enemy enemyPrefab;
     public Player player;

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a08ce2a1e0219d042bbcf792d1505c85, type: 3}
   m_Name: TutorialLevel_SO
   m_EditorClassIdentifier: Assembly-CSharp::TutorialLevel_SO
+  numberOfRoomsToClear: 0
   dialogueWRoomClearedIndexList:
   - spawnOnRoomCleared: 0
     dialogue: {fileID: 11400000, guid: 067ab1325a7f44965bbeffa6f76a1ddd, type: 2}

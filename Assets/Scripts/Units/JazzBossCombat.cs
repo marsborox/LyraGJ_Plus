@@ -98,6 +98,7 @@ public class JazzBossCombat : MonoBehaviour
             case State.SPAWN_ENEMIES: 
             {
                 unitSpawner.SpawnEnemies(minSpawnOfEnemies, maxSpawnOfEnemies);
+                GlobalEventManager.instance.TriggerOnPlayerAtack();
                 break;
             }
             case State.SPAWN_NOTE:
