@@ -75,6 +75,7 @@ public class UnitAnimationController : MonoBehaviour
         //thats why this logic is funky
         float horizontal = 0;
         float vertical = 0;
+        //Debug.Log("handlingMovement");
         switch (_unitMovement.currentDirection)
         {
             case (UnitMovement.Direction)Direction.UP:

@@ -62,7 +62,10 @@ public class EnemyCombat : UnitCombat
     [SerializeField] private DamageNumber damageNumberPrefab;
     [SerializeField] private Color damageNumberColorNoCrit = new Color32(252,112,2,255);
     [SerializeField] private Color damageNumberColorCrit = Color.green;
-
+    [Header("Non Combat")]
+    [SerializeField] float _minWaitTime = 0.2f;
+    [SerializeField] float _maxWatiTime = 0.5f;
+    [SerializeField] float _walkChance = 0.7f;
     void Start()
     {
         base.Start();
@@ -242,6 +245,7 @@ public class EnemyCombat : UnitCombat
     }
     private void NotActivatedSwitch()
     {//Debug.Log("doing not activated ");
+    
         switch(_notTriggeredPhase)
         {
             case NotTriggeredPhase.DECIDING:
@@ -266,7 +270,7 @@ public class EnemyCombat : UnitCombat
                         _notTriggeredPhase = NotTriggeredPhase.DECIDING;
                         enemyMovement.StopMovement();
                         }
-
+                    animationController.HandleAnimationNoIdle();
                     return;
                 }
             default: {return;}
@@ -277,8 +281,8 @@ public class EnemyCombat : UnitCombat
         // some randomising
         //if moving run moveToTarget method in movement
         //if waiting, coroutine on its end run this again
-        float randomNum = (float)Random.Range(0f,1f);
-        bool willMove = (float)Random.Range(0f,1f) <= 0.5;
+  
+        bool willMove = (float)Random.Range(0f,1f) <= _walkChance;
         Debug.Log("willMove: "+willMove);
         if(willMove)
         {StartCoroutine(WaitingRoutine());}
@@ -290,7 +294,7 @@ public class EnemyCombat : UnitCombat
     IEnumerator WaitingRoutine()
     {
         _notTriggeredPhase = NotTriggeredPhase.WAITING;
-        float randomTime = (float)Random.Range(0.4f,3f);//magic number
+        float randomTime = (float)Random.Range(_minWaitTime,_maxWatiTime);
         yield return new WaitForSeconds(randomTime);
         _notTriggeredPhase = NotTriggeredPhase.DECIDING;
     }
@@ -302,7 +306,6 @@ public class EnemyCombat : UnitCombat
         Debug.Log("destination = " + destination.ToString());
         nonCombatDestination = destination;    
         enemyMovement.MoveToTarget(destination);
-        
 
     }
     Vector2 GetRandomDestination()
