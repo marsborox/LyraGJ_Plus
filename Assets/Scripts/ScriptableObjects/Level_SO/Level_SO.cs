@@ -6,6 +6,7 @@ using UnityEngine.U2D.Animation;
 public class Level_SO : ScriptableObject
 {
     //public List<int> spawnDiaogueOnRoomIndexList = new List<int>();
+    public int numberOfRoomsToClear = 10;
     public List<DialogueToIndex> dialogueWRoomClearedIndexList = new List<DialogueToIndex>();
     [System.Serializable]
     public class DialogueToIndex

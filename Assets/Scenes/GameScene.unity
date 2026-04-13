@@ -34796,7 +34796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5526ae234501c1b47983d18cb5f6a4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portal: {fileID: 0}
   cutscenesPlayer: {fileID: 0}
   stage: 2
   levelSettings: {fileID: 0}
@@ -37323,6 +37322,10 @@ PrefabInstance:
       propertyPath: _roomObjectSpawner
       value: 
       objectReference: {fileID: 1016398360}
+    - target: {fileID: 2116813870915767902, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
+      propertyPath: maxSpawnedRoomCount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2116813870915767902, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
       propertyPath: roomPrefabList.Array.size
       value: 11

@@ -9,7 +9,7 @@ public class GameManager : Singleton<GameManager>
 {
     public static new GameManager instance => Singleton<GameManager>.instance;
 
-    [SerializeField] private GameObject portal;
+    //[SerializeField] private GameObject portal;
     [SerializeField] private CutscenesPlayer cutscenesPlayer;
 
     public GameStage stage = GameStage.NEWWAVE;
@@ -28,7 +28,10 @@ public class GameManager : Singleton<GameManager>
     {
         //we wait 1s til leverything really loads
         //StartCoroutine(StartSpawnDelayRoutine());
+        SetMaxRooms();
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -94,13 +97,6 @@ public class GameManager : Singleton<GameManager>
     {
         roomsCleared++;
     }
-    void ControlGameFlow()
-    {
-        if (spawnedEnemiesThisWave == enemiesPerWave)
-        {
-            stage = GameStage.POSTWAVE;
-        }
-    }
     public void PostConversation()
     {
         spawnedEnemiesThisWave = 0;
@@ -128,5 +124,17 @@ public class GameManager : Singleton<GameManager>
     public void PostLevelClear()
     {
         levelSettings.PostLevelClear();
+    }
+    private void ControlGameFlow()
+    {
+        if (spawnedEnemiesThisWave == enemiesPerWave)
+        {
+            stage = GameStage.POSTWAVE;
+        }
+    }
+    private void SetMaxRooms()
+    {
+        if(levelSettings.numberOfRoomsToClear==0){return;}
+        RoomManager.instance.SetMaxRooms(levelSettings.numberOfRoomsToClear);
     }
 }
