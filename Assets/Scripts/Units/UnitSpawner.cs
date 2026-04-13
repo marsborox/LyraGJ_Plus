@@ -75,7 +75,6 @@ public class UnitSpawner : Singleton<UnitSpawner>
         spawnPoint = spawnPoints[randomIndex];
         Enemy spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.transform.position,Quaternion.identity);
         Enemy_SO usedTemplate = GetRandomTemplate();
-        GameManager.instance.AcknowledgeSpawnedEnemy();
         spawnedEnemy.SetProperties(usedTemplate,player);
         GameManager.instance.enemiesInField++;
     }
@@ -126,6 +125,14 @@ public class UnitSpawner : Singleton<UnitSpawner>
             spawnedEnemy.DisableShield();
         }
     }
+
+    public void SpawnEnemies(int min, int max)
+    {        
+        int spawnAmount = UnityEngine.Random.Range(min, max);
+        // Debug.Log("How many enemies? " + spawnAmount);
+        for (int i = 0; i < spawnAmount; i++) SpawnEnemy();
+    }
+
     public void TestSpawnMelee()
     {
         SpawnEnemy(meleeSO);

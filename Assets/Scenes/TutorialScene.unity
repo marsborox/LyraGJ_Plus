@@ -34874,6 +34874,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6915627130281284306}
     m_Modifications:
+    - target: {fileID: 4389154101861513444, guid: 78796c10bec19b9478fdf66861bb5b69, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5414476293943976321, guid: 78796c10bec19b9478fdf66861bb5b69, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -35840,6 +35844,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5091316365207362509, guid: 553674528514548459c5007ade46c226, type: 3}
+      propertyPath: roomManager
+      value: 
+      objectReference: {fileID: 6915627130281284308}
     - target: {fileID: 5091316365207362509, guid: 553674528514548459c5007ade46c226, type: 3}
       propertyPath: targetToFollow
       value: 
@@ -37669,6 +37677,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1534851401952515477, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
   m_PrefabInstance: {fileID: 6915627130281284305}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6915627130281284308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2116813870915767902, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
+  m_PrefabInstance: {fileID: 6915627130281284305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52db34055d3c7f94395b52bb53746fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

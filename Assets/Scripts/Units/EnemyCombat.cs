@@ -208,7 +208,7 @@ public class EnemyCombat : UnitCombat
     public override void Die()
     {
         //triggered by animationEvent
-        //Debug.Log("Enemy died");
+        Debug.Log("Enemy died");
         if (GameManager.instance != null)
             GameManager.instance.EnemyDied();
         //Debug.Log("enemyDeath processing");
@@ -398,27 +398,14 @@ public class EnemyCombat : UnitCombat
             healthPickup.transform.position = transform.position;
         }
     }
-
         private void ShowDamage(float amount, bool isCrit)
+
     {
         if (healthCurrent <= 0) return;
         
         Vector3 offset = new Vector3(0, 1.5f, 0); // to start just above enemy
-        /*var gameObject = Instantiate(damageNumberPrefab, transform.position + offset, Quaternion.identity);
-        var damageNumber = gameObject.GetComponent<DamageNumber>();
-        */
         DamageNumber damageNumber = Instantiate(damageNumberPrefab, transform.position + offset, Quaternion.identity);
-
-        if(isCrit)
-        {
-            damageNumber.Show(amount, damageNumberColorCrit);
-        }
-        else
-        {
-            damageNumber.Show(amount, damageNumberColorNoCrit);
-        }
-
-
+        damageNumber.Show(amount, isCrit ? damageNumberColorCrit : damageNumberColorNoCrit);
     }
 }
 /*

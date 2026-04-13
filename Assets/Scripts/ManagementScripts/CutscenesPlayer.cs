@@ -1,11 +1,13 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 using static Level_SO;
 
 public enum CharacterID
 {
     Lyra,
-    Muse
+    Muse,
+    CharlesRay
 }
 
 public enum CharacterEmotion
@@ -40,6 +42,7 @@ public class CutscenesPlayer : MonoBehaviour
     private Dialogue_SO _currentDialogue;
     private Rigidbody2D _playerRigidbody;
     private int _currentPartIndex = 0;
+    private Action _onComplete;
 
     void Awake()
     {
@@ -74,6 +77,9 @@ public class CutscenesPlayer : MonoBehaviour
         HideOtherUI(false);
         dialogueUI.gameObject.SetActive(false);
         Time.timeScale = 1f; // unpause
+
+        _onComplete?.Invoke();
+        _onComplete = null;
     }
     public void SpawnDialogue(int indexOfClearedRoom)
     {
@@ -82,21 +88,32 @@ public class CutscenesPlayer : MonoBehaviour
         {
             if (dialogueToIndex.spawnOnRoomCleared == indexOfClearedRoom)
             {
-                if (!dialogueToIndex.dialogue.showAgain && WasSeenDialogue(dialogueToIndex.dialogue)) return;
-
-                MarkSeenDialogue(dialogueToIndex.dialogue);
-
-                _currentDialogue = dialogueToIndex.dialogue;
-                _currentPartIndex = 0;
-     
-                Time.timeScale = 0f; // pause
-                HideOtherUI(true);
-                dialogueUI.gameObject.SetActive(true);
-
-                SetupDialogue();
+                SpawnDialogue(dialogueToIndex.dialogue, null);
                 break;
             }
         }
+    }
+    public void SpawnDialogue(Dialogue_SO dialogue, Action onComplete)
+    {
+        _onComplete = onComplete;
+
+        if (!dialogue.showAgain && WasSeenDialogue(dialogue))
+        {
+            _onComplete?.Invoke();
+            _onComplete = null;
+            return;
+        }
+
+        MarkSeenDialogue(dialogue);
+
+        _currentDialogue = dialogue;
+        _currentPartIndex = 0;
+
+        Time.timeScale = 0f; // pause
+        HideOtherUI(true);
+        dialogueUI.gameObject.SetActive(true);
+
+        SetupDialogue();
     }
     void FixedUpdate()
     {
