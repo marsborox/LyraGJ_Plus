@@ -207,6 +207,8 @@ public class JazzBossCombat : MonoBehaviour
         }
 
         transform.position = position;
+
+        yield return new WaitForSeconds(duration + 1f); // add some buffer for player to see that hitting a boss did NOT work
         cutscenesPlayer.SpawnDialogue(afterHittingBoss, () => currentState = State.SPAWN_ENEMIES);
     }
     private IEnumerator PlayBadJazz(int howManyTimes)
