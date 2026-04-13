@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e79248c012565fe45b4fff68fefcd99e, type: 3}
-  m_Name: TEST_GreenEnemyArcher_SO 1
+  m_Name: JAZZ_LEVEL_BlueEnemyMage_SO 1
   m_EditorClassIdentifier: 
-  enemyType: 1
-  enemySpriteLibrary: {fileID: 7108339969198208228, guid: 178d46b32b9edcc4ab81a51a23338e64, type: 3}
+  enemyType: 2
+  enemySpriteLibrary: {fileID: 7108339969198208228, guid: 3106606e9faa41f4ea1d181f9468ba14, type: 3}
   damage: 1
   health: 10
-  range: 5
-  attackCooldown: 1
+  range: 8
+  attackCooldown: 5
   movementSpeed: 1
   attackAnimationTime: 0.5
   spriteColor:
     serializedVersion: 2
-    rgba: 4286558840
-  behavior: {fileID: 11400000, guid: d1e00de0522abf24abacc9b76430e561, type: 2}
+    rgba: 4294796621
+  behavior: {fileID: 11400000, guid: 014a763ed9df6af449791f17583db7b6, type: 2}
   forceShield: 0
   randomShield: 0
   chanceForShield: 25
