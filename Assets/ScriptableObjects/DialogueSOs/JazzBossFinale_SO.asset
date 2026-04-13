@@ -21,8 +21,8 @@ MonoBehaviour:
       killer tunes!
     character: 1
     emotion: 3
-  - dialogueText: Thank you, thank you. A compliment from you is alway pleasure to
-      hear.
+  - dialogueText: Thank you, thank you. A compliment from you is always a pleasure
+      to hear.
     character: 2
     emotion: 3
   - dialogueText: So, Lyra, is it? You have a way with music!
@@ -38,8 +38,8 @@ MonoBehaviour:
     character: 2
     emotion: 3
   - dialogueText: Oh, I got lucky. I don't think I'll ever play real jazz.
-    character: 1
-    emotion: 3
+    character: 0
+    emotion: 4
   - dialogueText: That's what I thought after I lost my vision.
     character: 2
     emotion: 0

@@ -7,6 +7,7 @@ public class JazzBossCombat : MonoBehaviour
     public enum State { INTRO, WAITING, SPAWN_ENEMIES, SPAWN_NOTE, BAD_JAZZ, OUTRO}
 
     [Header("Boss")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
     [SerializeField] private float jazz = 0f;
     [SerializeField] private float maxJazz = 10f;
@@ -193,6 +194,8 @@ public class JazzBossCombat : MonoBehaviour
 
     private IEnumerator FlyBossToPosition(Vector2 position, float duration)
     {
+        spriteRenderer.sortingOrder = 1; // podium utilizes same layer as units for player to nicely wrap around it
+
         float elapsed = 0;
         Vector3 startPos = transform.position;
 
@@ -204,6 +207,8 @@ public class JazzBossCombat : MonoBehaviour
         }
 
         transform.position = position;
+
+        yield return new WaitForSeconds(duration + 1f); // add some buffer for player to see that hitting a boss did NOT work
         cutscenesPlayer.SpawnDialogue(afterHittingBoss, () => currentState = State.SPAWN_ENEMIES);
     }
     private IEnumerator PlayBadJazz(int howManyTimes)
