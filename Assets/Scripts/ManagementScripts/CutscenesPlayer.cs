@@ -37,7 +37,7 @@ public class CutscenesPlayer : MonoBehaviour
     public Level_SO level;
     [SerializeField] private DialogueUI dialogueUI;
     [SerializeField] private CharacterPortrait_SO[] characterPortraits;
-    [SerializeField] private DialogueTrigger[] triggers;
+    [SerializeField] private List<DialogueTrigger> triggers = new List<DialogueTrigger>();
     [SerializeField] private GameObject[] hideWhileTalking;
     private Dialogue_SO _currentDialogue;
     private Rigidbody2D _playerRigidbody;
@@ -162,7 +162,7 @@ public class CutscenesPlayer : MonoBehaviour
 
     private void CheckTriggers()
     {
-        if (triggers.Length == 0 || _playerRigidbody == null) return; // nothing to check
+        if (triggers.Count == 0 || _playerRigidbody == null) return; // nothing to check
 
         Vector3 playerPosition = _playerRigidbody.position;
 
@@ -184,6 +184,8 @@ public class CutscenesPlayer : MonoBehaviour
     }
     private void OnTriggerEntered(DialogueTrigger trigger)
     {
+        // triggers are to be run just once
+        triggers.Remove(trigger);
         SpawnDialogue(trigger.dialogueID);
     }
     private void OnTriggerExited(DialogueTrigger trigger)
