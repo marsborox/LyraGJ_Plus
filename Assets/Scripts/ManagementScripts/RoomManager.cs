@@ -94,5 +94,8 @@ public class RoomManager : Singleton<RoomManager>
         _roomObjectSpawner.SpawnPortal(spawnedRoom);
 
     }
-
+    public void SetMaxRooms(int maxRoomsCount)
+    {
+        maxSpawnedRoomCount = maxRoomsCount;
+    }
 }

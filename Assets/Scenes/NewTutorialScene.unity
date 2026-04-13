@@ -632,6 +632,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 34982335253765802, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 2014354044}
     - target: {fileID: 159439772315269932, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1142,7 +1146,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 8046dc0e4728c4834a7fac874fa08418, type: 2}
     - target: {fileID: 8436517152348735014, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8601631375193854058, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMax.y
@@ -14304,7 +14308,7 @@ SpriteRenderer:
   m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1968501391
@@ -14322,6 +14326,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2023074889}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2014354044 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6243917595417204822, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+  m_PrefabInstance: {fileID: 933703276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a1e4950c8535a488cb95213999efb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2023074888
 GameObject:
   m_ObjectHideFlags: 0
