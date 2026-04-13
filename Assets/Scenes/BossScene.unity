@@ -3348,7 +3348,7 @@ GameObject:
   - component: {fileID: 1617753075}
   - component: {fileID: 1617753074}
   m_Layer: 0
-  m_Name: testFloor
+  m_Name: ForNavMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
