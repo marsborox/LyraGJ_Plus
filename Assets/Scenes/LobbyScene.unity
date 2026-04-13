@@ -776,7 +776,7 @@ PrefabInstance:
     - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 11400000, guid: 8709d45637f36409399d0e097e477ac9, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: triggers.Array.size
       value: 1
@@ -793,6 +793,10 @@ PrefabInstance:
       propertyPath: triggers.Array.data[0].collider
       value: 
       objectReference: {fileID: 1668960350}
+    - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: triggers.Array.data[0].dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 629d148e6cddc4273aab36c674b22262, type: 2}
     - target: {fileID: 8129490106304078614, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: 'characterPortraits.Array.data[0]'
       value: 

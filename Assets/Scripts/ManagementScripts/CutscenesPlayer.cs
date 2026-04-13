@@ -24,7 +24,7 @@ public enum CharacterEmotion
 [System.Serializable]
 public class DialogueTrigger
 {
-    public int dialogueID;
+    public Dialogue_SO dialogue;
     public Collider2D collider;
 
     [HideInInspector] public bool isInside;
@@ -185,8 +185,7 @@ public class CutscenesPlayer : MonoBehaviour
     private void OnTriggerEntered(DialogueTrigger trigger)
     {
         // triggers are to be run just once
-        triggers.Remove(trigger);
-        SpawnDialogue(trigger.dialogueID);
+        SpawnDialogue(trigger.dialogue, () => triggers.Remove(trigger));
     }
     private void OnTriggerExited(DialogueTrigger trigger)
     {
