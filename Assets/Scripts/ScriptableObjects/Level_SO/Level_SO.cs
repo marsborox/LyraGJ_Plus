@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
+using UnityEngine.Video;
 
 //[CreateAssetMenu(fileName = "Level_SO", menuName = "Scriptable Objects/Level_SO")]
 public class Level_SO : ScriptableObject
@@ -17,6 +18,7 @@ public class Level_SO : ScriptableObject
 
     public int minEnemiesPerRoom;
     public int maxEnemiesPerRoom;
+    public string questText =" ";
     public SpriteLibraryAsset lyraVisual;
     public virtual void SubscribeToEventsSingletons(Room room)
     { }
@@ -37,6 +39,14 @@ public class Level_SO : ScriptableObject
     { }
     public virtual void PostLevelClear()
     {}
+    public virtual void SetupQuest()
+    {
+        
+    }
+    public virtual string DisplayQuestText()
+    {
+        return questText;
+    }
     //public static RoomEvent OnPlayerEnterRoom;
     //public static RoomEvent OnPlayerLeaveRoom;
     //public static RoomEvent OnRoomCleared;
