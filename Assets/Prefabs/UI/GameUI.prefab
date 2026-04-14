@@ -1213,7 +1213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd54508011f8834c94e6f025fed5d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _questTextText: {fileID: 1681031215163329536}
+  backgroundImage: {fileID: 8124728769452214291}
+  questTextText: {fileID: 1681031215163329536}
+  secondsToBeVisible: 3
 --- !u!1 &3660411920221528992
 GameObject:
   m_ObjectHideFlags: 0
