@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ClearXAmountRooms", menuName = "Scriptable Objects/Level_SOs/ClearXAmountRooms")]
 public class ClearXAmountRooms_SO : Level_SO
 {
+    
     public override void SubscribeToEventsSingletons(Room room)
     {
         GlobalEventManager.OnRoomCleared += GameManager.instance.SpawnDialogue;
@@ -27,5 +28,15 @@ public class ClearXAmountRooms_SO : Level_SO
     public override void UnSubscribeOnSpawnRoom(Room room)
     {
 
+    }
+    public override string DisplayQuestText()
+    {
+        string returnText;
+        int roomsCleared;
+        int roomsToClear;
+        GameManager.instance.ReturnRoomsClearedRatio(out roomsCleared, out roomsToClear);
+        returnText = questText + roomsCleared.ToString() + " / " + roomsToClear.ToString();
+
+        return returnText;
     }
 }

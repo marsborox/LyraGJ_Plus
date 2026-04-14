@@ -19,7 +19,7 @@ public class GameManager : Singleton<GameManager>
     public int enemiesInField = 0;
 
     public int totalEnemyKilled = 0;
-    public int roomsCleared = 0;
+    public int numberRoomsCleared = 0;
 
     public bool isEndOfWave=false;
     public bool isSpawning=false;
@@ -91,11 +91,11 @@ public class GameManager : Singleton<GameManager>
     }
     public void SpawnDialogue(Room room)
     {
-        if (cutscenesPlayer != null) cutscenesPlayer.SpawnDialogue(roomsCleared);
+        if (cutscenesPlayer != null) cutscenesPlayer.SpawnDialogue(numberRoomsCleared);
     }
     public void ForceRoomCleared(Room room)
     {
-        roomsCleared++;
+        numberRoomsCleared++;
     }
     public void PostConversation()
     {
@@ -124,6 +124,11 @@ public class GameManager : Singleton<GameManager>
     public void PostLevelClear()
     {
         levelSettings.PostLevelClear();
+    }
+    public void ReturnRoomsClearedRatio(out int roomsCleared, out int roomsToClear)
+    {
+        roomsCleared = numberRoomsCleared;
+        roomsToClear = levelSettings.numberOfRoomsToClear;
     }
     private void ControlGameFlow()
     {

@@ -257,7 +257,7 @@ public class Room : MonoBehaviour
                 LiftBarriers(room);//should work without this but here we are
                                    //scheduling it for event does not work
                 isCleared = true;
-                GameManager.instance.roomsCleared++;
+                GameManager.instance.numberRoomsCleared++;
                 //DoPostRoom Stuff
                 //GlobalEventManager.instance.TriggerOnRoomCleared(this);
                 GlobalEventManager.instance.TriggerOnRoomCleared(room);
@@ -272,7 +272,7 @@ public class Room : MonoBehaviour
         LiftBarriers(room);//should work without this but here we are
                            //scheduling it for event does not work
         isCleared = true;
-        GameManager.instance.roomsCleared++;
+        GameManager.instance.numberRoomsCleared++;
         //DoPostRoom Stuff
         //GlobalEventManager.instance.TriggerOnRoomCleared(this);
         GlobalEventManager.instance.TriggerOnRoomCleared(room);
@@ -285,7 +285,7 @@ public class Room : MonoBehaviour
             return;
         }
         isCleared = true;
-        GameManager.instance.roomsCleared++;
+        GameManager.instance.numberRoomsCleared++;
         GlobalEventManager.instance.TriggerOnRoomCleared(room);
     }
     public void LiftBarriers(Room room)
