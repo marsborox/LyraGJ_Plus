@@ -34,6 +34,10 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     private FMOD.Studio.EventInstance _jazzMusicInstance;
     private FMOD.Studio.EventInstance _lobbyMusicInstance;
 
+    // other sounds
+    
+    private FMOD.Studio.EventInstance _elevatorInstance;
+
     private Instrument _lastPlayedInstrument;
 
     void Start()
@@ -48,6 +52,8 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
         _jazzMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/main_hudba_jazz");
         _lobbyMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/divadlo_hudba");
+
+        _elevatorInstance = FMODUnity.RuntimeManager.CreateInstance("event:/elevator_sound");
 
         ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.5f));
         ChangeSoundEffectsVolume(PlayerPrefs.GetFloat("SoundEffectsVolume", 1f));
@@ -174,6 +180,13 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
                 break;
             }
         }
+    }
+
+    // Other sounds
+
+    public void PlayElevatorSound()
+    {
+        _elevatorInstance.start();
     }
 
     // Music
