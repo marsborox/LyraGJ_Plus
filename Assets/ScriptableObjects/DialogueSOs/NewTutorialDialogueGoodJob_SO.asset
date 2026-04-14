@@ -24,16 +24,16 @@ MonoBehaviour:
     character: 1
     emotion: 3
   - dialogueText: 'Just remember: Enemies out there hit back and then sometimes they
-      drop a bit of their energy.'
+      drop some of their energy.'
     character: 1
     emotion: 0
   - dialogueText: Oh, just like that little heart over there.
     character: 0
-    emotion: 1
+    emotion: 0
   - dialogueText: Yes, just like that little heart.
     character: 1
     emotion: 3
-  - dialogueText: When you pick it up, it fills your heart of music up.
+  - dialogueText: When you pick it up, it fills your music back up.
     character: 1
     emotion: 0
   - dialogueText: Got it.
