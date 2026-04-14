@@ -36495,27 +36495,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 99.56128
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -301.5581
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -69.75427
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4530575104130775622, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: playerRythmBonus
