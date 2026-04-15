@@ -84,10 +84,10 @@ public class UnitCombat : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         animationController.HandleTakeDamageAnimation();
-        /*Debug.Log("taking damage from unitCombat");
-        isStunned = true;
-        stunDuration = 999;//stun is cancelled post get hit animation, timer is arbitrary
-        */
+        //Debug.Log("taking damage from unitCombat");
+        //isStunned = true;
+        //stunDuration = 999;//stun is cancelled post get hit animation, timer is arbitrary
+        
         healthCurrent -= damage;
     }
         public virtual void TakeDamage(int damage, bool isCrit)
