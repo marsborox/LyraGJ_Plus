@@ -79,7 +79,9 @@ public class UnitCombat : MonoBehaviour
     public virtual void SetHealthBar()
     {
         healthFraction = (float)healthCurrent / (float)healthMax;
-        healthBar.fillAmount = healthFraction;
+        // this is health, just flipped because we're not killing them but "filling up" their music meter
+
+        healthBar.fillAmount = 1 - healthFraction;
     }
     public virtual void TakeDamage(int damage)
     {
