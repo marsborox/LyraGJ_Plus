@@ -30,6 +30,7 @@ public class PlayerDied_UI : UI
     private void StartFading()
     {
         MySoundManager.instance.StopMusic();
+        MySoundManager.instance.PlayLyraDeathSound();
 
         _alpha = 0f;
         UpdateAlpha();

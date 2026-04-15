@@ -33,6 +33,7 @@ public class PauseUI : MonoBehaviour
     [SerializeField] private Button optionsCloseButton;
 
     private Action<bool> _onResult;
+    private bool _wasGameActiveBefore;
 
     public void ToggleMenu()
     {
@@ -73,6 +74,7 @@ public class PauseUI : MonoBehaviour
 
     public void OpenMenu()
     {
+        _wasGameActiveBefore = Time.timeScale > 0;
         gameObject.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -212,7 +214,11 @@ public class PauseUI : MonoBehaviour
     private void HideAll()
     {
         gameObject.SetActive(false);
-        Time.timeScale = 1f;
+
+        if (_wasGameActiveBefore) 
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     // Alert

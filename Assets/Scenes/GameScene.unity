@@ -25053,6 +25053,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 859534956746889397, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: movementSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3986896122668706926, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -36491,27 +36495,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 99.56128
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -301.5581
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4270663444886173259, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -69.75427
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4530575104130775622, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: playerRythmBonus
@@ -36529,6 +36537,22 @@ PrefabInstance:
       propertyPath: weaponToTrack
       value: 
       objectReference: {fileID: 1154679116}
+    - target: {fileID: 8124728769452214291, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124728769452214291, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124728769452214291, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124728769452214291, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_FillOrigin
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8604138096941243547, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: weaponToTrack
       value: 

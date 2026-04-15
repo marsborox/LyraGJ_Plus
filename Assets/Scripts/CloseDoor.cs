@@ -15,6 +15,8 @@ public class CloseDoor : MonoBehaviour
     private SpriteRenderer _leftDoorRenderer;
     private SpriteRenderer _rightDoorRenderer;
 
+    private bool _playerHasEntered = false;
+
     void Start()
     {
         _leftDoorAnimator = leftDoor.GetComponentInChildren<Animator>();
@@ -27,8 +29,15 @@ public class CloseDoor : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (_playerHasEntered) return;
+        _playerHasEntered = true;
+        
+        Debug.Log("Entered door!");
+
         _leftDoorAnimator.SetTrigger("HasPlayer");
         _rightDoorAnimator.SetTrigger("HasPlayer");
+
+        MySoundManager.instance.PlayElevatorSound();
 
         StartCoroutine(ChangeScene(0.5f));
     }

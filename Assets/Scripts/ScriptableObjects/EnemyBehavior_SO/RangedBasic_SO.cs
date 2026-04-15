@@ -4,6 +4,8 @@ using UnityEngine;
 public class RangedBasic_SO : EnemyBehavior_SO
 {
     public Projectile projectilePrefab;
+    public Sprite projectileSprite;
+
     public override void PerformBehavior(EnemyCombat source, Unit target)
     {
         if (!source.isAttackReady)
@@ -28,7 +30,8 @@ public class RangedBasic_SO : EnemyBehavior_SO
     {
         Projectile projectile = Instantiate(projectilePrefab); //same w weapon
         projectile.transform.position = source.transform.position; //same w weapon
-
+        projectile.projectileSpriteRenderer.sprite = projectileSprite;
+        
         Vector3 direction = target.transform.position - source.transform.position;
 
         projectile.transform.up = direction.normalized; //similar w weapon
@@ -44,6 +47,7 @@ public class RangedBasic_SO : EnemyBehavior_SO
     {
         Projectile projectile = Instantiate(projectilePrefab); //same w weapon
         projectile.transform.position = source.transform.position; //same w weapon
+        projectile.projectileSpriteRenderer.sprite = projectileSprite;
 
         Vector3 direction = target.transform.position - source.transform.position;
 
