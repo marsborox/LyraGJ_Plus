@@ -64,8 +64,9 @@ public class PlayerCombat : UnitCombat
         weapon4New.ClickAttack();
     }
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(int damage, bool isCrit)
     {
+        Debug.Log("player taking damage: "+damage);
         isAttacking = false;
         base.TakeDamage(damage);
 
@@ -75,6 +76,7 @@ public class PlayerCombat : UnitCombat
             Die();
             //Debug.Log("player died");
         }
+
     }
     public override void PostAttackAnimationEventUnit()
     {
