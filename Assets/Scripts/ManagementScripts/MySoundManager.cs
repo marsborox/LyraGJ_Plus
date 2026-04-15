@@ -35,9 +35,11 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     private FMOD.Studio.EventInstance _lobbyMusicInstance;
     private FMOD.Studio.EventInstance _bossBadJazzInstance;
     private FMOD.Studio.EventInstance _bossJazzInstance;
+    
     // other sounds
     
     private FMOD.Studio.EventInstance _elevatorInstance;
+    private FMOD.Studio.EventInstance _lyraDeathInstance;
 
     private Instrument _lastPlayedInstrument;
 
@@ -57,7 +59,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         _bossJazzInstance = FMODUnity.RuntimeManager.CreateInstance("event:/boss_hudba");
 
         _elevatorInstance = FMODUnity.RuntimeManager.CreateInstance("event:/elevator_sound");
-
+        _lyraDeathInstance = FMODUnity.RuntimeManager.CreateInstance("event:/death_sound");
         ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.5f));
         ChangeSoundEffectsVolume(PlayerPrefs.GetFloat("SoundEffectsVolume", 1f));
     }
@@ -79,6 +81,8 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         _footstepsLyraInstance.release();
         _elevatorInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _elevatorInstance.release();
+        _lyraDeathInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _lyraDeathInstance.release();
 
         _jazzMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _jazzMusicInstance.release();
@@ -108,6 +112,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
             _footstepsLyraInstance.setVolume(volume);
 
             _elevatorInstance.setVolume(volume);
+            _lyraDeathInstance.setVolume(volume);
         }
     }
     public void ChangeMusicVolume([UnityEngine.Internal.DefaultValue("1.0F")] float volume)
@@ -220,6 +225,11 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     public void PlayElevatorSound()
     {
         _elevatorInstance.start();
+    }
+
+    public void PlayLyraDeathSound()
+    {
+        _lyraDeathInstance.start();
     }
 
     // Music
