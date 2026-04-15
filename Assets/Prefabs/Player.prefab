@@ -3860,11 +3860,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1477771279173098806}
     - target: {fileID: 7796757862482134526, guid: 408d510004bd2284ab8f6dd622e41802, type: 3}
+      propertyPath: projectileSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e178c496b3cc47b98eacd0820ddb0c5, type: 3}
+    - target: {fileID: 7796757862482134526, guid: 408d510004bd2284ab8f6dd622e41802, type: 3}
       propertyPath: _projectileColor.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7796757862482134526, guid: 408d510004bd2284ab8f6dd622e41802, type: 3}
       propertyPath: _projectileColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796757862482134526, guid: 408d510004bd2284ab8f6dd622e41802, type: 3}
+      propertyPath: _projectileColor.r
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
