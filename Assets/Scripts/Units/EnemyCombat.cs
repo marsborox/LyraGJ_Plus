@@ -58,10 +58,11 @@ public class EnemyCombat : UnitCombat
     public float advantageCoef = 0.5f;
     public float disadvantageCoef = 1.5f;
 
-    [Header("Damage Number")]
+    [Header("Damage")]
     [SerializeField] private DamageNumber damageNumberPrefab;
     [SerializeField] private Color damageNumberColorNoCrit = new Color32(252,112,2,255);
     [SerializeField] private Color damageNumberColorCrit = Color.green;
+    [SerializeField] private EnemyDance enemyDancePrefab;
     [Header("Non Combat")]
     [SerializeField] float _minWaitTime = 0.2f;
     [SerializeField] float _maxWatiTime = 0.5f;
@@ -88,8 +89,8 @@ public class EnemyCombat : UnitCombat
         base.Update();
         if (healthCurrent <= 0)
         {
-            DieAnimation();
-            //Die();
+            // DieAnimation();
+            Die();
         }
         
         if (isStunned)
@@ -214,6 +215,13 @@ public class EnemyCombat : UnitCombat
         //Debug.Log("enemyDeath processing");
         CheckDropHealth();
         GlobalEventManager.instance.TriggerOnEnemyDied(_enemy, roomISpawnedIn);
+
+        if (enemyDancePrefab != null)
+        {
+            EnemyDance enemyDance = Instantiate(enemyDancePrefab, transform.position, Quaternion.identity);
+            enemyDance.StartDancing(_enemy.enemyType);            
+        }
+
         Destroy(gameObject);
 
         //roomISpawnedIn.EnemyDied();
