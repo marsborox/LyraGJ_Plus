@@ -116,7 +116,7 @@ public class JazzBossCombat : MonoBehaviour
             case State.BAD_JAZZ:
                 {
                     animator.Play("BossJazzDancing");
-                    StartCoroutine(PlayBadJazz(3));
+                    StartCoroutine(PlayBadJazz(3, true));
                     break;            
                 }
             case State.OUTRO:
@@ -218,7 +218,7 @@ public class JazzBossCombat : MonoBehaviour
         yield return new WaitForSeconds(duration + 1f); // add some buffer for player to see that hitting a boss did NOT work
         cutscenesPlayer.SpawnDialogue(afterHittingBoss, () => currentState = State.SPAWN_ENEMIES);
     }
-    private IEnumerator PlayBadJazz(int howManyTimes)
+    private IEnumerator PlayBadJazz(int howManyTimes, bool spawnEnemies = false)
     {
         int counter = 0;
         float interval = 0.7f;
@@ -229,7 +229,10 @@ public class JazzBossCombat : MonoBehaviour
             counter++;
         }
 
-        currentState = State.SPAWN_ENEMIES;
+        if (spawnEnemies)
+        {
+            currentState = State.SPAWN_ENEMIES;
+        }
     }
     private IEnumerator PlayGoodJazz(float seconds)
     {
