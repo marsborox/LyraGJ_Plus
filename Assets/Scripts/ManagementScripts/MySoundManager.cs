@@ -22,7 +22,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     public static new MySoundManager instance => SingletonPersistent<MySoundManager>.instance;
 
     [Header("Volume")]
-    [Range(0f, 1f)] public float musicVolume = 0.5f;
+    [Range(0f, 1f)] public float musicVolume = 1f;
     [Range(0f, 1f)] public float soundEffectsVolume = 1f;
 
     private FMOD.Studio.EventInstance _enemyHitInstance;
@@ -33,8 +33,17 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     private FMOD.Studio.EventInstance _footstepsLyraInstance;
     private FMOD.Studio.EventInstance _jazzMusicInstance;
     private FMOD.Studio.EventInstance _lobbyMusicInstance;
+    private FMOD.Studio.EventInstance _bossBadJazzInstance;
+    private FMOD.Studio.EventInstance _bossJazzInstance;
+    
+    // other sounds
+    
+    private FMOD.Studio.EventInstance _elevatorInstance;
+    private FMOD.Studio.EventInstance _lyraDeathInstance;
 
     private Instrument _lastPlayedInstrument;
+    private float _musicVolumeModifier = 0.1f;
+    private float _soundVolumeModifier = 0.1f;
 
     void Start()
     {
@@ -48,9 +57,13 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
         _jazzMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/main_hudba_jazz");
         _lobbyMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/divadlo_hudba");
+        _bossBadJazzInstance = FMODUnity.RuntimeManager.CreateInstance("event:/boss_falosne_noty");
+        _bossJazzInstance = FMODUnity.RuntimeManager.CreateInstance("event:/boss_hudba");
 
-        ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.5f));
-        ChangeSoundEffectsVolume(PlayerPrefs.GetFloat("SoundEffectsVolume", 1f));
+        _elevatorInstance = FMODUnity.RuntimeManager.CreateInstance("event:/elevator_sound");
+        _lyraDeathInstance = FMODUnity.RuntimeManager.CreateInstance("event:/death_sound");
+        ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 1f), true);
+        ChangeSoundEffectsVolume(PlayerPrefs.GetFloat("SoundEffectsVolume", 1f), true);
     }
 
     void OnDestroy()
@@ -68,40 +81,59 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         _footstepsEnemyInstance.release();
         _footstepsLyraInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _footstepsLyraInstance.release();
+        _elevatorInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _elevatorInstance.release();
+        _lyraDeathInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _lyraDeathInstance.release();
 
         _jazzMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _jazzMusicInstance.release();
         _lobbyMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _lobbyMusicInstance.release();
+        _bossBadJazzInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _bossBadJazzInstance.release();
+        _bossJazzInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _bossJazzInstance.release();
     }
 
     // General settings
 
-    public void ChangeSoundEffectsVolume([UnityEngine.Internal.DefaultValue("1.0F")] float volume)
+    public void ChangeSoundEffectsVolume([UnityEngine.Internal.DefaultValue("1.0F")] float volume, bool force = false)
     {
-        if (soundEffectsVolume != volume)
+        if (soundEffectsVolume != volume || force)
         {
             soundEffectsVolume = volume;
             PlayerPrefs.SetFloat("SoundEffectsVolume", volume);
 
-            _enemyHitInstance.setVolume(volume);
-            _guitarHitInstance.setVolume(volume);
-            _pianoHitInstance.setVolume(volume);
-            _saxophoneHitInstance.setVolume(volume);
+            float limitedVolume = volume * _soundVolumeModifier;
+            Debug.Log("Real sound volume: " + limitedVolume);
 
-            _footstepsEnemyInstance.setVolume(volume);
-            _footstepsLyraInstance.setVolume(volume);
+            _enemyHitInstance.setVolume(limitedVolume);
+            _guitarHitInstance.setVolume(limitedVolume);
+            _pianoHitInstance.setVolume(limitedVolume);
+            _saxophoneHitInstance.setVolume(limitedVolume);
+
+            _footstepsEnemyInstance.setVolume(limitedVolume);
+            _footstepsLyraInstance.setVolume(limitedVolume);
+
+            _elevatorInstance.setVolume(limitedVolume);
+            _lyraDeathInstance.setVolume(limitedVolume);
         }
     }
-    public void ChangeMusicVolume([UnityEngine.Internal.DefaultValue("1.0F")] float volume)
+    public void ChangeMusicVolume([UnityEngine.Internal.DefaultValue("1.0F")] float volume, bool force = false)
     {
-        if (musicVolume != volume)
+        if (musicVolume != volume || force)
         {
-            musicVolume = volume;
+            musicVolume = volume ;
             PlayerPrefs.SetFloat("MusicVolume", volume);
 
-            _jazzMusicInstance.setVolume(volume);
-            _lobbyMusicInstance.setVolume(volume);
+            float limitedVolume = volume * _musicVolumeModifier;
+            Debug.Log("Real music volume: " + limitedVolume);
+
+            _jazzMusicInstance.setVolume(limitedVolume );
+            _lobbyMusicInstance.setVolume(limitedVolume);
+            _bossBadJazzInstance.setVolume(limitedVolume);
+            _bossJazzInstance.setVolume(limitedVolume);
         }
     }
 
@@ -159,21 +191,53 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
         StopAllInstrumentSounds();
 
+        FMOD.Studio.PLAYBACK_STATE state;
+        _jazzMusicInstance.getPlaybackState(out state);
         switch (instrument)
         {
             case Instrument.Guitar: {
-                _jazzMusicInstance.setParameterByName("Guitar_attack", 1);
+                if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+                    _jazzMusicInstance.setParameterByName("Guitar_attack", 1);
+                } 
+                else
+                {
+                    PlayLyraHit();
+                }
                 break;
             }
             case Instrument.Piano: {
-                _jazzMusicInstance.setParameterByName("Piano_attack", 1);
+                if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+                    _jazzMusicInstance.setParameterByName("Piano_attack", 1);
+                } 
+                else
+                {
+                    PlayLyraHit();
+                }
                 break;
             }
             case Instrument.Saxophone: {
-                _jazzMusicInstance.setParameterByName("Saxophone_attack", 1);
+                if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+                    _jazzMusicInstance.setParameterByName("Saxophone_attack", 1);
+                }
+                else
+                {
+                    PlayLyraHit();
+                }
                 break;
             }
         }
+    }
+
+    // Other sounds
+
+    public void PlayElevatorSound()
+    {
+        _elevatorInstance.start();
+    }
+
+    public void PlayLyraDeathSound()
+    {
+        _lyraDeathInstance.start();
     }
 
     // Music
@@ -192,6 +256,18 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
         {
             _lobbyMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
+
+        _bossBadJazzInstance.getPlaybackState(out state);
+        if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            _bossBadJazzInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
+
+        _bossJazzInstance.getPlaybackState(out state);
+        if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            _bossJazzInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
     }
 
@@ -213,15 +289,15 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
     public void PlayBadJazzBossMusic()
     {
-        // TODO: replace with actual music later
-        _pianoHitInstance.start();
+        StopMusic();
+        _bossBadJazzInstance.start();
     }
 
     public void PlayFinalJazzBossSong()
     {
-        // TODO: replace with actual music later
-        PlayJazzMusic();
-        PlayInstrument(Instrument.Piano); // because boss plays on a piano
+        StopMusic();
+        _bossJazzInstance.setTimelinePosition(2000);
+        _bossJazzInstance.start();
     }
 
     // Helpers

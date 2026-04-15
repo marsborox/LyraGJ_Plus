@@ -89,11 +89,16 @@ public class JazzBossCombat : MonoBehaviour
         switch (currentState) {
             case State.INTRO: 
             {
+                StartCoroutine(PlayBadJazz(6));
+                // MySoundManager.instance.PlayBadJazzBossMusic();
+
                 _missedNote = 0;
                 cutscenesPlayer.SpawnDialogue(intro, () => currentState = State.WAITING);
                 break;
             }
             case State.WAITING:
+                StartCoroutine(PlayBadJazz(3));
+                // MySoundManager.instance.PlayBadJazzBossMusic();
                 break;
             case State.SPAWN_ENEMIES: 
             {
@@ -111,7 +116,7 @@ public class JazzBossCombat : MonoBehaviour
             case State.BAD_JAZZ:
                 {
                     animator.Play("BossJazzDancing");
-                    StartCoroutine(PlayBadJazz(3));
+                    StartCoroutine(PlayBadJazz(3, true));
                     break;            
                 }
             case State.OUTRO:
@@ -119,7 +124,7 @@ public class JazzBossCombat : MonoBehaviour
                 StopCoroutine(_dropJazzRoutine);
 
                 animator.Play("BossJazzPlaying");
-                StartCoroutine(PlayGoodJazz(2.5f));
+                StartCoroutine(PlayGoodJazz(3f));
                 break;
             }
         }
@@ -129,6 +134,7 @@ public class JazzBossCombat : MonoBehaviour
 
     private void OnEnemyDied(Enemy enemy,Room room)
     {
+        StartCoroutine(PlayBadJazz(2));
         _noteSpawnPosition = enemy.gameObject.transform.position;
 
         if (currentState != State.SPAWN_ENEMIES)
@@ -212,7 +218,7 @@ public class JazzBossCombat : MonoBehaviour
         yield return new WaitForSeconds(duration + 1f); // add some buffer for player to see that hitting a boss did NOT work
         cutscenesPlayer.SpawnDialogue(afterHittingBoss, () => currentState = State.SPAWN_ENEMIES);
     }
-    private IEnumerator PlayBadJazz(int howManyTimes)
+    private IEnumerator PlayBadJazz(int howManyTimes, bool spawnEnemies = false)
     {
         int counter = 0;
         float interval = 0.7f;
@@ -223,7 +229,10 @@ public class JazzBossCombat : MonoBehaviour
             counter++;
         }
 
-        currentState = State.SPAWN_ENEMIES;
+        if (spawnEnemies)
+        {
+            currentState = State.SPAWN_ENEMIES;
+        }
     }
     private IEnumerator PlayGoodJazz(float seconds)
     {
