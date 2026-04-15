@@ -13,6 +13,8 @@ public class PlayerCombat : UnitCombat
 
     private bool isAttacking = false;
 
+    private Coroutine _attackCancelling;
+
     private void Start()
     {
         base.Start();   
@@ -30,6 +32,7 @@ public class PlayerCombat : UnitCombat
         
         weapon1New.ClickAttack();
         
+        CancelAttackIfNeeded();
     }
     public void Weapon2_OnClick() 
     {
@@ -43,6 +46,8 @@ public class PlayerCombat : UnitCombat
         animationController.HandleRangedAttackAnimation();
         weapon2New.ClickAttack();
         //Debug.Log("doing ranged attack");
+
+        CancelAttackIfNeeded();
     }
     public void Weapon3_OnClick()
     { 
@@ -54,6 +59,8 @@ public class PlayerCombat : UnitCombat
         SpawnMusicalNotes(new Color(0, 0, 1));
         animationController.HandleAoEAttackAnimation();
         weapon3New.ClickAttack();
+
+        CancelAttackIfNeeded();
     }
     public void Weapon4_OnClick()
     {
@@ -80,7 +87,16 @@ public class PlayerCombat : UnitCombat
     }
     public override void PostAttackAnimationEventUnit()
     {
-        if (!isAttacking) return;
+        isAttacking = false;
+    }
+
+    private void CancelAttackIfNeeded()
+    {
+        if (_attackCancelling != null) StopCoroutine(_attackCancelling);
+        _attackCancelling = StartCoroutine(AttackSafetyNet());
+    }
+    private IEnumerator AttackSafetyNet() {
+        yield return new WaitForSeconds(0.5f); // longer than any attack Lyra has
         isAttacking = false;
     }
     public override void SetHealthBar()

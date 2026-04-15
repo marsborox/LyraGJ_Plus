@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
     public float pushBackDuration;
     public float miniStunDuration;
     public SpriteRenderer projectileSpriteRenderer;
-    //we will hardcode that if player with anything hits projectile it gets destroyed
+    public bool shouldWobble = false;
     
     
     private void Start()
@@ -34,6 +34,14 @@ public class Projectile : MonoBehaviour
     public void BulletMovement()
     {
         transform.Translate(Vector3.up * Time.fixedDeltaTime * movementSpeed);
+
+        if (shouldWobble)
+        {
+            float baseSpeed = 100f;
+            float wobbleIntensity = 50f;
+            float wobble = (Mathf.PerlinNoise(Time.time, 0) - 0.5f) * 2f * wobbleIntensity;
+            projectileSpriteRenderer.transform.Rotate(0, 0, (baseSpeed + wobble) * Time.deltaTime);
+        }
     }
     public void ProjectileHit(Unit unit)
     {

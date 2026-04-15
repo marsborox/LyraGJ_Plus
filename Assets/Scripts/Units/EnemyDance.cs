@@ -33,7 +33,7 @@ public class EnemyDance : MonoBehaviour
 
         while (elapsed < duration)
         {
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a * (duration - elapsed));
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a * ((duration - elapsed)/duration));
             elapsed += Time.unscaledDeltaTime;
             yield return null;
         }
