@@ -178,18 +178,38 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
         StopAllInstrumentSounds();
 
+        FMOD.Studio.PLAYBACK_STATE state;
+        _jazzMusicInstance.getPlaybackState(out state);
         switch (instrument)
         {
             case Instrument.Guitar: {
-                _jazzMusicInstance.setParameterByName("Guitar_attack", 1);
+                if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+                    _jazzMusicInstance.setParameterByName("Guitar_attack", 1);
+                } 
+                else
+                {
+                    PlayLyraHit();
+                }
                 break;
             }
             case Instrument.Piano: {
-                _jazzMusicInstance.setParameterByName("Piano_attack", 1);
+                if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+                    _jazzMusicInstance.setParameterByName("Piano_attack", 1);
+                } 
+                else
+                {
+                    PlayLyraHit();
+                }
                 break;
             }
             case Instrument.Saxophone: {
-                _jazzMusicInstance.setParameterByName("Saxophone_attack", 1);
+                if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING) {
+                    _jazzMusicInstance.setParameterByName("Saxophone_attack", 1);
+                }
+                else
+                {
+                    PlayLyraHit();
+                }
                 break;
             }
         }
