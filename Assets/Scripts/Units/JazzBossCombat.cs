@@ -89,11 +89,16 @@ public class JazzBossCombat : MonoBehaviour
         switch (currentState) {
             case State.INTRO: 
             {
+                StartCoroutine(PlayBadJazz(6));
+                // MySoundManager.instance.PlayBadJazzBossMusic();
+
                 _missedNote = 0;
                 cutscenesPlayer.SpawnDialogue(intro, () => currentState = State.WAITING);
                 break;
             }
             case State.WAITING:
+                StartCoroutine(PlayBadJazz(3));
+                // MySoundManager.instance.PlayBadJazzBossMusic();
                 break;
             case State.SPAWN_ENEMIES: 
             {
@@ -119,7 +124,7 @@ public class JazzBossCombat : MonoBehaviour
                 StopCoroutine(_dropJazzRoutine);
 
                 animator.Play("BossJazzPlaying");
-                StartCoroutine(PlayGoodJazz(2.5f));
+                StartCoroutine(PlayGoodJazz(3f));
                 break;
             }
         }
@@ -129,6 +134,7 @@ public class JazzBossCombat : MonoBehaviour
 
     private void OnEnemyDied(Enemy enemy,Room room)
     {
+        StartCoroutine(PlayBadJazz(2));
         _noteSpawnPosition = enemy.gameObject.transform.position;
 
         if (currentState != State.SPAWN_ENEMIES)
