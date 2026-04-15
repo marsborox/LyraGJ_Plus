@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public enum GameScene {LOBBY, DARKLOBBY, JAZZ, JAZZ_BOSS, TUTORIAL, TESTCOMBAT, DEV, MAIN_MENU, DRESSING_ROOM}
+public enum GameScene {LOBBY, DARKLOBBY, JAZZ, JAZZ_BOSS, TUTORIAL, TESTCOMBAT, DEV, MAIN_MENU, DRESSING_ROOM, CREDITS}
 
 public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
 {
@@ -85,7 +85,6 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
             OpenScene(GameScene.LOBBY);
         }
     }
-
     public void OpenElevator()
     {
         if (didPlayerSurviveTutorial)
@@ -95,6 +94,10 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         {
             OpenScene(GameScene.TUTORIAL);
         }
+    }
+    public void OpenCredits()
+    {
+        OpenScene(GameScene.CREDITS);
     }
 
     private void OpenMainMenu()
@@ -162,6 +165,13 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         SceneManager.LoadScene("DressingRoomScene");
         Time.timeScale = 1f;
     }
+    private void OpenCreditsScene()
+    {
+        PreviousScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("CreditsScene");
+        Time.timeScale = 1f;
+        MySoundManager.instance.PlayLobbyMusic();
+    }
 
     // Fading
 
@@ -200,6 +210,9 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
                 break;
             case GameScene.DRESSING_ROOM:
                 OpenDressingRoomScene();
+                break;
+            case GameScene.CREDITS:
+                OpenCreditsScene();
                 break;
         }
     }
