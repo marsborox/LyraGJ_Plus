@@ -6,7 +6,8 @@ public class BowAuto : Weapon
 {
     public Projectile projectilePrefab;
     private Coroutine _animationRoutine;
-    [SerializeField] private Color _projectileColor = Color.green;    
+    [SerializeField] private Color _projectileColor = Color.green;
+    [SerializeField] private Sprite projectileSprite;
     
     public override void ClickAttack()
     {
@@ -34,6 +35,7 @@ public class BowAuto : Weapon
         projectile.pushBackForce = pushbackForce;//not in SO
         projectile.projectileType = weaponType;
         projectile.projectileSpriteRenderer.color = _projectileColor;
+        projectile.projectileSpriteRenderer.sprite = projectileSprite;
 
         _animationRoutine = StartCoroutine(AnimationRoutine());
         GlobalEventManager.instance.TriggerOnPlayerAtack();
