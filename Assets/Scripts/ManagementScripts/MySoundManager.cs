@@ -22,7 +22,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     public static new MySoundManager instance => SingletonPersistent<MySoundManager>.instance;
 
     [Header("Volume")]
-    [Range(0f, 1f)] public float musicVolume = 0.5f;
+    [Range(0f, 1f)] public float musicVolume = 1f;
     [Range(0f, 1f)] public float soundEffectsVolume = 1f;
 
     private FMOD.Studio.EventInstance _enemyHitInstance;
@@ -42,6 +42,8 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     private FMOD.Studio.EventInstance _lyraDeathInstance;
 
     private Instrument _lastPlayedInstrument;
+    private float _musicVolumeModifier = 0.1f;
+    private float _soundVolumeModifier = 0.1f;
 
     void Start()
     {
@@ -60,8 +62,8 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
         _elevatorInstance = FMODUnity.RuntimeManager.CreateInstance("event:/elevator_sound");
         _lyraDeathInstance = FMODUnity.RuntimeManager.CreateInstance("event:/death_sound");
-        ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.5f));
-        ChangeSoundEffectsVolume(PlayerPrefs.GetFloat("SoundEffectsVolume", 1f));
+        ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 1f), true);
+        ChangeSoundEffectsVolume(PlayerPrefs.GetFloat("SoundEffectsVolume", 1f), true);
     }
 
     void OnDestroy()
@@ -96,36 +98,42 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
     // General settings
 
-    public void ChangeSoundEffectsVolume([UnityEngine.Internal.DefaultValue("1.0F")] float volume)
+    public void ChangeSoundEffectsVolume([UnityEngine.Internal.DefaultValue("1.0F")] float volume, bool force = false)
     {
-        if (soundEffectsVolume != volume)
+        if (soundEffectsVolume != volume || force)
         {
             soundEffectsVolume = volume;
             PlayerPrefs.SetFloat("SoundEffectsVolume", volume);
 
-            _enemyHitInstance.setVolume(volume);
-            _guitarHitInstance.setVolume(volume);
-            _pianoHitInstance.setVolume(volume);
-            _saxophoneHitInstance.setVolume(volume);
+            float limitedVolume = volume * _soundVolumeModifier;
+            Debug.Log("Real sound volume: " + limitedVolume);
 
-            _footstepsEnemyInstance.setVolume(volume);
-            _footstepsLyraInstance.setVolume(volume);
+            _enemyHitInstance.setVolume(limitedVolume);
+            _guitarHitInstance.setVolume(limitedVolume);
+            _pianoHitInstance.setVolume(limitedVolume);
+            _saxophoneHitInstance.setVolume(limitedVolume);
 
-            _elevatorInstance.setVolume(volume);
-            _lyraDeathInstance.setVolume(volume);
+            _footstepsEnemyInstance.setVolume(limitedVolume);
+            _footstepsLyraInstance.setVolume(limitedVolume);
+
+            _elevatorInstance.setVolume(limitedVolume);
+            _lyraDeathInstance.setVolume(limitedVolume);
         }
     }
-    public void ChangeMusicVolume([UnityEngine.Internal.DefaultValue("1.0F")] float volume)
+    public void ChangeMusicVolume([UnityEngine.Internal.DefaultValue("1.0F")] float volume, bool force = false)
     {
-        if (musicVolume != volume)
+        if (musicVolume != volume || force)
         {
-            musicVolume = volume;
+            musicVolume = volume ;
             PlayerPrefs.SetFloat("MusicVolume", volume);
 
-            _jazzMusicInstance.setVolume(volume);
-            _lobbyMusicInstance.setVolume(volume);
-            _bossBadJazzInstance.setVolume(volume);
-            _bossJazzInstance.setVolume(volume);
+            float limitedVolume = volume * _musicVolumeModifier;
+            Debug.Log("Real music volume: " + limitedVolume);
+
+            _jazzMusicInstance.setVolume(limitedVolume );
+            _lobbyMusicInstance.setVolume(limitedVolume);
+            _bossBadJazzInstance.setVolume(limitedVolume);
+            _bossJazzInstance.setVolume(limitedVolume);
         }
     }
 
