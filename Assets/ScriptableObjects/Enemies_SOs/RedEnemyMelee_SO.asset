@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   enemySpriteLibrary: {fileID: 7108339969198208228, guid: 99b15685d8ae28341978d220fa7d4c8f, type: 3}
-  damage: 1
-  health: 3
+  damage: 8
+  health: 20
   range: 2.5
   attackCooldown: 1
   movementSpeed: 2
