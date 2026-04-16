@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RangedBasic_SO
   action: {fileID: 0}
   projectilePrefab: {fileID: 6644402386810928938, guid: 71690d629e79a2945944c89323cd7b8a, type: 3}
-  projectileSprite: {fileID: 21300000, guid: 7e91bed32095947b2bd6574ed1861f86, type: 3}
-  projectileColor: {r: 1, g: 1, b: 1, a: 0}
+  projectileSprite: {fileID: 21300000, guid: 2a7efe2a79a514a62bb55e64975fc4ca, type: 3}

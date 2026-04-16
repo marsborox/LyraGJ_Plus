@@ -8,9 +8,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1418929928197219649, guid: b23344f982f449547a281edd6f1385e7, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7441678
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418929928197219649, guid: b23344f982f449547a281edd6f1385e7, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.04708378
+      objectReference: {fileID: 0}
     - target: {fileID: 5782317468981537541, guid: b23344f982f449547a281edd6f1385e7, type: 3}
       propertyPath: m_Name
-      value: 10U_320x320_HouseJazz01 Variant
+      value: 10U_320x320_HouseJazz Red01 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6558888915003829536, guid: b23344f982f449547a281edd6f1385e7, type: 3}
       propertyPath: m_Sprite
