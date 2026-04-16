@@ -1690,6 +1690,7 @@ GameObject:
   - component: {fileID: 2079655099}
   - component: {fileID: 2079655098}
   - component: {fileID: 2079655100}
+  - component: {fileID: 2079655102}
   - component: {fileID: 2079655101}
   m_Layer: 0
   m_Name: Options Button
@@ -1737,7 +1738,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6469859c61ce34a53b54f0d1a5568db7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51fa729dac9a74a8aa23d2b45e6c4360, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1823,6 +1824,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f55c7a1eafd74ccb8e0f0bb630a91df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonClicking
+--- !u!114 &2079655102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079655096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00e95fa5d45e2404cb061269a3b14184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionsButton
+  rotationSpeed: 50
 --- !u!1001 &5399728723646749837
 PrefabInstance:
   m_ObjectHideFlags: 0
