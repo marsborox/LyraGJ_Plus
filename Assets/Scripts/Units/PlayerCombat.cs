@@ -73,7 +73,7 @@ public class PlayerCombat : UnitCombat
 
     public override void TakeDamage(int damage, bool isCrit)
     {
-        Debug.Log("player taking damage: "+damage);
+        //Debug.Log("player taking damage: "+damage);
         isAttacking = false;
         base.TakeDamage(damage);
 
