@@ -48,7 +48,7 @@ MonoBehaviour:
   weaponType: 0
   maxCooldown: 3
   coolDownTimer: 0
-  damageBase: 5
+  damageBase: 6
   damageApplied: 0
   damageMultiplier: 2
   attackAnimationTime: 0.2
@@ -59,7 +59,6 @@ MonoBehaviour:
   player: {fileID: 0}
   _myCollider: {fileID: 7272939872932712137}
   _animationVisual1: {fileID: 8469985176662275356}
-  _animationVisual2: {fileID: 0}
 --- !u!1 &8469985176662275356
 GameObject:
   m_ObjectHideFlags: 0

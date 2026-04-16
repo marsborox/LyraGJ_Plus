@@ -154,7 +154,7 @@ MonoBehaviour:
   weaponType: 0
   maxCooldown: 0.5
   coolDownTimer: 0
-  damageBase: 3
+  damageBase: 6
   damageApplied: 0
   damageMultiplier: 2
   attackAnimationTime: 0.4
@@ -166,6 +166,7 @@ MonoBehaviour:
   _myCollider: {fileID: 4321124008830906293}
   _animationVisual: {fileID: 4713899241837539329}
   _visualCollider: {fileID: 6244870623226884601}
+  _swordAttackSprite: {fileID: 0}
 --- !u!1 &4713899241837539329
 GameObject:
   m_ObjectHideFlags: 0

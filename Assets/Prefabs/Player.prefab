@@ -1222,7 +1222,7 @@ MonoBehaviour:
   goingLeft: {fileID: 0}
   animationController: {fileID: 361598244255013037}
   weapons: {fileID: 5158036404265290629}
-  movementSpeed: 15
+  movementSpeed: 10
   canMove: 1
   canDash: 1
   _mouseFollow: {fileID: 1477771279173098806}
@@ -1664,7 +1664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1a4cdbb5a76d949aa8953da8d96b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
-  healthMax: 50
+  healthMax: 100
   healthCurrent: 0
   healthFraction: 0
   healthBar: {fileID: 0}
@@ -3701,13 +3701,17 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3766374174507064292, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4093163375738783104, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 4713899241837539329, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6660183504305069722, guid: 03da6526d4c398449acef290da65b0bc, type: 3}
       propertyPath: player
