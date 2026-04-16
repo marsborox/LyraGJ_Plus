@@ -47,7 +47,7 @@ MonoBehaviour:
   weaponType: 0
   maxCooldown: 0.3
   coolDownTimer: 0
-  damageBase: 2
+  damageBase: 6
   damageApplied: 0
   damageMultiplier: 2
   attackAnimationTime: 0.3
