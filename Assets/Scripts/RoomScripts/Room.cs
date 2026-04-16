@@ -36,6 +36,7 @@ public class Room : MonoBehaviour
         if (isCleared) 
         {
             GlobalEventManager.instance.TriggerOnRoomCleared(this);
+            
         }
     }
     public void TriggerActivated(EntryTrigger trigger)
