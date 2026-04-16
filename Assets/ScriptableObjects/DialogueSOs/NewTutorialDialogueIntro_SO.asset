@@ -25,7 +25,7 @@ MonoBehaviour:
       don't help you at all. How ungentlemanly of me.
     character: 1
     emotion: 0
-  - dialogueText: Here darling, take my guitar and feel it.
+  - dialogueText: Here, darling, take my guitar and feel it.
     character: 1
     emotion: 2
   - dialogueText: It's so beautiful. I'm worried I will break it.

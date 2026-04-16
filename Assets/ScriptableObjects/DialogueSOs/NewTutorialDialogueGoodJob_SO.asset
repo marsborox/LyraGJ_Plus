@@ -33,10 +33,7 @@ MonoBehaviour:
   - dialogueText: Yes, just like that little heart.
     character: 1
     emotion: 3
-  - dialogueText: When you pick it up, it fills your music back up.
+  - dialogueText: Try to pick it up.
     character: 1
     emotion: 0
-  - dialogueText: Got it.
-    character: 0
-    emotion: 2
   fileName: NewTutorialDialogueGoodJob_SO
