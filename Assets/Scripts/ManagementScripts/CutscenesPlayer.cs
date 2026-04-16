@@ -44,10 +44,11 @@ public class CutscenesPlayer : MonoBehaviour
     private int _currentPartIndex = 0;
     private Action _onComplete;
 
-    void Awake()
+    void Start()
     {
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player) _playerRigidbody = player.GetComponent<Rigidbody2D>();
+
     }
     void OnEnable()
     {
