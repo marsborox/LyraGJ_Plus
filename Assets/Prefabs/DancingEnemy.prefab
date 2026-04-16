@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: -4
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.70980394}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -160,4 +160,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   spriteRenderer: {fileID: 1367019857315383149}
   animator: {fileID: 1946928048847929493}
+  startAlpha: 0.5
   danceDuration: 2
