@@ -132,7 +132,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6614621823352680147}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -201,6 +201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JazzBossMusicalNote
   jazzBoost: 0
+  _noteCollider: {fileID: 326662660255953537}
+  _delayTime: 0.4
   bpm: 170
   intensity: 0.5
   visualGameObject: {fileID: 3871853921834847788}
