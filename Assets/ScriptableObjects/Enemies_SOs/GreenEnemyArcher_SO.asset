@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   enemySpriteLibrary: {fileID: 7108339969198208228, guid: 866ddf5f8f310e84992fd65176c5a3a8, type: 3}
-  damage: 1
-  health: 10
+  damage: 8
+  health: 20
   range: 5
-  attackCooldown: 1
+  attackCooldown: 1.5
   movementSpeed: 1
   attackAnimationTime: 0.5
   spriteColor:
