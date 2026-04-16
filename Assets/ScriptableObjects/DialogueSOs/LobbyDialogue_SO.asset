@@ -44,7 +44,7 @@ MonoBehaviour:
     emotion: 5
   - dialogueText: Don't worry, we're working hard on more levels!
     character: 0
-    emotion: 2
+    emotion: 3
   - dialogueText: See ya!
     character: 1
     emotion: 3
