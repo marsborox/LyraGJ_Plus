@@ -56,5 +56,6 @@ MonoBehaviour:
   projectileTag: PlayerProjectile
   mouseFollow: {fileID: 0}
   player: {fileID: 0}
-  projectilePrefab: {fileID: 6644402386810928938, guid: b82f19a88e687ea46b2a0154fed67ec0, type: 3}
+  projectilePrefab: {fileID: 6644402386810928938, guid: 4c9208e961cbd0644996a39cda51363d, type: 3}
   _projectileColor: {r: 0, g: 0.7264151, b: 0.098758794, a: 1}
+  projectileSprite: {fileID: 0}
