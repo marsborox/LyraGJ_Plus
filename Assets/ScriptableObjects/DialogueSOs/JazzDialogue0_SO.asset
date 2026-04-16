@@ -17,8 +17,17 @@ MonoBehaviour:
   - dialogueText: You really think I can play all this?
     character: 0
     emotion: 6
-  - dialogueText: "You already can, doll.\nYou just don\u2019t trust your own rhythm
-      yet."
+  - dialogueText: I believe in you, Lyra.
     character: 1
     emotion: 2
+  - dialogueText: Just remember how to get through their shields.
+    character: 1
+    emotion: 0
+  - dialogueText: Red guitar, blue piano, green sax?
+    character: 0
+    emotion: 1
+  - dialogueText: "See? You CAN play it.\nYou just don\u2019t trust your own rhythm
+      yet."
+    character: 1
+    emotion: 3
   fileName: JazzDialogue0_SO
