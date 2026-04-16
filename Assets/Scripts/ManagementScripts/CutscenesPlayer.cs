@@ -175,11 +175,13 @@ public class CutscenesPlayer : MonoBehaviour
             {
                 trigger.isInside = true;
                 OnTriggerEntered(trigger);
+                break;
             }
             else if (!inside && trigger.isInside)
             {
                 trigger.isInside = false;
                 OnTriggerExited(trigger);
+                break;
             }
         }
     }
