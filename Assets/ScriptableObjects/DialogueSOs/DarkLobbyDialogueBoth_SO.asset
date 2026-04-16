@@ -10,17 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b64693eb50bb564dbefa613b86cb10f, type: 3}
-  m_Name: DarkLobbyDialogue_SO
+  m_Name: DarkLobbyDialogueBoth_SO
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue_SO
   showAgain: 0
   parts:
-  - dialogueText: ....
-    character: 0
-    emotion: 5
-  - dialogueText: I'm sorry, mother, looks like I won't be able to keep my promise
-      to you.
-    character: 0
-    emotion: 5
   - dialogueText: Well, what have we here?
     character: 1
     emotion: 1
@@ -31,8 +24,8 @@ MonoBehaviour:
       to visit my small and humble opera at this time of year. Is everything alright?
     character: 1
     emotion: 0
-  - dialogueText: Yes, I am alright. Sorry for disturbing you! I just wanted some
-      peace and quiet to think.
+  - dialogueText: Um, I am alright. Sorry to disturb you! I just wanted some peace
+      and quiet.
     character: 0
     emotion: 4
   - dialogueText: Wait. You said "my small and humble opera"?
@@ -45,37 +38,35 @@ MonoBehaviour:
       that find time to visit this place.
     character: 1
     emotion: 2
-  - dialogueText: Now, may I ask your name, and what bring such a pretty lady as
-      you here?
+  - dialogueText: Now, may I ask your name and what brings such a pretty lady here?
     character: 1
     emotion: 1
   - dialogueText: I'm Lyra. And well, you see... I used to visit this opera with
-      my mother when I was little. She loved the place and the shows here.
+      my mother when I was little. She loved the place and shows here.
     character: 0
     emotion: 5
-  - dialogueText: So I promised her that when I grow up, I will sing in here to make
-      her happy and proud of me.
+  - dialogueText: So I promised her that when I grow up, I will sing here to make
+      her happy and proud.
     character: 0
     emotion: 4
   - dialogueText: That is a beautiful promise.
     character: 1
     emotion: 5
-  - dialogueText: Now, being the gentleman that I am, I feel obliged to help you.
+  - dialogueText: Now, being the gentleman I am, I feel obliged to help you.
     character: 1
     emotion: 2
-  - dialogueText: I know this place isn't what it used to be but it never lost its
-      soul. Even now, you could put on a show for your mother.
+  - dialogueText: I know it isn't what it used to be but my opera never lost its
+      soul. Even now, you could put on a show for your mother!
     character: 1
     emotion: 2
-  - dialogueText: I appreciate it but sadly I don't think you can help me. You see,
+  - dialogueText: I appreciate it but sadly, I don't think you can help me. You see,
       I can't sing anymore.
     character: 0
     emotion: 5
   - dialogueText: I have lost my voice.
     character: 0
     emotion: 6
-  - dialogueText: It got badly damaged during training and there's no cure. I tried
-      it all.
+  - dialogueText: It got badly damaged during training and there's no cure.
     character: 0
     emotion: 5
   - dialogueText: Now this is where we disagree, hon. There are other ways for you
@@ -85,17 +76,17 @@ MonoBehaviour:
   - dialogueText: Magic of music?
     character: 0
     emotion: 1
-  - dialogueText: Yes! Follow my instructions, feel the music and you will see the
-      fruits of your hard work.
+  - dialogueText: Yes! Follow my instructions and you will see the fruits of your
+      hard work.
     character: 1
     emotion: 0
   - dialogueText: Shall we try jazz to see what it has to offer?
     character: 1
     emotion: 1
-  - dialogueText: Let's start the show!
-    character: 1
-    emotion: 2
   - dialogueText: 'Woah, okay. '
     character: 0
     emotion: 1
+  - dialogueText: Let's start the show!
+    character: 1
+    emotion: 2
   fileName: DarkLobbyDialogue_SO

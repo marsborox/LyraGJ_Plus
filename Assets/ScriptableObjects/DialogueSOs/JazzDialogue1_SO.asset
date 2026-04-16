@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showAgain: 0
   parts:
-  - dialogueText: You sure are hitting those notes. Just like a true jazz musician.
+  - dialogueText: You sure are hitting those notes. Just like a true jazz musician!
     character: 1
     emotion: 3
   - dialogueText: You think so? I'm just doing what I think sounds good.
     character: 0
-    emotion: 1
+    emotion: 3
   - dialogueText: Hah, maybe you didn't know this but jazz originated in New Orleans,
       and what made it so revolutionary was its improvisational approach.
     character: 1
@@ -33,18 +33,16 @@ MonoBehaviour:
       That''s amazing!'
     character: 0
     emotion: 1
-  - dialogueText: That's the beauty of jazz! Most people don't even know where the
-      word "jazz" originated from.
+  - dialogueText: You improvise, too! Don't you hear how music changes once you play?
     character: 1
     emotion: 3
-  - dialogueText: It's still a mystery to this day. But I guess that shows you the
-      magic of music. You don't need to know everything to enjoy it.
-    character: 1
-    emotion: 3
-  - dialogueText: ' I guess you''re right.'
+  - dialogueText: ' I guess you''re right. I haven''t noticed before.'
     character: 0
     emotion: 3
-  - dialogueText: But enough talking! Let's hit some more tunes.
+  - dialogueText: So, let's hit some more tunes?
     character: 1
+    emotion: 2
+  - dialogueText: I'm ready!
+    character: 0
     emotion: 2
   fileName: JazzDialogue1_SO

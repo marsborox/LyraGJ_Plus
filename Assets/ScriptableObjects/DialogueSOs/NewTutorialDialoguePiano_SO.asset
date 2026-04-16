@@ -21,11 +21,14 @@ MonoBehaviour:
       wash over you.
     character: 1
     emotion: 3
+  - dialogueText: You know what to do?
+    character: 1
+    emotion: 1
   - dialogueText: 'Let me guess: play it to break an enemy of a different color?'
     character: 0
     emotion: 1
   - dialogueText: Yes, dear but have you noticed hitting harder when you synchronize
-      your playing with the rhythm of music around us?
+      your playing with the rhythm of the music?
     character: 1
     emotion: 1
   - dialogueText: 'Not really... but when you mention it: Is rhythm marked by that

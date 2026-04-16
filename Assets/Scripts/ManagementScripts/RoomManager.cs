@@ -37,8 +37,10 @@ public class RoomManager : Singleton<RoomManager>
     private void Start()
     {
         //Debug.Log("RoomManager start");
-        SetupGridAndStartRoom();
         GameManager.instance.levelSettings.SubscribeToEventsSingletons(startTile);
+
+        SetupGridAndStartRoom();
+
         GameManager.instance.levelSettings.StartRoomSetup(startTile);
         //GameManager.instance.levelSettings.SubscribeToEventsRoom(startTile);
     }
@@ -58,6 +60,11 @@ public class RoomManager : Singleton<RoomManager>
         _spawnedRoomCounter++;
 
         roomWasSpawned?.Invoke();
+
+        if (startTile.isCleared) 
+        {
+            GlobalEventManager.instance.TriggerOnRoomCleared(startTile);    
+        }
     }
 
     public void SpawnRoom(Room inputRoom, Direction direction)

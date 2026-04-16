@@ -29,10 +29,10 @@ public class CloseDoor : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_playerHasEntered) return;
+        if (collision.gameObject.tag != "Player") return;
+
+        if (_playerHasEntered) return; // can enter just once!
         _playerHasEntered = true;
-        
-        Debug.Log("Entered door!");
 
         _leftDoorAnimator.SetTrigger("HasPlayer");
         _rightDoorAnimator.SetTrigger("HasPlayer");
