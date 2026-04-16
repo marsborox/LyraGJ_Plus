@@ -21,7 +21,7 @@ public class Room : MonoBehaviour
 
     [SerializeField] private GameObject _barriers;
 
-    [SerializeField] private bool isCleared = false;
+    [SerializeField] public bool isCleared = false;
 
     public List <EntryTrigger> entryTriggerList = new List<EntryTrigger>();
     public bool heroEntered = false;
