@@ -36,4 +36,16 @@ MonoBehaviour:
       music shaped the world!"
     character: 1
     emotion: 3
+  - dialogueText: ...
+    character: 1
+    emotion: 3
+  - dialogueText: (END OF OUR DEMO)
+    character: 0
+    emotion: 5
+  - dialogueText: Don't worry, we're working hard on more levels!
+    character: 0
+    emotion: 2
+  - dialogueText: See ya!
+    character: 1
+    emotion: 3
   fileName: Lobby_SO
