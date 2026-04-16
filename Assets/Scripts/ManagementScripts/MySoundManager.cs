@@ -39,6 +39,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     
     // other sounds
     
+    private FMOD.Studio.EventInstance _buttonClickInstance;
     private FMOD.Studio.EventInstance _elevatorInstance;
     private FMOD.Studio.EventInstance _lyraDeathInstance;
 
@@ -62,6 +63,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         _bossBadJazzInstance = FMODUnity.RuntimeManager.CreateInstance("event:/boss_falosne_noty");
         _bossJazzInstance = FMODUnity.RuntimeManager.CreateInstance("event:/boss_hudba");
 
+        _buttonClickInstance = FMODUnity.RuntimeManager.CreateInstance("event:/menu_click");
         _elevatorInstance = FMODUnity.RuntimeManager.CreateInstance("event:/elevator_sound");
         _lyraDeathInstance = FMODUnity.RuntimeManager.CreateInstance("event:/death_sound");
         ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 1f), true);
@@ -83,6 +85,8 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         _footstepsEnemyInstance.release();
         _footstepsLyraInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _footstepsLyraInstance.release();
+        _buttonClickInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _buttonClickInstance.release();
         _elevatorInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _elevatorInstance.release();
         _lyraDeathInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -120,6 +124,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
             _footstepsEnemyInstance.setVolume(limitedVolume);
             _footstepsLyraInstance.setVolume(limitedVolume);
 
+            _buttonClickInstance.setVolume(limitedVolume);
             _elevatorInstance.setVolume(limitedVolume);
             _lyraDeathInstance.setVolume(limitedVolume);
         }
@@ -235,11 +240,14 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
     // Other sounds
 
+    public void PlayButtonClickSound()
+    {
+        _buttonClickInstance.start();
+    }
     public void PlayElevatorSound()
     {
         _elevatorInstance.start();
     }
-
     public void PlayLyraDeathSound()
     {
         _lyraDeathInstance.start();
