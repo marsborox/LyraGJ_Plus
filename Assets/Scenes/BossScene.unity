@@ -7961,7 +7961,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 5df89b28f57384a509842ff94d863cfc, type: 2}
     - target: {fileID: 6328919073512237215, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
       propertyPath: maxJazz
-      value: 12
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 6328919073512237215, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
       propertyPath: navMesh
@@ -7983,6 +7983,10 @@ PrefabInstance:
       propertyPath: afterHittingBoss
       value: 
       objectReference: {fileID: 11400000, guid: 092b3947b957347b2984266961ffde9c, type: 2}
+    - target: {fileID: 6328919073512237215, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
+      propertyPath: dropJazzInterval
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6328919073512237215, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
       propertyPath: podiumPosition.x
       value: -21

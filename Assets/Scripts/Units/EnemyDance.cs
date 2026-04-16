@@ -5,6 +5,7 @@ public class EnemyDance : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
+    [SerializeField] private float startAlpha = 0.5f;
     [SerializeField] private float danceDuration = 2.7f;
     public void StartDancing(Type enemyType)
     {
@@ -24,17 +25,14 @@ public class EnemyDance : MonoBehaviour
         StartCoroutine(StopDancing(danceDuration));
     }
 
-    private IEnumerator StopDancing(float delay)
+    private IEnumerator StopDancing(float duration)
     {
-        yield return new WaitForSeconds(delay);
-
         float elapsed = 0;
-        float duration = 1f;
-
         while (elapsed < duration)
         {
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a * ((duration - elapsed)/duration));
-            elapsed += Time.unscaledDeltaTime;
+            float alpha = Mathf.Lerp(startAlpha, 0, elapsed / duration);
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, alpha);
+            elapsed += Time.deltaTime;
             yield return null;
         }
 
