@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
     void OnDash()
     {
         //player.playerMovement.DashWSAD(_rawInput);
-        player.playerMovement.DashMouse();
+        //player.playerMovement.DashMouse();//most recent 
         
     }
     #region 1234attacks
@@ -153,8 +153,8 @@ public class PlayerController : MonoBehaviour
     void OnWeapon4()
     {
         //Debug.Log("weapon4");
-        player.AttackWeapon4Click();
-        _animationController.HandleMovementAnimation();
+        //player.AttackWeapon4Click();//most recent
+        //_animationController.HandleMovementAnimation();//most recent
     }
     #endregion
     void OnAction1()
