@@ -52,7 +52,8 @@ public class JazzBossCombat : MonoBehaviour
     private JazzNote _note;
     private Vector2 _noteSpawnPosition;
     private Coroutine _dropJazzRoutine;
-    private int _missedNote;
+    private int _missedNote = 0;
+    private float _lastJazzBoost = 0;
 
     void Start()
     {
@@ -76,9 +77,9 @@ public class JazzBossCombat : MonoBehaviour
         {
             OnCollideWithJazzNote();
         }
-        else if (collision.gameObject.tag == "PlayerWeapon" || collision.gameObject.tag == "PlayerProjectile")
+        else if (_currentState == State.WAITING && (collision.gameObject.tag == "PlayerWeapon" || collision.gameObject.tag == "PlayerProjectile"))
         {
-            StartCoroutine(FlyBossToPosition(podiumPosition, 0.09f));
+            OnBossBeingAttacked();
         }
     }
 
@@ -89,16 +90,13 @@ public class JazzBossCombat : MonoBehaviour
         switch (currentState) {
             case State.INTRO: 
             {
-                StartCoroutine(PlayBadJazz(6));
-                // MySoundManager.instance.PlayBadJazzBossMusic();
+                StartCoroutine(PlayBadJazz(2));
 
                 _missedNote = 0;
                 cutscenesPlayer.SpawnDialogue(intro, () => currentState = State.WAITING);
                 break;
             }
             case State.WAITING:
-                StartCoroutine(PlayBadJazz(3));
-                // MySoundManager.instance.PlayBadJazzBossMusic();
                 break;
             case State.SPAWN_ENEMIES: 
             {
@@ -115,16 +113,15 @@ public class JazzBossCombat : MonoBehaviour
             }
             case State.BAD_JAZZ:
                 {
-                    animator.Play("BossJazzDancing");
-                    StartCoroutine(PlayBadJazz(3, true));
+                    float howLongPlayGoodJazz = _lastJazzBoost > 0 ? 4.5f : 0f;
+                    StartCoroutine(PlayGoodJazz(howLongPlayGoodJazz));
                     break;            
                 }
             case State.OUTRO:
             {
                 StopCoroutine(_dropJazzRoutine);
 
-                animator.Play("BossJazzPlaying");
-                StartCoroutine(PlayGoodJazz(3f));
+                StartCoroutine(PlayFinale(3f));
                 break;
             }
         }
@@ -134,7 +131,7 @@ public class JazzBossCombat : MonoBehaviour
 
     private void OnEnemyDied(Enemy enemy,Room room)
     {
-        StartCoroutine(PlayBadJazz(2));
+        StartCoroutine(PlayBadJazz(1));
         _noteSpawnPosition = enemy.gameObject.transform.position;
 
         if (currentState != State.SPAWN_ENEMIES)
@@ -151,6 +148,7 @@ public class JazzBossCombat : MonoBehaviour
     private void OnCollideWithJazzNote()
     {
         jazz += _note.jazzBoost;
+        _lastJazzBoost = _note.jazzBoost;
         RefreshJazzMeter();
 
         if (jazz < maxJazz)
@@ -175,6 +173,11 @@ public class JazzBossCombat : MonoBehaviour
         }
 
         Destroy(_note.gameObject);
+    }
+    private void OnBossBeingAttacked()
+    {
+        MySoundManager.instance.PlayBossDeath();
+        StartCoroutine(FlyBossToPosition(podiumPosition, 0.09f));
     }
 
     // UI
@@ -216,26 +219,42 @@ public class JazzBossCombat : MonoBehaviour
         transform.position = position;
 
         yield return new WaitForSeconds(duration + 1f); // add some buffer for player to see that hitting a boss did NOT work
-        cutscenesPlayer.SpawnDialogue(afterHittingBoss, () => currentState = State.SPAWN_ENEMIES);
+        cutscenesPlayer.SpawnDialogue(afterHittingBoss, () => currentState = State.BAD_JAZZ);
     }
-    private IEnumerator PlayBadJazz(int howManyTimes, bool spawnEnemies = false)
+    private IEnumerator PlayBadJazz(int howManyTimes)
     {
         int counter = 0;
         float interval = 0.7f;
         while (counter < howManyTimes)
         {
             MySoundManager.instance.PlayBadJazzBossMusic();
-            yield return new WaitForSeconds(interval);
+            yield return new WaitForSecondsRealtime(interval);
             counter++;
-        }
-
-        if (spawnEnemies)
-        {
-            currentState = State.SPAWN_ENEMIES;
         }
     }
     private IEnumerator PlayGoodJazz(float seconds)
     {
+        animator.Play("BossJazzPlaying");
+        MySoundManager.instance.PlayFinalJazzBossSong();
+        yield return new WaitForSeconds(seconds);
+        MySoundManager.instance.StopMusic();
+
+        animator.Play("BossJazzDancing");
+        int counter = 0;
+        float interval = 0.7f;
+        while (counter < 3)
+        {
+            MySoundManager.instance.PlayBadJazzBossMusic();
+            yield return new WaitForSecondsRealtime(interval);
+            counter++;
+        }
+
+        currentState = State.SPAWN_ENEMIES;
+    }
+    private IEnumerator PlayFinale(float seconds)
+    {
+        animator.Play("BossJazzPlaying");
+
         jazzMeter.SetActive(false);
         spotlight.isChangingColors = false;
 

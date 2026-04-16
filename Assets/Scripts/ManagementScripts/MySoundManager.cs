@@ -31,12 +31,12 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     private FMOD.Studio.EventInstance _saxophoneHitInstance;
     private FMOD.Studio.EventInstance _footstepsEnemyInstance;
     private FMOD.Studio.EventInstance _footstepsLyraInstance;
+    private FMOD.Studio.EventInstance _bossDeathInstance;
     private FMOD.Studio.EventInstance _menuMusicInstance;
     private FMOD.Studio.EventInstance _jazzMusicInstance;
     private FMOD.Studio.EventInstance _lobbyMusicInstance;
     private FMOD.Studio.EventInstance _bossBadJazzInstance;
     private FMOD.Studio.EventInstance _bossJazzInstance;
-    
     // other sounds
     
     private FMOD.Studio.EventInstance _buttonClickInstance;
@@ -56,6 +56,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
         _footstepsEnemyInstance = FMODUnity.RuntimeManager.CreateInstance("event:/footsteps_enemy");
         _footstepsLyraInstance = FMODUnity.RuntimeManager.CreateInstance("event:/footsteps_Lyra");
+        _bossDeathInstance = FMODUnity.RuntimeManager.CreateInstance("event:/boss_death");
 
         _menuMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/menu_hudba");
         _jazzMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/main_hudba_jazz");
@@ -85,6 +86,8 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         _footstepsEnemyInstance.release();
         _footstepsLyraInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _footstepsLyraInstance.release();
+        _bossDeathInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _bossDeathInstance.release();
         _buttonClickInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _buttonClickInstance.release();
         _elevatorInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -123,6 +126,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
             _footstepsEnemyInstance.setVolume(limitedVolume);
             _footstepsLyraInstance.setVolume(limitedVolume);
+            _bossDeathInstance.setVolume(limitedVolume);
 
             _buttonClickInstance.setVolume(limitedVolume);
             _elevatorInstance.setVolume(limitedVolume);
@@ -171,6 +175,16 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
         {
             _footstepsLyraInstance.start();
+        }
+    }
+    public void PlayBossDeath()
+    {
+        FMOD.Studio.PLAYBACK_STATE state;
+        _bossDeathInstance.getPlaybackState(out state);
+        
+        if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            _bossDeathInstance.start();
         }
     }
     public void PlayEnemyHit()
