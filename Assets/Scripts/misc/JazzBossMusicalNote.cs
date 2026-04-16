@@ -4,6 +4,8 @@ public class JazzNote : MonoBehaviour
 {
     public float jazzBoost; // how much it improves the player's jazz skills
 
+    [SerializeField] private Collider2D _noteCollider;
+    [SerializeField] private float _delayTime = 0.4f;
     [Header("Idle Animation")]
     [SerializeField] private float bpm = 170f;
     [SerializeField] private float intensity = 0.5f;
@@ -25,11 +27,14 @@ public class JazzNote : MonoBehaviour
 
     private Coroutine _danceRoutine;
 
+
     void Start() {
         _danceRoutine = StartCoroutine(DanceRoutine(bpm, intensity));
 
         spotlight.colorHasChanged += ChangeColor;
         ChangeColor();
+
+        StartCoroutine(DelayColldierRoutine(_delayTime));
     }
     void OnDestroy()
     {
@@ -122,5 +127,10 @@ public class JazzNote : MonoBehaviour
             yield return null;
         }
         transform.position = endPos;
+    }
+    private IEnumerator DelayColldierRoutine(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        _noteCollider.enabled=true;
     }
 }
