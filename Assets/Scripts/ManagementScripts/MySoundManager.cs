@@ -31,6 +31,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     private FMOD.Studio.EventInstance _saxophoneHitInstance;
     private FMOD.Studio.EventInstance _footstepsEnemyInstance;
     private FMOD.Studio.EventInstance _footstepsLyraInstance;
+    private FMOD.Studio.EventInstance _menuMusicInstance;
     private FMOD.Studio.EventInstance _jazzMusicInstance;
     private FMOD.Studio.EventInstance _lobbyMusicInstance;
     private FMOD.Studio.EventInstance _bossBadJazzInstance;
@@ -38,6 +39,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     
     // other sounds
     
+    private FMOD.Studio.EventInstance _buttonClickInstance;
     private FMOD.Studio.EventInstance _elevatorInstance;
     private FMOD.Studio.EventInstance _lyraDeathInstance;
 
@@ -55,11 +57,13 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         _footstepsEnemyInstance = FMODUnity.RuntimeManager.CreateInstance("event:/footsteps_enemy");
         _footstepsLyraInstance = FMODUnity.RuntimeManager.CreateInstance("event:/footsteps_Lyra");
 
+        _menuMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/menu_hudba");
         _jazzMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/main_hudba_jazz");
         _lobbyMusicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/divadlo_hudba");
         _bossBadJazzInstance = FMODUnity.RuntimeManager.CreateInstance("event:/boss_falosne_noty");
         _bossJazzInstance = FMODUnity.RuntimeManager.CreateInstance("event:/boss_hudba");
 
+        _buttonClickInstance = FMODUnity.RuntimeManager.CreateInstance("event:/menu_click");
         _elevatorInstance = FMODUnity.RuntimeManager.CreateInstance("event:/elevator_sound");
         _lyraDeathInstance = FMODUnity.RuntimeManager.CreateInstance("event:/death_sound");
         ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 1f), true);
@@ -81,11 +85,15 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         _footstepsEnemyInstance.release();
         _footstepsLyraInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _footstepsLyraInstance.release();
+        _buttonClickInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _buttonClickInstance.release();
         _elevatorInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _elevatorInstance.release();
         _lyraDeathInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _lyraDeathInstance.release();
 
+        _menuMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _menuMusicInstance.release();
         _jazzMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         _jazzMusicInstance.release();
         _lobbyMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -116,6 +124,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
             _footstepsEnemyInstance.setVolume(limitedVolume);
             _footstepsLyraInstance.setVolume(limitedVolume);
 
+            _buttonClickInstance.setVolume(limitedVolume);
             _elevatorInstance.setVolume(limitedVolume);
             _lyraDeathInstance.setVolume(limitedVolume);
         }
@@ -130,6 +139,7 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
             float limitedVolume = volume * _musicVolumeModifier;
             Debug.Log("Real music volume: " + limitedVolume);
 
+            _menuMusicInstance.setVolume(limitedVolume );
             _jazzMusicInstance.setVolume(limitedVolume );
             _lobbyMusicInstance.setVolume(limitedVolume);
             _bossBadJazzInstance.setVolume(limitedVolume);
@@ -230,11 +240,14 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
 
     // Other sounds
 
+    public void PlayButtonClickSound()
+    {
+        _buttonClickInstance.start();
+    }
     public void PlayElevatorSound()
     {
         _elevatorInstance.start();
     }
-
     public void PlayLyraDeathSound()
     {
         _lyraDeathInstance.start();
@@ -245,6 +258,12 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
     public void StopMusic()
     {
         FMOD.Studio.PLAYBACK_STATE state;
+
+        _menuMusicInstance.getPlaybackState(out state);
+        if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            _menuMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
 
         _jazzMusicInstance.getPlaybackState(out state);
         if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
@@ -269,6 +288,16 @@ public class MySoundManager : SingletonPersistent<MySoundManager>
         {
             _bossJazzInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
+    }
+
+    public void PlayMenuMusic()
+    {
+        FMOD.Studio.PLAYBACK_STATE state;
+        _menuMusicInstance.getPlaybackState(out state);
+        if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING) return;
+
+        StopMusic();
+        _menuMusicInstance.start();
     }
 
     public void PlayLobbyMusic()

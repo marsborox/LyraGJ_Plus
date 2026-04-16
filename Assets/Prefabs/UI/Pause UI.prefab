@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 756554749865946311}
   - component: {fileID: 8007216197164196192}
   - component: {fileID: 8873940111949940979}
+  - component: {fileID: 3139838580441332912}
   m_Layer: 0
   m_Name: Close Button
   m_TagString: Untagged
@@ -196,6 +197,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3139838580441332912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80285569037133921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f55c7a1eafd74ccb8e0f0bb630a91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClicking
 --- !u!1 &210371746410578062
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,6 +832,7 @@ GameObject:
   - component: {fileID: 5775595975045763912}
   - component: {fileID: 1777900911916098168}
   - component: {fileID: 4907470667133718602}
+  - component: {fileID: 718128066247790485}
   m_Layer: 0
   m_Name: Lobby Button
   m_TagString: Untagged
@@ -928,6 +942,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &718128066247790485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2330998351324945046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f55c7a1eafd74ccb8e0f0bb630a91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClicking
 --- !u!1 &2437980556648985859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1439,7 @@ GameObject:
   - component: {fileID: 9059363840687085420}
   - component: {fileID: 544068186783256381}
   - component: {fileID: 3016195198002874541}
+  - component: {fileID: 1653064306064589571}
   m_Layer: 0
   m_Name: Close Button
   m_TagString: Untagged
@@ -1522,6 +1549,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1653064306064589571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3904611327008818333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f55c7a1eafd74ccb8e0f0bb630a91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClicking
 --- !u!1 &3928947238236830264
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,6 +2309,7 @@ GameObject:
   - component: {fileID: 27129620746064130}
   - component: {fileID: 2047272329091207743}
   - component: {fileID: 2163199123377427751}
+  - component: {fileID: 6394026084003895143}
   m_Layer: 0
   m_Name: Options Button
   m_TagString: Untagged
@@ -2379,6 +2419,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6394026084003895143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478918939068233992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f55c7a1eafd74ccb8e0f0bb630a91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClicking
 --- !u!1 &5749064308124655459
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,6 +2978,7 @@ GameObject:
   - component: {fileID: 369205013692508772}
   - component: {fileID: 298432270867908766}
   - component: {fileID: 5660919055263133724}
+  - component: {fileID: 5534698251220340330}
   m_Layer: 0
   m_Name: Resume Button
   m_TagString: Untagged
@@ -3035,6 +3088,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5534698251220340330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588897499494693660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f55c7a1eafd74ccb8e0f0bb630a91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClicking
 --- !u!1 &6766494845997076129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,6 +3386,7 @@ GameObject:
   - component: {fileID: 4126075128216531913}
   - component: {fileID: 5393950377783001878}
   - component: {fileID: 7215092472497879766}
+  - component: {fileID: 7367640600380147156}
   m_Layer: 0
   m_Name: Menu Button
   m_TagString: Untagged
@@ -3430,6 +3496,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7367640600380147156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855768040133118524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f55c7a1eafd74ccb8e0f0bb630a91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClicking
 --- !u!1 &7406243135042890855
 GameObject:
   m_ObjectHideFlags: 0
@@ -3870,6 +3948,7 @@ GameObject:
   - component: {fileID: 2787270665603750600}
   - component: {fileID: 4512970178681966716}
   - component: {fileID: 3044478652940750190}
+  - component: {fileID: 359605283445863440}
   m_Layer: 0
   m_Name: Controls Button
   m_TagString: Untagged
@@ -3979,6 +4058,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &359605283445863440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937832889247164546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f55c7a1eafd74ccb8e0f0bb630a91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClicking
 --- !u!1 &7966030680551140847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4167,6 +4258,7 @@ GameObject:
   - component: {fileID: 9160494279583468960}
   - component: {fileID: 8435027639813056956}
   - component: {fileID: 7357746610785819105}
+  - component: {fileID: 2699899680961941963}
   m_Layer: 0
   m_Name: Cancel Button
   m_TagString: Untagged
@@ -4276,6 +4368,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2699899680961941963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8112948198093021016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f55c7a1eafd74ccb8e0f0bb630a91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClicking
 --- !u!1 &8129084952165127521
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,6 +4753,7 @@ GameObject:
   - component: {fileID: 1671994626579445510}
   - component: {fileID: 4800846661984989389}
   - component: {fileID: 6038742219405060213}
+  - component: {fileID: 4080264505417043574}
   m_Layer: 0
   m_Name: Confirm Button
   m_TagString: Untagged
@@ -4758,6 +4863,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4080264505417043574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874096578275919391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f55c7a1eafd74ccb8e0f0bb630a91df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonClicking
 --- !u!1 &8930734042371518716
 GameObject:
   m_ObjectHideFlags: 0

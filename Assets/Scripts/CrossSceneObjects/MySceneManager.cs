@@ -40,6 +40,7 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         if (instance != this) return;
 
         StartFadingIn();
+        if (PreviousScene == null) MySoundManager.instance.PlayMenuMusic();
     }
     void Update()
     {
@@ -105,7 +106,7 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         PreviousScene = null; // nothing to go back to
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
-        MySoundManager.instance.StopMusic();
+        MySoundManager.instance.PlayMenuMusic();
     }
     private void OpenLobbyScene()
     {
