@@ -86,7 +86,7 @@ MonoBehaviour:
   - dialogueText: 'Woah, okay. '
     character: 0
     emotion: 1
-  - dialogueText: Let's start the show!
+  - dialogueText: Let's start the show! Enter the elevator.
     character: 1
     emotion: 2
   fileName: DarkLobbyDialogue_SO
