@@ -79,12 +79,6 @@ public class UnitSpawner : Singleton<UnitSpawner>
         GameManager.instance.enemiesInField++;
     }
 
-    Enemy_SO GetRandomTemplate()
-    {
-        int randomIndex = Random.Range(0, enemy_SOs.Count);
-
-        return enemy_SOs[randomIndex];
-    }
     public void SpawnEnemy(Enemy_SO usedTemplate)
     {
         SpawnPoint spawnPoint;
@@ -100,6 +94,12 @@ public class UnitSpawner : Singleton<UnitSpawner>
         spawnedEnemy.SetProperties(enemySO, player,room);
         room.enemiesInRoomCount++;
         GameManager.instance.enemiesInField++;
+    }
+    Enemy_SO GetRandomTemplate()
+    {
+        int randomIndex = Random.Range(0, enemy_SOs.Count);
+
+        return enemy_SOs[randomIndex];
     }
     public Enemy SpawnAndReturnEnemy(Room room, Enemy_SO enemySO)
     {

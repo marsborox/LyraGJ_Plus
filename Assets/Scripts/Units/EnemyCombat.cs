@@ -121,6 +121,13 @@ public class EnemyCombat : UnitCombat
             return;
         AttackPhaseSwitch();
     }
+        private void OnTriggerEnter2D(Collider2D other)
+    {//toRemove
+        //Debug.Log("GotHitBySomething");
+        GetHitFromWeapon(other);
+        GetHitFromExplosion(other);
+        GetHitFromProjectile(other);
+    }
     public void TriggerEnemy()
     {
         isTriggered = true;

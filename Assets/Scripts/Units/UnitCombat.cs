@@ -36,13 +36,13 @@ public class UnitCombat : MonoBehaviour
             StunTimer();
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
+    /*private void OnTriggerEnter2D(Collider2D other)
+    {//toRemove
         //Debug.Log("GotHitBySomething");
         GetHitFromWeapon(other);
         GetHitFromExplosion(other);
         GetHitFromProjectile(other);
-    }
+    }*/
     public void GetHitFromWeapon(Collider2D other)
     {
         if (other.gameObject.tag == tagThatHitsUs)
@@ -55,7 +55,7 @@ public class UnitCombat : MonoBehaviour
             
         }
     }
-    private void GetHitFromExplosion(Collider2D other)
+    public void GetHitFromExplosion(Collider2D other)
     {
         if (other.gameObject.tag == "Explosion")
         {
@@ -64,7 +64,7 @@ public class UnitCombat : MonoBehaviour
             //Debug.Log("got hit by explosion");
         }
     }
-    private void GetHitFromProjectile(Collider2D other)
+    public void GetHitFromProjectile(Collider2D other)
     {
         if (other.gameObject.tag == projectileTagThatHitsUs)
         {

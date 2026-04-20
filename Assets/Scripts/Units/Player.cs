@@ -24,6 +24,7 @@ public class Player : Unit
         base.Update();
         //FaceCorrectDirection();
     }
+
     public void AttackWeapon1Click()
     {
         if (unitCombat == null) return;

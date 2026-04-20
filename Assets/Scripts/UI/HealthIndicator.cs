@@ -24,12 +24,4 @@ public class HealthIndicator_UI : MonoBehaviour
         //Debug.Log("range= "+realRange+" fraction= "+realFraction);
         _healthBar.fillAmount = realFraction;
     }
-    void HealthBarFill()
-    {
-
-
-        float healthFraction = (float)_player.ReturnHealthCurrent() / (float)_player.ReturnHealthMax();
-        _healthBar.fillAmount = healthFraction;
-        //Debug.Log("fillingHealthInUI");
-    }
 }
