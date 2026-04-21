@@ -3,7 +3,6 @@ using UnityEngine;
 public class GameUI : Singleton<GameUI>
 {
     public static new GameUI instance => Singleton<GameUI>.instance;
-    public PlayerCombat playerCombat;
     public PlayerDied_UI playerDied_UI;
 
     [SerializeField] private WeaponSetup_UI _weaponSetup_UI;

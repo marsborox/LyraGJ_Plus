@@ -19,6 +19,13 @@ public class PlayerCombat : UnitCombat
     {
         base.Start();   
     }
+    public void OnTriggerEnter2DCustom(Collider2D other)
+    {
+        //Debug.Log("GotHitBySomething");
+        GetHitFromWeapon(other);
+        GetHitFromExplosion(other);
+        GetHitFromProjectile(other);
+    }
     public void Weapon1_OnClick()
     {
         if (isAttacking) return;
