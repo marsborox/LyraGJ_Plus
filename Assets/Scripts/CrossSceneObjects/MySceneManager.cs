@@ -143,14 +143,14 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
     private void OpenTutorialScene()
     {
         PreviousScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("NewTutorialScene");
+        SceneManager.LoadScene("TutorialScene");
         Time.timeScale = 1f;
         MySoundManager.instance.PlayJazzMusic();
     }
     public void OpenDevScene()
     {
         PreviousScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("MarosGameScene");
+        SceneManager.LoadScene("DressingRoomScene");
         Time.timeScale = 1f;
         MySoundManager.instance.PlayJazzMusic();
     }

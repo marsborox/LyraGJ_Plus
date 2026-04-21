@@ -3027,6 +3027,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1991998146}
     - target: {fileID: 1783625682560518767, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: levelSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: e183e80a899a9c84083b08a0f8b94cb6, type: 2}
+    - target: {fileID: 1783625682560518767, guid: 3156fcab12795674ea94e8594f060663, type: 3}
       propertyPath: cutscenesPlayer
       value: 
       objectReference: {fileID: 1991998147}
@@ -3825,6 +3829,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2057994171268380022, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+      propertyPath: _unitCombat
+      value: 
+      objectReference: {fileID: 1148714922}
     - target: {fileID: 3986896122668706926, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3910,6 +3918,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ccaaf13b45e7a4aa9c9e17c545a7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1148714922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4543470561142714637, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
+  m_PrefabInstance: {fileID: 1148714916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1a4cdbb5a76d949aa8953da8d96b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
 --- !u!1 &1153002100
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,17 +4074,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1026945023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1186976372 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 110551577040779909, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
-  m_PrefabInstance: {fileID: 1148714916}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb1a4cdbb5a76d949aa8953da8d96b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
 --- !u!1 &1199713606
 GameObject:
   m_ObjectHideFlags: 0
@@ -7010,7 +7018,7 @@ PrefabInstance:
     - target: {fileID: 6669598971931224901, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: playerCombat
       value: 
-      objectReference: {fileID: 1186976372}
+      objectReference: {fileID: 0}
     - target: {fileID: 6838718965117671333, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
