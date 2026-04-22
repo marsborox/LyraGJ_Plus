@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3300874221605244817}
   - component: {fileID: 159060684597122985}
+  - component: {fileID: 280910174124542256}
   m_Layer: 0
   m_Name: Weapon Icons
   m_TagString: Untagged
@@ -60,6 +61,24 @@ MonoBehaviour:
   hue: 0
   saturation: 0
   lightness: 0.8
+--- !u!114 &280910174124542256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159439772315269932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3695d88f4c0341743924114c225a1313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponUI
+  guitarIcon: {fileID: 6920201186630493104}
+  pianoIcon: {fileID: 8755372553474122776}
+  saxIcon: {fileID: 2062334696497428137}
+  weaponGuitar: {fileID: 0}
+  weaponPiano: {fileID: 0}
+  weaponSax: {fileID: 0}
 --- !u!1 &260181128386375559
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +332,6 @@ GameObject:
   - component: {fileID: 3747782397060486260}
   - component: {fileID: 4143410378058994318}
   - component: {fileID: 2062334696497428137}
-  - component: {fileID: 7729429749542279011}
   m_Layer: 0
   m_Name: SaxofonPictogram
   m_TagString: Untagged
@@ -378,20 +396,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7729429749542279011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053813520874577011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1bbc582f3ec4ef4a35340dcf7bd251, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 2062334696497428137}
-  weaponToTrack: {fileID: 0}
 --- !u!1 &1256722799241670566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,7 +1141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ceff0725fa5108438a4b0368b929308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  playerCombat: {fileID: 0}
   playerDied_UI: {fileID: 3654970790932177249}
   _weaponSetup_UI: {fileID: 2823782635375528402}
 --- !u!114 &8129490106304078614
@@ -1465,7 +1468,6 @@ GameObject:
   - component: {fileID: 1783858689728558661}
   - component: {fileID: 1885310146624905967}
   - component: {fileID: 8755372553474122776}
-  - component: {fileID: 6577356661698749844}
   m_Layer: 0
   m_Name: PianoPictogram
   m_TagString: Untagged
@@ -1530,20 +1532,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6577356661698749844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3884546326922124512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1bbc582f3ec4ef4a35340dcf7bd251, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 8755372553474122776}
-  weaponToTrack: {fileID: 0}
 --- !u!1 &4046395058871281726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,7 +1817,6 @@ GameObject:
   - component: {fileID: 8849148267988205486}
   - component: {fileID: 5460735524147135430}
   - component: {fileID: 6920201186630493104}
-  - component: {fileID: 8604138096941243547}
   m_Layer: 0
   m_Name: GuitarPictogram
   m_TagString: Untagged
@@ -1894,20 +1881,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8604138096941243547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4345462409307302786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1bbc582f3ec4ef4a35340dcf7bd251, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 6920201186630493104}
-  weaponToTrack: {fileID: 0}
 --- !u!1 &4454122133496498823
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,7 +4359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _healthBar: {fileID: 957040606581039537}
-  _player: {fileID: 0}
   _minHealthImageFill: 0.11
   _maxHealthImageFill: 0.84
 --- !u!1 &8436517152348735014 stripped

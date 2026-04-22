@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class RythmIndicator : MonoBehaviour
 {
-    public RythmBonus playerRythmBonus;
+    public RythmBonus playerRythmBonus {get {return GameManager.instance.ReturnPlayer().rythmBonus;}}
     [SerializeField] private GameObject rythmBubble;
     [SerializeField] private Image rythmBubbleImage;
     [SerializeField] Color emphasisColor;
