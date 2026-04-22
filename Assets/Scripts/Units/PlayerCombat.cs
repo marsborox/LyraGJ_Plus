@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class PlayerCombat : UnitCombat
 {
-    public Weapon weapon1New;
-    public Weapon weapon2New;
-    public Weapon weapon3New;
+    public Weapon weaponGuitar;
+    public Weapon weaponPiano;
+    public Weapon weaponSax;
     public Weapon weapon4New;
     public GameObject hitEffectPrefab;
     public List<Weapon> weaponList = new List<Weapon>();
@@ -37,7 +37,7 @@ public class PlayerCombat : UnitCombat
         SpawnMusicalNotes(new Color(1, 0, 0));
         animationController.HandleMeeleeAttackAnimation();
         
-        weapon1New.ClickAttack();
+        weaponGuitar.ClickAttack();
         
         CancelAttackIfNeeded();
     }
@@ -51,7 +51,7 @@ public class PlayerCombat : UnitCombat
 
         SpawnMusicalNotes(new Color(0, 1, 0));
         animationController.HandleRangedAttackAnimation();
-        weapon2New.ClickAttack();
+        weaponPiano.ClickAttack();
         //Debug.Log("doing ranged attack");
 
         CancelAttackIfNeeded();
@@ -65,7 +65,7 @@ public class PlayerCombat : UnitCombat
 
         SpawnMusicalNotes(new Color(0, 0, 1));
         animationController.HandleAoEAttackAnimation();
-        weapon3New.ClickAttack();
+        weaponSax.ClickAttack();
 
         CancelAttackIfNeeded();
     }

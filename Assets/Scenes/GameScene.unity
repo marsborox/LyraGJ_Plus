@@ -2333,6 +2333,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &636339190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 636339191}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &636339191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636339190}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 414.19308, y: 57.2947, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &651039158
 GameObject:
   m_ObjectHideFlags: 0
@@ -23969,7 +24000,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1991998146}
     - target: {fileID: 1783625682560518767, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 29055957}
+    - target: {fileID: 1783625682560518767, guid: 3156fcab12795674ea94e8594f060663, type: 3}
       propertyPath: cutscenesPlayer
+      value: 
+      objectReference: {fileID: 1991998147}
+    - target: {fileID: 1783625682560518767, guid: 3156fcab12795674ea94e8594f060663, type: 3}
+      propertyPath: _cutscenesPlayer
       value: 
       objectReference: {fileID: 1991998147}
     - target: {fileID: 1783625682560518767, guid: 3156fcab12795674ea94e8594f060663, type: 3}
@@ -34758,60 +34797,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1401216779
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1401216780}
-  - component: {fileID: 1401216781}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1401216780
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401216779}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.64492, y: 2.59773, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1401216781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401216779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5526ae234501c1b47983d18cb5f6a4b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cutscenesPlayer: {fileID: 0}
-  stage: 2
-  levelSettings: {fileID: 0}
-  enemiesPerWave: 10
-  spawnedEnemiesThisWave: 0
-  enemiesInField: 0
-  totalEnemyKilled: 0
-  numberRoomsCleared: 0
-  isEndOfWave: 1
-  isSpawning: 0
 --- !u!114 &1413023119 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7427372101679965586, guid: 6e2608a5c3f5804439cbd44a25905583, type: 3}
@@ -36741,6 +36726,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6577356661698749844, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6577356661698749844, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: weaponToTrack
       value: 
       objectReference: {fileID: 217954735}
@@ -36785,6 +36774,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 55037966}
     - target: {fileID: 7729429749542279011, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729429749542279011, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: weaponToTrack
       value: 
       objectReference: {fileID: 1154679116}
@@ -36818,6 +36811,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8601631375193854058, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604138096941243547, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8604138096941243547, guid: b6fd678f0815de54786d95f60d8a2599, type: 3}
@@ -37474,13 +37471,13 @@ SceneRoots:
   - {fileID: 1148714916}
   - {fileID: 577819190}
   - {fileID: 651039159}
-  - {fileID: 1401216780}
   - {fileID: 1383636733}
   - {fileID: 1991998145}
   - {fileID: 1027780660}
-  - {fileID: 252374306400082263}
   - {fileID: 1870782354}
+  - {fileID: 252374306400082263}
   - {fileID: 6915627130281284305}
   - {fileID: 2960843891260748786}
   - {fileID: 1667912701}
   - {fileID: 901502954}
+  - {fileID: 636339191}

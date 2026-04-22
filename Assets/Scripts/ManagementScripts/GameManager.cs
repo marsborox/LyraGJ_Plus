@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 using static Level_SO;
 
-public enum GameStage {SPAWNING, POSTWAVE, DIALOGUE, NEWWAVE, END}
+public enum GameStage {SPAWNING, POSTWAVE, DIALOGUE, NEWWAVE, END, OTHER}
 public class GameManager : Singleton<GameManager>
 {
     public static new GameManager instance => Singleton<GameManager>.instance;
 
     //[SerializeField] private GameObject portal;
-    [SerializeField] private CutscenesPlayer cutscenesPlayer;
-
     public GameStage stage = GameStage.NEWWAVE;
     public Level_SO levelSettings;
     public int enemiesPerWave = 10;
@@ -24,6 +23,8 @@ public class GameManager : Singleton<GameManager>
     public bool isEndOfWave=false;
     public bool isSpawning=false;
 
+    [SerializeField] private CutscenesPlayer _cutscenesPlayer;
+    [SerializeField] private Player _player;
     void Start()
     {
         //we wait 1s til leverything really loads
@@ -87,11 +88,16 @@ public class GameManager : Singleton<GameManager>
                     //enable portal
                     break;
                 }
+            case GameStage.OTHER:
+                {
+                    break;
+                }
         }
     }
+
     public void SpawnDialogue(Room room)
     {
-        if (cutscenesPlayer != null) cutscenesPlayer.SpawnDialogue(numberRoomsCleared);
+        if (_cutscenesPlayer != null) _cutscenesPlayer.SpawnDialogue(numberRoomsCleared);
     }
     public void ForceRoomCleared(Room room)
     {
@@ -130,6 +136,10 @@ public class GameManager : Singleton<GameManager>
         roomsCleared = numberRoomsCleared;
         roomsToClear = levelSettings.numberOfRoomsToClear;
     }
+    public Player ReturnPlayer()
+    {
+        return _player;
+    }    
     private void ControlGameFlow()
     {
         if (spawnedEnemiesThisWave == enemiesPerWave)

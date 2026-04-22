@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class HealthIndicator_UI : MonoBehaviour
 {
     [SerializeField] private Image _healthBar;
-    [SerializeField] private Player _player;
+    [SerializeField] private Player _player{get {return GameManager.instance.ReturnPlayer();}}
     [SerializeField]public float _minHealthImageFill=0.11f;
     [SerializeField]public float _maxHealthImageFill=0.84f;
     public void Update()
@@ -23,5 +23,13 @@ public class HealthIndicator_UI : MonoBehaviour
         float realFraction = _minHealthImageFill + (relativeFraction*realRange);
         //Debug.Log("range= "+realRange+" fraction= "+realFraction);
         _healthBar.fillAmount = realFraction;
+    }
+    void HealthBarFill()
+    {
+
+
+        float healthFraction = (float)_player.ReturnHealthCurrent() / (float)_player.ReturnHealthMax();
+        _healthBar.fillAmount = healthFraction;
+        //Debug.Log("fillingHealthInUI");
     }
 }
