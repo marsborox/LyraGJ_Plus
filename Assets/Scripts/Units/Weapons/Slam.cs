@@ -5,7 +5,8 @@ public class Slam : Weapon
     [SerializeField] private Collider2D _myCollider;
     [SerializeField] private GameObject _animationVisual1;
     
-    
+    [SerializeField] private Animator _slamAnimator;
+    [SerializeField] private Animation _slamAnimation;
 
     public override void ClickAttack()
     {
@@ -27,6 +28,7 @@ public class Slam : Weapon
         StartCoroutine(AttackAnimationRoutine());
         StartCooldown();
         GlobalEventManager.instance.TriggerOnPlayerAtack();
+        _slamAnimation.Play();
     }
     IEnumerator AttackHitRoutine()
     {
