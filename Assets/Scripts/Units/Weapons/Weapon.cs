@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
 
     
 
-    private void Start()
+    public void Start()
     {
         coolDownTimer = 0;
     }
