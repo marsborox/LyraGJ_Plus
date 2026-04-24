@@ -24886,11 +24886,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!95 &993448110 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5765416094576329739, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
-  m_PrefabInstance: {fileID: 1148714916}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1016398360 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3001962532995320145, guid: 1577dc0ef40f9bb449fb7847afa97589, type: 3}
@@ -25093,22 +25088,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 963801728030566303, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
-      propertyPath: _slamAnimator
-      value: 
-      objectReference: {fileID: 993448110}
     - target: {fileID: 3986896122668706926, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6180471024383745614, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6180471024383745614, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
-      propertyPath: _slamAnimator
-      value: 
-      objectReference: {fileID: 993448110}
     - target: {fileID: 7700510036712623375, guid: 5cf0754f9f8307b4fa662f987d60900c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.18

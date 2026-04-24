@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, cast shadow, Water, UI, Unit, Hitbox, Weapon, SpawnChecker
 - Active game object:
-  - Name: Jazz_Template_4WayOpenRoom Variant Maty
-  - Tag: Untagged
-  - Layer: Default
+  - Name: Player
+  - Tag: Player
+  - Layer: cast shadow
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
