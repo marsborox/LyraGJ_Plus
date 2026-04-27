@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Room : MonoBehaviour
 {
@@ -22,8 +24,8 @@ public class Room : MonoBehaviour
     [SerializeField] private GameObject _barriers;
 
     [SerializeField] public bool isCleared = false;
-
     public List <EntryTrigger> entryTriggerList = new List<EntryTrigger>();
+
     public bool heroEntered = false;
     public bool enemiesSpawned = false;
     public int xPosInArray;
@@ -36,7 +38,6 @@ public class Room : MonoBehaviour
         if (isCleared) 
         {
             GlobalEventManager.instance.TriggerOnRoomCleared(this);
-            
         }
     }
     public void TriggerActivated(EntryTrigger trigger)
@@ -141,9 +142,34 @@ public class Room : MonoBehaviour
 
     public void ReturnRandomPoint(out float spawnPosX, out float spawnPosY)
     {// implement where needed
-        spawnPosX = UnityEngine.Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
-        spawnPosY = UnityEngine.Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
 
+        float returnX=0;
+        float returnY=0;
+
+        bool isSpawnPointValid = false;
+
+        while(isSpawnPointValid==false)
+        {
+            returnX = UnityEngine.Random.Range(_spawnAreaRB.transform.position.x, _spawnAreaLT.transform.position.x);
+            returnY = UnityEngine.Random.Range(_spawnAreaRB.transform.position.y, _spawnAreaLT.transform.position.y);
+
+            Vector2 spawnPoint = new Vector2(returnX,returnY);
+            NavMeshHit hit;
+
+
+            if(NavMesh.SamplePosition(spawnPoint, out hit, Mathf.Infinity,1))
+            {
+                spawnPoint = hit.position;
+            }
+            isSpawnPointValid = IsWithinBounds(spawnPoint);
+            if(isSpawnPointValid)
+            {
+                Debug.Log("spawnpoint is valid");
+            }
+        }
+        
+        spawnPosX = returnX;
+        spawnPosY = returnY;
         //Vector2 spawnPosition = new Vector2(spawnPosX,spawnPosY);
     }
     public void ReturnRandomPointRelative(out float spawnPosX, out float spawnPosY)
@@ -166,7 +192,7 @@ public class Room : MonoBehaviour
         position.x < _spawnAreaLT.transform.position.x)
         {isInBounds = false;}
         else{isInBounds = true;}
-        Debug.Log("isInBounds: "+isInBounds);
+        //Debug.Log("isInBounds: "+isInBounds);
 
         return isInBounds;
     }
@@ -175,7 +201,7 @@ public class Room : MonoBehaviour
 
         if (room != this|| isCleared)
         {// to trigger only on our room
-            Debug.Log("notThisRoom ");
+            //Debug.Log("notThisRoom ");
             return;
         }
         int randomMin = 3;

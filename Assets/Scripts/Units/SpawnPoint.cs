@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnCollisionEnter2D(Collision2D other)
     {
-        
+        //Debug.Log("collision");
+        if (other.gameObject.tag == "Wall") Destroy(gameObject);
     }
-
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        //Debug.Log("trigger myName: " + gameObject.name+" other: "+other.gameObject.name);
+        if (other.gameObject.tag == "Wall") Destroy(gameObject);
     }
 }
