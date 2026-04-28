@@ -15,6 +15,7 @@ public class Slam : Weapon
     {
         if (!CanAttack())
             return;
+        Debug.Log("CooldownTimer: "+ coolDownTimer + " can attack: "+ CanAttack());
         coolDownTimer = maxCooldown;
         //Debug.Log("player attacking");
         //Debug.Log("Sword. attackHit");
@@ -33,7 +34,6 @@ public class Slam : Weapon
         GlobalEventManager.instance.TriggerOnPlayerAtack();
 
         _slamAnimationController.PlaySlamAnimation();
-
     }
 
     IEnumerator AttackHitRoutine()

@@ -17,12 +17,12 @@ public class SlamAnimatorController : MonoBehaviour
 
     public void PlaySlamAnimation()
     {
-        Debug.Log("playing slam animation");
+        //Debug.Log("playing slam animation");
         _slamAnimator.Play(_slamAnimationStateHash);
     }
     public void SetDefaultAnimatorState()
     {
-        Debug.Log("setting default animation state");
+        //Debug.Log("setting default animation state");
         _slamAnimator.Play(_idleAnimationStateHash);
     }
 }
