@@ -5,12 +5,17 @@ public class Slam : Weapon
     [SerializeField] private Collider2D _myCollider;
     [SerializeField] private GameObject _animationVisual1;
     
-    
+    [SerializeField] private SlamAnimatorController _slamAnimationController;
 
+    void Start()
+    {
+        base.Start();
+    }
     public override void ClickAttack()
     {
         if (!CanAttack())
             return;
+        Debug.Log("CooldownTimer: "+ coolDownTimer + " can attack: "+ CanAttack());
         coolDownTimer = maxCooldown;
         //Debug.Log("player attacking");
         //Debug.Log("Sword. attackHit");
@@ -27,7 +32,10 @@ public class Slam : Weapon
         StartCoroutine(AttackAnimationRoutine());
         StartCooldown();
         GlobalEventManager.instance.TriggerOnPlayerAtack();
+
+        _slamAnimationController.PlaySlamAnimation();
     }
+
     IEnumerator AttackHitRoutine()
     {
         yield return new WaitForSeconds(0.02f);

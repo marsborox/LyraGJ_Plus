@@ -3922,46 +3922,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8940438230138441948}
     m_Modifications:
-    - target: {fileID: 87860574149784604, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.702
-      objectReference: {fileID: 0}
-    - target: {fileID: 87860574149784604, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 1550232842817667334, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
-      propertyPath: m_Color.g
-      value: 0.035513878
-      objectReference: {fileID: 0}
-    - target: {fileID: 1550232842817667334, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3082428331932385457, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3750829718220043481, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
       propertyPath: m_Name
       value: Slam
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049775063671341366, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8043821946930344442, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 6243917595417204822}
-    - target: {fileID: 8043821946930344442, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
-      propertyPath: weaponType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8043821946930344442, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
-      propertyPath: maxCooldown
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8043821946930344442, guid: 53f0360ce2424b44b9bad6518d0259a2, type: 3}
       propertyPath: mouseFollow
       value: 

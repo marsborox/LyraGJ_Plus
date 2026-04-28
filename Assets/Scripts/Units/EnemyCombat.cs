@@ -216,7 +216,7 @@ public class EnemyCombat : UnitCombat
     public override void Die()
     {
         //triggered by animationEvent
-        Debug.Log("Enemy died");
+        //Debug.Log("Enemy died");
         if (GameManager.instance != null)
             GameManager.instance.EnemyDied();
         //Debug.Log("enemyDeath processing");
@@ -298,7 +298,7 @@ public class EnemyCombat : UnitCombat
         //if waiting, coroutine on its end run this again
   
         bool willMove = (float)Random.Range(0f,1f) <= _walkChance;
-        Debug.Log("willMove: "+willMove);
+        //Debug.Log("willMove: "+willMove);
         if(willMove)
         {StartCoroutine(WaitingRoutine());}
         else
@@ -318,7 +318,7 @@ public class EnemyCombat : UnitCombat
         _notTriggeredPhase = NotTriggeredPhase.MOVING;
         Vector2 destination = GetRandomDestination();
         
-        Debug.Log("destination = " + destination.ToString());
+        //Debug.Log("destination = " + destination.ToString());
         nonCombatDestination = destination;    
         enemyMovement.MoveToTarget(destination);
 
@@ -343,7 +343,7 @@ public class EnemyCombat : UnitCombat
             NavMeshHit hit;
             realDestination = Vector2.zero;
 
-            Debug.Log("destination chosen randomly: "+destination);
+            //Debug.Log("destination chosen randomly: "+destination);
             //get closest walkable point to random position
             if(NavMesh.SamplePosition(destination, out hit, Mathf.Infinity,1))
             {
@@ -355,11 +355,12 @@ public class EnemyCombat : UnitCombat
                 nonCombatDestination = realDestination;    
                 enemyMovement.MoveToTarget(realDestination);*/
                 isDestinaitonValid = roomISpawnedIn.IsWithinBounds(realDestination);
-                Debug.Log("isDestinaionValid: "+isDestinaitonValid);
+                //Debug.Log("isDestinaionValid: "+isDestinaitonValid);
                 if(!isDestinaitonValid)
-                {Debug.LogError("destiantionNotValid Recalculating");}
+                {
+                    //Debug.LogError("destiantionNotValid Recalculating");
+                }
         }    
-
         return realDestination;
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 public class UnitSpawner : Singleton<UnitSpawner>
 {
     public static new UnitSpawner instance => Singleton<UnitSpawner>.instance;
-    public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
+    
     public List<Enemy_SO> enemy_SOs = new List<Enemy_SO>();
     public GameObject spawnPointsInScene;
     //public EnemySpawnChecker enemySpawnCheckerPrefab;
@@ -24,6 +24,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
     public Enemy_SO mageSO;
 
     public List<Enemy_SO>enemySOs = new List<Enemy_SO>();
+    public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
 
     [Header("testing randomSpawnPoint position")]
     public Room roomWeTestIn;
@@ -39,7 +40,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
     {
         
     }
-    void AddSpawnPointsToList()
+    private void AddSpawnPointsToList()
     {
         foreach (SpawnPoint spawnPoint in spawnPointsInScene.transform)
         { 
@@ -56,7 +57,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
 
         }
     }
-    IEnumerator SpawningEnemiesRoutine()
+    private IEnumerator SpawningEnemiesRoutine()
     {
         spawningDone = false;
         float spawnTime = Random.Range(minSpawnTime,maxSpawnTime);
@@ -145,7 +146,7 @@ public class UnitSpawner : Singleton<UnitSpawner>
     {
         SpawnEnemy(mageSO);
     }
-    public void TestSpawnPosition()
+    void TestSpawnPosition()
     {
         Vector2 position;
         
