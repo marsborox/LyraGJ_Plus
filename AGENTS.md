@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, cast shadow, Water, UI, Unit, Hitbox, Weapon, SpawnChecker
 - Active game object:
-  - Name: WeaponSetup
+  - Name: TestUI
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

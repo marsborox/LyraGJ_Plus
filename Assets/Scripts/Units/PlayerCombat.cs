@@ -7,7 +7,7 @@ public class PlayerCombat : UnitCombat
     public Weapon weaponGuitar;
     public Weapon weaponPiano;
     public Weapon weaponSax;
-    public Weapon weapon4New;
+    public Weapon weaponGrenadeLauncher;
     public GameObject hitEffectPrefab;
     public List<Weapon> weaponList = new List<Weapon>();
 
@@ -75,7 +75,7 @@ public class PlayerCombat : UnitCombat
         isAttacking = true;*/
 
         SpawnMusicalNotes(new Color(1, 1, 1));
-        weapon4New.ClickAttack();
+        weaponGrenadeLauncher.ClickAttack();
     }
 
     public override void TakeDamage(int damage, bool isCrit)

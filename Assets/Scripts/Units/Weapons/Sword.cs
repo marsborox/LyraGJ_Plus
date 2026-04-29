@@ -38,8 +38,8 @@ public class Sword : Weapon
         bool isCrit;
         unit.TakeDamage(ReturnCalculateDamage(out isCrit),isCrit);
     }
-    public override void SetWeaponRed()
-    {
+    /*public override void SetWeaponRed()
+    {//can remove
         weaponType = Type.RED;
         _swordAttackSprite.color = Color.red;
     }
@@ -52,7 +52,7 @@ public class Sword : Weapon
     {
         weaponType = Type.BLUE;
         _swordAttackSprite.color = Color.blue;
-    }
+    }*/
 
     IEnumerator AttackHitRoutine()
     {

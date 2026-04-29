@@ -59,6 +59,7 @@ public class Slam : Weapon
         bool isCrit;
         unit.TakeDamage(ReturnCalculateDamage(out isCrit),isCrit);
     }
+    /*// can remove
     public override void SetWeaponRed()
     {
         weaponType = Type.RED;
@@ -73,5 +74,5 @@ public class Slam : Weapon
     {
         weaponType = Type.BLUE;
         _animationVisual1.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
-    }
+    }*/
 }

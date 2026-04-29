@@ -21,23 +21,31 @@ public class WeaponSetupWeapon_UI : UI
         InitiateButton(setColorGreenButton, SetWeaponGreen);
         InitiateButton(setColorBlueButton,SetWeaponBlue);
     }
-    public void SetWeaponField(Weapon weapon)
+    
+    public void SetWeaponField(Weapon inputWeapon)
     { 
-        
+        weapon = inputWeapon;
     }
     void SetWeaponRed()
     { 
-        weapon.SetWeaponRed();
+        //fix
+        //weapon.SetWeaponRed();
+        weapon.SetWeaponType(Type.RED);
+
         weaponImage.color = red;
     }
     void SetWeaponGreen()
     { 
-        weapon.SetWeaponGreen();
+        //fix
+        //weapon.SetWeaponGreen();
+        weapon.SetWeaponType(Type.GREEN);
         weaponImage.color = green;
     }
     void SetWeaponBlue() 
     {
-        weapon.SetWeaponBlue();
+        //fix
+        //weapon.SetWeaponBlue();
+        weapon.SetWeaponType(Type.BLUE);
         weaponImage.color = blue;
     }
 

@@ -69,12 +69,21 @@ public class Weapon : MonoBehaviour
     {
 
     }
-    public virtual void SetWeaponRed()
+    /*
+    //can removepublic virtual void SetWeaponRed()
     { Debug.Log("Method not implemented"); }
     public virtual void SetWeaponGreen() 
     { Debug.Log("Method not implemented"); }
     public virtual void SetWeaponBlue() 
-    { Debug.Log("Method not implemented"); }
+    { Debug.Log("Method not implemented"); }*/
+    public void SetWeaponType(Type inputWeaponType)
+    {
+        weaponType = inputWeaponType;
+    }
+    public Type ReturnWeaponType()
+    {
+        return weaponType;
+    }
     public virtual void AttackHit()
     {  
         Debug.Log("AttackHit not implemented on this weapon");
