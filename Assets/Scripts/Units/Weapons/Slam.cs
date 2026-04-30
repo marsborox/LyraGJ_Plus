@@ -15,7 +15,7 @@ public class Slam : Weapon
     {
         if (!CanAttack())
             return;
-        Debug.Log("CooldownTimer: "+ coolDownTimer + " can attack: "+ CanAttack());
+     //Debug.Log("CooldownTimer: "+ coolDownTimer + " can attack: "+ CanAttack());
         coolDownTimer = maxCooldown;
         //Debug.Log("player attacking");
         //Debug.Log("Sword. attackHit");
