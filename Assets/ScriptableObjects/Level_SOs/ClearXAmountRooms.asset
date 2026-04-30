@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37babba98b8a06042bb6ebefb715abed, type: 3}
   m_Name: ClearXAmountRooms
   m_EditorClassIdentifier: Assembly-CSharp::ClearXAmountRooms_SO
-  numberOfRoomsToClear: 1
+  numberOfRoomsToClear: 10
   dialogueWRoomClearedIndexList:
   - spawnOnRoomCleared: 0
     dialogue: {fileID: 11400000, guid: ac7095dc8b7b2470ca211b6803d6cc9e, type: 2}

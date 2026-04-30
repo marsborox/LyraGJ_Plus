@@ -37463,6 +37463,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1481605289101901, guid: 22674c4bce1f10a4692825f0662eaad8, type: 3}
+      propertyPath: pianoType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481605289101901, guid: 22674c4bce1f10a4692825f0662eaad8, type: 3}
+      propertyPath: guitarType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5786117349963244730, guid: 22674c4bce1f10a4692825f0662eaad8, type: 3}
       propertyPath: m_Name
       value: PlayerWeaponTracker
