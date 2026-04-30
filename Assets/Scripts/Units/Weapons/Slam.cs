@@ -15,7 +15,7 @@ public class Slam : Weapon
     {
         if (!CanAttack())
             return;
-        Debug.Log("CooldownTimer: "+ coolDownTimer + " can attack: "+ CanAttack());
+     //Debug.Log("CooldownTimer: "+ coolDownTimer + " can attack: "+ CanAttack());
         coolDownTimer = maxCooldown;
         //Debug.Log("player attacking");
         //Debug.Log("Sword. attackHit");
@@ -59,6 +59,7 @@ public class Slam : Weapon
         bool isCrit;
         unit.TakeDamage(ReturnCalculateDamage(out isCrit),isCrit);
     }
+    /*// can remove
     public override void SetWeaponRed()
     {
         weaponType = Type.RED;
@@ -73,5 +74,5 @@ public class Slam : Weapon
     {
         weaponType = Type.BLUE;
         _animationVisual1.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
-    }
+    }*/
 }

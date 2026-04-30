@@ -46,7 +46,8 @@ public class BowAuto : Weapon
         yield return new WaitForSeconds(attackAnimationTime);
         player.playerMovement.CanMove();
         _animationRoutine = null;
-    }
+    }/*
+    //can remove
     public override void SetWeaponRed()
     {
         weaponType = Type.RED;
@@ -61,5 +62,5 @@ public class BowAuto : Weapon
     {
         weaponType = Type.BLUE;
         _projectileColor = Color.blue;
-    }
+    }*/
 }

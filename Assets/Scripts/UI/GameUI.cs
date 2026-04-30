@@ -5,7 +5,7 @@ public class GameUI : Singleton<GameUI>
     public static new GameUI instance => Singleton<GameUI>.instance;
     public PlayerDied_UI playerDied_UI;
 
-    [SerializeField] private WeaponSetup_UI _weaponSetup_UI;
+    [SerializeField] private WeaponsSetup_UI _weaponSetup_UI;
 
     private void Awake()
     {

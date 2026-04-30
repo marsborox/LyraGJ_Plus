@@ -7,7 +7,7 @@ public class PlayerCombat : UnitCombat
     public Weapon weaponGuitar;
     public Weapon weaponPiano;
     public Weapon weaponSax;
-    public Weapon weapon4New;
+    public Weapon weaponGrenadeLauncher;
     public GameObject hitEffectPrefab;
     public List<Weapon> weaponList = new List<Weapon>();
 
@@ -17,7 +17,8 @@ public class PlayerCombat : UnitCombat
 
     private void Start()
     {
-        base.Start();   
+        base.Start();
+        PlayerWeaponTracker.instance.LoadWeaponSetup();   
     }
     public void OnTriggerEnter2DCustom(Collider2D other)
     {
@@ -75,7 +76,7 @@ public class PlayerCombat : UnitCombat
         isAttacking = true;*/
 
         SpawnMusicalNotes(new Color(1, 1, 1));
-        weapon4New.ClickAttack();
+        weaponGrenadeLauncher.ClickAttack();
     }
 
     public override void TakeDamage(int damage, bool isCrit)
@@ -135,5 +136,23 @@ public class PlayerCombat : UnitCombat
             ps.Play();
             Object.Destroy(fx, ps.main.duration + ps.main.startLifetime.constantMax);
         }
+    }
+    public void SetAllWeapons(Type guitar, Type piano, Type sax, Type grenade)
+    {//remove
+        weaponGuitar.SetWeaponType(guitar);
+        weaponPiano.SetWeaponType(piano);
+        weaponSax.SetWeaponType(sax);
+        weaponGrenadeLauncher.SetWeaponType(grenade);
+    }
+    public void SetAllWeapons(WeaponsSetupSave setup)
+    {//rename to load
+        weaponGuitar.SetWeaponType(setup.guitarType);
+        weaponPiano.SetWeaponType(setup.pianoType);
+        weaponSax.SetWeaponType(setup.saxType);
+        weaponGrenadeLauncher.SetWeaponType(setup.grenadeLType);
+    }
+    private void SetAllWeaponsOnLoad()
+    {
+        
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
-public enum Type { RED, GREEN, BLUE, WHITE }
+public enum Type { RED, GREEN, BLUE, WHITE, DEFAULT }
 public class Enemy : Unit
 {
     public Type enemyType;
