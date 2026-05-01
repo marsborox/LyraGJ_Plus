@@ -9,25 +9,18 @@ public class WeaponsSetup_UI : UI
     [SerializeField] private WeaponSetupWeapon_UI _weaponPianoUI;
     [SerializeField] private WeaponSetupWeapon_UI _weaponSaxUI;
     [SerializeField] private WeaponSetupWeapon_UI _grenadeLanucherUI;
-    //private List<WeaponSetupWeapon_UI> _weaponSetupUIs = new List<WeaponSetupWeapon_UI>();
-    //comented can be deleted
+
     [SerializeField] private Button _exitButton;
     public void Awake()
     {
-        //AddWeaponUIsToList();
+
     }
     void Start()
     {
         SetPictogramsColor();
         SetupWeaponPanels();
     }
-    /*private void AddWeaponUIsToList()
-    {
-        _weaponSetupUIs.Add(_weaponGuitarUI);
-        _weaponSetupUIs.Add(_weaponPianoUI);
-        _weaponSetupUIs.Add(_weaponSaxUI);
-        _weaponSetupUIs.Add(_grenadeLanucherUI);
-    }*/
+
     public void SetPictogramsColor()
     {
         SetPictogramColor(_weaponGuitarUI,PlayerWeaponTracker.instance.guitarType);

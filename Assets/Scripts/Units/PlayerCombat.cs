@@ -142,7 +142,7 @@ public class PlayerCombat : UnitCombat
         weaponGuitar.SetWeaponType(guitar);
         weaponPiano.SetWeaponType(piano);
         weaponSax.SetWeaponType(sax);
-        weaponGrenadeLauncher.SetWeaponType(grenade);
+        weaponGrenadeLauncher.SetWeaponType(grenade);//errory
     }
     public void SetAllWeapons(WeaponsSetupSave setup)
     {//rename to load

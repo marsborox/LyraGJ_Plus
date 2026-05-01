@@ -11,7 +11,7 @@ public class PlayerWeaponTracker : SingletonPersistent<PlayerWeaponTracker>
 
     public Weapon weaponGuitar
     {
-        get {return ((PlayerCombat)GameManager.instance.ReturnPlayer().unitCombat).weaponGuitar;}
+        get {return ((PlayerCombat)GameManager.instance.ReturnPlayer().unitCombat).weaponGuitar;}//errory
         set {((PlayerCombat)GameManager.instance.ReturnPlayer().unitCombat).weaponGuitar = value;}
     }
     public Weapon weaponPiano
@@ -36,7 +36,7 @@ public class PlayerWeaponTracker : SingletonPersistent<PlayerWeaponTracker>
 
     public WeaponsSetupSave weaponsSetup;
     Dictionary<Weapon, Type> weaponTypeDictionary = new Dictionary<Weapon, Type>();
-    Player player {get{return GameManager.instance.ReturnPlayer();}}
+    Player player {get{return GameManager.instance.ReturnPlayer();}}//errory
     protected override void Awake()
     {
         base.Awake();
