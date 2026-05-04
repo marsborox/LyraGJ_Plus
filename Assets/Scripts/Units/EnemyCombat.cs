@@ -16,6 +16,7 @@ public class EnemyCombat : UnitCombat
     public EnemyBehavior_SO behaviorTemplate;
     public EnemyMovement enemyMovement;
     public Room roomISpawnedIn;
+    //public Image healthBar; //working on
     public bool isShielded = true;
     [SerializeField] private Vector2 nonCombatDestination;
 
