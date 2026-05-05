@@ -131,7 +131,7 @@ public class PlayerCombat : UnitCombat
         Destroy(ps, ps.main.duration + ps.main.startLifetime.constantMax);
     }
     /*private void SpawnMusicalNotes(Color color)
-    {
+    {// --------------------- keep in case we want to include color
         if (hitEffectPrefab == null) return;
         //Rework
         GameObject fx = Object.Instantiate(hitEffectPrefab, myRigidBody.transform.localPosition, Quaternion.identity);
@@ -161,9 +161,5 @@ public class PlayerCombat : UnitCombat
         weaponPiano.SetWeaponType(setup.pianoType);
         weaponSax.SetWeaponType(setup.saxType);
         weaponGrenadeLauncher.SetWeaponType(setup.grenadeLType);
-    }
-    private void SetAllWeaponsOnLoad()
-    {
-        
     }
 }
