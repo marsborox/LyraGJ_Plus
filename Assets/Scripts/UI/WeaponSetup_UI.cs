@@ -17,11 +17,11 @@ public class WeaponsSetup_UI : UI
     }
     void Start()
     {
-        SetPictogramsColor();
+        SetAllPictogramsColor();
         SetupWeaponPanels();
     }
 
-    public void SetPictogramsColor()
+    public void SetAllPictogramsColor()
     {
         SetPictogramColor(_weaponGuitarUI,PlayerWeaponTracker.instance.guitarType);
         SetPictogramColor(_weaponPianoUI,PlayerWeaponTracker.instance.pianoType);

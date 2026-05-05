@@ -55,15 +55,6 @@ public class UnitCombat : MonoBehaviour
             
         }
     }
-    public void GetHitFromExplosion(Collider2D other)
-    {
-        if (other.gameObject.tag == "Explosion")
-        {
-            //get damage
-            Explosion explosion = other.gameObject.GetComponent<Explosion>();
-            //Debug.Log("got hit by explosion");
-        }
-    }
     public void GetHitFromProjectile(Collider2D other)
     {
         if (other.gameObject.tag == projectileTagThatHitsUs)
@@ -74,6 +65,15 @@ public class UnitCombat : MonoBehaviour
             projectile.ProjectileHit(this.thisUnit);
             //get knocked back
             //get effect
+        }
+    }
+    public void GetHitFromExplosion(Collider2D other)
+    {
+        if (other.gameObject.tag == "Explosion")
+        {
+            //get damage
+            Explosion explosion = other.gameObject.GetComponent<Explosion>();
+            //Debug.Log("got hit by explosion");
         }
     }
     public virtual void SetHealthBar()
@@ -87,19 +87,12 @@ public class UnitCombat : MonoBehaviour
     {
         animationController.HandleTakeDamageAnimation();
         //Debug.Log("taking damage from unitCombat");
-        //isStunned = true;
-        //stunDuration = 999;//stun is cancelled post get hit animation, timer is arbitrary
-        
+
         healthCurrent -= damage;
     }
-        public virtual void TakeDamage(int damage, bool isCrit)
+    public virtual void TakeDamage(int damage, bool isCrit)
     {
-        //animationController.HandleTakeDamageAnimation();
-        /*Debug.Log("taking damage from unitCombat");
-        isStunned = true;
-        stunDuration = 999;//stun is cancelled post get hit animation, timer is arbitrary
-        */
-        //healthCurrent -= damage;
+
     }
 
     public virtual void GetHeal(int heal)
@@ -137,8 +130,8 @@ public class UnitCombat : MonoBehaviour
         myRigidBody.AddForce(direction, ForceMode2D.Impulse);
         isPushedBack = true;
         StartCoroutine(PushBackRoutine(pushBackDuration));
-}
-    IEnumerator PushBackRoutine(float pushBackDuration)
+    }
+    private IEnumerator PushBackRoutine(float pushBackDuration)
     {
         yield return new WaitForSeconds(pushBackDuration);
         isPushedBack = false;

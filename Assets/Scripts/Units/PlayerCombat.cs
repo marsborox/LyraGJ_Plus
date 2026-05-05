@@ -9,6 +9,7 @@ public class PlayerCombat : UnitCombat
     public Weapon weaponSax;
     public Weapon weaponGrenadeLauncher;
     public GameObject hitEffectPrefab;
+    public ParticleSystem musicalNoteParticle;
     public List<Weapon> weaponList = new List<Weapon>();
 
     private bool isAttacking = false;
@@ -35,7 +36,8 @@ public class PlayerCombat : UnitCombat
         // Debug.Log("playerCombat.wpn1 attack");
         MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Guitar);
 
-        SpawnMusicalNotes(new Color(1, 0, 0));
+        //SpawnMusicalNotes(new Color(1, 0, 0));
+        SpawnMusicalNotes();
         animationController.HandleMeeleeAttackAnimation();
         
         weaponGuitar.ClickAttack();
@@ -50,7 +52,8 @@ public class PlayerCombat : UnitCombat
         // Debug.Log("playerCombat.wpn2 attack");
         MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Piano);
 
-        SpawnMusicalNotes(new Color(0, 1, 0));
+        //SpawnMusicalNotes(new Color(0, 1, 0));
+        SpawnMusicalNotes();
         animationController.HandleRangedAttackAnimation();
         weaponPiano.ClickAttack();
         //Debug.Log("doing ranged attack");
@@ -64,7 +67,8 @@ public class PlayerCombat : UnitCombat
 
         MySoundManager.instance.PlayInstrument(MySoundManager.Instrument.Saxophone);
 
-        SpawnMusicalNotes(new Color(0, 0, 1));
+        //SpawnMusicalNotes(new Color(0, 0, 1));
+        SpawnMusicalNotes();
         animationController.HandleAoEAttackAnimation();
         weaponSax.ClickAttack();
 
@@ -75,7 +79,8 @@ public class PlayerCombat : UnitCombat
         /*if (isAttacking) return;
         isAttacking = true;*/
 
-        SpawnMusicalNotes(new Color(1, 1, 1));
+        //SpawnMusicalNotes(new Color(1, 1, 1));
+        SpawnMusicalNotes();
         weaponGrenadeLauncher.ClickAttack();
     }
 
@@ -119,10 +124,16 @@ public class PlayerCombat : UnitCombat
         GlobalEventManager.instance.TriggerOnPlayerDied();
         animationController.animator.updateMode = AnimatorUpdateMode.UnscaledTime;
     }
-    private void SpawnMusicalNotes(Color color)
+    private void SpawnMusicalNotes()
+    {
+        Vector3 spawnPos = transform.position + new Vector3(0f, 1.2f, 0f);//magic number
+        ParticleSystem ps = Instantiate(musicalNoteParticle,spawnPos,Quaternion.identity);
+        Destroy(ps, ps.main.duration + ps.main.startLifetime.constantMax);
+    }
+    /*private void SpawnMusicalNotes(Color color)
     {
         if (hitEffectPrefab == null) return;
-
+        //Rework
         GameObject fx = Object.Instantiate(hitEffectPrefab, myRigidBody.transform.localPosition, Quaternion.identity);
         fx.transform.position +=  new Vector3(0f, 1.2f, 0f);
 
@@ -136,7 +147,7 @@ public class PlayerCombat : UnitCombat
             ps.Play();
             Object.Destroy(fx, ps.main.duration + ps.main.startLifetime.constantMax);
         }
-    }
+    }*/
     public void SetAllWeapons(Type guitar, Type piano, Type sax, Type grenade)
     {//remove
         weaponGuitar.SetWeaponType(guitar);

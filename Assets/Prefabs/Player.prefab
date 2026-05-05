@@ -1365,6 +1365,7 @@ MonoBehaviour:
   weaponSax: {fileID: 963801728030566303}
   weaponGrenadeLauncher: {fileID: 965469982444938934}
   hitEffectPrefab: {fileID: 9152435506617492344, guid: 9e1e907dc4b6148788e77a5e34b22acc, type: 3}
+  musicalNoteParticle: {fileID: 3251783163340144945, guid: 9e1e907dc4b6148788e77a5e34b22acc, type: 3}
   weaponList: []
 --- !u!1 &3996855304987699569
 GameObject:
