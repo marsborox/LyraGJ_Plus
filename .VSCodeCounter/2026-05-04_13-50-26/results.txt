@@ -1,0 +1,301 @@
+Date : 2026-05-04 13:50:26
+Directory : h:\C#\Projects\LyraGJ_Plus
+Total : 218 files,  38390 codes, 2503 comments, 8513 blanks, all 49406 lines
+
+Languages
++-------------+------------+------------+------------+------------+------------+
+| language    | files      | code       | comment    | blank      | total      |
++-------------+------------+------------+------------+------------+------------+
+| C#          |        176 |     15,152 |      1,999 |      3,036 |     20,187 |
+| Ini         |          1 |     13,255 |        274 |      3,451 |     16,980 |
+| HTML        |          3 |      4,782 |         84 |        840 |      5,706 |
+| UnityShader |         21 |      3,004 |        114 |        790 |      3,908 |
+| JSON        |         10 |        855 |          0 |          5 |        860 |
+| Markdown    |          6 |        817 |          2 |        329 |      1,148 |
+| XML         |          1 |        525 |         30 |         62 |        617 |
++-------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                       | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                          |        218 |     38,390 |      2,503 |      8,513 |     49,406 |
+| . (Files)                                                                                                                  |          1 |         11 |          2 |          0 |         13 |
+| Assets                                                                                                                     |        169 |     13,254 |      1,100 |      2,497 |     16,851 |
+| Assets\FolderColor                                                                                                         |          3 |        157 |          7 |         36 |        200 |
+| Assets\FolderColor\Editor                                                                                                  |          2 |        156 |          7 |         36 |        199 |
+| Assets\FolderColor\SaveSetUp                                                                                               |          1 |          1 |          0 |          0 |          1 |
+| Assets\NavMeshComponents                                                                                                   |         35 |      3,371 |        108 |        578 |      4,057 |
+| Assets\NavMeshComponents\Editor                                                                                            |         14 |      1,581 |         48 |        326 |      1,955 |
+| Assets\NavMeshComponents\Scripts                                                                                           |         21 |      1,790 |         60 |        252 |      2,102 |
+| Assets\Scripts                                                                                                             |        109 |      6,567 |        871 |      1,091 |      8,529 |
+| Assets\Scripts (Files)                                                                                                     |          4 |         82 |          4 |         25 |        111 |
+| Assets\Scripts\CrossSceneObjects                                                                                           |          3 |        385 |          9 |         58 |        452 |
+| Assets\Scripts\ManagementScripts                                                                                           |         10 |      1,175 |        132 |        169 |      1,476 |
+| Assets\Scripts\RoomScripts                                                                                                 |          6 |        295 |         58 |         58 |        411 |
+| Assets\Scripts\ScriptableObjects                                                                                           |         15 |        385 |         38 |         73 |        496 |
+| Assets\Scripts\ScriptableObjects (Files)                                                                                   |          2 |         33 |          1 |         11 |         45 |
+| Assets\Scripts\ScriptableObjects\Action_SO                                                                                 |          4 |         63 |         11 |         18 |         92 |
+| Assets\Scripts\ScriptableObjects\Cutscenes                                                                                 |          2 |         37 |          0 |          8 |         45 |
+| Assets\Scripts\ScriptableObjects\EnemyBehavior_SO                                                                          |          3 |         89 |          9 |         17 |        115 |
+| Assets\Scripts\ScriptableObjects\Level_SO                                                                                  |          3 |        158 |         17 |         16 |        191 |
+| Assets\Scripts\ScriptableObjects\RoomDirectionMethods                                                                      |          1 |          5 |          0 |          3 |          8 |
+| Assets\Scripts\UI                                                                                                          |         15 |        787 |         65 |        124 |        976 |
+| Assets\Scripts\Units                                                                                                       |         43 |      2,934 |        534 |        475 |      3,943 |
+| Assets\Scripts\Units (Files)                                                                                               |         26 |      2,138 |        340 |        358 |      2,836 |
+| Assets\Scripts\Units\Player                                                                                                |          7 |        327 |         97 |         45 |        469 |
+| Assets\Scripts\Units\Weapons                                                                                               |         10 |        469 |         97 |         72 |        638 |
+| Assets\Scripts\misc                                                                                                        |         13 |        524 |         31 |        109 |        664 |
+| Assets\Shaders                                                                                                             |          1 |         92 |          3 |         20 |        115 |
+| Assets\Sprites                                                                                                             |          1 |         52 |          0 |         14 |         66 |
+| Assets\Sprites\Shaders                                                                                                     |          1 |         52 |          0 |         14 |         66 |
+| Assets\TextMesh Pro                                                                                                        |         20 |      3,015 |        111 |        758 |      3,884 |
+| Assets\TextMesh Pro\Shaders                                                                                                |         19 |      2,860 |        111 |        756 |      3,727 |
+| Assets\TextMesh Pro\Sprites                                                                                                |          1 |        155 |          0 |          2 |        157 |
+| Packages                                                                                                                   |         41 |      6,561 |      1,013 |      1,662 |      9,236 |
+| Packages (Files)                                                                                                           |          2 |        612 |          0 |          2 |        614 |
+| Packages\com.merry-yellow.code-assist                                                                                      |         39 |      5,949 |      1,013 |      1,660 |      8,622 |
+| Packages\com.merry-yellow.code-assist (Files)                                                                              |          5 |        833 |          0 |        327 |      1,160 |
+| Packages\com.merry-yellow.code-assist\Editor                                                                               |         33 |      5,110 |      1,013 |      1,331 |      7,454 |
+| Packages\com.merry-yellow.code-assist\Editor (Files)                                                                       |         17 |      3,133 |        496 |        796 |      4,425 |
+| Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines                                                              |          4 |        198 |        210 |         36 |        444 |
+| Packages\com.merry-yellow.code-assist\Editor\Input                                                                         |          4 |        629 |        157 |        171 |        957 |
+| Packages\com.merry-yellow.code-assist\Editor\Logger                                                                        |          4 |        382 |         44 |        129 |        555 |
+| Packages\com.merry-yellow.code-assist\Editor\Preferences                                                                   |          4 |        768 |        106 |        199 |      1,073 |
+| Packages\com.merry-yellow.code-assist\Installers~                                                                          |          1 |          6 |          0 |          2 |          8 |
+| windowsBuild                                                                                                               |          7 |     18,564 |        388 |      4,354 |     23,306 |
+| windowsBuild\Lyra Echoes Through Time_Data                                                                                 |          2 |          2 |          0 |          1 |          3 |
+| windowsBuild\MonoBleedingEdge                                                                                              |          5 |     18,562 |        388 |      4,353 |     23,303 |
+| windowsBuild\MonoBleedingEdge\etc                                                                                          |          5 |     18,562 |        388 |      4,353 |     23,303 |
+| windowsBuild\MonoBleedingEdge\etc\mono                                                                                     |          5 |     18,562 |        388 |      4,353 |     23,303 |
+| windowsBuild\MonoBleedingEdge\etc\mono (Files)                                                                             |          1 |     13,255 |        274 |      3,451 |     16,980 |
+| windowsBuild\MonoBleedingEdge\etc\mono\2.0                                                                                 |          1 |      1,594 |         28 |        280 |      1,902 |
+| windowsBuild\MonoBleedingEdge\etc\mono\4.0                                                                                 |          1 |      1,594 |         28 |        280 |      1,902 |
+| windowsBuild\MonoBleedingEdge\etc\mono\4.5                                                                                 |          1 |      1,594 |         28 |        280 |      1,902 |
+| windowsBuild\MonoBleedingEdge\etc\mono\mconfig                                                                             |          1 |        525 |         30 |         62 |        617 |
++----------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+
+| filename                                                                                                                   | language    | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+
+| h:\C#\Projects\LyraGJ_Plus\AGENTS.md                                                                                       | Markdown    |         11 |          2 |          0 |         13 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\FolderColor\Editor\CustomWindowFileImage.cs                                              | C#          |         55 |          0 |         14 |         69 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\FolderColor\Editor\ProjectAssetViewerCustomisation.cs                                    | C#          |        101 |          7 |         22 |        130 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\FolderColor\SaveSetUp\FolderModificationData.json                                        | JSON        |          1 |          0 |          0 |          1 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\AgentOverride2dEditor.cs                                        | C#          |         18 |          8 |          4 |         30 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\CollectSources2dEditor.cs                                       | C#          |         74 |          0 |          9 |         83 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\CollectSourcesCache2dEditor.cs                                  | C#          |         35 |          0 |          6 |         41 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshAgentAttributePropertyDrawer.cs                          | C#          |         15 |          3 |          4 |         22 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshAreaAttributePropertyDrawer.cs                           | C#          |         15 |          3 |          3 |         21 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshAssetManager.cs                                          | C#          |        267 |         12 |         56 |        335 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshComponentsEditor.asmdef                                  | JSON        |         16 |          0 |          0 |         16 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshComponentsGUIUtility.cs                                  | C#          |        226 |          8 |         43 |        277 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshLinkEditor.cs                                            | C#          |        224 |          1 |         55 |        280 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshModifierEditor.cs                                        | C#          |         35 |          0 |         12 |         47 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshModifierTilemapEditor.cs                                 | C#          |        167 |          4 |         28 |        199 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshModifierVolumeEditor.cs                                  | C#          |        110 |          0 |         28 |        138 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs                                         | C#          |        350 |          9 |         70 |        429 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\RootSources2dEditor.cs                                          | C#          |         29 |          0 |          8 |         37 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\AgentOverride2d.cs                                             | C#          |         33 |          0 |          4 |         37 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\AgentRotate2d.cs                                               | C#          |         13 |          0 |          3 |         16 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\AgentRotateSmooth2d.cs                                         | C#          |         14 |          0 |          3 |         17 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\CollectSources2d.cs                                            | C#          |         83 |          0 |          8 |         91 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\CollectSourcesCache2d.cs                                       | C#          |        105 |          0 |         11 |        116 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\CollectTilemapSourcesCache2d.cs                                | C#          |         86 |          0 |         10 |         96 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshAgentAttribute.cs                                       | C#          |          8 |          3 |          2 |         13 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshAreaAttribute.cs                                        | C#          |          8 |          4 |          2 |         14 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshBuilder2d.cs                                            | C#          |        355 |          6 |         38 |        399 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshBuilderState.cs                                         | C#          |         86 |         10 |         13 |        109 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshComponents.asmdef                                       | JSON        |         20 |          0 |          0 |         20 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshExtension.cs                                            | C#          |         56 |          0 |          3 |         59 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshExtensionsProvider.cs                                   | C#          |         51 |          0 |          7 |         58 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshLink.cs                                                 | C#          |        145 |          0 |         31 |        176 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshModifier.cs                                             | C#          |         45 |          2 |         10 |         57 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshModifierTilemap.cs                                      | C#          |         67 |          5 |         12 |         84 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs                                       | C#          |         45 |          2 |         10 |         57 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshSurface.cs                                              | C#          |        460 |         22 |         71 |        553 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\RootSources2d.cs                                               | C#          |         28 |          0 |          5 |         33 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\RotateAgentInstantly.cs                                        | C#          |         33 |          3 |          4 |         40 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\RotateAgentSmoothly.cs                                         | C#          |         49 |          3 |          5 |         57 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ButtonTester.cs                                                                  | C#          |         18 |          0 |          3 |         21 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\CloseDoor.cs                                                                     | C#          |         39 |          0 |         13 |         52 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\CrossSceneObjects\CameraFollowing.cs                                             | C#          |         93 |          2 |         15 |        110 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\CrossSceneObjects\MySceneManager.cs                                              | C#          |        278 |          7 |         41 |        326 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\CrossSceneObjects\ScenePortal.cs                                                 | C#          |         14 |          0 |          2 |         16 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\CutscenesPlayer.cs                                             | C#          |        184 |          5 |         27 |        216 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\GameManager.cs                                                 | C#          |        128 |         14 |         14 |        156 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\GlobalEventManager.cs                                          | C#          |         51 |          7 |          9 |         67 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\LevelManager.cs                                                | C#          |         17 |          1 |         11 |         29 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\MySoundManager.cs                                              | C#          |        298 |          7 |         50 |        355 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\PlayerManager.cs                                               | C#          |         10 |          0 |          3 |         13 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\PlayerWeaponTracker.cs                                         | C#          |        101 |          1 |          5 |        107 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\RoomManager.cs                                                 | C#          |         82 |          9 |         18 |        109 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\RoomSpawner.cs                                                 | C#          |        296 |         88 |         29 |        413 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\WeaponsSetup.cs                                                | C#          |          8 |          0 |          3 |         11 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\NavMeshChck.cs                                                                   | C#          |         10 |          2 |          5 |         17 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\EntryTrigger.cs                                                      | C#          |         13 |          0 |          3 |         16 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\EntryTriggers.cs                                                     | C#          |          4 |          0 |          3 |          7 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\Room.cs                                                              | C#          |        244 |         53 |         41 |        338 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\RoomObjectSpawner.cs                                                 | C#          |         12 |          0 |          3 |         15 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\SpawnTrigger.cs                                                      | C#          |         12 |          3 |          3 |         18 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\UnitTracker.cs                                                       | C#          |         10 |          2 |          5 |         17 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Action_SO\Action_SO.cs                                         | C#          |         23 |          5 |          8 |         36 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Action_SO\MeleeSinglePunch_SO.cs                               | C#          |          4 |          0 |          3 |          7 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Action_SO\SingleShot_SO.cs                                     | C#          |         12 |          3 |          1 |         16 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Action_SO\SpreadShot_SO.cs                                     | C#          |         24 |          3 |          6 |         33 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Cutscenes\CharacterPortrait_SO.cs                              | C#          |         13 |          0 |          3 |         16 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Cutscenes\Dialogue_SO.cs                                       | C#          |         24 |          0 |          5 |         29 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\EnemyBehavior_SO\EnemyBehavior_SO.cs                           | C#          |         17 |          3 |          2 |         22 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\EnemyBehavior_SO\MeleeBasic_SO.cs                              | C#          |         24 |          0 |          6 |         30 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\EnemyBehavior_SO\RangedBasic_SO.cs                             | C#          |         48 |          6 |          9 |         63 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\EnemyConversation_SO.cs                                        | C#          |         13 |          0 |          4 |         17 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Enemy_SO.cs                                                    | C#          |         20 |          1 |          7 |         28 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Level_SO\ClearXAmountRooms_SO.cs                               | C#          |         33 |          3 |          7 |         43 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Level_SO\Level_SO.cs                                           | C#          |         44 |          7 |          4 |         55 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Level_SO\TutorialLevel_SO.cs                                   | C#          |         81 |          7 |          5 |         93 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\RoomDirectionMethods\CallRoom_SO.cs                            | C#          |          5 |          0 |          3 |          8 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\TestScriptTag.cs                                                                 | C#          |         15 |          2 |          4 |         21 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\ButtonClicking.cs                                                             | C#          |         13 |          0 |          3 |         16 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\DialogueUI.cs                                                                 | C#          |        116 |          4 |         18 |        138 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\GameUI.cs                                                                     | C#          |         37 |          0 |          6 |         43 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\HealthIndicator.cs                                                            | C#          |         25 |          5 |          6 |         36 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\OptionsButton.cs                                                              | C#          |          9 |          0 |          3 |         12 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\PauseUI.cs                                                                    | C#          |        196 |          4 |         36 |        236 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\PlayerDied_UI.cs                                                              | C#          |         72 |          7 |         12 |         91 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\QuestText_UI.cs                                                               | C#          |         39 |          0 |          9 |         48 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\RythmIndicator.cs                                                             | C#          |         31 |          1 |          3 |         35 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\SceneLoader.cs                                                                | C#          |         11 |          1 |          2 |         14 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\TestUI.cs                                                                     | C#          |         16 |          0 |          2 |         18 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\UI.cs                                                                         | C#          |         39 |          7 |          3 |         49 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\WeaponSetup_UI.cs                                                             | C#          |         66 |          0 |          5 |         71 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\WeaponUI.cs                                                                   | C#          |         59 |          5 |          7 |         71 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\WeaponsSetupWeapon_UI.cs                                                      | C#          |         58 |         31 |          9 |         98 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\AttackImitation.cs                                                         | C#          |         25 |          0 |          7 |         32 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\DamageNumber.cs                                                            | C#          |         44 |          2 |         13 |         59 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\DirectionMovement.cs                                                       | C#          |         30 |          0 |          6 |         36 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Enemy.cs                                                                   | C#          |         95 |         11 |         11 |        117 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyCombat.cs                                                             | C#          |        332 |        136 |         51 |        519 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyConversation.cs                                                       | C#          |         33 |          2 |          8 |         43 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyDance.cs                                                              | C#          |         37 |          0 |          5 |         42 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyMovement.cs                                                           | C#          |         62 |         10 |         10 |         82 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyPlaceholder.cs                                                        | C#          |        103 |          0 |         14 |        117 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyShield.cs                                                             | C#          |         42 |          4 |          8 |         54 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemySpawnChecker.cs                                                       | C#          |         26 |          4 |         10 |         40 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\HeartBeatSpectrum.cs                                                       | C#          |         19 |          0 |          7 |         26 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\JazzBossCombat.cs                                                          | C#          |        225 |          3 |         40 |        268 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player.cs                                                                  | C#          |         60 |          9 |         12 |         81 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\PlayerAnimationController.cs                                               | C#          |          8 |          0 |          2 |         10 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\PlayerCombat.cs                                                            | C#          |        123 |         10 |         26 |        159 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\PlayerMovement.cs                                                          | C#          |        155 |         30 |         28 |        213 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\HealthPickup.cs                                                     | C#          |         15 |          0 |          4 |         19 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\MouseFollow.cs                                                      | C#          |         28 |          3 |          4 |         35 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\PlayerBattleHitbox.cs                                               | C#          |          9 |          0 |          2 |         11 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\PlayerController.cs                                                 | C#          |        207 |         92 |         28 |        327 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\PlayerDashChecker.cs                                                | C#          |         15 |          0 |          2 |         17 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\RythmBonus.cs                                                       | C#          |         42 |          2 |          2 |         46 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\WeaponIcon.cs                                                       | C#          |         11 |          0 |          3 |         14 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Projectile.cs                                                              | C#          |         65 |          6 |          6 |         77 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\SpawnPoint.cs                                                              | C#          |         12 |          2 |          2 |         16 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Unit.cs                                                                    | C#          |         81 |         13 |         10 |        104 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitAnimationController.cs                                                 | C#          |        180 |         42 |         25 |        247 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitCombat.cs                                                              | C#          |        124 |         31 |         14 |        169 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitMovement.cs                                                            | C#          |         47 |          0 |          6 |         53 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitSpawner.cs                                                             | C#          |        134 |          6 |         22 |        162 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitStats.cs                                                               | C#          |         55 |         11 |          9 |         75 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitVisual.cs                                                              | C#          |         21 |          8 |          6 |         35 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\BowAuto.cs                                                         | C#          |         44 |         16 |          7 |         67 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\Explosion.cs                                                       | C#          |         89 |          5 |         11 |        105 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\Grenade.cs                                                         | C#          |         52 |         11 |         14 |         77 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\GrenadeLauncher.cs                                                 | C#          |         16 |          0 |          3 |         19 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\MusicalWeapon.cs                                                   | C#          |         55 |          1 |          5 |         61 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\Slam.cs                                                            | C#          |         46 |         27 |          6 |         79 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\SlamAnimatorController.cs                                          | C#          |         20 |          3 |          6 |         29 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\Sword.cs                                                           | C#          |         42 |         23 |          5 |         70 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\Weapon.cs                                                          | C#          |        100 |         11 |         12 |        123 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\WeaponCollider.cs                                                  | C#          |          5 |          0 |          3 |          8 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\CoroutineUtils.cs                                                           | C#          |         13 |          3 |          1 |         17 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\DisappearWhenHit.cs                                                         | C#          |         28 |          1 |          8 |         37 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\HandleCreditsScene.cs                                                       | C#          |         30 |          0 |          6 |         36 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\HueSatApplier.cs                                                            | C#          |         46 |          3 |          9 |         58 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\JazzBossMusicalNote.cs                                                      | C#          |        114 |          0 |         23 |        137 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\Persistent.cs                                                               | C#          |         11 |          0 |          2 |         13 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\ProximityMusic.cs                                                           | C#          |         51 |          2 |         13 |         66 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\SimpleSpriteAnimator.cs                                                     | C#          |         32 |          0 |         10 |         42 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\Singleton.cs                                                                | C#          |         17 |          0 |          2 |         19 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\SingletonPersistent.cs                                                      | C#          |         12 |          0 |          3 |         15 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\SpotlightChangingColors.cs                                                  | C#          |         57 |          0 |          9 |         66 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\SpotlightFollowing.cs                                                       | C#          |         74 |          8 |         18 |        100 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\TransparentDetection.cs                                                     | C#          |         39 |         14 |          5 |         58 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Shaders\CustomColorized.shader                                                           | UnityShader |         92 |          3 |         20 |        115 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\Sprites\Shaders\SpotlightShader.shader                                                   | UnityShader |         52 |          0 |         14 |         66 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl                                                   | UnityShader |        130 |         18 |         31 |        179 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader                                      | UnityShader |        113 |          2 |         31 |        146 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader                                            | UnityShader |        123 |          3 |         30 |        156 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader                                                   | UnityShader |        113 |          2 |         31 |        146 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader                                              | UnityShader |        253 |          4 |         70 |        327 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader                                                  | UnityShader |        253 |          4 |         65 |        322 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader                                       | UnityShader |        198 |         10 |         51 |        259 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader                                       | UnityShader |        193 |          8 |         52 |        253 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader                                           | UnityShader |         82 |          4 |         21 |        107 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader                                        | UnityShader |        290 |         15 |         85 |        390 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader                                               | UnityShader |        192 |          8 |         51 |        251 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader                                       | UnityShader |        104 |          8 |         28 |        140 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader                                              | UnityShader |        123 |          4 |         33 |        160 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF.shader                                                      | UnityShader |        253 |          4 |         70 |        327 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_Sprite.shader                                                   | UnityShader |        111 |          0 |         21 |        132 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMPro.cginc                                                         | UnityShader |         63 |          2 |         20 |         85 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc                                                  | UnityShader |        129 |          2 |         35 |        166 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc                                              | UnityShader |         62 |          6 |         13 |         81 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc                                                 | UnityShader |         75 |          7 |         18 |        100 |
+| h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Sprites\EmojiOne.json                                                       | JSON        |        155 |          0 |          2 |        157 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\CHANGELOG.md                                              | Markdown    |        233 |          0 |         71 |        304 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\AboutWindow.cs                                     | C#          |         53 |          4 |         18 |         75 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\AnalyzerPostProcessor.cs                           | C#          |         63 |          7 |         18 |         88 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Assister.cs                                        | C#          |        422 |         63 |        125 |        610 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Cleanup.cs                                         | C#          |        280 |         47 |         63 |        390 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorCoroutine.cs                | C#          |        127 |          9 |         22 |        158 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorCoroutineUtility.cs         | C#          |         25 |         99 |          4 |        128 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorWaitForSeconds.cs           | C#          |         11 |         36 |          2 |         49 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorWindowCoroutineExtension.cs | C#          |         35 |         66 |          8 |        109 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\FeedbackWindow.cs                                  | C#          |        139 |          9 |         33 |        181 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Input\Binary2TextExec.cs                           | C#          |         79 |         45 |         23 |        147 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Input\InputManagerMonitor.cs                       | C#          |        122 |          2 |         41 |        165 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Input\Text2Yaml.cs                                 | C#          |        160 |          8 |         47 |        215 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Input\UnityInputManager.cs                         | C#          |        268 |        102 |         60 |        430 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\LazyInitializer.cs                                 | C#          |         38 |          0 |         11 |         49 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Logger\CommonTools.cs                              | C#          |        111 |         12 |         29 |        152 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Logger\ELogger.cs                                  | C#          |        137 |         14 |         52 |        203 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Logger\LoggerExtensions.cs                         | C#          |         90 |         12 |         36 |        138 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Logger\UnitySink.cs                                | C#          |         44 |          6 |         12 |         62 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\MQTTnetInitializer.cs                              | C#          |         88 |         18 |         29 |        135 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\MQTTnetPublisher.cs                                | C#          |        688 |         76 |        163 |        927 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\MainThreadDispatcher.cs                            | C#          |         30 |          4 |         11 |         45 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\MerryYellow.CodeAssist.Editor.asmdef               | JSON        |         16 |          0 |          0 |         16 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Monitor.cs                                         | C#          |        233 |         43 |         56 |        332 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Preferences\PreferenceEntryHolder.cs               | C#          |         51 |          2 |         12 |         65 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Preferences\PreferenceMonitor.cs                   | C#          |        278 |         20 |         78 |        376 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Preferences\PreferenceStorageAccessor.cs           | C#          |        225 |          6 |         62 |        293 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Preferences\RegistryMonitor.cs                     | C#          |        214 |         78 |         47 |        339 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\ScriptFinder.cs                                    | C#          |        176 |         86 |         47 |        309 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\SetupManager.cs                                    | C#          |         27 |          6 |         10 |         43 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\StatusWindow.cs                                    | C#          |         59 |          4 |         23 |         86 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\UnityClassExtensions.cs                            | C#          |        456 |        115 |        113 |        684 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\UnityEditorShell.cs                                | C#          |        248 |          9 |         48 |        305 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Updater.cs                                         | C#          |        117 |          5 |         28 |        150 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\GPT Notice.md                                             | Markdown    |         36 |          0 |         11 |         47 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Installers~\Extension Installation.md                     | Markdown    |          6 |          0 |          2 |          8 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\README.md                                                 | Markdown    |         85 |          0 |         43 |        128 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Third Party Notices.md                                    | Markdown    |        446 |          0 |        202 |        648 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\package.json                                              | JSON        |         33 |          0 |          0 |         33 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\manifest.json                                                                          | JSON        |         54 |          0 |          1 |         55 |
+| h:\C#\Projects\LyraGJ_Plus\Packages\packages-lock.json                                                                     | JSON        |        558 |          0 |          1 |        559 |
+| h:\C#\Projects\LyraGJ_Plus\windowsBuild\Lyra Echoes Through Time_Data\RuntimeInitializeOnLoads.json                        | JSON        |          1 |          0 |          1 |          2 |
+| h:\C#\Projects\LyraGJ_Plus\windowsBuild\Lyra Echoes Through Time_Data\ScriptingAssemblies.json                             | JSON        |          1 |          0 |          0 |          1 |
+| h:\C#\Projects\LyraGJ_Plus\windowsBuild\MonoBleedingEdge\etc\mono\2.0\DefaultWsdlHelpGenerator.aspx                        | HTML        |      1,594 |         28 |        280 |      1,902 |
+| h:\C#\Projects\LyraGJ_Plus\windowsBuild\MonoBleedingEdge\etc\mono\4.0\DefaultWsdlHelpGenerator.aspx                        | HTML        |      1,594 |         28 |        280 |      1,902 |
+| h:\C#\Projects\LyraGJ_Plus\windowsBuild\MonoBleedingEdge\etc\mono\4.5\DefaultWsdlHelpGenerator.aspx                        | HTML        |      1,594 |         28 |        280 |      1,902 |
+| h:\C#\Projects\LyraGJ_Plus\windowsBuild\MonoBleedingEdge\etc\mono\browscap.ini                                             | Ini         |     13,255 |        274 |      3,451 |     16,980 |
+| h:\C#\Projects\LyraGJ_Plus\windowsBuild\MonoBleedingEdge\etc\mono\mconfig\config.xml                                       | XML         |        525 |         30 |         62 |        617 |
+| Total                                                                                                                      |             |     38,390 |      2,503 |      8,513 |     49,406 |
++----------------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+

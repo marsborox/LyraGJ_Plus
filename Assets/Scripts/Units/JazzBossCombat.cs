@@ -55,10 +55,17 @@ public class JazzBossCombat : MonoBehaviour
     private int _missedNote = 0;
     private float _lastJazzBoost = 0;
 
+    GlobalEventManager eventManager;
+
+    void OnEnable()
+    {
+       
+    }
     void Start()
     {
+        //eventManager.OnEnemyDied += OnEnemyDied;
         GlobalEventManager.OnEnemyDied += OnEnemyDied;
-
+        
         RefreshJazzMeter();
         _dropJazzRoutine = StartCoroutine(DropJazzMeter());
 

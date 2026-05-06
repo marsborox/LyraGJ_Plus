@@ -146,6 +146,7 @@ public class MySceneManager : Singleton/*Persistent*/<MySceneManager>
         SceneManager.LoadScene("TutorialScene");
         Time.timeScale = 1f;
         MySoundManager.instance.PlayJazzMusic();
+        PlayerWeaponTracker.instance.SetDefaultWeaponTypes();
     }
     public void OpenDevScene()
     {

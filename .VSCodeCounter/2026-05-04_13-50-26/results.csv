@@ -1,0 +1,220 @@
+"filename", "language", "HTML", "UnityShader", "XML", "JSON", "C#", "Markdown", "Ini", "comment", "blank", "total"
+"h:\C#\Projects\LyraGJ_Plus\AGENTS.md", "Markdown", 0, 0, 0, 0, 0, 11, 0, 2, 0, 13
+"h:\C#\Projects\LyraGJ_Plus\Assets\FolderColor\Editor\CustomWindowFileImage.cs", "C#", 0, 0, 0, 0, 55, 0, 0, 0, 14, 69
+"h:\C#\Projects\LyraGJ_Plus\Assets\FolderColor\Editor\ProjectAssetViewerCustomisation.cs", "C#", 0, 0, 0, 0, 101, 0, 0, 7, 22, 130
+"h:\C#\Projects\LyraGJ_Plus\Assets\FolderColor\SaveSetUp\FolderModificationData.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\AgentOverride2dEditor.cs", "C#", 0, 0, 0, 0, 18, 0, 0, 8, 4, 30
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\CollectSources2dEditor.cs", "C#", 0, 0, 0, 0, 74, 0, 0, 0, 9, 83
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\CollectSourcesCache2dEditor.cs", "C#", 0, 0, 0, 0, 35, 0, 0, 0, 6, 41
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshAgentAttributePropertyDrawer.cs", "C#", 0, 0, 0, 0, 15, 0, 0, 3, 4, 22
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshAreaAttributePropertyDrawer.cs", "C#", 0, 0, 0, 0, 15, 0, 0, 3, 3, 21
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshAssetManager.cs", "C#", 0, 0, 0, 0, 267, 0, 0, 12, 56, 335
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshComponentsEditor.asmdef", "JSON", 0, 0, 0, 16, 0, 0, 0, 0, 0, 16
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshComponentsGUIUtility.cs", "C#", 0, 0, 0, 0, 226, 0, 0, 8, 43, 277
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshLinkEditor.cs", "C#", 0, 0, 0, 0, 224, 0, 0, 1, 55, 280
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshModifierEditor.cs", "C#", 0, 0, 0, 0, 35, 0, 0, 0, 12, 47
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshModifierTilemapEditor.cs", "C#", 0, 0, 0, 0, 167, 0, 0, 4, 28, 199
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshModifierVolumeEditor.cs", "C#", 0, 0, 0, 0, 110, 0, 0, 0, 28, 138
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs", "C#", 0, 0, 0, 0, 350, 0, 0, 9, 70, 429
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Editor\RootSources2dEditor.cs", "C#", 0, 0, 0, 0, 29, 0, 0, 0, 8, 37
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\AgentOverride2d.cs", "C#", 0, 0, 0, 0, 33, 0, 0, 0, 4, 37
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\AgentRotate2d.cs", "C#", 0, 0, 0, 0, 13, 0, 0, 0, 3, 16
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\AgentRotateSmooth2d.cs", "C#", 0, 0, 0, 0, 14, 0, 0, 0, 3, 17
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\CollectSources2d.cs", "C#", 0, 0, 0, 0, 83, 0, 0, 0, 8, 91
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\CollectSourcesCache2d.cs", "C#", 0, 0, 0, 0, 105, 0, 0, 0, 11, 116
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\CollectTilemapSourcesCache2d.cs", "C#", 0, 0, 0, 0, 86, 0, 0, 0, 10, 96
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshAgentAttribute.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 3, 2, 13
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshAreaAttribute.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 4, 2, 14
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshBuilder2d.cs", "C#", 0, 0, 0, 0, 355, 0, 0, 6, 38, 399
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshBuilderState.cs", "C#", 0, 0, 0, 0, 86, 0, 0, 10, 13, 109
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshComponents.asmdef", "JSON", 0, 0, 0, 20, 0, 0, 0, 0, 0, 20
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshExtension.cs", "C#", 0, 0, 0, 0, 56, 0, 0, 0, 3, 59
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshExtensionsProvider.cs", "C#", 0, 0, 0, 0, 51, 0, 0, 0, 7, 58
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshLink.cs", "C#", 0, 0, 0, 0, 145, 0, 0, 0, 31, 176
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshModifier.cs", "C#", 0, 0, 0, 0, 45, 0, 0, 2, 10, 57
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshModifierTilemap.cs", "C#", 0, 0, 0, 0, 67, 0, 0, 5, 12, 84
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs", "C#", 0, 0, 0, 0, 45, 0, 0, 2, 10, 57
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\NavMeshSurface.cs", "C#", 0, 0, 0, 0, 460, 0, 0, 22, 71, 553
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\RootSources2d.cs", "C#", 0, 0, 0, 0, 28, 0, 0, 0, 5, 33
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\RotateAgentInstantly.cs", "C#", 0, 0, 0, 0, 33, 0, 0, 3, 4, 40
+"h:\C#\Projects\LyraGJ_Plus\Assets\NavMeshComponents\Scripts\RotateAgentSmoothly.cs", "C#", 0, 0, 0, 0, 49, 0, 0, 3, 5, 57
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ButtonTester.cs", "C#", 0, 0, 0, 0, 18, 0, 0, 0, 3, 21
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\CloseDoor.cs", "C#", 0, 0, 0, 0, 39, 0, 0, 0, 13, 52
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\CrossSceneObjects\CameraFollowing.cs", "C#", 0, 0, 0, 0, 93, 0, 0, 2, 15, 110
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\CrossSceneObjects\MySceneManager.cs", "C#", 0, 0, 0, 0, 278, 0, 0, 7, 41, 326
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\CrossSceneObjects\ScenePortal.cs", "C#", 0, 0, 0, 0, 14, 0, 0, 0, 2, 16
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\CutscenesPlayer.cs", "C#", 0, 0, 0, 0, 184, 0, 0, 5, 27, 216
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\GameManager.cs", "C#", 0, 0, 0, 0, 128, 0, 0, 14, 14, 156
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\GlobalEventManager.cs", "C#", 0, 0, 0, 0, 51, 0, 0, 7, 9, 67
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\LevelManager.cs", "C#", 0, 0, 0, 0, 17, 0, 0, 1, 11, 29
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\MySoundManager.cs", "C#", 0, 0, 0, 0, 298, 0, 0, 7, 50, 355
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\PlayerManager.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 0, 3, 13
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\PlayerWeaponTracker.cs", "C#", 0, 0, 0, 0, 101, 0, 0, 1, 5, 107
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\RoomManager.cs", "C#", 0, 0, 0, 0, 82, 0, 0, 9, 18, 109
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\RoomSpawner.cs", "C#", 0, 0, 0, 0, 296, 0, 0, 88, 29, 413
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ManagementScripts\WeaponsSetup.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 3, 11
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\NavMeshChck.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 2, 5, 17
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\EntryTrigger.cs", "C#", 0, 0, 0, 0, 13, 0, 0, 0, 3, 16
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\EntryTriggers.cs", "C#", 0, 0, 0, 0, 4, 0, 0, 0, 3, 7
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\Room.cs", "C#", 0, 0, 0, 0, 244, 0, 0, 53, 41, 338
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\RoomObjectSpawner.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 3, 15
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\SpawnTrigger.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 3, 3, 18
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\RoomScripts\UnitTracker.cs", "C#", 0, 0, 0, 0, 10, 0, 0, 2, 5, 17
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Action_SO\Action_SO.cs", "C#", 0, 0, 0, 0, 23, 0, 0, 5, 8, 36
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Action_SO\MeleeSinglePunch_SO.cs", "C#", 0, 0, 0, 0, 4, 0, 0, 0, 3, 7
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Action_SO\SingleShot_SO.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 3, 1, 16
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Action_SO\SpreadShot_SO.cs", "C#", 0, 0, 0, 0, 24, 0, 0, 3, 6, 33
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Cutscenes\CharacterPortrait_SO.cs", "C#", 0, 0, 0, 0, 13, 0, 0, 0, 3, 16
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Cutscenes\Dialogue_SO.cs", "C#", 0, 0, 0, 0, 24, 0, 0, 0, 5, 29
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\EnemyBehavior_SO\EnemyBehavior_SO.cs", "C#", 0, 0, 0, 0, 17, 0, 0, 3, 2, 22
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\EnemyBehavior_SO\MeleeBasic_SO.cs", "C#", 0, 0, 0, 0, 24, 0, 0, 0, 6, 30
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\EnemyBehavior_SO\RangedBasic_SO.cs", "C#", 0, 0, 0, 0, 48, 0, 0, 6, 9, 63
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\EnemyConversation_SO.cs", "C#", 0, 0, 0, 0, 13, 0, 0, 0, 4, 17
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Enemy_SO.cs", "C#", 0, 0, 0, 0, 20, 0, 0, 1, 7, 28
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Level_SO\ClearXAmountRooms_SO.cs", "C#", 0, 0, 0, 0, 33, 0, 0, 3, 7, 43
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Level_SO\Level_SO.cs", "C#", 0, 0, 0, 0, 44, 0, 0, 7, 4, 55
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\Level_SO\TutorialLevel_SO.cs", "C#", 0, 0, 0, 0, 81, 0, 0, 7, 5, 93
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\ScriptableObjects\RoomDirectionMethods\CallRoom_SO.cs", "C#", 0, 0, 0, 0, 5, 0, 0, 0, 3, 8
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\TestScriptTag.cs", "C#", 0, 0, 0, 0, 15, 0, 0, 2, 4, 21
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\ButtonClicking.cs", "C#", 0, 0, 0, 0, 13, 0, 0, 0, 3, 16
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\DialogueUI.cs", "C#", 0, 0, 0, 0, 116, 0, 0, 4, 18, 138
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\GameUI.cs", "C#", 0, 0, 0, 0, 37, 0, 0, 0, 6, 43
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\HealthIndicator.cs", "C#", 0, 0, 0, 0, 25, 0, 0, 5, 6, 36
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\OptionsButton.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 3, 12
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\PauseUI.cs", "C#", 0, 0, 0, 0, 196, 0, 0, 4, 36, 236
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\PlayerDied_UI.cs", "C#", 0, 0, 0, 0, 72, 0, 0, 7, 12, 91
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\QuestText_UI.cs", "C#", 0, 0, 0, 0, 39, 0, 0, 0, 9, 48
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\RythmIndicator.cs", "C#", 0, 0, 0, 0, 31, 0, 0, 1, 3, 35
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\SceneLoader.cs", "C#", 0, 0, 0, 0, 11, 0, 0, 1, 2, 14
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\TestUI.cs", "C#", 0, 0, 0, 0, 16, 0, 0, 0, 2, 18
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\UI.cs", "C#", 0, 0, 0, 0, 39, 0, 0, 7, 3, 49
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\WeaponSetup_UI.cs", "C#", 0, 0, 0, 0, 66, 0, 0, 0, 5, 71
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\WeaponUI.cs", "C#", 0, 0, 0, 0, 59, 0, 0, 5, 7, 71
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\UI\WeaponsSetupWeapon_UI.cs", "C#", 0, 0, 0, 0, 58, 0, 0, 31, 9, 98
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\AttackImitation.cs", "C#", 0, 0, 0, 0, 25, 0, 0, 0, 7, 32
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\DamageNumber.cs", "C#", 0, 0, 0, 0, 44, 0, 0, 2, 13, 59
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\DirectionMovement.cs", "C#", 0, 0, 0, 0, 30, 0, 0, 0, 6, 36
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Enemy.cs", "C#", 0, 0, 0, 0, 95, 0, 0, 11, 11, 117
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyCombat.cs", "C#", 0, 0, 0, 0, 332, 0, 0, 136, 51, 519
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyConversation.cs", "C#", 0, 0, 0, 0, 33, 0, 0, 2, 8, 43
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyDance.cs", "C#", 0, 0, 0, 0, 37, 0, 0, 0, 5, 42
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyMovement.cs", "C#", 0, 0, 0, 0, 62, 0, 0, 10, 10, 82
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyPlaceholder.cs", "C#", 0, 0, 0, 0, 103, 0, 0, 0, 14, 117
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemyShield.cs", "C#", 0, 0, 0, 0, 42, 0, 0, 4, 8, 54
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\EnemySpawnChecker.cs", "C#", 0, 0, 0, 0, 26, 0, 0, 4, 10, 40
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\HeartBeatSpectrum.cs", "C#", 0, 0, 0, 0, 19, 0, 0, 0, 7, 26
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\JazzBossCombat.cs", "C#", 0, 0, 0, 0, 225, 0, 0, 3, 40, 268
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player.cs", "C#", 0, 0, 0, 0, 60, 0, 0, 9, 12, 81
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\PlayerAnimationController.cs", "C#", 0, 0, 0, 0, 8, 0, 0, 0, 2, 10
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\PlayerCombat.cs", "C#", 0, 0, 0, 0, 123, 0, 0, 10, 26, 159
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\PlayerMovement.cs", "C#", 0, 0, 0, 0, 155, 0, 0, 30, 28, 213
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\HealthPickup.cs", "C#", 0, 0, 0, 0, 15, 0, 0, 0, 4, 19
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\MouseFollow.cs", "C#", 0, 0, 0, 0, 28, 0, 0, 3, 4, 35
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\PlayerBattleHitbox.cs", "C#", 0, 0, 0, 0, 9, 0, 0, 0, 2, 11
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\PlayerController.cs", "C#", 0, 0, 0, 0, 207, 0, 0, 92, 28, 327
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\PlayerDashChecker.cs", "C#", 0, 0, 0, 0, 15, 0, 0, 0, 2, 17
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\RythmBonus.cs", "C#", 0, 0, 0, 0, 42, 0, 0, 2, 2, 46
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Player\WeaponIcon.cs", "C#", 0, 0, 0, 0, 11, 0, 0, 0, 3, 14
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Projectile.cs", "C#", 0, 0, 0, 0, 65, 0, 0, 6, 6, 77
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\SpawnPoint.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 2, 2, 16
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Unit.cs", "C#", 0, 0, 0, 0, 81, 0, 0, 13, 10, 104
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitAnimationController.cs", "C#", 0, 0, 0, 0, 180, 0, 0, 42, 25, 247
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitCombat.cs", "C#", 0, 0, 0, 0, 124, 0, 0, 31, 14, 169
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitMovement.cs", "C#", 0, 0, 0, 0, 47, 0, 0, 0, 6, 53
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitSpawner.cs", "C#", 0, 0, 0, 0, 134, 0, 0, 6, 22, 162
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitStats.cs", "C#", 0, 0, 0, 0, 55, 0, 0, 11, 9, 75
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\UnitVisual.cs", "C#", 0, 0, 0, 0, 21, 0, 0, 8, 6, 35
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\BowAuto.cs", "C#", 0, 0, 0, 0, 44, 0, 0, 16, 7, 67
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\Explosion.cs", "C#", 0, 0, 0, 0, 89, 0, 0, 5, 11, 105
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\Grenade.cs", "C#", 0, 0, 0, 0, 52, 0, 0, 11, 14, 77
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\GrenadeLauncher.cs", "C#", 0, 0, 0, 0, 16, 0, 0, 0, 3, 19
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\MusicalWeapon.cs", "C#", 0, 0, 0, 0, 55, 0, 0, 1, 5, 61
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\Slam.cs", "C#", 0, 0, 0, 0, 46, 0, 0, 27, 6, 79
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\SlamAnimatorController.cs", "C#", 0, 0, 0, 0, 20, 0, 0, 3, 6, 29
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\Sword.cs", "C#", 0, 0, 0, 0, 42, 0, 0, 23, 5, 70
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\Weapon.cs", "C#", 0, 0, 0, 0, 100, 0, 0, 11, 12, 123
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\Units\Weapons\WeaponCollider.cs", "C#", 0, 0, 0, 0, 5, 0, 0, 0, 3, 8
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\CoroutineUtils.cs", "C#", 0, 0, 0, 0, 13, 0, 0, 3, 1, 17
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\DisappearWhenHit.cs", "C#", 0, 0, 0, 0, 28, 0, 0, 1, 8, 37
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\HandleCreditsScene.cs", "C#", 0, 0, 0, 0, 30, 0, 0, 0, 6, 36
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\HueSatApplier.cs", "C#", 0, 0, 0, 0, 46, 0, 0, 3, 9, 58
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\JazzBossMusicalNote.cs", "C#", 0, 0, 0, 0, 114, 0, 0, 0, 23, 137
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\Persistent.cs", "C#", 0, 0, 0, 0, 11, 0, 0, 0, 2, 13
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\ProximityMusic.cs", "C#", 0, 0, 0, 0, 51, 0, 0, 2, 13, 66
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\SimpleSpriteAnimator.cs", "C#", 0, 0, 0, 0, 32, 0, 0, 0, 10, 42
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\Singleton.cs", "C#", 0, 0, 0, 0, 17, 0, 0, 0, 2, 19
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\SingletonPersistent.cs", "C#", 0, 0, 0, 0, 12, 0, 0, 0, 3, 15
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\SpotlightChangingColors.cs", "C#", 0, 0, 0, 0, 57, 0, 0, 0, 9, 66
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\SpotlightFollowing.cs", "C#", 0, 0, 0, 0, 74, 0, 0, 8, 18, 100
+"h:\C#\Projects\LyraGJ_Plus\Assets\Scripts\misc\TransparentDetection.cs", "C#", 0, 0, 0, 0, 39, 0, 0, 14, 5, 58
+"h:\C#\Projects\LyraGJ_Plus\Assets\Shaders\CustomColorized.shader", "UnityShader", 0, 92, 0, 0, 0, 0, 0, 3, 20, 115
+"h:\C#\Projects\LyraGJ_Plus\Assets\Sprites\Shaders\SpotlightShader.shader", "UnityShader", 0, 52, 0, 0, 0, 0, 0, 0, 14, 66
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl", "UnityShader", 0, 130, 0, 0, 0, 0, 0, 18, 31, 179
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader", "UnityShader", 0, 113, 0, 0, 0, 0, 0, 2, 31, 146
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader", "UnityShader", 0, 123, 0, 0, 0, 0, 0, 3, 30, 156
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader", "UnityShader", 0, 113, 0, 0, 0, 0, 0, 2, 31, 146
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader", "UnityShader", 0, 253, 0, 0, 0, 0, 0, 4, 70, 327
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader", "UnityShader", 0, 253, 0, 0, 0, 0, 0, 4, 65, 322
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader", "UnityShader", 0, 198, 0, 0, 0, 0, 0, 10, 51, 259
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader", "UnityShader", 0, 193, 0, 0, 0, 0, 0, 8, 52, 253
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader", "UnityShader", 0, 82, 0, 0, 0, 0, 0, 4, 21, 107
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader", "UnityShader", 0, 290, 0, 0, 0, 0, 0, 15, 85, 390
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader", "UnityShader", 0, 192, 0, 0, 0, 0, 0, 8, 51, 251
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader", "UnityShader", 0, 104, 0, 0, 0, 0, 0, 8, 28, 140
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader", "UnityShader", 0, 123, 0, 0, 0, 0, 0, 4, 33, 160
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_SDF.shader", "UnityShader", 0, 253, 0, 0, 0, 0, 0, 4, 70, 327
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMP_Sprite.shader", "UnityShader", 0, 111, 0, 0, 0, 0, 0, 0, 21, 132
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMPro.cginc", "UnityShader", 0, 63, 0, 0, 0, 0, 0, 2, 20, 85
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc", "UnityShader", 0, 129, 0, 0, 0, 0, 0, 2, 35, 166
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc", "UnityShader", 0, 62, 0, 0, 0, 0, 0, 6, 13, 81
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc", "UnityShader", 0, 75, 0, 0, 0, 0, 0, 7, 18, 100
+"h:\C#\Projects\LyraGJ_Plus\Assets\TextMesh Pro\Sprites\EmojiOne.json", "JSON", 0, 0, 0, 155, 0, 0, 0, 0, 2, 157
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\CHANGELOG.md", "Markdown", 0, 0, 0, 0, 0, 233, 0, 0, 71, 304
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\AboutWindow.cs", "C#", 0, 0, 0, 0, 53, 0, 0, 4, 18, 75
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\AnalyzerPostProcessor.cs", "C#", 0, 0, 0, 0, 63, 0, 0, 7, 18, 88
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Assister.cs", "C#", 0, 0, 0, 0, 422, 0, 0, 63, 125, 610
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Cleanup.cs", "C#", 0, 0, 0, 0, 280, 0, 0, 47, 63, 390
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorCoroutine.cs", "C#", 0, 0, 0, 0, 127, 0, 0, 9, 22, 158
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorCoroutineUtility.cs", "C#", 0, 0, 0, 0, 25, 0, 0, 99, 4, 128
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorWaitForSeconds.cs", "C#", 0, 0, 0, 0, 11, 0, 0, 36, 2, 49
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\EditorCoroutines\EditorWindowCoroutineExtension.cs", "C#", 0, 0, 0, 0, 35, 0, 0, 66, 8, 109
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\FeedbackWindow.cs", "C#", 0, 0, 0, 0, 139, 0, 0, 9, 33, 181
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Input\Binary2TextExec.cs", "C#", 0, 0, 0, 0, 79, 0, 0, 45, 23, 147
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Input\InputManagerMonitor.cs", "C#", 0, 0, 0, 0, 122, 0, 0, 2, 41, 165
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Input\Text2Yaml.cs", "C#", 0, 0, 0, 0, 160, 0, 0, 8, 47, 215
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Input\UnityInputManager.cs", "C#", 0, 0, 0, 0, 268, 0, 0, 102, 60, 430
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\LazyInitializer.cs", "C#", 0, 0, 0, 0, 38, 0, 0, 0, 11, 49
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Logger\CommonTools.cs", "C#", 0, 0, 0, 0, 111, 0, 0, 12, 29, 152
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Logger\ELogger.cs", "C#", 0, 0, 0, 0, 137, 0, 0, 14, 52, 203
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Logger\LoggerExtensions.cs", "C#", 0, 0, 0, 0, 90, 0, 0, 12, 36, 138
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Logger\UnitySink.cs", "C#", 0, 0, 0, 0, 44, 0, 0, 6, 12, 62
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\MQTTnetInitializer.cs", "C#", 0, 0, 0, 0, 88, 0, 0, 18, 29, 135
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\MQTTnetPublisher.cs", "C#", 0, 0, 0, 0, 688, 0, 0, 76, 163, 927
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\MainThreadDispatcher.cs", "C#", 0, 0, 0, 0, 30, 0, 0, 4, 11, 45
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\MerryYellow.CodeAssist.Editor.asmdef", "JSON", 0, 0, 0, 16, 0, 0, 0, 0, 0, 16
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Monitor.cs", "C#", 0, 0, 0, 0, 233, 0, 0, 43, 56, 332
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Preferences\PreferenceEntryHolder.cs", "C#", 0, 0, 0, 0, 51, 0, 0, 2, 12, 65
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Preferences\PreferenceMonitor.cs", "C#", 0, 0, 0, 0, 278, 0, 0, 20, 78, 376
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Preferences\PreferenceStorageAccessor.cs", "C#", 0, 0, 0, 0, 225, 0, 0, 6, 62, 293
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Preferences\RegistryMonitor.cs", "C#", 0, 0, 0, 0, 214, 0, 0, 78, 47, 339
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\ScriptFinder.cs", "C#", 0, 0, 0, 0, 176, 0, 0, 86, 47, 309
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\SetupManager.cs", "C#", 0, 0, 0, 0, 27, 0, 0, 6, 10, 43
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\StatusWindow.cs", "C#", 0, 0, 0, 0, 59, 0, 0, 4, 23, 86
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\UnityClassExtensions.cs", "C#", 0, 0, 0, 0, 456, 0, 0, 115, 113, 684
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\UnityEditorShell.cs", "C#", 0, 0, 0, 0, 248, 0, 0, 9, 48, 305
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Editor\Updater.cs", "C#", 0, 0, 0, 0, 117, 0, 0, 5, 28, 150
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\GPT Notice.md", "Markdown", 0, 0, 0, 0, 0, 36, 0, 0, 11, 47
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Installers~\Extension Installation.md", "Markdown", 0, 0, 0, 0, 0, 6, 0, 0, 2, 8
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\README.md", "Markdown", 0, 0, 0, 0, 0, 85, 0, 0, 43, 128
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\Third Party Notices.md", "Markdown", 0, 0, 0, 0, 0, 446, 0, 0, 202, 648
+"h:\C#\Projects\LyraGJ_Plus\Packages\com.merry-yellow.code-assist\package.json", "JSON", 0, 0, 0, 33, 0, 0, 0, 0, 0, 33
+"h:\C#\Projects\LyraGJ_Plus\Packages\manifest.json", "JSON", 0, 0, 0, 54, 0, 0, 0, 0, 1, 55
+"h:\C#\Projects\LyraGJ_Plus\Packages\packages-lock.json", "JSON", 0, 0, 0, 558, 0, 0, 0, 0, 1, 559
+"h:\C#\Projects\LyraGJ_Plus\windowsBuild\Lyra Echoes Through Time_Data\RuntimeInitializeOnLoads.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 1, 2
+"h:\C#\Projects\LyraGJ_Plus\windowsBuild\Lyra Echoes Through Time_Data\ScriptingAssemblies.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"h:\C#\Projects\LyraGJ_Plus\windowsBuild\MonoBleedingEdge\etc\mono\2.0\DefaultWsdlHelpGenerator.aspx", "HTML", 1594, 0, 0, 0, 0, 0, 0, 28, 280, 1902
+"h:\C#\Projects\LyraGJ_Plus\windowsBuild\MonoBleedingEdge\etc\mono\4.0\DefaultWsdlHelpGenerator.aspx", "HTML", 1594, 0, 0, 0, 0, 0, 0, 28, 280, 1902
+"h:\C#\Projects\LyraGJ_Plus\windowsBuild\MonoBleedingEdge\etc\mono\4.5\DefaultWsdlHelpGenerator.aspx", "HTML", 1594, 0, 0, 0, 0, 0, 0, 28, 280, 1902
+"h:\C#\Projects\LyraGJ_Plus\windowsBuild\MonoBleedingEdge\etc\mono\browscap.ini", "Ini", 0, 0, 0, 0, 0, 0, 13255, 274, 3451, 16980
+"h:\C#\Projects\LyraGJ_Plus\windowsBuild\MonoBleedingEdge\etc\mono\mconfig\config.xml", "XML", 0, 0, 525, 0, 0, 0, 0, 30, 62, 617
+"Total", "-", 4782, 3004, 525, 855, 15152, 817, 13255, 2503, 8513, 49406

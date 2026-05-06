@@ -150,6 +150,6 @@ public class GameManager : Singleton<GameManager>
     private void SetMaxRooms()
     {
         if(levelSettings.numberOfRoomsToClear==0){return;}
-        RoomManager.instance.SetMaxRooms(levelSettings.numberOfRoomsToClear);
+        RoomManager.instance.SetMaxRooms(levelSettings.numberOfRoomsToClear);//errory
     }
 }

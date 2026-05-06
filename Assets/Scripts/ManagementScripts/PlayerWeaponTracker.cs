@@ -1,17 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework.Interfaces;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerWeaponTracker : SingletonPersistent<PlayerWeaponTracker>
 {
     public static new PlayerWeaponTracker instance => SingletonPersistent<PlayerWeaponTracker>.instance;
 
+    public PlayerCombat playerCombat
+    {
+        get{return (PlayerCombat)GameManager.instance.ReturnPlayer().unitCombat;}
+    }
+    /*
     public Weapon weaponGuitar
     {
-        get {return ((PlayerCombat)GameManager.instance.ReturnPlayer().unitCombat).weaponGuitar;}
+        get {return ((PlayerCombat)GameManager.instance.ReturnPlayer().unitCombat).weaponGuitar;}//errory
         set {((PlayerCombat)GameManager.instance.ReturnPlayer().unitCombat).weaponGuitar = value;}
     }
     public Weapon weaponPiano
@@ -28,7 +31,7 @@ public class PlayerWeaponTracker : SingletonPersistent<PlayerWeaponTracker>
     {
         get{return ((PlayerCombat)GameManager.instance.ReturnPlayer().unitCombat).weaponGrenadeLauncher;}
         set {((PlayerCombat)GameManager.instance.ReturnPlayer().unitCombat).weaponGrenadeLauncher=value;}
-    }
+    }*/
     public Type guitarType = Type.RED;
     public Type pianoType = Type.GREEN;
     public Type saxType = Type.BLUE;
@@ -36,43 +39,44 @@ public class PlayerWeaponTracker : SingletonPersistent<PlayerWeaponTracker>
 
     public WeaponsSetupSave weaponsSetup;
     Dictionary<Weapon, Type> weaponTypeDictionary = new Dictionary<Weapon, Type>();
-    Player player {get{return GameManager.instance.ReturnPlayer();}}
+    //Player player {get{return GameManager.instance.ReturnPlayer();}}//errory//want to remove
     protected override void Awake()
     {
         base.Awake();
         AddPairsToDictionary();
     }
 
-    public void SetPlayerWeapons()
-    {        
-        weaponGuitar.SetWeaponType(guitarType);
-        weaponPiano.SetWeaponType(pianoType);
-        weaponSax.SetWeaponType(saxType);
-        weaponGrenadeLauncher.SetWeaponType(grenadeLauncherType);
+    /*private void SetPlayerWeapons()
+    {  //not used?      
+        playerCombat.weaponGuitar.SetWeaponType(guitarType);
+        playerCombat.weaponPiano.SetWeaponType(pianoType);
+        playerCombat.weaponSax.SetWeaponType(saxType);
+        playerCombat.weaponGrenadeLauncher.SetWeaponType(grenadeLauncherType);
     }
-    public void ReturnPlayerWeapons()
-    {
-        guitarType = weaponGuitar.ReturnWeaponType();
-        pianoType = weaponPiano.ReturnWeaponType();
-        saxType = weaponSax.ReturnWeaponType();
-        grenadeLauncherType = weaponGrenadeLauncher.ReturnWeaponType();
-    }
-    public void SetCorrectWeaponType(Weapon weapon,Type type)
-    {
+    private void ReturnPlayerWeapons()
+    {//not used?    
+        guitarType = playerCombat.weaponGuitar.ReturnWeaponType();
+        pianoType = playerCombat.weaponPiano.ReturnWeaponType();
+        saxType = playerCombat.weaponSax.ReturnWeaponType();
+        grenadeLauncherType = playerCombat.weaponGrenadeLauncher.ReturnWeaponType();
+    }*/
+    /*
+    private void SetCorrectWeaponType(Weapon weapon,Type type)
+    {//not used?    
         weaponTypeDictionary[weapon] = type;
     }
     void ReturnCorrectWeaponType(Weapon weapon,Type type)
-    {//delete
+    {//delete //not used?    
         Type result = Type.DEFAULT;
         weaponTypeDictionary.TryGetValue(weapon,out result);
         result = type;
-    }
+    }*/
     private void AddPairsToDictionary()
     {
-        weaponTypeDictionary.Add(weaponGuitar,guitarType);
-        weaponTypeDictionary.Add(weaponPiano,pianoType);
-        weaponTypeDictionary.Add(weaponSax,saxType);
-        weaponTypeDictionary.Add(weaponGrenadeLauncher,grenadeLauncherType);
+        weaponTypeDictionary.Add(playerCombat.weaponGuitar,guitarType);
+        weaponTypeDictionary.Add(playerCombat.weaponPiano,pianoType);
+        weaponTypeDictionary.Add(playerCombat.weaponSax,saxType);
+        weaponTypeDictionary.Add(playerCombat.weaponGrenadeLauncher,grenadeLauncherType);
     }
     public void TestConnectivity()
     {
@@ -96,8 +100,7 @@ public class PlayerWeaponTracker : SingletonPersistent<PlayerWeaponTracker>
     }
     public void LoadWeaponSetup()
     {
-
-        ((PlayerCombat)player.unitCombat).SetAllWeapons(guitarType,pianoType,saxType,grenadeLauncherType);
+        playerCombat.SetAllWeapons(guitarType,pianoType,saxType,grenadeLauncherType);
     }
     public void SetDefaultWeaponTypes()
     {
