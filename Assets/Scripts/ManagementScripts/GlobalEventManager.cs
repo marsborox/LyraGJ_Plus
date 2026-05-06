@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[DefaultExecutionOrder(-50)]
 public class GlobalEventManager : Singleton<GlobalEventManager>
 {
     public static new GlobalEventManager instance => Singleton<GlobalEventManager>.instance;

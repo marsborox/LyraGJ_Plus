@@ -8025,6 +8025,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6328919073512237215, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
+      propertyPath: jazz
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6328919073512237215, guid: ba45ccc031e7e4fb3996f37b5620765a, type: 3}
       propertyPath: intro
       value: 
       objectReference: {fileID: 11400000, guid: ab22f3f9e8f87459f92b29322092841f, type: 2}
