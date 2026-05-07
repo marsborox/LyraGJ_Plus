@@ -164,7 +164,7 @@ public class Room : MonoBehaviour
             isSpawnPointValid = IsWithinBounds(spawnPoint);
             if(isSpawnPointValid)
             {
-                Debug.Log("spawnpoint is valid");
+                //Debug.Log("spawnpoint is valid");
             }
         }
         

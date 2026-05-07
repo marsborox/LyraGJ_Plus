@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class ScenePortal : MonoBehaviour
+public class Portal : MonoBehaviour
 {
     public GameScene gameScene;
     private void OnTriggerEnter2D(Collider2D collision)
