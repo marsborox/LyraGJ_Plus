@@ -11,9 +11,7 @@ public class PortalSwithable : Portal
         _myCollider = GetComponent<Collider2D>();
         _mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
-    void Start()
-    {
-    }
+
     void OnEnable()
     {
         GlobalEventManager.OnRoomCleared += MakeActive;
