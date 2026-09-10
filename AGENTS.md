@@ -7,7 +7,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, cast shadow, Water, UI, Unit, Hitbox, Weapon, SpawnChecker
 - Active game object:
-  - Name: HealthPickup
-  - Tag: Untagged
-  - Layer: Default
+  - Name: JazzBoss
+  - Tag: JazzBoss
+  - Layer: Hitbox
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
