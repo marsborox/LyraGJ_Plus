@@ -5,8 +5,8 @@ public class UnitSpawner : Singleton<UnitSpawner>
 {
     public static new UnitSpawner instance => Singleton<UnitSpawner>.instance;
     
-    public List<Enemy_SO> enemy_SOs = new List<Enemy_SO>();
-    public GameObject spawnPointsInScene;
+    //public List<Enemy_SO> enemy_SOs = new List<Enemy_SO>();
+    //public GameObject spawnPointsInScene;
     //public EnemySpawnChecker enemySpawnCheckerPrefab;
     public EnemySpawnChecker enemySpawnChecker;
     public Enemy enemyPrefab;
@@ -32,21 +32,13 @@ public class UnitSpawner : Singleton<UnitSpawner>
 
     private void Start()
     {
-        
-        /*EnemySpawnChecker spawnChecker =Instantiate(enemySpawnCheckerPrefab,transform.position,transform.rotation);
-        enemySpawnChecker = spawnChecker;*/
+
     }
     private void Update()
     {
         
     }
-    private void AddSpawnPointsToList()
-    {
-        foreach (SpawnPoint spawnPoint in spawnPointsInScene.transform)
-        { 
-            spawnPoints.Add(spawnPoint);
-        }
-    }
+
     public void AutoSpawnEnemies()
     {
         if (!spawningAllowed) return;
@@ -98,9 +90,9 @@ public class UnitSpawner : Singleton<UnitSpawner>
     }
     Enemy_SO GetRandomTemplate()
     {
-        int randomIndex = Random.Range(0, enemy_SOs.Count);
+        int randomIndex = Random.Range(0, enemySOs.Count);
 
-        return enemy_SOs[randomIndex];
+        return enemySOs[randomIndex];
     }
     public Enemy SpawnAndReturnEnemy(Room room, Enemy_SO enemySO)
     {
