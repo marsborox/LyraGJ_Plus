@@ -131,6 +131,8 @@ public class PlayerController : MonoBehaviour
     #region 1234attacks
     void OnWeapon1()
     {
+        if (DevConsole.IsOpen) return;
+
         //Debug.Log("weapon1");
         //player.AttackWeapon1();
         player.AttackWeapon1Click();
@@ -138,6 +140,8 @@ public class PlayerController : MonoBehaviour
     }
     void OnWeapon2()
     {
+        if (DevConsole.IsOpen) return;
+
         //Debug.Log("weapon2");
         //player.AttackWeapon2();
         player.AttackWeapon2Click();
@@ -145,6 +149,8 @@ public class PlayerController : MonoBehaviour
     }
     void OnWeapon3()
     {
+        if (DevConsole.IsOpen) return;
+
         //Debug.Log("weapon3");
         //player.AttackWeapon3();
         player.AttackWeapon3Click();
@@ -152,6 +158,8 @@ public class PlayerController : MonoBehaviour
     }
     void OnWeapon4()
     {
+        if (DevConsole.IsOpen) return;
+
         //Debug.Log("weapon4");
         //player.AttackWeapon4Click();//most recent
         //_animationController.HandleMovementAnimation();//most recent
@@ -182,6 +190,8 @@ public class PlayerController : MonoBehaviour
     }
     void OnPause()
     {
+        if (DevConsole.IsOpen) return;
+        
         MySceneManager.instance.OpenPauseMenu();
     }
     void CheckClickHoldActions()
@@ -199,6 +209,8 @@ public class PlayerController : MonoBehaviour
 
     void StartStopPressed(ref Clicker clicker/*,Action onClick, Action onHold*/)
     {// thi is just to take click method kidna discontinued
+        if (DevConsole.IsOpen) return;
+
         if(!clicker.isPressed)
         {   //onstart stop
             clicker.isPressed = true;

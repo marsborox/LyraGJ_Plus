@@ -69,6 +69,7 @@ public class Unit : MonoBehaviour
     }
         public void TakeDamage(int damageAmount, bool isCrit)
     {
+        if (this is Player && DevConsole.IsInvincible) return;
         //Debug.Log("unit TakingDamage: "+damageAmount);
         unitCombat.TakeDamage(damageAmount, isCrit);
 
